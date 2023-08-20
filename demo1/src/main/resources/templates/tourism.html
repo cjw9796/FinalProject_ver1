@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+<h1 th:text="211423"></h1>
+<h2>========tourAPI========</h2>
+<div class="container">
+
+</div>
+<h2>=======블로그 검색=======</h2>
+<div class="blog">
+
+</div>
+<script>
+    $(function(){
+       $.ajax({
+          url:'/tourismInfo',
+          type: 'get',
+          dataType: 'text',
+          success: function(data){
+              let item = JSON.parse(data).response.body.items.item;
+              for(let i = 0; i < item.length; i++){
+                  let content = `<p>${item[i].title}</p>
+                                 <p><img src="${item[i].firstimage}" width="500px" height="300px"></p>
+                                 <p>${item[i].zipcode}</p>
+                                 <p>${item[i].addr1}</p>
+                                 <p>${item[i].overview}</p>`;
+                  $('.container').append(content);
+                  blogSearchByContentId(item[i].title);
+
+              }
+
+          }
+       });
+    });
+    function blogSearchByContentId(title){
+        $.ajax({
+           url:'/searchBlog',
+           type:'get',
+           data: {
+             title: title
+           },
+           dataType: 'text',
+           success: function(data){
+               let items = JSON.parse(data).items;
+               console.log(data);
+               for(let i = 0; i < items.length; i++){
+                   let content = `<p><a href="${items[i].link}">${items[i].title}</a></p>
+                                  <p>${items[i].description}</p>
+                                  <p><a href="${items[i].bloggerlink}">출처:${items[i].bloggername}</a></p>
+                                  <p>작성일:${items[i].postdate}</p><hr/>`;
+                   $('.blog').append(content);
+               }
+
+           },
+           error: function(){
+               alert('블로그 오류');
+           }
+        });
+    }
+</script>
+</body>
+</html>
