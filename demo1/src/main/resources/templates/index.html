@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+<h1 th:text="123124"></h1>
+<form>
+    <select id="start_airport" name="start_airport">
+
+    </select>
+    <select id="end_airport" name="end_airport"></select>
+    <input type="date" id="start_day" name="start_day"/>
+    <button type="button" id="search_flight">검색하기</button>
+</form>
+<table border="1">
+    <thead>
+    <tr>
+        <th>항공사</th>
+        <th>출발지</th>
+        <th>도착지</th>
+        <th>출발시간</th>
+        <th>도착시간</th>
+        <th>운임(이코노미)</th>
+        <th>운임(비즈니스)</th>
+        <th>항공편</th>
+    </tr>
+    </thead>
+    <tbody id="flight_list">
+
+    </tbody>
+</table>
+<script>
+    $(function () {
+        $.ajax({
+            url: '/airportlist',
+            type: 'get',
+            dataType: 'text',
+            success: function (data) {
+                let item = JSON.parse(data).response.body.items.item;
+                console.log(item);
+
+                for (let i = 0; i < item.length; i++) {
+                    let option = `<option value=${item[i].airportId}>
+                                  ${item[i].airportNm}
+                                  </option>`;
+
+                    $('#start_airport').append(option);
+                    // document.getElementById("airport").innerHTML = option;
+                }
+            },
+            error: function () {
+                alert('에러');
+            }
+        });
+
+
+    });
+    $("#start_airport").change(function (e) {
+        console.log(e.target.value);
+
+        $.ajax({
+            url: '/airportlist',
+            type: 'get',
+            dataType: 'text',
+            success: function (data) {
+
+                $("select#end_airport option").remove();
+
+                let item = JSON.parse(data).response.body.items.item;
+
+                for (let i = 0; i < item.length; i++) {
+                    if (e.target.value !== item[i].airportId) {
+                        let option = `<option value=${item[i].airportId}>${item[i].airportNm}</option>`;
+                        $('#end_airport').append(option);
+                    }
+
+                    // document.getElementById("airport").innerHTML = option;
+                }
+            },
+            error: function () {
+                alert('에러');
+            }
+        });
+
+    });
+
+    $('#search_flight').click(function () {
+
+        $.ajax({
+            url: '/searchflight',
+            type: 'post',
+            data: {
+                startAirport: $('#start_airport').val(),
+                endAirport: $('#end_airport').val(),
+                startDay: $('#start_day').val()
+            },
+            dataType: 'text',
+            success: function (data) {
+                let item = JSON.parse(data).response.body.items.item;
+                console.log(item);
+                let flightInfo ='';
+                for (let i = 0; i < item.length; i++) {
+                    let airlineNm = item[i].airlineNm; //항공사
+                    let depAirportNm = item[i].depAirportNm; //출발공항
+                    let arrAirportNm = item[i].arrAirportNm; //도착공항
+                    let depPlandTime = item[i].depPlandTime; //출발시간
+                    let arrPlandTime = item[i].arrPlandTime; //도착시간
+                    let economyCharge = item[i].economyCharge; //이코노미
+                    let prestigeCharge = item[i].prestigeCharge;//비즈니스
+                    let vihicleId = item[i].vihicleId; //항공편
+
+                    flightInfo = `<tr>
+                                      <td class="airlineNm">${airlineNm}</td>
+                                      <td class="depAirportNm">${depAirportNm}</td>
+                                      <td class="arrAirportNm">${arrAirportNm}</td>
+                                      <td class="depPlandTime">${depPlandTime}</td>
+                                      <td class="arrPlandTime">${arrPlandTime}</td>
+                                      <td class="economyCharge">${economyCharge}</td>
+                                      <td class="prestigeCharge">${prestigeCharge}</td>
+                                      <td class="vihicleId">${vihicleId}</td>
+                                      <td><button type="button" onclick="resFlight(${i})">예약하기</button></td>
+                                      </tr>`;
+                    $('#flight_list').append(flightInfo);
+                }
+
+            },
+            error: function () {
+                alert('에러');
+            }
+        });
+    });
+
+    function resFlight(index){
+        $.ajax({
+           url: '/saveFlight',
+           type:'post',
+           contentType:'application/json',
+           data: JSON.stringify({
+               ticFlightDepartureDate: $("#flight_list tr .depPlandTime")[index].innerText,
+               ticFlightArrivalDate: $("#flight_list tr .arrPlandTime")[index].innerText,
+               ticSeatGrade: "이코노미",
+               ticAirlineName: $("#flight_list tr .airlineNm")[index].innerText,
+               ticFee: $("#flight_list tr .economyCharge")[index].innerText,
+               ticFromLocation: $("#flight_list tr .depAirportNm")[index].innerText,
+               ticToLocation: $("#flight_list tr .arrAirportNm")[index].innerText,
+           }),
+           success: function(data){
+               alert("저장완료");
+           },
+            error: function(){
+               alert("저장오류");
+            }
+        });
+    }
+</script>
+</body>
+</html>
