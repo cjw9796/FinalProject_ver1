@@ -5,6 +5,7 @@ import com.kh.myproject.model.entity.User;
 import com.kh.myproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,17 +19,17 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/index")
+    @GetMapping("index")
     public String index() {
 
         System.out.println("index메서드 테스트..");
 
 
-        return "test2";
+        return "index";
     }
 
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public String login() {
 
 
@@ -83,6 +84,4 @@ public class UserController {
 
         return "logout";
     }
-
-
 }
