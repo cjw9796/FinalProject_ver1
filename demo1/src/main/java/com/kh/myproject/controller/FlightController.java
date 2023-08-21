@@ -5,6 +5,7 @@ import com.kh.myproject.entity.FlightTicket;
 import com.kh.myproject.repository.FlightTicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
@@ -44,7 +45,8 @@ public class FlightController {
     @PostMapping("/searchflight")
     public String searchFlight(@RequestParam("startAirport") String startAirport,
                                @RequestParam("endAirport") String endAirport,
-                               @RequestParam("startDay") String startDay){
+                               @RequestParam("startDay") String startDay,
+                               Model model){
 
         System.out.println(startDay.replace("-",""));
         String flightInfoUrl = flightOpratInfoUrl;
@@ -65,6 +67,7 @@ public class FlightController {
             br.close();
             conn.disconnect();
             System.out.println(result);
+
         } catch(Exception e){
             e.printStackTrace();
         }

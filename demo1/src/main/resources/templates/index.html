@@ -53,8 +53,10 @@
                     // document.getElementById("airport").innerHTML = option;
                 }
             },
-            error: function () {
-                alert('에러');
+            error:function(request, status, error){
+
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
             }
         });
 
@@ -69,10 +71,10 @@
             dataType: 'text',
             success: function (data) {
 
-                $("select#end_airport option").remove();
 
                 let item = JSON.parse(data).response.body.items.item;
 
+                $('#end_airport').empty();
                 for (let i = 0; i < item.length; i++) {
                     if (e.target.value !== item[i].airportId) {
                         let option = `<option value=${item[i].airportId}>${item[i].airportNm}</option>`;
@@ -82,8 +84,10 @@
                     // document.getElementById("airport").innerHTML = option;
                 }
             },
-            error: function () {
-                alert('에러');
+            error:function(request, status, error){
+
+                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
             }
         });
 
@@ -101,9 +105,16 @@
             },
             dataType: 'text',
             success: function (data) {
+
                 let item = JSON.parse(data).response.body.items.item;
+
                 console.log(item);
-                let flightInfo ='';
+                $('#flight_list').empty();
+                if(item === undefined){
+                    let flightInfo = "<tr><td colspan='8'>"+"해당 공항의 항공편이 없습니다."+"</td></tr>"
+                    $('#flight_list').append(flightInfo);
+                } else {
+
                 for (let i = 0; i < item.length; i++) {
                     let airlineNm = item[i].airlineNm; //항공사
                     let depAirportNm = item[i].depAirportNm; //출발공항
@@ -114,7 +125,7 @@
                     let prestigeCharge = item[i].prestigeCharge;//비즈니스
                     let vihicleId = item[i].vihicleId; //항공편
 
-                    flightInfo = `<tr>
+                    let flightInfo = `<tr>
                                       <td class="airlineNm">${airlineNm}</td>
                                       <td class="depAirportNm">${depAirportNm}</td>
                                       <td class="arrAirportNm">${arrAirportNm}</td>
@@ -127,10 +138,13 @@
                                       </tr>`;
                     $('#flight_list').append(flightInfo);
                 }
+                }
 
             },
-            error: function () {
-                alert('에러');
+            error:function(request, status, error){
+
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
             }
         });
     });
@@ -152,8 +166,10 @@
            success: function(data){
                alert("저장완료");
            },
-            error: function(){
-               alert("저장오류");
+            error:function(request, status, error){
+
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
             }
         });
     }
