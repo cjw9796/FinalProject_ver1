@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
@@ -68,3 +69,82 @@
     })
 </script>
 </html>
+=======
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel = "stylesheet" href = "/css/header.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="next">
+
+    <div th:include="/header.html :: header"></div>
+
+    <div class="m">
+        <div class="carousel">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+                          centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+            <swiper-slide><img src="/img/carousel1.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/img/carousel1.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/img/carousel1.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/img/carousel1.jpg" alt=""></swiper-slide>
+
+        </swiper-container>
+    </div>
+
+            <div class="main_content1">
+                <div class="main_content1_text">
+                    <div class="mct_1">동행을 찾고 있어요</div>
+                    <div class="mct_2">여행 동행 더보러 가기</div>
+                </div>
+
+                <div class="main_content1_box">
+                    <div class="test1"></div>
+                    <div class="test1"></div>
+                    <div class="test1"></div>
+                    <div class="test1"></div>
+                </div>
+                <div class="main_content1_box">
+                    <div class="test1"></div>
+                    <div class="test1"></div>
+                    <div class="test1"></div>
+                    <div class="test1"></div>
+                </div>
+            </div>
+
+        <div class="main_content2">
+            <div class="main_content1_text">
+                <div class="mct_1">여행 일정을 구경해보세요</div>
+                <div class="mct_2">여행 일정 구경하기</div>
+            </div>
+
+            <div class="main_content1_box">
+                <div class="test2"></div>
+                <div class="test2"></div>
+                <div class="test2"></div>
+                <div class="test2"></div>
+            </div>
+            <div class="main_content1_box">
+                <div class="test2"></div>
+                <div class="test2"></div>
+                <div class="test2"></div>
+                <div class="test2"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div th:include="/footer.html :: footer"></div>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+
+
+</body>
+</html>
+>>>>>>> 027f71e278152ff85916e5e85657ede49dc05bab
