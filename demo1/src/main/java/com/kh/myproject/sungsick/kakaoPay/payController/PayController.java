@@ -36,9 +36,9 @@ public class PayController {
 
     @GetMapping("/payButton")
     public ModelAndView payButton() {
-        ModelAndView rv = new ModelAndView();
-        rv.setViewName("payButton");
-        return rv;
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("payButton");
+        return mav;
     }
 
 
