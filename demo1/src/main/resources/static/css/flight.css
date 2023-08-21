@@ -1,0 +1,42 @@
+.flight_search_form{
+    margin: 0 auto;
+    background-color: #588fee;
+    width: 800px;
+    height: 150px;
+
+}
+.flight_search_form_title{
+    border-bottom: 1px solid #e6e6e6;
+    height: 40px;
+    display: flex;
+    align-content: center;
+}
+
+.flight_search_form_title p{
+    margin: 0;
+    padding: 10px;
+    font-size: large;
+}
+
+.flight_search_form_content{
+    display: flex;
+    align-items: center;
+}
+
+.airport_btn_list{
+    display: flex;
+
+    align-items: center;
+    height: 105px;
+
+}
+
+/*.airport_btn_list:after{*/
+/*    color: blue;*/
+/*    content: "출발공항";*/
+/*}*/
+
+.airport_btn_list button{
+    cursor: pointer;
+    font-size: xx-large;
+}

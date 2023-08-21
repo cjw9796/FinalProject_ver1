@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel = "stylesheet" href = "/css/header.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
 <body>
+<div th:include="/header.html :: header"></div>
 <h1 th:text="211423"></h1>
 <h2>========tourAPI========</h2>
 <div class="container">
@@ -15,6 +18,7 @@
 <div class="blog">
 
 </div>
+<div th:include="/footer.html :: footer"></div>
 <script>
     $(function(){
        $.ajax({

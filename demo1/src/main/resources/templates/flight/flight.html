@@ -1,13 +1,28 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Ticket</title>
+    <link rel = "stylesheet" href = "/css/header.css">
+    <link rel="stylesheet" href="/css/flight.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
 <body>
-<h1 th:text="123124"></h1>
+<div th:include="/header.html :: header"></div>
+<div class="container">
+    <div class="flight_search_form">
+        <div class="flight_search_form_title">
+            <p>편도</p>
+        </div>
+        <div class="flight_search_form_content">
+            <div class="airport_btn_list">
+                <button><b>김포</b></button>
+            </div>
+        </div>
+    </div>
+
+</div>
 <button onclick="location.href='/tourism'">관광정보 샘플</button>
 <form>
     <select id="start_airport" name="start_airport">
@@ -34,7 +49,8 @@
 
     </tbody>
 </table>
-
+<div th:include="/footer.html :: footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 <script>
     $(function () {
         $.ajax({
