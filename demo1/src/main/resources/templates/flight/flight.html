@@ -16,12 +16,55 @@
             <p>편도</p>
         </div>
         <div class="flight_search_form_content">
-            <div class="airport_btn_list">
-                <button><b>김포</b></button>
+            <div class="flight_search_input">
+                <b>출발지</b>
+                <input type="text" placeholder="출발지" />
+            </div>
+            <img src="https://ak-s.tripcdn.com/modules/ibu/flight-online-web/modules/ic_change_plane.b2a7435e40.png" />
+            <div class="flight_search_input">
+                <b>도착지</b>
+                <input type="text" placeholder="도착지"/>
+            </div>
+            <div class="flight_search_input">
+                <b>가는 날</b>
+                <input type="date" />
+            </div>
+            <div class="flight_search_input">
+                <input type="button" value="항공권 검색" id="flight_search_btn"/>
             </div>
         </div>
     </div>
-
+    <div class="flight_result_table">
+        <div class="flight_result_title_row">
+            <div class="flight_result_col">항공사</div>
+            <div class="flight_result_col">출발지</div>
+            <div class="flight_result_col">도착지</div>
+            <div class="flight_result_col">출발 시간</div>
+            <div class="flight_result_col">도착 시간</div>
+            <div class="flight_result_col">요금</div>
+        </div>
+        <div class="flight_result_row">
+            <div class="flight_result_col">
+                <img src="https://flight.11st.co.kr/flight_img/AIR_IMG/TW.png"><br/>
+                <span style="font-size: 12px">티웨이</span>
+            </div>
+            <div class="flight_result_col">
+                김포
+            </div>
+            <div class="flight_result_col">
+                제주
+            </div>
+            <div class="flight_result_col">
+                08:30
+            </div>
+            <div class="flight_result_col">
+                09:30
+            </div>
+            <div class="flight_result_col">
+                45000원
+            </div>
+        </div>
+    </div>
 </div>
 <button onclick="location.href='/tourism'">관광정보 샘플</button>
 <form>
@@ -190,6 +233,10 @@
             }
         });
     }
+
+    $('.flight_result_col').on('click',function(){
+       alert('클릭');
+    });
 </script>
 </body>
 </html>
