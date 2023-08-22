@@ -2,21 +2,18 @@ package com.kh.myproject.controller;
 
 
 import com.kh.myproject.model.dto.UserForm;
+
 import com.kh.myproject.model.entity.User;
 import com.kh.myproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -26,15 +23,32 @@ public class UserController {
     UserService userService;
 
 
-    @GetMapping("login")
+
+    @GetMapping("/")
+    public String home() {
+        return "community/home";
+    }
+
+    @GetMapping("community/home")
+    public String communityHome() {
+        return "community/home";
+    }
+    @GetMapping("store/home")
+    public String storeHome() {
+        return "store/home";
+    }
+    @GetMapping("member/login")
     public String login() {
 
+        System.out.println("memberlogin");
 
-        return "login";
+        return "member/login";
     }
 
 
-    @PostMapping("loginPro")
+
+
+    @PostMapping("member/loginPro")
     public ModelAndView loginPro(@RequestParam("user_id") String user_id,
                            @RequestParam("user_password") String user_password,
                                  ModelAndView modelAndView) {
@@ -45,7 +59,7 @@ public class UserController {
         int result = userService.checkLogin(user_id,user_password);
         String msg = result == 1? String.format("반갑습니다 %s님",user_id) : "아이디 혹은 비밀번호를 확인해주세요.";
         modelAndView.addObject("msg",msg);
-        modelAndView.setViewName("loginPro");
+        modelAndView.setViewName("member/loginPro");
 
 
         return modelAndView;
@@ -53,10 +67,10 @@ public class UserController {
 
 
     //비밀번호 찾기
-    @GetMapping("findPw")
+    @GetMapping("member/findPw")
     public String findPw() {
 
-        return "findPw";
+        return "member/findPw";
     }
 
 
@@ -64,15 +78,15 @@ public class UserController {
     // join 회원가입
 
 
-    @GetMapping("join")
+    @GetMapping("member/join")
     public String join() {
 
-        return "join";
+        return "member/join";
     }
 
 
     // 회원가입 완료
-    @PostMapping("joinPro")
+    @PostMapping("member/joinPro")
     public String joinPro(UserForm userForm, @RequestParam("user_year") int user_year,
                           @RequestParam("user_month") int user_month,
                           @RequestParam("user_day") int user_day,
@@ -103,16 +117,16 @@ public class UserController {
 
 
 //        return "redirect:/joinSuccess?msg="+msg;
-        return "index";
+        return "member/index";
     }
 
-
     // 로그아웃
-    @GetMapping("logout")
+    @GetMapping("member/logout")
+
     public String logout() {
 
 
-        return "logout";
+        return "member/logout";
     }
 
 

@@ -11,14 +11,64 @@
 </head>
 <body>
 
-<div th:include="/headfoot/header.html :: header"></div>
+<header>
+    <div class="nav_bar">
+        <div class="nav_bar_main">
+            <div class="nav_content1">
+                <a href="../community/home">
+                    <img class="logo_img" src="/img/logo.png">
+                </a>
+                <button id="nav_community" >커뮤니티</button>
+                <button id="nav_trip">여행상점</button>
+            </div>
+            <div class="nav_content2">
+                <div class="nav_search_tag">
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+
+                    <input type="text"
+                           placeholder="동행을 찾아보세요">
+
+                </div>
+                <!--로그인이 되었다면-->
+                <div class="nav_logintf my_icons">
+                    <div><i class="fa-solid fa-xl fa-cart-shopping"></i></div>
+                    <div class="mypage"><i class="fa-solid fa-xl fa-user"></i></div>
+                </div>
+
+                <!--     로그인이 안되었다면-->
+                <div class="nav_logintf">
+                    <button class="login_btn" onclick="window.location.href='../member/login'">로그인</button>
+                    <div class="shortline"></div>
+                    <button class="join_btn" onclick="window.location.href='../member/join'">회원가입</button>
+                </div>
+
+                <div class="nav_button">
+                    <button onclick="appear_menu()">작성하기</button>
+                </div>
+            </div>
+        </div>
+        <!--community -->
+
+
+    </div>
+    <div class="choice_post disappear">
+        <button onclick="window.location.href='../community/accompany/write'"><i
+                class="fa-lg fa-solid fa-user-group" style="color: #588fee;"></i>동행 모집하기
+        </button>
+        <button onclick="window.location.href='../community/plan/write'"><i
+                class="fa-lg fa-regular fa-calendar-check" style="color: #cc6fd3;"></i>여행 일정 만들기
+        </button>
+    </div>
+
+</header>
+
 
 
 <div class="container" id="join_block">
 
 
 
-    <form id="join_form" method="post" name="join_form">
+
 
         <!--    <form action="/joinPro" method="post" id ="joinForm">-->
         <div class="join_block">
@@ -112,11 +162,10 @@
         </div>
 
         <!--    </form>-->
-    </form>
 
 </div>
 
-<div th:include="/headfoot/footer.html :: footer"></div>
+<div th:include="/footer.html :: footer"></div>
 
 </body>
 <script src="/jq/jquery-3.7.0.min.js"></script>

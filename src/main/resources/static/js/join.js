@@ -12,8 +12,21 @@ $(document).ready(function () {
     var btn7 = false;
     var btn8 = false;
 
+    var query = {
 
-    $('#btn1').click(()=>{
+        user_id: $("#user_id").val(),
+        user_password: $("#user_password").val(),
+        user_name: $("#user_name").val(),
+        user_phone: $("#user_phone").val(),
+        user_gender: $("#user_gender").val(),
+        user_year: $("#user_year").val(),
+        user_month: $("#user_month").val(),
+        user_day: $("#user_day").val(),
+
+    };
+
+
+    $('#btn1').click(() => {
 
         console.log("btn1 " + btn1);
 
@@ -33,7 +46,7 @@ $(document).ready(function () {
         }
     })
 
-    $('#btn2').click(()=>{
+    $('#btn2').click(() => {
 
         if (!btn2) { //
             $('#btn2').addClass('active');
@@ -48,7 +61,7 @@ $(document).ready(function () {
         }
     })
 
-    $('#btn3').click(()=>{
+    $('#btn3').click(() => {
 
 
         if (!btn3) { //
@@ -64,7 +77,7 @@ $(document).ready(function () {
         }
     })
 
-    $('#btn4').click(()=>{
+    $('#btn4').click(() => {
 
 
         if (!btn4) { //
@@ -80,7 +93,7 @@ $(document).ready(function () {
         }
     })
 
-    $('#btn5').click(()=>{
+    $('#btn5').click(() => {
 
 
         if (!btn5) { //
@@ -97,7 +110,7 @@ $(document).ready(function () {
     })
 
 
-    $('#btn6').click(()=>{
+    $('#btn6').click(() => {
 
 
         if (!btn6) { //
@@ -114,7 +127,7 @@ $(document).ready(function () {
     })
 
 
-    $('#btn7').click(()=>{
+    $('#btn7').click(() => {
 
 
         if (!btn7) { //
@@ -130,7 +143,7 @@ $(document).ready(function () {
         }
     })
 
-    $('#btn8').click(()=>{
+    $('#btn8').click(() => {
 
 
         if (!btn8) { //
@@ -146,30 +159,10 @@ $(document).ready(function () {
         }
     })
 
-
-
-    $('#submit_btn').click(function () { // form태그의 submit버튼 아님.
-        // 유효성 검사를 실시하기 위해서는 ajaxForm이 아닌 ajax를 이용해야 하고 그를 위해서는
-        // form태그에서 데이터를 바당오는 것이 아닌 js에서 모든 데이터를 받아와야한다.
-
-
-        const user_id = $('#user_id').val;
-        console.log(user_id);
+    $('#submit_btn').click(() => {
 
         var check = true; // ajax통신을 위해 가지고 있어야할 체크 값.
 
-        var query = {
-
-            user_id: $("#user_id").val(),
-            user_password: $("#user_password").val(),
-            user_name: $("#user_name").val(),
-            user_phone: $("#user_phone").val(),
-            user_gender: $("#user_gender").val(),
-            user_year: $("#user_year").val(),
-            user_month: $("#user_month").val(),
-            user_day: $("#user_day").val(),
-
-        };
 
         // 중복된 아이디가 있는지 검사하는 기능 추가해야함.
 
@@ -208,23 +201,12 @@ $(document).ready(function () {
             });
 
 
-
-            // $('#join_form').ajaxForm({
-            //     success: function (response) {
-            //         location.href = "/joinPro";
-            //         console.log("ajax통신 성공")
-            //
-            //     },
-            //     error: function () {
-            //         console.log("에러발생.");
-            //     }
-            // });
         }
 
     });
 
 
-    // ajax통신방법 1.
+// ajax통신방법 1.
 
 
 })

@@ -32,7 +32,9 @@ public class UserForm {
 
 
     public User toEntity(){
+
         return new User(null,user_id, user_name,  user_password, user_phone, user_gender, user_date, user_mbti);
+
     }
 
 }

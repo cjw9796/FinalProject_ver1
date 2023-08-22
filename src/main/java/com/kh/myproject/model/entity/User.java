@@ -48,15 +48,4 @@ public class User {
     private String userMbti; // 유저 성향(mbti)
 
 
-//    public void patch(Article article){
-//
-//        if(article.title != null){
-//            this.title = article.title;
-//        }
-//
-//        if(article.content != null){
-//            this.content = article.content;
-//        }
-//    }
-
 }

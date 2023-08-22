@@ -10,7 +10,22 @@
 
 }
 
-.login_btn{
+#loginbtn{
+
+    background-color: #46A0EF;
+    color : white;
+
+}
+
+#login_block{
+
+    margin-top: 100px;
+}
+
+#loginbtn:hover{
+    cursor: pointer;
+}
+.loginbtn{
 
     margin: 0 auto;
     border : 0px;
@@ -42,7 +57,9 @@
 
 #title{
 
-    margin-top: 100px;
+    margin-top: 30px;
+    width: 150px;
+    height: 100px;
 }
 
 .login_block{
@@ -114,8 +131,12 @@
 
 #join_block{
 
+    margin-top: 100px;
     width: 500px;
-    height: 1100px;
+    height: 1000px;
+}
+
+.join_block{
 }
 
 .join_small_block input{
