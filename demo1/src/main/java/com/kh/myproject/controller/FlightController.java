@@ -3,8 +3,8 @@ package com.kh.myproject.controller;
 import com.kh.myproject.dto.FlightTicketDto;
 import com.kh.myproject.entity.FlightTicket;
 import com.kh.myproject.repository.FlightTicketRepository;
+import lombok.experimental.PackagePrivate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,12 +24,19 @@ public class FlightController {
     //노선목록
     final String flightOpratInfoUrl = "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList?serviceKey=ZgRTKBFIJGjeIJ14VHOZrP9UMtis8xSBTJvnPqQIigzUQ4aIL8V03y5XCVZ5B8GAKHaJX%2FOz2UpnX%2FvgKqv38w%3D%3D&";
 
-    @GetMapping("/flight")
+    @GetMapping("/flights")
     public ModelAndView flightMain(ModelAndView mav){
 
-        mav.setViewName("/flight/flight");
+        mav.setViewName("flight/flights");
         return mav;
     }
+
+    @GetMapping("/flightDetail")
+    public ModelAndView flightReservation(ModelAndView mav){
+        mav.setViewName("flight/flightDetail");
+        return mav;
+    }
+
     @GetMapping("/airportlist")
     public String flight(){
         StringBuilder result = new StringBuilder();

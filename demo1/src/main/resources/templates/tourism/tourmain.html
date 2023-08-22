@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel = "stylesheet" href = "/css/header.css">
+    <link rel="stylesheet" href="/css/tourism.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+<div th:include="/header.html :: header"></div>
+<div class="container">
+    <div class="tour_main_container">
+    <h2>어디로 가시나요?</h2>
+    <div class="tour_main_box">
+        <div class="test_tour_main" id="seoul" onclick="location.href='/cities'">
+            <span>서울</span>
+        </div>
+        <div class="test_tour_main" id="jeju">
+            <span>제주</span>
+        </div>
+        <div class="test_tour_main" id="busan">
+            <span>부산</span>
+        </div>
+    </div>
+    <div class="tour_main_box">
+        <div class="test_tour_main" id="yeosu">
+            <span>여수</span>
+        </div>
+        <div class="test_tour_main" id="gangneung">
+            <span>강릉</span>
+        </div>
+        <div class="test_tour_main" id="gyeongju">
+            <span>경주</span>
+        </div>
+    </div>
+    </div>
+
+</div>
+<div th:include="/footer.html :: footer"></div>
+</body>
+</html>

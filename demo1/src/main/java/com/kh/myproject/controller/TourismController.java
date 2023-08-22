@@ -18,7 +18,20 @@ public class TourismController {
     final String blogSearchUrl = "";
     @GetMapping("/tourism")
     public ModelAndView tourism(ModelAndView mav){
-        mav.setViewName("tourism");
+        mav.setViewName("tourism/tourism");
+
+        return mav;
+    }
+    @GetMapping("/cities")
+    public ModelAndView cities(ModelAndView mav){
+        mav.setViewName("tourism/cities");
+
+        return mav;
+    }
+
+    @GetMapping("/tourmain")
+    public ModelAndView tourmain(ModelAndView mav){
+        mav.setViewName("tourism/tourmain");
 
         return mav;
     }

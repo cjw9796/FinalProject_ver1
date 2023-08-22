@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/tourism.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+<div th:include="/header.html :: header"></div>
+<div class="container">
+    <div class="cities_title_container">
+        <div class="cities_title_city_info">
+            <div class="cities_title_city_name">
+                <h1>서울</h1>
+            </div>
+            <div class="cities_nav">
+                <div class="cities_nav_item_box">
+                    <img src="https://dffoxz5he03rp.cloudfront.net/icons/ic_experience_40x40.svg">
+                    <span>관광지 검색</span>
+                </div>
+                <div class="cities_nav_item_box">
+                    <img src="https://dffoxz5he03rp.cloudfront.net/icons/ic_flight_40x40.svg">
+                    <span>항공권</span>
+                </div>
+                <div class="cities_nav_item_box">
+                    <img src="https://dffoxz5he03rp.cloudfront.net/icons/ic_rentacar_40x40.svg">
+                    <span>렌트카</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <div class="cities_card_container" id="cities_tour_category">-->
+<!--        <h2>카테고리</h2>-->
+<!--        <div class="cities_card_box" id="cities_tour_category_cities_card_box">-->
+<!--            <div class="cities_card"></div>-->
+<!--            <div class="cities_card"></div>-->
+<!--            <div class="cities_card"></div>-->
+<!--            <div class="cities_card"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="cities_card_container" id="cities_recommend_place">
+        <h2>지역 관광지</h2>
+        <div class="cities_card_box" id="cities_recommend_place_box1">
+            <div class="cities_card">
+                <button>자세히 보기</button>
+            </div>
+            <div class="cities_card"></div>
+            <div class="cities_card"></div>
+            <div class="cities_card"></div>
+        </div>
+        <div class="cities_card_box" id="cities_recommend_place_box2">
+            <div class="cities_card"></div>
+            <div class="cities_card"></div>
+            <div class="cities_card"></div>
+            <div class="cities_card"></div>
+        </div>
+    </div>
+
+</div>
+<div th:include="/footer.html :: footer"></div>
+</body>
+</html>
