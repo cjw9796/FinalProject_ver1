@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+    <link rel = "stylesheet" href = "/css/header.css">
+    <link rel="stylesheet" href="/css/yeongchan_css.css">
+</head>
+<body>
+
+<th:block th:if="${msg != null}">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var test = /*[[${msg}]]*/ 'default value';
+        alert(test);
+        /*]]>*/
+    </script>
+</th:block>
+
+<div th:include="/headfoot/header.html :: header"></div>
+
+<div class="container">
+
+
+    <h1 id="title">TravelGo</h1>
+    <form action="/loginPro" method="post">
+        <div>
+            <div class="login_block">
+                <input type="text" name="user_id" placeholder="아이디를 입력해주세요.">
+            </div>
+
+            <div class="login_block">
+                <input type="text" name="user_password" placeholder="비밀번호를 입력해주세요.">
+            </div>
+
+
+            <div>
+                <button class="login_btn" type="submit" id="login_btn">
+
+                    로그인
+
+                </button>
+            </div>
+
+
+            <div>
+                <button id="kakao_btn" type="button" class="login_btn"
+                        onclick="location.href = 'https://kauth.kakao.com/oauth/authorize?client_id=d50ee5df80cd1482f2ef5c34906981cb&redirect_uri=http://localhost:8080/kakaologin&response_type=code'">
+                    카카오로 간편 로그인
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+
+    <!-- 카카오 세션 죽이는 로그아웃 버튼 -->
+<!--    <a class="p-2"-->
+<!--       href="https://kauth.kakao.com/oauth/logout?client_id=d50ee5df80cd1482f2ef5c34906981cb&logout_redirect_uri=http://localhost:8080/logout">-->
+
+<!--        로그아웃-->
+<!--    </a>-->
+
+    <div class="find_block">
+        <span>비밀번호가 생각나지 않는다면?</span>
+        <a href="/findPw">비밀번호 찾기</a>
+    </div>
+
+    <div>
+        <button class="login_btn" type="submit" id="join_btn" onclick="location.href = '/join'">
+
+            회원가입
+
+        </button>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<div th:include="/headfoot/footer.html :: footer"></div>
+
+
+</body>
+
+
+</html>
