@@ -100,7 +100,10 @@ header {
     background-color: black;
     margin: 0px 6px;
 }
-
+.next {
+    display: flex;
+    flex-direction: column;
+}
 .nav_button button {
     box-sizing: border-box;
     width: 134px;
@@ -234,9 +237,6 @@ header {
     display: flex;
     flex-direction: column;
 }
-
-
-
 .nav_logintf button {
     border: none;
     background-color: rgb(255, 255, 255);
@@ -247,6 +247,7 @@ header {
 .nav_bar_menu {
     margin: 0px 10px;
     display: flex;
+    height: 54px;
     align-items: center;
 }
 
@@ -261,7 +262,6 @@ header {
 }
 .nav_bar_menu_store {
     margin: 0px 10px;
-    margin-top: 5px;
     display: flex;
     align-items: center;
 }

@@ -79,5 +79,10 @@ public class UserController {
         return "logout";
     }
 
+    @GetMapping("/member/mypage")
+    public String mypage() {
+
+        return "/member/mypage";
+    }
 
 }
