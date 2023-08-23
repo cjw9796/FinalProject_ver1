@@ -5,42 +5,33 @@ import com.kh.myproject.sungsick.kakaoPay.payVO.KakaoPayApprovalVO;
 import com.kh.myproject.sungsick.kakaoPay.payVO.KakaoPayReadyVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.net.URISyntaxException;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@SessionAttributes({"tid","order"}) // 세션에 저장된 값 탐색
+@SessionAttributes({"tid", "order"}) // 세션에 저장된 값 탐색
 public class PayController {
 
     private final PayService payService;
 
-//    @RequestMapping(value = "/home")
-//    public String home(){
-//        return "startpay";
-//    }
-
-
-//    @GetMapping("/kakaoPay")
-//    public String kakaoPayGet(){
-//        this.kakaoPay();
-//        return "kakaoPay";
-//    }
-
-    @GetMapping("/payButton")
+    @GetMapping("/pay/payButton")
     public ModelAndView payButton() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("payButton");
-        return mav;
+        ModelAndView payButton = new ModelAndView();
+        payButton.setViewName("pay/payButton");
+        return payButton;
     }
 
+    @GetMapping("/pay/paymentPage")
+    public ModelAndView paymentPage() {
+        ModelAndView paymentPage = new ModelAndView();
+        paymentPage.setViewName("pay/paymentPage");
+        return paymentPage;
+    }
 
     // 결제요청
     @GetMapping("/kakaoPay")
@@ -81,6 +72,7 @@ public class PayController {
 
         return modelAndView;
     }
+
     // 결제 취소시 실행 url
     @GetMapping("/pay/cancel")
     public ModelAndView payCancel() {
