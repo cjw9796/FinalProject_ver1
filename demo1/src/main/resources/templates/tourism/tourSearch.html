@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/tourismtest.css">
+    <link rel = "stylesheet" href = "/css/header.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+<div th:include="/header.html :: header"></div>
+
+<div class="tour_container">
+    <div class="tour_search_container type_area">
+        <div class="tour_search_title">
+            <h2>관광 정보 검색</h2>
+        </div>
+        <div class="search_type_container">
+            <div class="type_btn">
+                <button class="on" id="type_area_btn">지역별 관광정보</button>
+            </div>
+            <div class="type_btn">
+                <button class="off" id="type_keyword_btn">통합검색</button>
+            </div>
+        </div>
+        <div class="tour_search_table">
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>지역</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="area_code">12</div>
+                    <button class="search_btn" id="search_area_btn">지역선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>관광타입</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="content_id">12</div>
+                    <button class="search_btn" id="search_content_btn">관광타입 선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span style="font-size: 16px;">서비스 분류</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="category_code">12</div>
+                    <button class="search_btn" id="search_category_btn">서비스 분류 선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>검색</span>
+                </div>
+                <div class="tour_search_col">
+                    <button class="search_btn" id="search_area_btn">검색</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tour_search_container type_keyword">
+        <div class="tour_search_title">
+            <h2>관광 정보 검색</h2>
+        </div>
+        <div class="search_type_container">
+            <div class="type_btn">
+                <button class="off" id="type_area_btn">지역별 관광정보</button>
+            </div>
+            <div class="type_btn">
+                <button class="on" id="type_keyword_btn">통합검색</button>
+            </div>
+        </div>
+        <div class="tour_search_table">
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>지역</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="area_code">12</div>
+                    <button class="search_btn" id="search_area_btn">지역선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span style="font-size: 16px;">서비스 분류</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="category_code">12</div>
+                    <button class="search_btn" id="search_category_btn">서비스 분류 선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>검색</span>
+                </div>
+                <div class="tour_search_col">
+                    <input type="text" id="search_text" name="keyword">
+                    <button class="search_btn" id="search_keyword_btn">검색</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content_container">
+        <div class="content_card_box">
+            <div class="content_card">
+                <!--<div class="thumb_img"></div>
+                <div class="thumb_name">
+
+                </div>-->
+                <a href ="/tourDetail">
+                    <span class="thumb_img">
+                        <img src="http://tong.visitkorea.or.kr/cms/resource/12/2901512_image2_1.jpg">
+                    </span>
+                    <strong class="thumb_name">가경목장</strong>
+                </a>
+            </div>
+            <div class="content_card"></div>
+            <div class="content_card"></div>
+            <div class="content_card"></div>
+        </div>
+    </div>
+</div>
+<div id="commonMain">
+    <div id="searchTable">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th class="col searchTh">지역</th>
+                <td>
+                    <div class="finalName" id="areaCodeFinal"></div>
+                    <button type="button" class="btn btn-info" id="searchAreaBtn">지역선택</button>
+                </td>
+            </tr>
+            <tr>
+                <th class="searchTh">관광타입</th>
+                <td class="searchTd">
+                    <div class="finalName" id="contentCodeFinal"></div>
+                    <button type="button" class="btn btn-info" id="searchContentBtn">관광타입선택</button>
+                </td>
+            </tr>
+            <tr id="serviceTr" style="display: none">
+                <th class="searchTh">서비스분류</th>
+                <td class="searchTd">
+                    <div class="finalName" id="serviceCodeFinal"></div>
+                    <button type="button" class="btn btn-info" id="searchServiceBtn">서비스 분류 선택</button>
+                </td>
+            </tr>
+            <tr>
+                <th class="searchTh">검색</th>
+                <td>
+                    <button type="button" class="btn btn-info" id="searchDataBtn">검색</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <article id="contentArea">
+        <div id="contentArea2" style="display: none">
+            <div id="selectContent">
+            </div>
+            <div id="paging">
+            </div>
+        </div>
+
+    </article>
+</div>
+<h2>========tourAPI========</h2>
+<div class="container1">
+
+</div>
+<h2>=======블로그 검색=======</h2>
+<div class="blog">
+
+</div>
+<div th:include="/footer.html :: footer"></div>
+<script>
+    $(function(){
+       $.ajax({
+          url:'/tourismInfo',
+          type: 'get',
+          dataType: 'text',
+          success: function(data){
+              let item = JSON.parse(data).response.body.items.item;
+              for(let i = 0; i < item.length; i++){
+                  let content = `<p>${item[i].title}</p>
+                                 <p><img src="${item[i].firstimage}" width="500px" height="300px"></p>
+                                 <p>${item[i].zipcode}</p>
+                                 <p>${item[i].addr1}</p>
+                                 <p>${item[i].overview}</p>`;
+                  $('.container1').append(content);
+                  blogSearchByContentId(item[i].title);
+
+              }
+
+          }
+       });
+    });
+    function blogSearchByContentId(title){
+        $.ajax({
+           url:'/searchBlog',
+           type:'get',
+           data: {
+             title: title
+           },
+           dataType: 'text',
+           success: function(data){
+               let items = JSON.parse(data).items;
+               console.log(data);
+               for(let i = 0; i < items.length; i++){
+                   let content = `<p><a href="${items[i].link}">${items[i].title}</a></p>
+                                  <p>${items[i].description}</p>
+                                  <p><a href="${items[i].bloggerlink}">출처:${items[i].bloggername}</a></p>
+                                  <p>작성일:${items[i].postdate}</p><hr/>`;
+                   $('.blog').append(content);
+               }
+
+           },
+           error: function(){
+               alert('블로그 오류');
+           }
+        });
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
