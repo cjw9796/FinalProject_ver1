@@ -263,6 +263,9 @@ h1{
     display: inline-block;
     position: relative;
 }
+#airline_name span{
+    font-size: 12px;
+}
 #airline_name:before{
     content: "";
     background-image: url(https://flight.11st.co.kr/flight_img/AIR_IMG/TW.png);
