@@ -41,8 +41,8 @@ public class PayService {
         params.add("vat_amount","200");
         params.add("tax_free_amount", "100");
         params.add("approval_url", "http://localhost:8090/pay/success");    // 결제승인시 넘어갈 url
-        params.add("cancel_url", "http://localhost:8090/pay/cancel");  // 결제취소시 넘어갈 url
-        params.add("fail_url", "http://localhost:8090/pay/fail");         // 결제 실패시 넘어갈 url
+        params.add("cancel_url", "http://localhost:8090/pay/cancel");       // 결제취소시 넘어갈 url
+        params.add("fail_url", "http://localhost:8090/pay/fail");           // 결제실패시 넘어갈 url
 
         log.info("파트너주문아이디:"+ params.get("partner_order_id")) ;
 
