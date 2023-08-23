@@ -209,6 +209,11 @@ public class UserController {
         return "member/logout";
     }
 
+    @GetMapping("/member/mypage")
+    public String mypage() {
+
+        return "/member/mypage";
+    }
 
     @GetMapping("member/uploadProfile")
 

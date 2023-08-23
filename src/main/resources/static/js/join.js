@@ -31,7 +31,6 @@ $(document).ready(function () {
     var btn7 = false;
     var btn8 = false;
 
-
     $('#btn1').click(() => {
 
         console.log("btn1 " + btn1);
@@ -210,9 +209,29 @@ $(document).ready(function () {
 
 
         var check = true; // ajax통신을 위해 가지고 있어야할 체크 값.
+
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // 이메일 형식검사 정규 표현식
         const phoneNumberPattern = /^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$/; // 휴대폰 형식검사 정규 표현식
         const pwd_pattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // 패스워드 정규 표현식
+
+
+        var query = {
+
+            user_id: $("#user_id").val(),
+            user_password: $("#user_password").val(),
+            user_name: $("#user_name").val(),
+            user_phone: $("#user_phone").val(),
+            user_gender: $("#user_gender").val(),
+            user_year: $("#user_year").val(),
+            user_month: $("#user_month").val(),
+            user_day: $("#user_day").val(),
+
+        };
+
+
+        // 중복된 아이디가 있는지 검사하는 기능 추가해야함.
+
+
 
         if (query.user_id === "") {
 

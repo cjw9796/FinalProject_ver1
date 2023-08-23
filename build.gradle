@@ -44,7 +44,6 @@ dependencies {
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 
     implementation "com.google.code.gson:gson:2.8.5"
-    implementation "org.json:json:20180813"
     // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
     implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.5.2'
 

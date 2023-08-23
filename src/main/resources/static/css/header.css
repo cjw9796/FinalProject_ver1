@@ -118,7 +118,9 @@ header {
     font-size: 15px;
     font-weight: 400;
 }
-
+i{
+    cursor: pointer;
+}
 .nav_content1 button {
     border: none;
 }
