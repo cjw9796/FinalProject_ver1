@@ -3,6 +3,7 @@ package com.kh.myproject.api.kakaoapi.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.kh.myproject.api.kakaoapi.vo.MemberVO;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -103,11 +104,12 @@ public class MemberService {
 
 
     // 토큰값을 이용해 로그인 한 유저의 정보를 가져오는 메서드
-    public HashMap<String, Object> getUserInfo(String access_Token) {
+    public MemberVO getUserInfo(String access_Token) {
         // 요청하는 클라이언트 마다 가진 정보가 다를 수 있기 때문에 hashMap이용해서
         // 데이터를 저장한다.
 
-        HashMap<String, Object> userInfo = new HashMap<String, Object>();
+
+        MemberVO memberVO = null;
         String reqURL = "https://kapi.kakao.com/v2/user/me";
 
         try {
@@ -145,28 +147,26 @@ public class MemberService {
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 
-            System.out.println();
-            System.out.println("kakao_account : " + kakao_account);
+//            System.out.println();
+//            System.out.println("kakao_account : " + kakao_account);
+//            System.out.println("properties" + properties);
 
-            String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String user_email = kakao_account.getAsJsonObject().get("email").getAsString();
-            String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
+            String user_gender = kakao_account.getAsJsonObject().get("gender").getAsString();
+            String profile_img = properties.getAsJsonObject().get("thumbnail_image").getAsString();
 
 
-            System.out.println();
-            System.out.println("파싱 후 nickname: " + nickname);
-            System.out.println("파싱 후 email: " + user_email);
-            System.out.println("파싱 후 gender: " + gender);
+            memberVO = new MemberVO(user_email,user_gender,profile_img);
 
-            userInfo.put("nickname", nickname);
-            userInfo.put("email", user_email);
-            userInfo.put("gender", gender);
+            // 썸네일 이미지에 대한 저장은 따로 한다.
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return userInfo;
+        return memberVO;
 
     }
 

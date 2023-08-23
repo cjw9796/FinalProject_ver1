@@ -77,22 +77,33 @@
             <div class="red">아이디</div>
             <div class="join_small_block">
 
-                <input type="text" id="user_id" placeholder="아이디를 입력하세요.">
+                <!-- 카카오로 가입을 시도했을시 유저 프로필 이미지를 잠깐 저장하고 있어야할 hidden input태그.
+                일반가입으로 시도시 default img로 가입된다 -->
+                <input type="hidden" id= "user_img" th:value = "${kakao_user.profile_img}">
+
+
+                <th:block th:if = "${kakao_user.email != null}">
+                <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}" disabled>
+                </th:block>
+
+                <th:block th:if = "${kakao_user.email == null}">
+                    <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}">
+                </th:block>
             </div>
 
             <div class="red">비밀번호</div>
 
             <div class="join_small_block">
-                <input type="password" id="user_password" placeholder="비밀번호(8자~12자, 영문+숫자+특수문자 사용)">
+                <input type="password" id="user_password" placeholder="비밀번호(8자~16자, 영문+숫자+특수문자 사용)" maxlength="16">
             </div>
 
             <div class="red">성명</div>
             <div class="join_small_block">
-                <input type="text" id="user_name" placeholder="성함을 입력하세요">
+                <input type="text" id="user_name" placeholder="성함을 입력하세요" maxlength="10">
             </div>
             <div class="red">연락처</div>
             <div class="join_small_block">
-                <input type="text" id="user_phone" max = "11"placeholder="핸드폰 번호( -를 제외하고 입력해주세요. )">
+                <input type="text" id="user_phone" maxlength="11"placeholder="핸드폰 번호( -를 제외하고 입력해주세요. )">
             </div>
 
 
@@ -100,8 +111,8 @@
             <div class="join_small_block">
                 <select id="user_gender">
                     <option value="">성별</option>
-                    <option value="M">남자</option>
-                    <option value="F">여자</option>
+                    <option value="M" th:selected="${kakao_user.gender == 'male'}">남자</option>
+                    <option value="F" th:selected="${kakao_user.gender == 'female'}">여자</option>
                 </select>
             </div>
 
@@ -111,7 +122,7 @@
             <div class="red">생년월일</div>
             <div class="join_small_block">
 
-                <input type="text" id="user_year" placeholder="연도">
+                <input type="text" id="user_year" placeholder="연도" maxlength="4">
                 <select id="user_month">
                     <th:block th:each="number : ${#numbers.sequence(1, 12)}">
                         <option th:value="${number}" th:text="${number} + '월'"></option>
@@ -132,22 +143,22 @@
 
             <div class="red">MBTI</div>
             <div class="mbti_block">
-                <button type="button" class="btn btn-primary btn-sm" id = "btn1">내향적인 I</button>
-                <button type="button" class="btn btn-secondary btn-sm" id = "btn2">외향적인 E</button>
+                <button type="button" class="btn btn-primary btn-sm" id = "btn1" name = "mbti" value ="I">내향적인 I</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn2" name = "mbti"value ="E">외향적인 E</button>
             </div>
 
             <div class="mbti_block">
-                <button type="button" class="btn btn-primary btn-sm" id = "btn3">현실적인 S</button>
-                <button type="button" class="btn btn-secondary btn-sm" id = "btn4">직관적인 N</button>
+                <button type="button" class="btn btn-primary btn-sm" id = "btn3" name = "mbti" value = "S">현실적인 S</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn4" name = "mbti" value = "N">직관적인 N</button>
             </div>
             <div class="mbti_block">
-                <button type="button" class="btn btn-primary btn-sm" id = "btn5">공감킹 F</button>
-                <button type="button" class="btn btn-secondary btn-sm" id = "btn6">오빠 T야? T</button>
+                <button type="button" class="btn btn-primary btn-sm" id = "btn5" name = "mbti" value = "F">공감킹 F</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn6"name = "mbti" value = "T">오빠 T야? T</button>
             </div>
 
             <div class="mbti_block">
-                <button type="button" class="btn btn-primary btn-sm" id = "btn7" >무계획 P</button>
-                <button type="button" class="btn btn-secondary btn-sm" id = "btn8">계획적인 J</button>
+                <button type="button" class="btn btn-primary btn-sm" id = "btn7" name = "mbti" value = "P">무계획 P</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn8" name = "mbti" value = "J">계획적인 J</button>
             </div>
 
 

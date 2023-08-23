@@ -17,16 +17,23 @@
 
                 </div>
                 <!--로그인이 되었다면-->
+
+<!--                <span th:text = "${user}">sadasd</span>-->
+                <div th:if = "${user!=null}">
                 <div class="nav_logintf my_icons">
                     <div><i class="fa-solid fa-xl fa-cart-shopping"></i></div>
-                    <div class="mypage"><i class="fa-solid fa-xl fa-user"></i></div>
+                    <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" class = "profile_img"
+                                             onclick="location.href='/member/mypage'"></div>
+                </div>
                 </div>
 
                 <!--     로그인이 안되었다면-->
+                <div th:if = "${user==null}">
                 <div class="nav_logintf">
                     <button class="login_btn" onclick="window.location.href='../member/login'">로그인</button>
                     <div class="shortline"></div>
                     <button class="join_btn" onclick="window.location.href='../member/join'">회원가입</button>
+                </div>
                 </div>
 
                 <div class="nav_button">

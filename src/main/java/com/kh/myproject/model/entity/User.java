@@ -19,7 +19,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)// 기본키 값을 자동으로 생성한다.
-    private Long user_number;
+    private Long userNumber;
     // user_number 필드는 auto_increment이면서 pk이다.
 
 
@@ -46,6 +46,9 @@ public class User {
 
     @Column
     private String userMbti; // 유저 성향(mbti)
+
+    @Column
+    private String userImg; // 유저 프로필 이미지.
 
 
 }

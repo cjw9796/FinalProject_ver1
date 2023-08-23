@@ -23,6 +23,7 @@ public class UserForm {
     private String user_gender;     // 성별
     private Date user_date;       // 생년월일
     private String user_mbti;       // mbti
+    private String user_img;       // mbti
 
 
     // DTO 클래스에 데이터를 Entity(테이블과 매핑되는 클래스)로
@@ -33,7 +34,7 @@ public class UserForm {
 
     public User toEntity(){
 
-        return new User(null,user_id, user_name,  user_password, user_phone, user_gender, user_date, user_mbti);
+        return new User(null,user_id, user_name,  user_password, user_phone, user_gender, user_date, user_mbti,user_img);
 
     }
 

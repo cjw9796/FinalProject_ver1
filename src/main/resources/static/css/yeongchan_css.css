@@ -168,7 +168,9 @@
     border : 1px solid gainsboro;
     border-radius: 5px;
     padding-left: 5px;
-    color : darkgrey;
+    color : black;
+    font-size : 14px;
+    outline : none;
 
 }
 

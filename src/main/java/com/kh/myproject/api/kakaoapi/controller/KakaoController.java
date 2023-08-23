@@ -1,16 +1,24 @@
 package com.kh.myproject.api.kakaoapi.controller;
 
 
-
 import com.kh.myproject.api.kakaoapi.service.MemberService;
+import com.kh.myproject.api.kakaoapi.vo.MemberVO;
+import com.kh.myproject.model.entity.User;
+import com.kh.myproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
+@SessionAttributes("user")
 public class KakaoController {
-
 
 
     // 1. 인증키가 필요함
@@ -34,24 +42,65 @@ public class KakaoController {
     @Autowired
     MemberService memberService;
 
+    @Autowired
+    UserService userService;
+
+
+
+    @RequestMapping("kakaologout")
+    public String kakaoLogout(){
+
+
+
+        return "kakaoLogin/logout";
+    }
+
     @RequestMapping("kakaologin")
-    public String kakaologin(@RequestParam("code")String code){
+
+    public RedirectView kakaologin(@RequestParam("code") String code,
+                                   RedirectAttributes ra,
+                                   RedirectView rv,
+                                   ModelAndView modelAndView) {
 
 
+        String redirect_url = "";
 
         // 1. 인가코드
-        System.out.println("code : " + code);
+//        System.out.println("code : " + code);
 
         // 2. 토큰 받기
 
         String access_Token = memberService.getAccessToken(code);
-        System.out.println("accessToken : " + access_Token);
+//        System.out.println("accessToken : " + access_Token);
 
         // 3.정보를 출력하는 메서드를 호출
-        System.out.println("test..");
-        System.out.println("getUserInfo()" + memberService.getUserInfo(access_Token));
+//        System.out.println("test..");
+        MemberVO memberVO = memberService.getUserInfo(access_Token);
+        System.out.println(memberVO);
 
-        return "kakaoLogin/login";
+        // 해당 정보를 가지고 db에 같은 아이디가 있는지 검사하고 바로 로그인 시키고
+        // 정보가 없다면 join으로 이동
+
+        User result = userService.getUserById(memberVO.getEmail());
+        if (result == null) { // kakao email과 일치하는 계정정보가 db에 없다면.
+
+//            redirect_url = String.format("redirect:/member/join?email=%s&gender=%s&profile_img=%s",memberVO.getEmail(),memberVO.getGender(),memberVO.getProfile_img());
+            // member/join에서 parameter를 받은 후 join.html의 value값으로 설정해준다.
+            rv.setUrl("/member/join");
+
+            ra.addFlashAttribute("email", memberVO.getEmail());
+            ra.addFlashAttribute("gender", memberVO.getGender());
+            ra.addFlashAttribute("profile_img", memberVO.getProfile_img());
+
+        } else { // kakao 로그인이 성공하고 그 이메일값이 db에있다면 해당 아이디로 로그인을 시킨다.
+
+
+            rv.setUrl("/member/loginPro");
+            ra.addFlashAttribute("memberVO",memberVO); // redirect한 페이지에서 user정보를 얻기 위해 설정.
+
+        }
+
+        return rv;
 
 
     }

@@ -16,6 +16,7 @@ const rental = document.querySelector(".rental");
 // btn
 const login_btn = document.querySelector(".login_btn");
 const join_btn = document.querySelector(".join_btn");
+
 function appear_menu() {
     if (choice_post.classList.contains("disappear")) {
         choice_post.classList.remove("disappear");

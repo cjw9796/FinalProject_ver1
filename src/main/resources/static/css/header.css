@@ -296,3 +296,21 @@ header {
 .my_icons div {
     margin: 0px 10px;
 }
+
+.mypage{
+
+    width: 30px;
+    height: 30px;
+
+}
+
+.profile_img{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+
+.profile_img:hover{
+
+    cursor: pointer;
+}
