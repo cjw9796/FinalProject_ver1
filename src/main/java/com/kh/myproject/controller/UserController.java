@@ -11,6 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -67,6 +68,7 @@ public class UserController {
 
         if(result == null){ // 비정상적인 경로로 접속했을 경우.
 
+            System.out.println("비정상경로로 loginPro접속");
             modelAndView.setViewName("member/index");
             return modelAndView;
 
@@ -203,14 +205,28 @@ public class UserController {
     // 로그아웃
     @GetMapping("member/logout")
 
-    public String logout() {
+    public String logout(SessionStatus sessionStatus) {
 
+        sessionStatus.setComplete(); // 세션삭제
 
         return "member/logout";
     }
 
     @GetMapping("/member/mypage")
-    public String mypage() {
+    public String mypage(@ModelAttribute("user") User user, Model model) {
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = user.getUserDate();
+        String [] formatted_date = sdf.format(date).split("-");
+        String user_year = formatted_date[0];
+        String user_month = formatted_date[1];
+        String user_day = formatted_date[2];
+
+        model.addAttribute("user_year",user_year);
+        model.addAttribute("user_month",user_month);
+        model.addAttribute("user_day",user_day);
+
 
         return "/member/mypage";
     }

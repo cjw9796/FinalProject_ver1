@@ -93,7 +93,7 @@ public class UserService {
             String extension = img_path.substring(img_path.lastIndexOf(".")+1); // 파일이름에서 가장 끝에 있는 확장자명을 가지고온다
             // 가장 끝에 있는 .이후로 자른 글자는 곧 확장자명(jpeg,png,jpg)가 될것이다.
 
-            save_path = url.getPath() + file_name + "." + extension;
+            save_path = url.getPath() + file_name;
             System.out.println("savePath "  + save_path);
             File imageFile = new File(save_path);
 

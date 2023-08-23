@@ -55,15 +55,12 @@ public class KakaoController {
         return "kakaoLogin/logout";
     }
 
-    @RequestMapping("kakaologin")
+    @RequestMapping("/kakaologin")
 
     public RedirectView kakaologin(@RequestParam("code") String code,
                                    RedirectAttributes ra,
                                    RedirectView rv,
                                    ModelAndView modelAndView) {
-
-
-        String redirect_url = "";
 
         // 1. 인가코드
 //        System.out.println("code : " + code);
@@ -82,12 +79,14 @@ public class KakaoController {
         // 정보가 없다면 join으로 이동
 
         User result = userService.getUserById(memberVO.getEmail());
+        System.out.println("카카오 로그인 첫 result :" + result);
         if (result == null) { // kakao email과 일치하는 계정정보가 db에 없다면.
 
 //            redirect_url = String.format("redirect:/member/join?email=%s&gender=%s&profile_img=%s",memberVO.getEmail(),memberVO.getGender(),memberVO.getProfile_img());
             // member/join에서 parameter를 받은 후 join.html의 value값으로 설정해준다.
             rv.setUrl("/member/join");
 
+            System.out.println("gi");
             ra.addFlashAttribute("email", memberVO.getEmail());
             ra.addFlashAttribute("gender", memberVO.getGender());
             ra.addFlashAttribute("profile_img", memberVO.getProfile_img());

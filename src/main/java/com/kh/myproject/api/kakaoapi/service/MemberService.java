@@ -67,14 +67,6 @@ public class MemberService {
             System.out.println(); // 공백
             System.out.println("response body: " + result);
 
-            // response body(result)반환 값
-//            {
-//                "access_token": "z1QLl9OaCeKa-y-LXuZ_rwr6SKbF6jIQRch4XlknCj10lwAAAYoCQMTZ",
-//                    "token_type": "bearer",
-//                    "refresh_token": "adbwr4K4yhWyH-CXOnJmtJ72xY-eOPPaTgw_TGIOCj10lwAAAYoCQMTY",
-//                    "expires_in": 21599,
-//                    "refresh_token_expires_in": 5183999
-//            }
 
 
             // GSON 라이브러리에 포함된 JSON파싱 객체 생성
