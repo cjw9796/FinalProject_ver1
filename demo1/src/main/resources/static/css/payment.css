@@ -916,3 +916,7 @@ button {
     border-style: outset;
     border-image: initial;
 }
+
+.disappear {
+    display: none;
+}
