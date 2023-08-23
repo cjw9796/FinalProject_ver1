@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>header</title>
-    <link rel="stylesheet" href="../static/css/header.css">
-</head>
-<body>
 <header>
     <div class="nav_bar">
         <div class="nav_bar_main">
@@ -26,16 +18,16 @@
                 </div>
                 <!--로그인이 되었다면-->
                 <div class="nav_logintf my_icons">
-                    <div><i class="fa-solid fa-xl fa-cart-shopping"></i></div>
-                    <div class="mypage"><i class="fa-solid fa-xl fa-user"></i></div>
+                    <div class="mypage"><i class="fa-solid fa-xl fa-user" style="color: #bebebe;"></i></div>
+                    <div class="logout"><i class="fa-xl fa-solid fa-arrow-right-from-bracket" style="color: #bebebe;"></i></div>
                 </div>
 
-                <!--     로그인이 안되었다면-->
+                <!--     로그인이 안되었다면
                 <div class="nav_logintf">
                     <button class="login_btn" onclick="window.location.href='../member/login'">로그인</button>
                     <div class="shortline"></div>
                     <button class="join_btn" onclick="window.location.href='../member/join'">회원가입</button>
-                </div>
+                </div>-->
 
                 <div class="nav_button">
                     <button onclick="appear_menu()">작성하기</button>
@@ -63,8 +55,3 @@
         </div>
     </div>
 </header>
-<script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
-<script src="../static/js/header.js"></script>
-</div>
-</body>
-</html>

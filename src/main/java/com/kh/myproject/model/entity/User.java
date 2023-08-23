@@ -26,39 +26,26 @@ public class User {
 
     // ArticleForm에서 생성한 멤버변수와 테이블을 매핑시키는 과정?
     @Column
-    private String user_id; // 유저 아이디
+    private String userId; // 유저 아이디
 
     @Column
-    private String user_name; // 유저 이름
+    private String userName; // 유저 이름
 
     @Column
-    private String user_password; // 유저 패스워드
+    private String userPassword; // 유저 패스워드
 
     @Column
-    private String user_phone;  // 핸드폰 번호
+    private String userPhone;  // 핸드폰 번호
+
 
     @Column
-    private String user_email; // 이메일
+    private String userGender; // 유저 성별
 
     @Column
-    private String user_gender; // 유저 성별
+    private Date userDate; // 유저 생년월일
 
     @Column
-    private Date user_date; // 유저 생년월일
+    private String userMbti; // 유저 성향(mbti)
 
-    @Column
-    private String user_mbti; // 유저 성향(mbti)
-
-
-//    public void patch(Article article){
-//
-//        if(article.title != null){
-//            this.title = article.title;
-//        }
-//
-//        if(article.content != null){
-//            this.content = article.content;
-//        }
-//    }
 
 }

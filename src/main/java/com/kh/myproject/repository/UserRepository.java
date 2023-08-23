@@ -5,11 +5,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface UserRepository extends JpaRepository<User,Long> {
+
+public interface UserRepository extends JpaRepository<User, Long> {
 
 
-    @Query("SELECT u FROM User u WHERE u.user_id = :user_id")
-    User findByUser_id(@Param("user_id") String user_id);
+    //    @Query("SELECT u FROM User u WHERE u.userId = :user_id")
+    // camel case -> snake case auto change
+    User findByUserId(@Param("user_id") String user_id);
+
+    User findByUserIdAndUserPassword(@Param("user_id") String user_id,
+                                     @Param("user_password") String user_password);
 
 
 }

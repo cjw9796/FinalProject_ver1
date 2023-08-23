@@ -1,4 +1,4 @@
-package com.kh.myproject.kakaoapi.service;
+package com.kh.myproject.api.kakaoapi.service;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

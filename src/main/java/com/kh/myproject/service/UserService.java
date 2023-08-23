@@ -32,38 +32,37 @@ public class UserService {
 
         // 유효성 검사는 자바스크립트에서 실시한다.
 
-        int result = 1; // 반환할 리턴값
+        int result = 0; // 반환할 리턴값
         System.out.println("service에서 받은user :" + user);
-        User result_user = userRepository.findByUser_id(user.getUser_id());
-        if(result_user == null){ // 유저정보가 없다면
 
-            result = 0;
+
+        User result_user = userRepository.findByUserId(user.getUserId());
+
+
+        if (result_user == null) {
+            userRepository.save(user);
+            result = 1;
+
+
         }
 
         return result;
+    }
+
+
+    public int checkLogin(String user_id, String user_password) {
+
+        int result = 0;
+        User user_result = userRepository.findByUserIdAndUserPassword(user_id, user_password);
+
+        System.out.println("로그인 결과값" + user_result);
+        result = user_result == null ? result : 1;
+
+        return result;
+
 
     }
-//
-//    public Article show(Long id) {
-//
-//        log.info("ArticleService의 show()메서드 실행");
-//        return articleRepository.findById(id).orElse(null);
-//
-//    }
-//
-//    public Article save(ArticleForm dto) {
-//
-//        Article article = dto.toEntity();
-//        // id는 db가 자동으로 생성하므로 id가 넘어오는 데이터를 저장하지 않는다
-//
-//        if (article.getId() != null) {
-//
-//            return null;
-//        }
-//
-//        log.info("ArticleService의 save()메서드 실행");
-//        return articleRepository.save(article);
-//
-//    }
-
 }
+
+
+

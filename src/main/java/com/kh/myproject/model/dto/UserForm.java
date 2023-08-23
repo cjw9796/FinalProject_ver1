@@ -20,7 +20,6 @@ public class UserForm {
     private String user_name;       // 유저 이름
     private String user_password;   // 유저패스워드
     private String user_phone;      // 핸드폰번호
-    private String user_email;      // 이메일
     private String user_gender;     // 성별
     private Date user_date;       // 생년월일
     private String user_mbti;       // mbti
@@ -33,7 +32,9 @@ public class UserForm {
 
 
     public User toEntity(){
-        return new User(null,user_id, user_name,  user_password, user_phone,  user_email, user_gender, user_date, user_mbti);
+
+        return new User(null,user_id, user_name,  user_password, user_phone, user_gender, user_date, user_mbti);
+
     }
 
 }

@@ -99,18 +99,7 @@ rental.addEventListener("click",()=>{
     rental.classList.add("menu_underline");
     window.location.href="../store/rental";
 })
-login_btn.addEventListener("click",()=>{
-    nav_trip.classList.remove("nav_underline");
-    nav_community.classList.remove("nav_underline");
-    community.classList.add("disappear");
-    store.classList.add("disappear");
-})
-join_btn.addEventListener("click",()=>{
-    nav_trip.classList.remove("nav_underline");
-    nav_community.classList.remove("nav_underline");
-    community.classList.add("disappear");
-    store.classList.add("disappear");
-})
+
 mypage.addEventListener("click",()=>{
     window.location.href="../member/mypage";
 })
