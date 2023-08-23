@@ -324,7 +324,7 @@
     height: 70px;
 }
 
-.second-box-tabs-clicked {
+.second-box-tabs-click {
     display: flex;
     flex: 1 1 0%;
     -webkit-box-pack: center;
@@ -369,6 +369,14 @@
 
 .sections-con section {
     padding: 40px 40px 0px;
+}
+
+.sections-con {
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .prod-option {

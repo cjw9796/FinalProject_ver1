@@ -9,7 +9,8 @@
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/9647b4736a.js"></script>
 </head>
 <body>
-<script src="/js/payment.js"></script>
+<script src="/jq/jquery-3.7.0.min.js" type="text/javascript"></script>
+<script src="/js/payment.js" type="text/javascript"></script>
 <div id="root">
     <div th:include="/header.html :: header"></div>
     <div class="mainBody">
@@ -58,13 +59,13 @@
                     </div>
                     <div class="second-box">
                         <div class="second-box-tabs">
-                            <div class="second-box-tabs-clicked ">
+                            <div class="second-box-tabs-non-click" data-a="0" style="color:#00ce7c; font-weight:600">
                                 예약정보
                             </div>
-                            <div class="second-box-tabs-non-click">
+                            <div class="second-box-tabs-non-click" data-a="1">
                                 보험/유의사항
                             </div>
-                            <div class="second-box-tabs-non-click">
+                            <div class="second-box-tabs-non-click" data-a="2">
                                 업체/리뷰
                             </div>
                             <div class="second-box-tabs-clicked-bar"></div>
@@ -72,7 +73,7 @@
                     </div>
                     <div class="third-box">
                         <section>
-                            <div class="sections-con">
+                            <div class="sections-con show">
                                 <section class="prod-info-section1">
                                     <div class="prod-option">차량 옵션</div>
                                     <div class="prod-option-info">
@@ -229,6 +230,12 @@
                                     </div>
                                     <div class="agree">위 내용을 모두 확인하였으며, 결제에 동의합니다.</div>
                                 </section>
+                            </div>
+                            <div class="sections-con">
+                                test222222222
+                            </div>
+                            <div class="sections-con">
+                                test333333333
                             </div>
                         </section>
                     </div>
