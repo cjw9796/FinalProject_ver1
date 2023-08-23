@@ -213,13 +213,6 @@
 }
 
 
-
-#user_month option{
-
-    background-color: red;
-
-}
-
 .red:after{
     content : "*";
     color : red;

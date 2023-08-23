@@ -304,3 +304,25 @@ $(document).ready(function () {
 
 })
 
+
+class Test{
+
+    yeongsub1 = 30;
+
+}
+
+
+
+let date = new Date();
+
+function abc(){
+
+    console.log(date);
+
+}
+
+
+let test = document.getElementById("#abc");
+let document2 = new Document();
+document2.getElementById('#abc');
+

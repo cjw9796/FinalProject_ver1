@@ -14,4 +14,5 @@ public class MemberVO {
     private String email;
     private String gender;
     private String profile_img;
+
 }

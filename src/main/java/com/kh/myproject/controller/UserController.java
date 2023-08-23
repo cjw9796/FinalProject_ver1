@@ -59,14 +59,13 @@ public class UserController {
     }
 
 
-
     @GetMapping("member/loginPro")
     public ModelAndView loginProByKakao(ModelAndView modelAndView,
-                                        @ModelAttribute("memberVO")MemberVO result) {
+                                        @ModelAttribute("memberVO") MemberVO result) {
 
         // 카카오로 로그인이 성공시 오게되는 페이지.
 
-        if(result == null){ // 비정상적인 경로로 접속했을 경우.
+        if (result == null) { // 비정상적인 경로로 접속했을 경우.
 
             System.out.println("비정상경로로 loginPro접속");
             modelAndView.setViewName("member/index");
@@ -76,7 +75,7 @@ public class UserController {
 
         User user = userService.getUserById(result.getEmail()); // 이메일 값으로 db에서 user정보를 꺼내온다.
 
-        String msg = String.format("반갑습니다 %s님",user.getUserName());
+        String msg = String.format("반갑습니다 %s님", user.getUserName());
 
 
         modelAndView.addObject("msg", msg);
@@ -98,11 +97,11 @@ public class UserController {
 
         User result = userService.getUser(user_id, user_password);
         String msg = "";
-        if(result != null){
-            msg = String.format("반갑습니다 %s님",result.getUserName());
-            modelAndView.addObject("user",result); // 세션을 설정한다.
+        if (result != null) {
+            msg = String.format("반갑습니다 %s님", result.getUserName());
+            modelAndView.addObject("user", result); // 세션을 설정한다.
 
-        }else{
+        } else {
             msg = "아이디 혹은 비밀번호를 확인해주세요.";
         }
         modelAndView.addObject("msg", msg);
@@ -124,16 +123,16 @@ public class UserController {
 
 
     @GetMapping("member/join")
-    public String join(@ModelAttribute("email")String email,
+    public String join(@ModelAttribute("email") String email,
                        @ModelAttribute("gender") String gender,
-                       @ModelAttribute("profile_img") String profile_img,Model model) {
+                       @ModelAttribute("profile_img") String profile_img, Model model) {
 
 
         // 쿼리스트링으로 매개변수 넘기면 MemberVo로 바로 바인딩시킬 수 있지만 url에 데이터가 노출되는단점이 있기 때문에 redirectAttributes를 이용해 post방식으로 데이털르 전송.
         // 그떄 데이터를 받으려면 RequestParam은 당연히 안될거고(get방식의 쿼리스트링이니까) modelattribue 어노테이션을 이용해야한다.
 
-        MemberVO memberVO = new MemberVO(email,gender,profile_img);
-        model.addAttribute("kakao_user",memberVO);
+        MemberVO memberVO = new MemberVO(email, gender, profile_img);
+        model.addAttribute("kakao_user", memberVO);
 
         return "member/join";
     }
@@ -144,8 +143,7 @@ public class UserController {
     public String joinPro(UserForm userForm, @RequestParam("user_year") int user_year,
                           @RequestParam("user_month") int user_month,
                           @RequestParam("user_day") int user_day
-//                          @RequestParam("user_img") String user_img2
-                            ) {
+    ) {
 
 
         System.out.println("user의 값 :" + userForm);
@@ -166,15 +164,14 @@ public class UserController {
         String user_img = userForm.getUser_img(); // img 경로
 
         // 카카오로 가입한게 아니라면 img는 null일 것이다.
-        if(user_img == null && userForm.getUser_gender().equals("M")){
+        if (user_img == null  && userForm.getUser_gender().equals("M")) {
 
             userForm.setUser_img("default1.png"); // 남성일 경우 default1.png, 여성일 경우 default2.png설정
 
-        }else if (user_img == null && userForm.getUser_gender().equals("F")){
+        } else if (user_img == null && userForm.getUser_gender().equals("F")) {
 
             userForm.setUser_img("default2.png"); // 남성일 경우 default1.png, 여성일 경우 default2.png설정
-        }
-        else{
+        } else if(user_img !=null || !user_img.equals("")){
 
             // 기본 프로필 이미지가 있을 경우에는 해당 url에 접속해 이미지 파일을 서버에 저장한다.
 
@@ -183,7 +180,7 @@ public class UserController {
             String filename = userForm.getUser_id().split("@")[0] + extension; // 이메일 앞글자랑 확장자명까지 합친 파일명이 진짜 파일명이된다.
             System.out.println("새로 저장되는 user_img이름" + filename);
             userForm.setUser_img(filename);
-            userService.saveFile(user_img,filename);
+            userService.saveFile(user_img, filename);
 
         }
 
@@ -212,24 +209,72 @@ public class UserController {
         return "member/logout";
     }
 
-    @GetMapping("/member/mypage")
+    @GetMapping("member/mypage")
     public String mypage(@ModelAttribute("user") User user, Model model) {
 
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = user.getUserDate();
-        String [] formatted_date = sdf.format(date).split("-");
+        String[] formatted_date = sdf.format(date).split("-");
         String user_year = formatted_date[0];
         String user_month = formatted_date[1];
         String user_day = formatted_date[2];
 
-        model.addAttribute("user_year",user_year);
-        model.addAttribute("user_month",user_month);
-        model.addAttribute("user_day",user_day);
+        model.addAttribute("user_year", user_year);
+        model.addAttribute("user_month", user_month);
+        model.addAttribute("user_day", user_day);
+
+
+        User newUser = userService.getUserById(user.getUserId());
+        // session 정보를 최신화 해준다.
+        // 세션에서 현재 가지고 있는 user값을 업데이트해준다.
+        model.addAttribute("user",newUser);
 
 
         return "/member/mypage";
     }
+
+
+    @PostMapping("member/mypageUpdate")
+    public String mypageUpdate(
+            @RequestParam("user_year") int user_year,
+            @RequestParam("user_month") int user_month,
+            @RequestParam("user_day") int user_day,
+
+            @ModelAttribute("user") User session_user,
+            UserForm userForm,
+            Model model
+    ) {
+
+
+        // 기본키값을 넘겨줘야 save메서드에서 id값을 이용해 수정이 가능하다.
+
+
+        User user = new User();
+        Date date = new Date();
+        date.setYear(user_year - 1900);
+        date.setMonth(user_month - 1);
+        date.setDate(user_day);
+
+
+        // date세팅 제대로해야한다.
+        user.setUserName(userForm.getUser_name());
+        user.setUserDate(date);
+        user.setUserPassword(userForm.getUser_password());
+        user.setUserGender(userForm.getUser_gender());
+
+        user.setUserNumber(session_user.getUserNumber());
+
+        User result = userService.updateUser(user);
+
+        model.addAttribute("user", result);
+        System.out.println(user);
+        System.out.println(result);
+
+
+        return "redirect:/member/mypage";
+    }
+
 
     @GetMapping("member/uploadProfile")
 
@@ -238,7 +283,6 @@ public class UserController {
 
         return "member/uploadTest";
     }
-
 
 
     // 프로필 이미지 업로드 하는 url
@@ -262,7 +306,6 @@ public class UserController {
 
 
         // 실제 로직에서는 유저 아이디의 앞부분 (@스플릿)과 확장자명을 더해서 저장한다.
-
 
 
         // request 객체를 이용해서 여기서 파일업로드를 진행한다.
@@ -292,8 +335,8 @@ public class UserController {
 
         User user = new User();
         user.setUserImg(fileName);
-        model.addAttribute("user",user);
-        model.addAttribute("rp",resourcesPath);
+        model.addAttribute("user", user);
+        model.addAttribute("rp", resourcesPath);
         // 현재 user 세션값을 이용해서 user table의 user정보에서 image필드에 해당 파일명을 삽입한다.
 
 

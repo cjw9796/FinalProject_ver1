@@ -64,7 +64,8 @@
     <main>
         <div class="main_container">
             <div class="mypage_content1 option1 ">
-                <form>
+
+
                 <div class="option1_section">
                     <h5>계정관리</h5>
                     <div class="section_separate_line"></div>
@@ -72,15 +73,15 @@
                 <div class="update_main">
 
                     <div class="myimg"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" id = "myimg"></div>
-                    <div class="update_user_nick">
-                        <input name = "update_name" th:value="${user.userName}" disabled>
-                        <i class="fa-solid fa-pen" style="color: #000000;"></i>
+                    <div class="update_user_nick" disabled>
+                        <input name = "user_name" th:value="${user.userName}"  disabled="false"  >
+                        <i class="fa-solid fa-pen" id = "name_update_btn1" style="color: #000000;"></i>
                     </div>
                     <div class="section_separate_line"></div>
                     <div class="update_user_info">
                         <div class="info_main">
                             <h6>회원정보</h6>
-                            <i class="fa-solid fa-pen" style="color: #000000;"></i>
+                            <i class="fa-solid fa-pen" id="name_update_btn2" style="color: #000000;"></i>
                         </div>
                         <div class="info_title">
                             <div>태어난 년도</div>
@@ -91,24 +92,23 @@
                         </div>
                         <div class="text_box">
                             <div class="info_box">
-                                <input type="number" name="update_year" placeholder="년(예 1991)" maxlength="4"  th:value="${user_year}" disabled
-                                       style="width: 166px;">
-                                <input type="number" name="update_month" th:value="${user_month}" style="width: 105px;" disabled>
-                                <input type="number" name="update_day" th:value="${user_day}" style="width: 105px;" disabled>
-                                <input type="text" name="update_gender"  style="width: 105px;" th:value="${user.userGender}"disabled>
+                                <input type="number" name="user_year" placeholder="년(예 1991)" maxlength="4"  th:value="${user_year}" disabled
+                                       style="width: 166px;" class = "user_info_input">
+                                <input type="number" name="user_month" th:value="${user_month}" style="width: 105px;" class = "user_info_input" disabled>
+                                <input type="number" name="user_day" th:value="${user_day}" style="width: 105px;" class = "user_info_input" disabled>
+                                <input type="text" name="user_gender"  style="width: 105px;" th:value="${user.userGender}"class = "user_info_input" disabled>
                             </div>
                         </div>
                         <div class="update_pw">
                             <div class="update_pw_text">비밀번호</div>
                             <div class="submit_end">
-                                <input type="password" name="update_pw" th:value="${user.userPassword}" disabled>
-                                <input class="submit_btn" type="submit" value="수정하기">
+                                <input type="password" name="user_password" th:value="${user.userPassword}" class = "user_info_input" disabled>
+                                <input class="submit_btn" type="button" value="수정하기">
                             </div>
                         </div>
 
                     </div>
                 </div>
-                </form>
             </div>
             <div class="mypage_content1 option2 disappear">
                     <div class="option1_section">
@@ -462,6 +462,9 @@
 </div>
 
 </body>
+<script src="/jq/jquery-3.7.0.min.js"></script>
 <script src="/js/member_mypage.js"></script>
 <script src="/js/header.js"></script>
+<script src="/js/mypage_update.js"></script>
+
 </html>

@@ -136,13 +136,11 @@ li:hover{
     background-color: #f8f8f8;
     padding: 0px 15px;
     margin-bottom: 30px;
+    border : 1px solid rgb(248, 248, 248);
+
+
 }
-.update_user_nick input{
-    border: none;
-    background-color: #f8f8f8;
-    padding: 16px 16px;
-    outline: none;
-}
+
 
 .update_main{
     width: 100%;
@@ -192,14 +190,7 @@ li:hover{
     width: 100%;
 
 }
-.info_box input{
-    background: rgb(248, 248, 248) ;
-    border: none;
-    border-radius: 10px ;
-    padding: 16px 20px;
-    font-size: 13px;
-    line-height: 20px;
-}
+
 .myimg{
     margin-bottom: 30px;
 }
@@ -223,14 +214,7 @@ li:hover{
     color: rgb(106, 106, 106);
     text-indent: 5px;
 }
-.update_pw input{
-    background: rgb(248, 248, 248) ;
-    border: none;
-    border-radius: 10px ;
-    padding: 16px 20px;
-    font-size: 13px;
-    line-height: 20px;
-}
+
 .disappear{
     display: none;
 }
@@ -273,6 +257,17 @@ li:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+
+.update_user_nick[disabled]{
+
+}
+
+.off_update{
+
+
 }
 
 .user_nick {
@@ -399,4 +394,78 @@ li:hover{
 }
 .option1_btn{
     background-color: #F0F9FFFF;
+}
+
+
+.user_info_input{
+    background-color: white ;
+    border : 1px solid #F2F3F8 ;
+}
+
+.user_info_input[disabled]{
+    border : 1px solid rgb(248, 248, 248);
+    background-color: #f8f8f8;
+}
+
+.info_box input{
+
+    border-radius: 10px ;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: white;
+    border : 1px solid #F2F3F8;
+    outline: none;
+}
+
+.info_box input[disabled]{
+
+    border-radius: 10px ;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: #f8f8f8;
+    outline: none;
+    border : 1px solid #f8f8f8;
+
+}
+
+.update_user_nick{
+    background-color: white;
+
+
+}
+
+.update_user_nick[disabled]{
+    border : 1px solid rgb(248, 248, 248);
+    background-color: #f8f8f8;
+}
+
+
+.update_user_nick input{
+    background-color: white;
+
+    padding: 16px 16px;
+    outline: none;
+    border : none;
+
+}
+
+.update_user_nick input[disabled]{
+
+    background-color: #f8f8f8;
+    padding: 16px 16px;
+    outline: none;
+    border : none;
+
+
+}
+
+.update_pw input{
+    border: 1px solid rgb(248, 248, 248);
+    border-radius: 10px ;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    outline: none;
 }

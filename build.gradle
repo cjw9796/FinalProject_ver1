@@ -31,7 +31,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    compileOnly "org.springframework.boot:spring-boot-devtools" // devtools dependency. 변경사항(java source, 정적 리소스)이 있을 시 프로젝트를 자동으로 빌드한다.
+//    compileOnly "org.springframework.boot:spring-boot-devtools" // devtools dependency. 변경사항(java source, 정적 리소스)이 있을 시 프로젝트를 자동으로 빌드한다.
 
 
     // gson library

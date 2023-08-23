@@ -71,11 +71,24 @@ public class UserService {
         return result;
     }
 
+    public User updateUser(User user){
+
+
+        System.out.println("수정전에 가져온 user값" + user);
+
+        userRepository.updateUser(user); // save는 덮어씌우기 떄문에 직접 query문을 실행한다.
+
+
+        //수정한 후 다시 수정된 객체를 가지고 온다.
+
+        User result = userRepository.findById(user.getUserNumber()).orElse(null);
+        System.out.println("수정후 가져온 result값" + result);
+
+        return result;
+    }
+
 
     public void saveFile(String img_path, String file_name){
-
-
-
 
         ClassPathResource resource = new ClassPathResource("/static/file/profile_image/"); // 빈 문자열로 생성
         String save_path = "";
@@ -120,6 +133,7 @@ public class UserService {
 
 
     }
+
 }
 
 
