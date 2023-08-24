@@ -1,66 +1,70 @@
 /*공통*/
-h2, h4, h5{
+h2, h4, h5 {
     font-weight: bold;
 }
-a{
+
+a {
     text-decoration: none;
 }
-strong{
+
+strong {
     display: block;
 }
 
-ul, li, ol{
+ul, li, ol {
     list-style: none;
 }
 
-ul, ol{
+ul, ol {
     padding: 0;
     margin: 0;
 }
+
 /*상세 정보페이지*/
-.detail_info_container{
-    box-shadow: 0 0 6px rgba(0,0,0,.2);
+.detail_info_container {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .2);
     border-radius: 10px;
     padding: 30px;
     background-color: #fff;
 }
 
-.page_title h2{
+.page_title h2 {
     margin: 15px 0;
 }
 
-.detail_info_top{
+.detail_info_top {
     margin-top: 15px;
 }
-.detail_info_img{
+
+.detail_info_img {
     display: inline-block;
     width: 360px;
     height: 240px;
     overflow: hidden;
 }
 
-.detail_info_img img{
+.detail_info_img img {
     max-width: 100%;
 }
 
-.detail_info_table{
+.detail_info_table {
     display: inline-table;
     float: right;
     width: 60%;
     border-collapse: collapse;
 }
 
-.detail_info_row{
+.detail_info_row {
     display: table-row;
 }
 
-.detail_info_col{
+.detail_info_col {
     display: table-cell;
     border: 1px solid #e6e6e6;
     padding: 10px;
 }
 
-.detail_info_col:first-child{
+.detail_info_col:first-child {
     width: 30%;
     font-size: 16px;
     text-align: center;
@@ -68,40 +72,44 @@ ul, ol{
     background-color: rgb(248, 248, 248);
 }
 
-.detail_info_bottom strong{
+.detail_info_bottom strong {
     font-size: 20px;
     margin: 15px 0;
 }
 
-#blog_search{
+#blog_search {
     margin-top: 55px;
 }
 
-.blog_list a{
+.blog_list a {
     color: #191919;
 }
-.blog_list a:hover{
+
+.blog_list a:hover {
     text-decoration: underline;
 }
-.blog_title{
+
+.blog_title {
     color: black;
     font-weight: bold;
 }
-.blog_info{
+
+.blog_info {
     font-size: 14px;
     color: #191919;
 }
 
-.blogger_name img{
+.blogger_name img {
     width: 24px;
     height: 24px;
     vertical-align: top;
 }
 
-.post_date{
+.post_date {
     color: gray;
     margin-left: 10px;
 }
+
 /*관광 정보 검색*/
 
 .content_card_box {
@@ -109,7 +117,8 @@ ul, ol{
     display: flex;
     justify-content: space-between;
 }
-.thumb_img{
+
+.thumb_img {
 
     height: 180px;
     background-size: cover;
@@ -118,12 +127,13 @@ ul, ol{
     overflow: hidden;
 }
 
-.thumb_img img{
+.thumb_img img {
     max-width: 100%;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
 }
-.thumb_name{
+
+.thumb_name {
     width: 100%;
     height: 50px;
     display: block;
@@ -160,25 +170,29 @@ ul, ol{
     border: 1px solid #e9e9e9;
     position: relative;
 }
-.content_card:hover{
+
+.content_card:hover {
     box-shadow: rgba(25, 25, 25, 0.2) 0 6px 10px;
     transition: 0.5s;
 }
-.type_keyword{
+
+.type_keyword {
     display: none;
 }
 
-.tour_container button{
+.tour_container button {
     border: none;
     cursor: pointer;
 }
+
 .tour_search_container, .content_container, .tour_detail_container {
     margin: 0 auto;
     width: 1100px;
     position: relative;
     padding-top: 35px;
 }
-.search_type_container{
+
+.search_type_container {
     width: 400px;
     position: relative;
     display: flex;
@@ -190,27 +204,28 @@ ul, ol{
     border-radius: 30px;
 }
 
-.type_btn button{
+.type_btn button {
     font-size: 17px;
     padding: 10px 0;
     width: 150px;
     border-radius: 25px;
 }
 
-.on{
+.on {
     background: rgb(0, 182, 206);
     color: white;
 }
 
-.off{
+.off {
     background-color: white;
 }
-.off:hover{
+
+.off:hover {
     transition: 0.5s;
     color: #588fee;
 }
 
-#search_text{
+#search_text {
     padding: 3px 10px;
     box-sizing: border-box;
     border: 1px solid #9e9e9e;
@@ -264,27 +279,37 @@ ul, ol{
 .tour_search_col div {
     display: inline-block;
     font-size: larger;
+    line-height: 41px;
 }
-
-.modal_form{
-    /*display: none;*/
-    /*position: fixed;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%,-50%);*/
-    /*min-width: 300px;*/
+.modal_container{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    top: 0;
+}
+.modal_form {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-width: 300px;
     max-height: 60%;
     height: 100%;
     text-align: center;
-    z-index: 99999;
-    background-color: #494949;
-    position: relative;
-    height: 550px;
+    z-index: 99;
 }
-.area_modal{
+.modal_on{
+    display: block;
+}
+.area_modal {
     width: 790px;
 }
-.modal_close_btn{
+
+.modal_close_btn {
     width: 30px;
     height: 30px;
     font-size: 0;
@@ -293,75 +318,98 @@ ul, ol{
     right: 10px;
     border-radius: 100%;
     background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAALCAYAAABLcGxfAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA9ElEQVQokW3RzSpFURjG8d/ZxZm4AMZ7JUMZOfIxk6mUG1ByHwbnFsicKEmMDIxkYColXo5roHyFbXDW1k5njdbzvP/19PSuVlmWU9jBU0SsGHBSSgdIWC+wgTF0UkqHA+B9zGIUGwU2cZfnnQzU8C7msnzEZquqKimlYZxhPA+P8YW64gMWI+KtVVVVndbGESb/tbrGckS8wt+DRo0e2ll+IEXEdz0v/sFbGGpYw9huMs1Ke1jI/hV+MJ31RUSsQqssyxH9f6jhiIj5HHKOiexfYq1AtwH3sNhosIT7fJ9Bt8ApnnGrv7r3mo6Izxxwgxec/AI/vVAviXw4ggAAAABJRU5ErkJggg==) no-repeat 50%;
+    border: none;
 }
-.modal_wrap{
+
+.modal_wrap {
     height: 100%;
     overflow: hidden;
     border-radius: 10px;
     background-color: #fff;
 }
-.modal_head{
+
+.modal_head {
     padding: 15px 10px;
     box-sizing: border-box;
     background-color: #5f8cdd;
 }
-.modal_title{
+
+.modal_title {
     font-size: 18px;
     color: #fff;
     font-weight: 500;
 }
-.modal_body{
+
+.modal_body {
     padding: 30px 30px 0;
     min-height: 50px;
     height: calc(100% - 130px);
     overflow: auto;
     box-sizing: border-box;
 }
-.modal_sido_box{
+
+.modal_sido_box {
     height: 100%;
     overflow: hidden;
 }
+
 .modal_wrap .modal_body .box {
     min-width: 130px;
     margin-right: 10px;
     display: inline-block;
     float: left;
 }
+
 .area_modal .modal_body .box {
     width: 290px;
     max-height: 100%;
     overflow-y: auto;
 }
-.area_modal .modal_body .modal_sido_box .box_sigungu{
+
+.area_modal .modal_body .modal_sido_box .box_sigungu {
     margin-right: 0;
     width: 425px;
 
 }
-.box .sigungu_list{
+
+.box .sigungu_list {
     width: 97%;
 }
-.box_title{
+
+.box_title {
     width: 100%;
     background-color: #ededed;
     padding: 5px;
     box-sizing: border-box;
 }
-.btn_list{
+
+.btn_list {
     margin-top: 10px;
     float: left;
     margin-right: 10px;
 }
-.nationwide, .all_sigungu{
+
+#content_type_box > .btn_list {
+    margin-left: 10px;
+}
+
+.nationwide, .all_sigungu {
     margin-top: 10px;
     margin-right: 10px;
     float: none;
 }
-.btn_list .sigungu_btn{
+
+.btn_list .sigungu_btn {
     display: inline-block;
     float: left;
     margin-right: 12px;
 }
-.modal_btn{
+
+.modal_content_type_box.btn_list {
+    margin-left: 10px;
+}
+
+.modal_btn {
     background-color: #ffffff;
     color: #666666;
     border: 1px solid #d8d8d8;
@@ -370,7 +418,7 @@ ul, ol{
     text-align: center;
     display: block;
     margin-bottom: 10px;
-    min-width: 125px;
+    /*min-width: 125px;*/
     transition: all .1s;
     box-sizing: border-box;
     width: 125px;
@@ -380,15 +428,61 @@ ul, ol{
     padding: 6px 0;
 }
 
-.modal_btn:hover{
+.modal_btn:hover {
     color: #ffffff;
     background-color: #1341ff;
 }
-.sel{
+
+.sel {
     color: #ffffff;
     background-color: #1341ff;
 }
-/* 관광정보 상세정보 css폼 시작 */
+
+.modal_foot {
+    padding: 20px 0;
+    height: 70px;
+    box-sizing: border-box;
+}
+
+.modal_foot .modal_btn {
+    display: inline-block;
+    padding: 3px 13px;
+    border-radius: 10px;
+    vertical-align: middle;
+    transition: .5s;
+    width: auto;
+    height: 38px;
+}
+
+.modal_cancel_btn {
+    color: #ffffff;
+    background-color: #949494;
+    margin-left: 20px;
+}
+
+.modal_confirm_btn {
+    background-color: #5f8cdd;
+    color: #ffffff;
+}
+
+.content_type_modal{
+    width: 300px;
+}
+.service_modal{
+    width: 500px;
+}
+.modal_content_type_box {
+    overflow: hidden;
+}
+
+#content_type_box {
+    float: none;
+    text-align: center;
+}
+
+
+/*
+!* 관광정보 상세정보 css폼 시작 *!
 #infoMain {
     width: 70%;
     hegiht: 100%;
@@ -472,7 +566,7 @@ ul, ol{
 }
 
 .titleTd {
-    /*font-size: normal;*/
+    !*font-size: normal;*!
 }
 
 #tabContent {
@@ -517,10 +611,10 @@ ul, ol{
     text-align: center;
 }
 
-/* 관광정보 상세정보 css폼 끝 */
+!* 관광정보 상세정보 css폼 끝 *!
 
 
-/* 관광정보 위젯 css폼 시작 */
+!* 관광정보 위젯 css폼 시작 *!
 
 #widgetMain {
     margin-top: 6%;
@@ -663,10 +757,10 @@ ul, ol{
     cursor: pointer;
 }
 
-/* 관광정보 위젯 css폼 끝 */
+!* 관광정보 위젯 css폼 끝 *!
 
 
-/* modal css 모음	 */
+!* modal css 모음	 *!
 
 .createContentModalForm {
     width: 100%;
@@ -770,4 +864,4 @@ ul, ol{
 .modal-footer {
     justify-content: center;
     margin: auto 0;
-}
+}*/
