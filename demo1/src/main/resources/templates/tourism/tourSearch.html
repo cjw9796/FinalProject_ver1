@@ -12,7 +12,58 @@
 </head>
 <body>
 <div th:include="/header.html :: header"></div>
-
+<div class="modal_form area_modal">
+    <button class="modal_close_btn">닫기</button>
+    <div class="modal_wrap">
+        <div class="modal_head">
+            <strong class="modal_title">지역 선택</strong>
+        </div>
+        <div class="modal_body">
+            <ul class="modal_sido_box">
+                <li class="box">
+                    <p class="box_title">광역시/도</p>
+                    <div class="btn_list nationwide">
+                        <button class="modal_btn sel">전국</button>
+                    </div>
+                    <div class="btn_list">
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                    </div>
+                    <div class="btn_list">
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                        <button class="modal_btn">서울</button>
+                    </div>
+                </li>
+                <li class="box box_sigungu">
+                    <p class="box_title">시/군/구</p>
+                    <div class="btn_list all_sigungu">
+                        <button class="modal_btn sel">전체</button>
+                    </div>
+                    <div class="btn_list sigungu_list">
+                        <button class="modal_btn sigungu_btn">강남구</button>
+                        <button class="modal_btn sigungu_btn">강북구</button>
+                        <button class="modal_btn sigungu_btn">강서구</button>
+                        <button class="modal_btn sigungu_btn">강동구</button>
+                        <button class="modal_btn sigungu_btn">강동구</button>
+                        <button class="modal_btn sigungu_btn">강동구</button>
+                        <button class="modal_btn sigungu_btn">강동구</button>
+                        <button class="modal_btn sigungu_btn">강동구</button>
+                        <button class="modal_btn sigungu_btn">강동구</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="tour_container">
     <div class="tour_search_container type_area">
         <div class="tour_search_title">

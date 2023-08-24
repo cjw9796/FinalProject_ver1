@@ -67,6 +67,16 @@
                 </div>
             </button>
         </div>
+        <div class="shop_carousel">
+            <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+                              centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                <swiper-slide><img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt=""></swiper-slide>
+                <swiper-slide><img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt=""></swiper-slide>
+                <swiper-slide><img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt=""></swiper-slide>
+                <swiper-slide><img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt=""></swiper-slide>
+
+            </swiper-container>
+        </div>
         <!--        <div class="tour_main_box">-->
         <!--            <div class="test_tour_main" id="seoul" onclick="location.href='/cities'">-->
         <!--                <div class="main_back_img seoul"></div>-->
@@ -98,9 +108,10 @@
     </div>
 
 </div>
-<div th:include="/footer.html :: footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+<div th:include="/footer.html :: footer"></div>
 </body>
 </html>
