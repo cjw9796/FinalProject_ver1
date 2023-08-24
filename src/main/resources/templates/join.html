@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/css.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel = "stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+
+
+<div th:include="/header.html :: header"></div>
+
+<div class = "container">
+
+
+    <h1>회원가입</h1>
+
+    입력사항
+
+    <form id="join_form">
+
+<!--    <form action="/joinPro" method="post" id ="joinForm">-->
+    <div class ="join_block">
+
+        <div class = "join_small_block">
+        <input type="text"  id = "user_id" placeholder="아이디">
+        </div>
+
+        <div class = "join_small_block">
+            <input type="password" id = "user_password" placeholder="비밀번호(8자~12자, 영문+숫자+특수문자 사용)">
+        </div>
+
+        <div class = "join_small_block">
+            <input type="text" id = "user_name" placeholder="유저 이름">
+        </div>
+        <div class = "join_small_block">
+            <input type="text" id = "user_phone" placeholder="핸드폰 번호">
+        </div>
+
+        <div class = "join_small_block">
+            <select id = "user_gender">
+                <option value="">성별</option>
+                <option value="M">남자</option>
+                <option value="F">여자</option>
+            </select>
+        </div>
+
+
+
+        <!-- 월에 따른 일수가 다르게 출력되게끔 -->
+        <div class = "join_small_block">
+
+            <input type="text" id = "user_year" placeholder="연도">
+            <select id = "user_month">
+                <th:block th:each="number : ${#numbers.sequence(1, 12)}">
+                    <option th:value="${number}" th:text="${number} + '월'"></option>
+                </th:block>
+            </select>
+
+
+            <select id="user_day" >
+                <!-- each문으로 31일까지 뽑아내기,월에 맞게30,31선택 -->
+
+
+                <th:block th:each="number : ${#numbers.sequence(1, 31)}">
+                    <option th:value="${number}" th:text="${number} + '일'"></option>
+                </th:block>
+
+            </select>
+        </div>
+
+
+        <div class = "mbti_block">
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+        <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+        </div>
+
+        <div class = "mbti_block">
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+        </div>
+        <div class = "mbti_block">
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+        </div>
+
+        <div class = "mbti_block">
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+        </div>
+
+
+    </div>
+
+    <input type="button" value ="회원가입" id = "submit_btn">
+<!--    </form>-->
+    </form>
+
+</div>
+</body>
+<script src = "/jq/jquery-3.7.0.min.js"></script>
+<script src = "/jq/jquery.form.min.js"></script>
+<script src="/js/join.js"></script>
+
+</html>

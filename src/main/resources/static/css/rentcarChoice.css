@@ -1,0 +1,402 @@
+/* 검색창 css */
+.choice_wrapper {
+    background-color: rgb(246, 246, 246);
+    min-height: calc(100vh - 246px);
+    height: auto;
+    padding: 0px 0px 60px;
+}
+
+
+._wrap_1o5s2_3 {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    z-index: 900;
+}
+
+
+._search_bar_wrap_1o5s2_35 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    z-index: 200;
+    background-color: transparent;
+    -webkit-transform: translateY(-60%);
+    transform: translateY(-60%);
+    position: absolute;
+}
+
+
+._wrap_container_1o5s2_10 {
+    width: 100%;
+    background-color: #fff;
+}
+
+
+._content_wrap_1o5s2_135 {
+    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+
+._search_bar_wrap_1o5s2_35 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    z-index: 200;
+    background-color: transparent;
+    -webkit-transform: translateY(-60%);
+    transform: translateY(-60%);
+    position: absolute;
+}
+
+
+._search_bar_1o5s2_35 {
+    display: -webkit-flex;
+    flex-direction: column;
+    height: 125px;
+}
+
+
+._input_wrapper_1o5s2_56 {
+    display: grid;
+    grid-template-columns: 1fr 110px;
+    gap: 20px;
+    height: 90px;
+    margin-top: 34.5px;
+}
+
+
+._input_container_1o5s2_64 {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px #0000000d;
+    width: 100%;
+    display: grid;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+._input_wrap_1o5s2_56 {
+    padding: 0 30px;
+    height: 50px;
+}
+
+
+._input_title_1o5s2_83 {
+    display: flex;
+    align-items: center;
+}
+
+
+._input_label_1o5s2_98 {
+    margin-left: 4px;
+    font-size: 15px;
+}
+
+._input_wrap_1o5s2_56 {
+    padding: 0 30px;
+    height: 50px;
+}
+
+._divider_1o5s2_129 {
+    height: 50px;
+    width: 1px;
+    background-color: #eaeaea;
+}
+
+._search_input_1o5s2_88 {
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    height: 22px;
+    margin-top: 10px;
+    text-overflow: ellipsis;
+}
+
+
+._input_label_1o5s2_98 {
+    margin-left: 4px;
+    font-size: 15px;
+}
+
+._input_image_label_1o5s2_103 {
+    width: 16px;
+    height: 16px;
+}
+
+._input_label_1o5s2_98 {
+    margin-left: 4px;
+    font-size: 15px;
+}
+
+._birth_input_wrap_1o5s2_108 {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 22px;
+    margin-top: 10px;
+}
+
+
+._search_button_1o5s2_117 {
+    width: 110px;
+    background-color: #00ce7c;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 1px 1px 5px #00000026;
+}
+
+._button_default_1vx5o_3 {
+    border-width: 0px;
+    border-radius: 5px;
+    background-color: #00ce7c;
+    color: #fff;
+    outline: none;
+}
+
+/*서치바 하단 */
+.bAZFCX {
+    margin: 0px auto;
+    width: auto;
+    max-width: 1140px;
+}
+
+.gYgvXU {
+    position: relative;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    height: auto;
+    margin-top: 110px;
+}
+
+
+/*좌측 차량정보 */
+
+.hrlSuA {
+    width: 320px;
+    min-height: 430px;
+}
+
+
+.hSHqUm {
+    position: sticky;
+    top: 120px;
+    width: 320px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 6px 0px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.iJMLxe {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 4px;
+    background-color: rgb(244, 244, 244);
+    border-radius: 3px;
+}
+
+.foPdyM {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px auto 8px;
+    line-height: normal;
+    text-align: center;
+}
+
+.kgtPXc {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(170, 170, 170);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.kCckzP {
+    font-size: 12px;
+    line-height: 15px;
+    color: rgb(204, 204, 204);
+    margin: 0px;
+}
+
+/* 차량 정보 하단 가격표 */
+
+.czeVZS {
+    width: 100%;
+    height: 75px;
+    border-radius: 5px;
+    border: 1px solid rgb(29, 96, 228);
+    margin-top: 33px;
+    padding: 14px 0px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+.ehQrZD {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0px;
+    color: rgb(29, 96, 228);
+}
+
+.text-\[\#1d60e4\] {
+    color: rgb(29 96 228);
+}
+
+.text-\[14px\] {
+    font-size: 14px;
+}
+
+
+/*오른쪽 업체선택 */
+
+.hpPXDz {
+    width: 100%;
+    position: relative;
+}
+
+
+.deTQrp {
+
+    position: absolute;
+    top: -31px;
+    width: 100%;
+    height: 17px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+/*검색결과 나열 카테고리 */
+.cGRLYz {
+    gap: 10px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+
+.ilAiwx {
+    all: unset;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+
+.bXxNCf {
+    all: unset;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(204, 204, 204);
+    cursor: pointer;
+}
+
+.enBwxV {
+    width: 2px;
+    height: 16px;
+    background-color: rgb(234, 234, 234);
+}
+
+/* 업체리스트 */
+
+.ikcVXB {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+
+.hjtjsM {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 8px;
+    padding: 25px 30px;
+    cursor: pointer;
+}
+
+.jNgUqu {
+    margin-bottom: 10px;
+}
+
+.bmgJBU {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    line-height: 26px;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-\[23px\] {
+    font-size: 23px;
+}
+
+
+
+.hidyRW {
+    padding: 2px 6px;
+    background-color: rgb(240, 245, 255);
+    border-radius: 3px;
+    font-size: 12px;
+    color: rgb(29, 96, 228);
+    margin-right: 5px;
+}
+
+.cChduK {
+    font-size: 15px;
+    font-weight: normal;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.kqZvjT {
+    background-color: rgb(215, 215, 215);
+    width: 1px;
+    height: 12px;
+    margin: 0px 5px;
+}
+
+.jGUQNb {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(170, 170, 170);
+    text-decoration: line-through;
+}
+
+.cgGRFw {
+    font-size: 14px;
+    color: rgb(87, 87, 87);
+    border-radius: 5px;
+    background-color: rgb(249, 249, 249);
+    padding: 10px 15px;
+    margin-top: 25px;
+}
