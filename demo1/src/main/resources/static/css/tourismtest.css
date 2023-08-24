@@ -379,6 +379,11 @@ ul, ol{
     min-height: 32px;
     padding: 6px 0;
 }
+
+.modal_btn:hover{
+    color: #ffffff;
+    background-color: #1341ff;
+}
 .sel{
     color: #ffffff;
     background-color: #1341ff;

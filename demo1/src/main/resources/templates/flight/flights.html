@@ -306,13 +306,13 @@
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
-                ticFlightDepartureDate: $("#flight_list tr .depPlandTime")[flight].innerText,
-                ticFlightArrivalDate: $("#flight_list tr .arrPlandTime")[flight].innerText,
-                ticSeatGrade: "이코노미",
-                ticAirlineName: $("#flight_list tr .airlineNm")[flight].innerText,
-                ticFee: $("#flight_list tr .economyCharge")[flight].innerText,
-                ticFromLocation: $("#flight_list tr .depAirportNm")[flight].innerText,
-                ticToLocation: $("#flight_list tr .arrAirportNm")[flight].innerText,
+                    ticFlightDepartureDate: $("#flight_list tr .depPlandTime")[flight].innerText,
+                    ticFlightArrivalDate: $("#flight_list tr .arrPlandTime")[flight].innerText,
+                    ticSeatGrade: "이코노미",
+                    ticAirlineName: $("#flight_list tr .airlineNm")[flight].innerText,
+                    ticFee: $("#flight_list tr .economyCharge")[flight].innerText,
+                    ticFromLocation: $("#flight_list tr .depAirportNm")[flight].innerText,
+                    ticToLocation: $("#flight_list tr .arrAirportNm")[flight].innerText,
             }),
             success: function (data) {
                 alert("저장완료");
