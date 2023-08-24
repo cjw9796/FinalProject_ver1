@@ -1,0 +1,34 @@
+package com.kh.myproject.controller;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class StoreController {
+
+
+
+    @RequestMapping("/store/area")
+    public String area(){
+
+
+        return "store/area";
+    }
+
+
+    @RequestMapping("/store/plane")
+    public String plane(){
+
+
+        return "/store/plane";
+    }
+
+    @RequestMapping("/store/rental")
+    public String rental(){
+
+
+        return "/store/rental";
+    }
+
+}

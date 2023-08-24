@@ -1,6 +1,10 @@
 body {
     margin: 0px;
+
 }
+body{-ms-overflow-style:none; }
+body::-webkit-scrollbar { display:none; }
+
 
 header {
     display: flex;
@@ -361,4 +365,9 @@ i{
     display : flex;
 
     align-items: center;
+}
+
+.no-js{
+
+    display : none;
 }
