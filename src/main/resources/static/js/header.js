@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 
 
+
 //     const menu_point = document.querySelector(".menu_point"); // 커뮤니티의 홈
 //     const accompany = document.querySelector(".accompany"); // 커뮤니티의 동행
 //     const plan = document.querySelector(".plan"); // 커뮤니티의 일정
@@ -30,6 +31,12 @@ $(document).ready(function () {
 // location.href처리에 따라 스타일 처리하기
     var url = window.location.pathname;
     var url_list = url.substring(1).split("/");
+
+    if(url_list[0] === ''){
+        $(".home").addClass('menu_underline');
+    }
+
+
 
     var context_path = url_list[0]; // store/community
     var menu = url_list[1]; // 세부적으로 나뉘는 서브 메뉴
@@ -60,7 +67,6 @@ $(document).ready(function () {
             choice_post.classList.add("disappear");
         }
     }
-
 
 
 // 커뮤니티 클릭

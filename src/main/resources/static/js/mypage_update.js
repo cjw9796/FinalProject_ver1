@@ -23,7 +23,6 @@ $(document).ready(function () {
         for (var i = 0; i < user_update_list.length; i++) {
 
             user_update_list[i].removeAttribute("disabled");
-            console.log(user_update_list[i])
 
 
             // user_update_list[i].prop('disabled',false);
@@ -34,10 +33,7 @@ $(document).ready(function () {
 
     $('.submit_btn').click(function () { // form 제출 시
 
-        console.log("mypage update submit_btn 클릭")
-        update_user_nick.setAttribute("disabled",true);
-        user_update_list.prop('disabled',true);
-        user_name.prop('disabled',true);
+
 
         var query = {
 
@@ -50,31 +46,37 @@ $(document).ready(function () {
         }
 
 
-        var check = false;
+        var check = true;
 
         for (var key in query) {
-            if (query.hasOwnProperty(key)) {
-
-                check = true;
+            if(query[key] === "" || query[key] == null){
+                check = false;
+                break;
             }
         }
 
 
+
         if(check) {
+
+            update_user_nick.setAttribute("disabled",true);
+            user_update_list.prop('disabled',true);
+            user_name.prop('disabled',true);
+
             $.ajax({
                 url: '/member/mypageUpdate',
                 method: 'POST',
                 data: query,
                 success: function (data) {
 
-                    console.log("mypage update ajax통신 성공")
-                    // window.location.href = "/member/mypage";
-
                 },
                 error: function () {
-                    console.log("mypage update ajax통신 실패")
+
                 }
             });
+        }
+        else{
+            alert("빈 칸 없이 입력하세요.");
         }
 
 

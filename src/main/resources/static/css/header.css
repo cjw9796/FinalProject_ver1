@@ -4,6 +4,7 @@ body {
 }
 body{-ms-overflow-style:none; }
 body::-webkit-scrollbar { display:none; }
+/* 스크롤바 제거 css */
 
 
 header {

@@ -2,7 +2,7 @@
 
 
     width: 500px;
-    height: 600px;
+    /*height: 600px;*/
     margin: 0 auto;
     margin-top: 50px;
     text-align: center;
@@ -76,7 +76,7 @@
     font-size : 16px;
     padding-left: 10px;
     width: 316px;
-    height: 50px;
+    height: 40px;
     border-radius: 5px;
     border : 1px solid grey;
     color : grey;
@@ -114,6 +114,7 @@
     border-radius: 5px;
     color : #2B96EC;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #join_btn:active{
@@ -133,7 +134,7 @@
 
     margin-top: 100px;
     width: 500px;
-    height: 1000px;
+
 }
 
 .join_block{
@@ -141,7 +142,7 @@
 
 .join_small_block input{
     width: 330px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border : 1px solid gainsboro;
     color:black;
     /*color: gainsboro;*/
@@ -156,15 +157,14 @@
 .join_small_block{
 
     width: 330px;
-    height: 50px;
+    height: 40px;
     margin:0 auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #user_gender{
 
     width: 330px;
-    height: 50px;
     border : 1px solid gainsboro;
     border-radius: 5px;
     padding-left: 5px;
@@ -176,7 +176,6 @@
 
 #user_month, #user_day{
 
-    height: 50px;
     border : 1px solid gainsboro;
     border-radius: 5px;
     text-align: center;
@@ -275,3 +274,80 @@
     height: 120px;
 }
 
+.phone_block{
+
+    width: 330px;
+    display : flex;
+    justify-content: space-between;
+    margin : 0 auto;
+    /*margin-bottom: 20px;*/
+
+}
+
+.phone_block button{
+
+    background-color: #05B6CE;
+    border : none;
+    border-radius: 5px;
+    width: 90px;
+    height: 40px;
+    color:white;
+
+}
+
+#left_phone_block{
+
+    width: 220px;
+    margin : 0;
+    height: 50px;
+
+
+}
+
+#left_phone_block input, #auth_num{
+
+    font-size : 14px;
+    padding-left: 10px;
+    width: 220px;
+    height: 40px;
+    border-radius: 5px;
+    border : 1px solid gainsboro;
+
+    color : black;
+    outline : none;
+}
+
+#user_phone{
+    width: 200px;
+    color : black;
+
+
+}
+
+.right_phone_block{
+
+    color :white;
+    font-size: 14px;
+
+}
+
+select{
+    height: 40px;
+    font-size: 13px;
+
+}
+
+#auth_block{
+
+    width: 330px;
+}
+
+#auth_num{
+    border-radius: 5px 0 0 5px;
+    width: 240px;
+}
+
+#auth_submit_btn{
+
+    border-radius: 0 5px 5px 0;
+}

@@ -28,7 +28,11 @@
                         <div class="logout"><i class="fa-xl fa-solid fa-arrow-right-from-bracket" style="color: #bebebe;"
                         onclick="location.href = '/member/logout'"></i></div>
                     </div>
+
+
                 </div>
+
+
 
                 <!--             로그인이 안되었다면-->
                 <div th:if = "${user==null}">
@@ -52,6 +56,9 @@
                                       ></i>동행</div>
             <div class="plan" onclick="location.href = '/community/plan'"><i class="fa-regular fa-calendar-check" style="color: #cc6fd3;"
                                  ></i>일정</div>
+
+            <div className="second-box-tabs-clicked-bar"
+                 style="color: rgb(170, 170, 170); font-weight: 400; margin-left: 66.3333%;"></div>
         </div>
         <!--store-->
         <div class="nav_bar_menu_store store disappear ">

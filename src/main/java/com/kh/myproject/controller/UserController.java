@@ -2,6 +2,8 @@ package com.kh.myproject.controller;
 
 
 import com.kh.myproject.api.kakaoapi.vo.MemberVO;
+import com.kh.myproject.api.sensapi.service.SmsService;
+import com.kh.myproject.api.sensapi.vo.SendSmsResponseDto;
 import com.kh.myproject.model.dto.UserForm;
 
 import com.kh.myproject.model.entity.User;
@@ -16,13 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 @Controller
 @SessionAttributes("user")
@@ -32,18 +32,18 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    SmsService smsService;
+
 
     @GetMapping("/")
     public String home() {
 
 
+
         return "community/home";
     }
 
-    @GetMapping("community/home")
-    public String communityHome() {
-        return "community/home";
-    }
 
     @GetMapping("store/home")
     public String storeHome() {
@@ -138,6 +138,46 @@ public class UserController {
     }
 
 
+    @ResponseBody
+    @PostMapping("member/joinAuth")
+    public String joinAuth(){
+//        @RequestParam("phone_number")String phone_number
+//
+//        smsService.senn
+//
+//        Map<String,Object> result = smsService.authUser(phone_number);
+//        SendSmsResponseDto ssrd = (SendSmsResponseDto) result.get("ssrd");
+//        String ran_num = (String) result.get("ran_num");
+//        String response = "";
+//        if(ssrd.getStatusCode().equals("202")){
+//
+//            response = ran_num;
+//
+//        }else{
+//
+//            response = "fail";
+//
+//        }
+
+
+        String ran_num = "";
+        int i = 0;
+
+        while(i < 6){
+
+            int ran = (int)(Math.random()*10);// 난수 생성.
+            if(!ran_num.contains(ran+"")){
+
+                ran_num += ran+"";
+                i++;
+            }
+
+        }
+
+
+        return ran_num;
+    }
+
     // 회원가입 완료
     @PostMapping("member/joinPro")
     public String joinPro(UserForm userForm, @RequestParam("user_year") int user_year,
@@ -164,11 +204,11 @@ public class UserController {
         String user_img = userForm.getUser_img(); // img 경로
 
         // 카카오로 가입한게 아니라면 img는 null일 것이다.
-        if (user_img == null  && userForm.getUser_gender().equals("M")) {
+        if ( (user_img == null || user_img.equals("")  )  && userForm.getUser_gender().equals("M")) {
 
             userForm.setUser_img("default1.png"); // 남성일 경우 default1.png, 여성일 경우 default2.png설정
 
-        } else if (user_img == null && userForm.getUser_gender().equals("F")) {
+        } else if ( (user_img == null || user_img.equals("")  ) && userForm.getUser_gender().equals("F")) {
 
             userForm.setUser_img("default2.png"); // 남성일 경우 default1.png, 여성일 경우 default2.png설정
         } else if(user_img !=null || !user_img.equals("")){
@@ -272,7 +312,7 @@ public class UserController {
         System.out.println(result);
 
 
-        return "redirect:/member/mypage";
+        return "redirect:/member/login";
     }
 
 
