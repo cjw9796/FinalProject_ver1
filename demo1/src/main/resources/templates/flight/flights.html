@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Ticket</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/flight.css">
     <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
@@ -58,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="flight_rank_container">
+    <!--<div class="flight_rank_container">
         <div class="flight_rank_title">
             <h2>인기 국내선</h2>
         </div>
@@ -75,51 +76,88 @@
             <div class="test1"></div>
             <div class="test1"></div>
         </div>
-    </div>
-    <div class="flight_result_table">
-        <div class="flight_result_title_row">
-            <div class="flight_result_col">항공사</div>
-            <div class="flight_result_col">출발지</div>
-            <div class="flight_result_col">도착지</div>
-            <div class="flight_result_col">출발 시간</div>
-            <div class="flight_result_col">도착 시간</div>
-            <div class="flight_result_col">요금</div>
+    </div>-->
+    <div class="result_container">
+        <div class="result_title">
+            <span>김포</span>
+            <i></i>
+            <span>제주</span>
         </div>
-        <div class="flight_result_row">
-            <div class="flight_result_col">
-                <!--                <img src="https://flight.11st.co.kr/flight_img/AIR_IMG/TW.png">-->
-                <div id="airline_name">
+        <hr/>
+        <div class="result_table">
+            <div class="result_table_inner">
+                <div class="result_schedule">
+                    <div class="schedule_item">
+                        <div class="airline_box">
+                            <div class="airline_item">
+                                <div class="airline_logos">
+                                    <img src="https://flight.11st.co.kr/flight_img/AIR_IMG/TW.png">
+                                </div>
+                                <b class="airline_name">티웨이항공</b>
+                            </div>
+                        </div>
+                        <div class="airline_route">
+                            <span class="start_route">
+                                <b>김포(08:30)</b>
+                            </span>
+                            <span class="end_route">
+                                <b>제주(09:30)</b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="airline_price">
                     <div>
-                        <span>티웨이</span><br/>
-                        <span>TW9117</span>
+                        <b>₩53,600</b>
                     </div>
                 </div>
             </div>
-            <div class="flight_result_col">
-                김포
-            </div>
-            <div class="flight_result_col">
-                제주
-            </div>
-            <div class="flight_result_col">
-                08:30
-            </div>
-            <div class="flight_result_col">
-                09:30
-            </div>
-            <div class="flight_result_col">
-                45000원
-            </div>
         </div>
+        <div class="hr-sect">더 많은 검색 결과</div>
+        <!--<div class="flight_result_table">
+            <div class="flight_result_title_row">
+                <div class="flight_result_col">항공사</div>
+                <div class="flight_result_col">출발지</div>
+                <div class="flight_result_col">도착지</div>
+                <div class="flight_result_col">출발 시간</div>
+                <div class="flight_result_col">도착 시간</div>
+                <div class="flight_result_col">요금</div>
+            </div>
+            <div class="flight_result_row">
+                <div class="flight_result_col">
+                    &lt;!&ndash;                <img src="https://flight.11st.co.kr/flight_img/AIR_IMG/TW.png">&ndash;&gt;
+                    <div id="airline_name">
+                        <div>
+                            <span>티웨이</span><br/>
+                            <span>TW9117</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flight_result_col">
+                    김포
+                </div>
+                <div class="flight_result_col">
+                    제주
+                </div>
+                <div class="flight_result_col">
+                    08:30
+                </div>
+                <div class="flight_result_col">
+                    09:30
+                </div>
+                <div class="flight_result_col" id="economyCharge">
+                    ₩53,600
+                </div>
+            </div>
+        </div>-->
     </div>
-
 </div>
 <button onclick="location.href='/tourism'">관광정보 샘플</button>
 <form>
-<!--    <select id="start_airport" name="start_airport">-->
+    <!--    <select id="start_airport" name="start_airport">-->
 
-<!--    </select>-->
-<!--    <select id="end_airport" name="end_airport"></select>-->
+    <!--    </select>-->
+    <!--    <select id="end_airport" name="end_airport"></select>-->
     <input type="date" id="start_day" name="start_day"/>
     <button type="button" id="search_flight">검색하기</button>
 </form>
@@ -142,7 +180,9 @@
 </table>
 <div th:include="/footer.html :: footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 <script>
 
 
