@@ -58,23 +58,19 @@
                 //     ,usePoint:usePoint
                 //     ,useCouponNo:useUserCouponNo
                 //
-                // },
+                // }
                 , success: function (response) {
                     // 화면 중앙에 위치시키기 위한 x, y 좌표 계산
                     var screenWidth = window.screen.width;
                     var screenHeight = window.screen.height;
                     var popupWidth = 500; // 팝업 창 가로 크기
                     var popupHeight = 600; // 팝업 창 세로 크기
-                    var left = (screenWidth - popupWidth) / 2;
-                    var top = (screenHeight - popupHeight) / 2;
+                    var left = (window.screen.width / 2) - (popupWidth / 2);
+                    var top = (window.screen.height / 2) - (popupHeight / 2);
+
                     // 팝업 창 열기
-                    var popup = window.open(response.next_redirect_pc_url, "_blank", "width=500,height=600");
-                    // 팝업이 열린 후, 부모 창에 메시지를 받을 수 있는 이벤트 리스너 등록
-                    window.addEventListener('message', function (event) {
-                        // 팝업 창에서 전달한 데이터를 이용하여 처리
-                        var dataFromPopup = event.data;
-                        console.log('Data from popup:', dataFromPopup);
-                    });
+                    var popup = window.open(response.next_redirect_pc_url, "_blank", "width=500,height=600,left=" + left + ",top=" + top);
+
                 }
             })
         })

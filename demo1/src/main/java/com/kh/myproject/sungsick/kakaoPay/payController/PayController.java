@@ -59,6 +59,7 @@ public class PayController {
         model.addAttribute("info", approveResponse);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/pay/success");
+        log.info("info : " + approveResponse);
         // 5. payment 저장
         //	orderNo, payMathod, 주문명.
         // - 카카오 페이로 넘겨받은 결재정보값을 저장.

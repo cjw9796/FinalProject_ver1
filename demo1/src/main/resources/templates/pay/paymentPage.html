@@ -20,17 +20,21 @@
                         <section class="firstSection">
                             <div class="fsTop">
                                 <div class="fsTopInfo">
+                                    <!--                                    차 이미지, 클릭시 해당하는 car id가 가지고 있는 이미지 넣기-->
                                     <img class="fsTopInfoLeft"
                                          src="	https://ims-mobility-public.s3.ap-northeast-2.amazonaws.com/cars/6.png">
                                 </div>
 
                                 <div class="fsTopInfoRight">
+                                    <!--                                   차 이름 가져오기-->
                                     <div class="prodName">
                                         굿모닝
                                     </div>
+                                    <!--                                    차 info중 넣을 수 있는 정보 넣기-->
                                     <div class="prodInfo">
                                         23년식 가솔린 5인승
                                     </div>
+                                    <!--                                    차 가격 넣기-->
                                     <div class="prodPrice">
                                         30,000원
                                     </div>
@@ -38,16 +42,19 @@
                             </div>
                             <div class="ReservationInfo">
                                 <div class="card-top">
+                                    <!--                                    렌트시 선택한 date 정보 넣기-->
                                     <div class="card-top-info">
                                         <div class="card-top-info-date">08.23(수)</div>
                                         <div class="card-top-info-time">10:00</div>
                                     </div>
+                                    <!--                                    렌트 시작일, 종료일 계산 넣기-->
                                     <div class="card-top-round-day">1일</div>
                                     <div class="card-top-info">
                                         <div class="card-top-info-date">08.24(목)</div>
                                         <div class="card-top-info-time">10:00</div>
                                     </div>
                                 </div>
+                                <!--                                렌트 할 회사의 위치 (그냥 렌트카 회사 name으로 넣어도 될듯)-->
                                 <div class="card-bottom">
                                     <div class="card-bottom-text">셔틀위치</div>
                                     <div class="card-bottom-address">렌터카하우스</div>
@@ -58,6 +65,7 @@
                     </div>
                     <div class="second-box">
                         <div style="position: relative; height: 20px; background: rgb(246, 246, 246); box-shadow: rgb(246, 246, 246) -16px 26px 16px 39px;"></div>
+                        <!--                        차량 옵션정보 (table만든 데이터 집어넣기)-->
                         <div class="second-box-tabs">
                             <div class="second-box-tabs-non-click" data-a="0" style="color:#00ce7c; font-weight:600">
                                 예약정보
@@ -235,6 +243,7 @@
                                 test222222222
                             </div>
                             <div class="sections-con">
+                                <!--                               업체에 대한 정보 가져오기-->
                                 <section class="company-info" style="padding: 40px">
                                     <div class="company-info-title">
                                         업체정보
@@ -245,6 +254,7 @@
                                                 <div class="label">업체명</div>
                                                 <div class="content">(주)발리렌트카</div>
                                             </div>
+                                            <!-- 리뷰시 작성한 정보 (평점, 점수의 평균점 적용. 점수에 따라 별 갯수 조정 가능?)-->
                                             <div class="company-info-detail-text">
                                                 <div class="label">평점</div>
                                                 <div class="content" style="display: flex; align-items: center;">
@@ -269,11 +279,13 @@
                                                 <div class="content">제주특별자치도 제주시 도리로 110 발리렌트카</div>
                                             </div>
                                         </div>
+                                        <!--                                        여기에 지도 넣기-->
                                         <div class="company-map">
                                             <div id="mapContainer">맵 들어갈자리</div>
                                         </div>
                                     </div>
                                 </section>
+                                <!-- 업체 리뷰 데이터 불러오기-->
                                 <section class="review">
                                     <div class="review-title prod-option">리뷰</div>
                                     <!--여기서 부터 포문-->
@@ -436,6 +448,7 @@
                 </div>
                 <div class="paymentInfoWrap">
                     <section class="payment-info-section">
+                        <!--                        가격정보 불러와서 합하고 표시하기-->
                         <div class="payment-info-title">
                             결제 정보
                         </div>
@@ -455,7 +468,7 @@
                                 <div class="emphasis-price">20,130원</div>
                             </div>
                         </div>
-                        <!--                        컨트롤러 임시 호출-->
+                        <!--                        컨트롤러 임시 호출 결제시 totalPrice데이터 넘기기-->
                         <form action="/pay/payButton" method="get">
                             <button class="_button_default_1vx5o_3 StyledPaymentButton-bNriOy jLwBLr hover:cursor-not-allowed"
                                     type="submit">

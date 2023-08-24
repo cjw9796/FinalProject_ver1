@@ -13,8 +13,6 @@ $(function () {
         $('.sections-con').removeClass('show');
         $('.third-box section:first > div').eq(idx).addClass('show')
     });
-
-
 });
 // if (idx === 0) {
 //     $('.second-box-tabs-clicked-bar').css('margin-left', '0px')
