@@ -6,34 +6,19 @@
     padding: 0px 0px 60px;
 }
 
-
-._wrap_1o5s2_3 {
+.search_bar_wrap {
     position: relative;
     width: 100%;
     height: 100px;
     z-index: 900;
 }
 
-
-._search_bar_wrap_1o5s2_35 {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    z-index: 200;
-    background-color: transparent;
-    -webkit-transform: translateY(-60%);
-    transform: translateY(-60%);
-    position: absolute;
-}
-
-
-._wrap_container_1o5s2_10 {
+.search_bar_wrap_container {
     width: 100%;
     background-color: #fff;
 }
 
-
-._content_wrap_1o5s2_135 {
+.search_bar_wrap_container_line {
     overflow: hidden;
     width: 100%;
     overflow-x: auto;
@@ -45,7 +30,8 @@
 }
 
 
-._search_bar_wrap_1o5s2_35 {
+
+.search_bar_box {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -56,24 +42,15 @@
     position: absolute;
 }
 
-
-._search_bar_1o5s2_35 {
-    display: -webkit-flex;
-    flex-direction: column;
-    height: 125px;
-}
-
-
-._input_wrapper_1o5s2_56 {
+.search_bar_input_box {
     display: grid;
     grid-template-columns: 1fr 110px;
     gap: 20px;
     height: 90px;
-    margin-top: 34.5px;
+    margin-top: 150px;
 }
 
-
-._input_container_1o5s2_64 {
+.search_input_container {
     display: flex;
     align-items: center;
     border-radius: 20px;
@@ -86,35 +63,20 @@
 }
 
 
-._input_wrap_1o5s2_56 {
-    padding: 0 30px;
-    height: 50px;
+
+.search_input_round {
+    width: 100%;
+    height: 46px;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
 }
 
 
-._input_title_1o5s2_83 {
-    display: flex;
-    align-items: center;
-}
-
-
-._input_label_1o5s2_98 {
-    margin-left: 4px;
-    font-size: 15px;
-}
-
-._input_wrap_1o5s2_56 {
-    padding: 0 30px;
-    height: 50px;
-}
-
-._divider_1o5s2_129 {
-    height: 50px;
-    width: 1px;
-    background-color: #eaeaea;
-}
-
-._search_input_1o5s2_88 {
+.search_input_detail {
     border: none;
     padding: 0;
     font-size: 18px;
@@ -125,22 +87,41 @@
 }
 
 
-._input_label_1o5s2_98 {
+
+
+
+
+.input_title_and_detail {
+    padding: 0 30px;
+    height: 50px;
+}
+
+
+.input_title {
+    display: flex;
+    align-items: center;
+}
+
+
+.input_title_text {
     margin-left: 4px;
     font-size: 15px;
 }
 
-._input_image_label_1o5s2_103 {
+
+.input_grid_number {
+    height: 50px;
+    width: 1px;
+    background-color: #eaeaea;
+}
+
+
+.input_title_icon {
     width: 16px;
     height: 16px;
 }
 
-._input_label_1o5s2_98 {
-    margin-left: 4px;
-    font-size: 15px;
-}
-
-._birth_input_wrap_1o5s2_108 {
+.input_birth_wrap {
     display: flex;
     display: -webkit-flex;
     justify-content: center;
@@ -150,15 +131,7 @@
 }
 
 
-._search_button_1o5s2_117 {
-    width: 110px;
-    background-color: #00ce7c;
-    border-radius: 20px;
-    font-size: 20px;
-    box-shadow: 1px 1px 5px #00000026;
-}
-
-._button_default_1vx5o_3 {
+.rentcar_search_button {
     border-width: 0px;
     border-radius: 5px;
     background-color: #00ce7c;
@@ -166,14 +139,25 @@
     outline: none;
 }
 
+.choice_search_button {
+    width: 110px;
+    background-color: #00ce7c;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 1px 1px 5px #00000026;
+}
+
+
+
+
 /*서치바 하단 */
-.bAZFCX {
+.carinfo_wrap {
     margin: 0px auto;
     width: auto;
     max-width: 1140px;
 }
 
-.gYgvXU {
+.carinfo_container {
     position: relative;
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -185,13 +169,13 @@
 
 /*좌측 차량정보 */
 
-.hrlSuA {
+.carinfo_box {
     width: 320px;
     min-height: 430px;
 }
 
 
-.hSHqUm {
+.carinfo_detail {
     position: sticky;
     top: 120px;
     width: 320px;
@@ -205,7 +189,7 @@
     align-items: center;
 }
 
-.iJMLxe {
+.carinfo_year {
     font-size: 11px;
     font-weight: 500;
     padding: 2px 4px;
@@ -213,7 +197,7 @@
     border-radius: 3px;
 }
 
-.foPdyM {
+.carinfo_name {
     font-size: 25px;
     font-weight: bold;
     margin: 15px auto 8px;
@@ -221,7 +205,7 @@
     text-align: center;
 }
 
-.kgtPXc {
+.carinfo_level {
     font-size: 16px;
     font-weight: 500;
     color: rgb(170, 170, 170);
@@ -231,7 +215,7 @@
     text-overflow: ellipsis;
 }
 
-.kCckzP {
+.carinfo_text {
     font-size: 12px;
     line-height: 15px;
     color: rgb(204, 204, 204);
@@ -240,7 +224,7 @@
 
 /* 차량 정보 하단 가격표 */
 
-.czeVZS {
+.carinfo_price {
     width: 100%;
     height: 75px;
     border-radius: 5px;
@@ -254,7 +238,7 @@
 }
 
 
-.ehQrZD {
+.carinfo_carprice {
     font-size: 21px;
     font-weight: bold;
     line-height: 30px;
@@ -262,24 +246,26 @@
     color: rgb(29, 96, 228);
 }
 
-.text-\[\#1d60e4\] {
+
+.text_14px {
+    font-size: 14px;
+}
+
+.text_color_1d60e4 {
     color: rgb(29 96 228);
 }
 
-.text-\[14px\] {
-    font-size: 14px;
-}
 
 
 /*오른쪽 업체선택 */
 
-.hpPXDz {
+.carCompanyinfo_wrap {
     width: 100%;
     position: relative;
 }
 
 
-.deTQrp {
+.carCompanyinfo_container {
 
     position: absolute;
     top: -31px;
@@ -291,7 +277,7 @@
 }
 
 /*검색결과 나열 카테고리 */
-.cGRLYz {
+.result_category {
     gap: 10px;
     display: flex;
     -webkit-box-align: center;
@@ -300,7 +286,7 @@
 
 
 
-.ilAiwx {
+.categoryOn {
     all: unset;
     font-size: 14px;
     font-weight: bold;
@@ -308,7 +294,7 @@
     cursor: pointer;
 }
 
-.bXxNCf {
+.categoryOff {
     all: unset;
     font-size: 14px;
     font-weight: bold;
@@ -316,7 +302,7 @@
     cursor: pointer;
 }
 
-.enBwxV {
+.category_line {
     width: 2px;
     height: 16px;
     background-color: rgb(234, 234, 234);
@@ -324,13 +310,13 @@
 
 /* 업체리스트 */
 
-.ikcVXB {
+.company_list {
     display: flex;
     flex-wrap: wrap;
     gap: 17px;
 }
 
-.hjtjsM {
+.company_item {
     width: 100%;
     height: fit-content;
     background-color: white;
@@ -340,28 +326,28 @@
     cursor: pointer;
 }
 
-.jNgUqu {
+.company_item_box {
     margin-bottom: 10px;
 }
 
-.bmgJBU {
+.company_name {
     font-size: 20px;
     font-weight: bold;
     margin-right: 10px;
     line-height: 26px;
 }
 
+
+.text_23px {
+    font-size: 23px;
+}
+
 .font-semibold {
     font-weight: 600;
 }
 
-.text-\[23px\] {
-    font-size: 23px;
-}
 
-
-
-.hidyRW {
+.company_year {
     padding: 2px 6px;
     background-color: rgb(240, 245, 255);
     border-radius: 3px;
@@ -370,7 +356,7 @@
     margin-right: 5px;
 }
 
-.cChduK {
+.company_text_box {
     font-size: 15px;
     font-weight: normal;
     display: flex;
@@ -378,21 +364,21 @@
     align-items: center;
 }
 
-.kqZvjT {
+.company_text_detail {
     background-color: rgb(215, 215, 215);
     width: 1px;
     height: 12px;
     margin: 0px 5px;
 }
 
-.jGUQNb {
+.company_price {
     font-size: 15px;
     font-weight: 500;
     color: rgb(170, 170, 170);
     text-decoration: line-through;
 }
 
-.cgGRFw {
+.company_option {
     font-size: 14px;
     color: rgb(87, 87, 87);
     border-radius: 5px;
