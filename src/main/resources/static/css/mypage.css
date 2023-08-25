@@ -15,7 +15,7 @@ main{
     margin: 0px auto;
 }
 .mypage_content1{
-    width: 700px;
+    width: 680px;
     height: auto;
     background-color: rgb(255, 255, 255);
     border-radius: 6px;
@@ -30,7 +30,7 @@ main{
     width: max-content;
     height: max-content;
     box-sizing: border-box;
-    top: 152px;
+    /*top: 152px;*/
     user-select: none;
     -webkit-user-drag: none;
 
@@ -571,4 +571,20 @@ li:hover{
     justify-content: center;
     height: 70px;
     width: 190px;
+}
+
+.content1_options{
+
+
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 740px;
+    height: max-content;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 4px;
+    top: 152px;
+    right: 0px;
+    user-select: none;
+    -webkit-user-drag: none;
 }

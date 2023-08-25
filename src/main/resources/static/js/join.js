@@ -60,8 +60,6 @@ $(document).ready(function () {
     // 휴대폰 인증번호를 입력하고 인증하기 클릭시
     $('#auth_submit_btn').click(function () {
 
-        const input_auth_num = $('#auth_num').val();
-
         if (auth_num === input_auth_num || auth_check) { // 처음 눌렸을 경우에는 난수와 input.val()의 입력값을 비교하고(첫번째조건)
             // 이후부터는 input.val()의 값이 바뀌기 ㅈ때문에 인증이 완료된 check값(auth_check)를 이용한다.
 
@@ -225,14 +223,13 @@ $(document).ready(function () {
     // id중복확인 로직
 
     $('#user_id').on('input',(e)=>{
-        console.log(e.target.value);
 
         $('#id_check').removeClass("disappear");
 
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // 이메일 형식검사 정규 표현식
 
         var user_value = e.target.value;
-        console.log("user_value" + user_value);
+
         if (emailPattern.test(user_value)) { // 이메일형식이 맞으면 db와 아이디 중복 검사를 한다.
 
             $.ajax({
@@ -242,15 +239,12 @@ $(document).ready(function () {
                 success:function(data){
                     id_check = data === "success" ? true : false; // true:중복아이디 없음, false:중복아이디있음.
 
-                    console.log("ajax통신 결과 id_check :" + id_check);
 
                     if(id_check){
-                        console.log()
-                        console.log("체크1" + id_check);
+
                         $('#id_check').text("사용가능한 이메일입니다.");
                         $('#id_check').css("color","green");
                     }else{
-                        console.log("체크2");
 
                         $('#id_check').text("중복되는 아이디입니다.");
                         $('#id_check').css("color","red");
