@@ -1,13 +1,12 @@
 
-
-
 $(document).ready(function () {
-
 
 
     const choice_post = document.querySelector(".choice_post");
     const nav_community = document.querySelector("#nav_community");
     const nav_trip = document.querySelector("#nav_trip");
+    const community_under_bar = $('.community'); // community 아래쪽 div
+    const store_under_bar = $('.store'); //store 아래쪽 div
 
 //     const menu_point = document.querySelector(".menu_point"); // 커뮤니티의 홈
 //     const accompany = document.querySelector(".accompany"); // 커뮤니티의 동행
@@ -45,18 +44,26 @@ $(document).ready(function () {
     if (context_path === "community") {
         //스타일 처리
 
+
         nav_community.classList.add('nav_underline');
         nav_trip.classList.remove('nav_underline');
-
-
         $(`.${menu}`).addClass('menu_underline');
+
+        // 커뮤니티/여행상점 선택에 따른 underbar disappear선택
+        community_under_bar.removeClass('disappear');
+        store_under_bar.addClass('disappear');
+
 
     } else if (context_path === "store") {
 
         nav_community.classList.remove('nav_underline');
         nav_trip.classList.add('nav_underline');
-        console.log(`${menu}`);
         $(`.${menu}`).addClass('menu_underline');
+
+        // 커뮤니티/여행상점 선택에 따른 underbar disappear선택
+        community_under_bar.addClass('disappear');
+        store_under_bar.removeClass('disappear');
+
 
     }
 

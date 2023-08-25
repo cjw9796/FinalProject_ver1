@@ -24,10 +24,10 @@
                 </div>
                 <div class="update_main">
 
-                    <div class="myimg"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" id = "myimg"></div>
+                    <div class="myimg"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" id="myimg"></div>
                     <div class="update_user_nick" disabled>
-                        <input name = "user_name" th:value="${user.userName}"  disabled="false"  >
-                        <i class="fa-solid fa-pen" id = "name_update_btn1" style="color: #000000;"></i>
+                        <input name="user_name" th:value="${user.userName}" disabled="false">
+                        <i class="fa-solid fa-pen" id="name_update_btn1" style="color: #000000;"></i>
                     </div>
                     <div class="section_separate_line"></div>
                     <div class="update_user_info">
@@ -44,17 +44,22 @@
                         </div>
                         <div class="text_box">
                             <div class="info_box">
-                                <input type="number" name="user_year" placeholder="년(예 1991)" maxlength="4"  th:value="${user_year}" disabled
-                                       style="width: 166px;" class = "user_info_input">
-                                <input type="number" name="user_month" th:value="${user_month}" style="width: 105px;" class = "user_info_input" disabled>
-                                <input type="number" name="user_day" th:value="${user_day}" style="width: 105px;" class = "user_info_input" disabled>
-                                <input type="text" name="user_gender"  style="width: 105px;" th:value="${user.userGender}"class = "user_info_input" disabled>
+                                <input type="number" name="user_year" placeholder="년(예 1991)" maxlength="4"
+                                       th:value="${user_year}" disabled
+                                       style="width: 166px;" class="user_info_input">
+                                <input type="number" name="user_month" th:value="${user_month}" style="width: 105px;"
+                                       class="user_info_input" disabled>
+                                <input type="number" name="user_day" th:value="${user_day}" style="width: 105px;"
+                                       class="user_info_input" disabled>
+                                <input type="text" name="user_gender" style="width: 105px;"
+                                       th:value="${user.userGender}" class="user_info_input" disabled>
                             </div>
                         </div>
                         <div class="update_pw">
                             <div class="update_pw_text">비밀번호</div>
                             <div class="submit_end">
-                                <input type="password" name="user_password" th:value="${user.userPassword}" class = "user_info_input" disabled>
+                                <input type="password" name="user_password" th:value="${user.userPassword}"
+                                       class="user_info_input" disabled>
                                 <input class="submit_btn" type="button" value="수정하기">
                             </div>
                         </div>
@@ -63,38 +68,79 @@
                 </div>
             </div>
             <div class="mypage_content1 option2 disappear">
-                    <div class="option1_section">
-                        <h5>예약내역</h5>
-                        <div class="section_separate_line"></div>
-                    </div>
+                <div class="option1_section">
+                    <h5>예약내역</h5>
+                    <div class="section_separate_line"></div>
+                </div>
                 <div class="booking_plane">
                     항공권
                 </div>
                 <div class="plane_tickets">
                     <div class="p_ticket">
-                        asd
+                        항공
                     </div>
-                    <div class="p_ticket">
-                        asd
-                    </div>
-                    <div class="p_ticket">
-                        asd
-                    </div>
-                </div>
 
+                </div>
+                <div class="section_separate_line"></div>
                 <div class="booking_plane">
                     렌트카
                 </div>
-                <div class="plane_tickets">
-                    <div class="p_ticket">
-                        asd
+                <div class="rent_tickets">
+                    <div class="r_ticket">
+                        <div class="rt_img">
+                            <div class="car_name">쏘나타 (DN8)</div>
+                            <div class="car_name2">쏘나타 8세대</div>
+                            <img src="/img/sonata.png">
+                            <div class="car_price">89,000원</div>
+                        </div>
+                        <div class="rt_info">
+                            <div class="car_info">
+                                <div class="ci_1">렌트카 정보</div>
+                                <div class="ci_2">
+                                    <div class="ci_2_spe">
+                                        <div class="car_stat">
+                                            <div class="company_name">KH렌트카</div>
+                                            <div class="cs_1">
+                                                19 ~ 20년
+                                                <div class="cs_sl"></div>
+                                                만 21세
+                                                <div class="cs_sl"></div>
+                                                가솔린
+                                                <div class="cs_sl"></div>
+                                                5인승
+
+                                            </div>
+                                        </div>
+
+                                        <div class="car_options">
+                                            안드로이드 오토, 애플 카플레이, 블루투스, 블랙박스, 운전석 에어백, 전방 추돌 방지, 핸들열선, 열선시트, 차선 이탈 경보,
+                                            네비게이션
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rent_separate"></div>
+                            <div class="resuser_info">
+                                <div class="ri_div">
+                                    <div class="rd_1">
+                                        <div class="ri_1">예약자 정보</div>
+                                        <div class="ri_2">
+                                            <div class="ri_2">성함 : 홍길동</div>
+                                            <div class="ri_2">생년월일: 981205</div>
+                                            <div class="ri_2">전화번호: 01011111111</div>
+                                        </div>
+                                    </div>
+                                    <div class="rd_2">
+                                        <div class="ri_1">결제상태</div>
+                                        <div class="ri_3">
+                                            <i class="fa-2xl fa-solid fa-check" style="color: #29ff2c;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p_ticket">
-                        asd
-                    </div>
-                    <div class="p_ticket">
-                        asd
-                    </div>
+
                 </div>
 
             </div>
@@ -122,7 +168,8 @@
                                 <div class="user_profile">
                                     <div class="user_img">
 
-                                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" class = "profile_img"
+                                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}"
+                                                                 alt="" class="profile_img"
                                                                  onclick="location.href='/member/mypage'"></div>
                                     </div>
                                     <div class="user_info">
@@ -133,7 +180,8 @@
                                 <div class="box_shortline"></div>
                                 <div class="trip_profile">
                                     <div class="trip_info">
-                                        <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
                                         </div>
                                         <div class="trip_date">9일 · 10/16-10/24</div>
                                     </div>
@@ -142,7 +190,8 @@
                             </div>
                             <div class="test1_content2">
                                 <img src="/img/place1.jpg">
-                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
                             </div>
                             <div class="test1_content3">
                                 <div class="text_title">
@@ -160,7 +209,8 @@
                                 <div class="user_profile">
                                     <div class="user_img">
 
-                                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" class = "profile_img"
+                                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}"
+                                                                 alt="" class="profile_img"
                                                                  onclick="location.href='/member/mypage'"></div>
                                     </div>
                                     <div class="user_info">
@@ -171,7 +221,8 @@
                                 <div class="box_shortline"></div>
                                 <div class="trip_profile">
                                     <div class="trip_info">
-                                        <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
                                         </div>
                                         <div class="trip_date">9일 · 10/16-10/24</div>
                                     </div>
@@ -180,7 +231,8 @@
                             </div>
                             <div class="test1_content2">
                                 <img src="/img/place1.jpg">
-                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
                             </div>
                             <div class="test1_content3">
                                 <div class="text_title">
@@ -209,7 +261,8 @@
                                 <div class="box_shortline"></div>
                                 <div class="trip_profile">
                                     <div class="trip_info">
-                                        <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
                                         </div>
                                         <div class="trip_date">9일 · 10/16-10/24</div>
                                     </div>
@@ -218,7 +271,8 @@
                             </div>
                             <div class="test1_content2">
                                 <img src="/img/place1.jpg">
-                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
                             </div>
                             <div class="test1_content3">
                                 <div class="text_title">
@@ -245,7 +299,8 @@
                                 <div class="box_shortline"></div>
                                 <div class="trip_profile">
                                     <div class="trip_info">
-                                        <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
                                         </div>
                                         <div class="trip_date">9일 · 10/16-10/24</div>
                                     </div>
@@ -254,7 +309,8 @@
                             </div>
                             <div class="test1_content2">
                                 <img src="/img/place1.jpg">
-                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
                             </div>
                             <div class="test1_content3">
                                 <div class="text_title">
@@ -283,7 +339,8 @@
                                 <div class="box_shortline"></div>
                                 <div class="trip_profile">
                                     <div class="trip_info">
-                                        <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
                                         </div>
                                         <div class="trip_date">9일 · 10/16-10/24</div>
                                     </div>
@@ -292,7 +349,8 @@
                             </div>
                             <div class="test1_content2">
                                 <img src="/img/place1.jpg">
-                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
                             </div>
                             <div class="test1_content3">
                                 <div class="text_title">
@@ -319,7 +377,8 @@
                                 <div class="box_shortline"></div>
                                 <div class="trip_profile">
                                     <div class="trip_info">
-                                        <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
                                         </div>
                                         <div class="trip_date">9일 · 10/16-10/24</div>
                                     </div>
@@ -328,7 +387,8 @@
                             </div>
                             <div class="test1_content2">
                                 <img src="/img/place1.jpg">
-                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
                             </div>
                             <div class="test1_content3">
                                 <div class="text_title">
@@ -354,12 +414,12 @@
                             <div class="user_info_img">
 
 
-                                <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" id = "info_img"
+                                <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt=""
+                                                         id="info_img"
                                                          onclick="location.href='/member/mypage'"></div>
 
                             </div>
-                            <p th:text = "${user.userId}"> </p>
-
+                            <p>1998csj</p>
                         </div>
                         <div class="separate_line"></div>
                     </div>

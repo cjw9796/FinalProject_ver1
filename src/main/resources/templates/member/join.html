@@ -57,9 +57,16 @@
                 <th:block th:if = "${kakao_user.email == ''}">
                     <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}">
                 </th:block>
+
+
             </div>
 
-            <div class="red">비밀번호</div>
+
+
+            <div class="red">
+                <div id = "id_check" class = "disappear"></div>
+
+                비밀번호</div>
 
             <div class="join_small_block">
                 <input type="password" id="user_password" placeholder="비밀번호(8자~16자, 영문+숫자+특수문자 사용)" maxlength="16">
@@ -69,6 +76,8 @@
             <div class="join_small_block">
                 <input type="text" id="user_name" placeholder="성함을 입력하세요" maxlength="10">
             </div>
+
+
             <div class="red">연락처</div>
             <div class = "phone_block">
             <div id = "left_phone_block">
@@ -96,8 +105,8 @@
             <div class="join_small_block">
                 <select id="user_gender">
                     <option value="">성별</option>
-                    <option value="M" th:selected="${kakao_user.gender == 'male'}">남자</option>
-                    <option value="F" th:selected="${kakao_user.gender == 'female'}">여자</option>
+                    <option value="M" th:selected="${kakao_user.gender == 'male'}">남성</option>
+                    <option value="F" th:selected="${kakao_user.gender == 'female'}">여성</option>
                 </select>
             </div>
 
@@ -161,9 +170,12 @@
 
 
 </div>
+
+    <footer th:include="/footer.html :: footer"></footer>
+
 </div>
 
-<div th:include="/footer.html :: footer"></div>
+
 
 </body>
 <script src="/jq/jquery-3.7.0.min.js"></script>

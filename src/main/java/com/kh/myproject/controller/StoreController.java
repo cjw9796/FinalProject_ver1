@@ -11,6 +11,7 @@ public class StoreController {
 
 
 
+
     @RequestMapping("/store/area")
     public String area(){
 
@@ -28,7 +29,6 @@ public class StoreController {
 
     @RequestMapping("/store/rental")
     public String rental(){
-
 
         return "/store/rental";
     }

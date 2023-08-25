@@ -6,6 +6,7 @@ $(document).ready(function () {
 
     var auth_num = ""; // 전역변수로 설정 후 사용자에게 간 문자값을 통신으로 받고나서 변수값에 저장한다.
     var auth_check = false; // 휴대폰 인증여부 체크.
+    var id_check = false; // 아이디 중복 여부 체크.
 
     //인증번호 요청, 재요청 클릭시
     $('#auth_request_btn').click(function () {
@@ -16,14 +17,26 @@ $(document).ready(function () {
 
 
         if (phoneNumberPattern.test(user_phone)) {
+
+
+            $('#auth_block').removeClass('disappear');
+            $('#auth_request_btn').text("재요청");
+
+
+        } else {
+
+            alert("올바른 휴대폰 번호를 입력하세요.");
+
+        }
+
+        if(!auth_check) { // 인증완료가 아직 안됐을 경우.
+
             $.ajax({
                 url: '/member/joinAuth',
                 method: 'POST',
-                data: user_phone,
+                data: {user_phone: user_phone},
                 success: function (data) {
 
-                    $('#auth_block').removeClass('disappear');
-                    $('#auth_request_btn').text("재요청");
 
                     console.log(data); // controller에서 넘긴 data를 받아온다.
                     auth_num = data;
@@ -34,25 +47,31 @@ $(document).ready(function () {
                 error: function () {
 
                 }
+
             });
+        }else {
 
-        } else {
-
-            alert("올바른 휴대폰 번호를 입력하세요.");
-
+            alert("이미 인증이 완료됐습니다.");
         }
     })
-    // 인증하기 클릭시
-    $('#auth_submit_btn').click(function () {
 
-        console.log(auth_num);
+
+
+    // 휴대폰 인증번호를 입력하고 인증하기 클릭시
+    $('#auth_submit_btn').click(function () {
 
         const input_auth_num = $('#auth_num').val();
 
-        if (auth_num === input_auth_num) {// input값의 value와 아까 생성한 난수를 비교한다.
+        if (auth_num === input_auth_num || auth_check) { // 처음 눌렸을 경우에는 난수와 input.val()의 입력값을 비교하고(첫번째조건)
+            // 이후부터는 input.val()의 값이 바뀌기 ㅈ때문에 인증이 완료된 check값(auth_check)를 이용한다.
 
             alert('인증이 완료됐습니다.');
             auth_check = true;
+            $('#auth_num').val("인증완료");
+            $('#auth_num').prop('disabled',true);
+            $('#auth_num').css('color','green');
+            $('#user_phone').prop('disabled',true);
+
 
         } else {
             alert('인증번호를 확인해주세요.');
@@ -201,6 +220,59 @@ $(document).ready(function () {
             btn8 = false;
         }
     })
+    // mbti 버튼 로직끝
+
+    // id중복확인 로직
+
+    $('#user_id').on('input',(e)=>{
+        console.log(e.target.value);
+
+        $('#id_check').removeClass("disappear");
+
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // 이메일 형식검사 정규 표현식
+
+        var user_value = e.target.value;
+        console.log("user_value" + user_value);
+        if (emailPattern.test(user_value)) { // 이메일형식이 맞으면 db와 아이디 중복 검사를 한다.
+
+            $.ajax({
+                url:"/member/checkId",
+                method:"POST",
+                data:{user_id:user_value},
+                success:function(data){
+                    id_check = data === "success" ? true : false; // true:중복아이디 없음, false:중복아이디있음.
+
+                    console.log("ajax통신 결과 id_check :" + id_check);
+
+                    if(id_check){
+                        console.log()
+                        console.log("체크1" + id_check);
+                        $('#id_check').text("사용가능한 이메일입니다.");
+                        $('#id_check').css("color","green");
+                    }else{
+                        console.log("체크2");
+
+                        $('#id_check').text("중복되는 아이디입니다.");
+                        $('#id_check').css("color","red");
+
+
+                    }
+                },
+                error:function(){
+
+                }
+            })
+
+        } else if (!emailPattern.test(user_value)) { // 이메일 형식에 맞게 작성되지 않았다면 이메일 형식에 맞게 하라고 한다.
+
+            $('#id_check').text("이메일 형식에 맞게 아이디를 작성해주세요.") ;
+            $('#id_check').css("color","red");
+
+
+
+        }
+
+    })
 
 
     // 회원가입 버튼 클릭시
@@ -255,9 +327,9 @@ $(document).ready(function () {
         console.log(query)
 
 
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // 이메일 형식검사 정규 표현식
         const phoneNumberPattern = /^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$/; // 휴대폰 형식검사 정규 표현식
         const pwd_pattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // 패스워드 정규 표현식
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // 이메일 형식검사 정규 표현식
 
 
         // 중복된 아이디가 있는지 검사하는 기능 추가해야함.
@@ -268,11 +340,15 @@ $(document).ready(function () {
             alert("아이디를 입력하세요.");
 
             check = false;
-        } else if (!emailPattern.test(query.user_id)) { // 이메일 형식에 맞게 작성되지 않았다면
+
+            } else if (!emailPattern.test(query.user_id)) { // 이메일 형식에 맞게 작성되지 않았다면
 
             alert("이메일 형식에 맞게 아이디를 작성해주세요.(ex : kh1234@naver.com");
             check = false;
 
+        } else if(id_check){
+            alert("중복되는 아이디입니다. 다른 아이디를 사용해주세요.");
+            check = false;
         } else if (query.user_password === "") {
             alert("비밀번호를 입력하세요.");
             check = false;
@@ -314,7 +390,13 @@ $(document).ready(function () {
             check = false;
 
 
+        }else if(!auth_check){
+
+            alert("휴대폰 인증을 완료해주세요.");
         }
+
+
+        console.log(auth_check);
 
 
         if (check && auth_check) { // 유효성 검사를 실시한 후에 이상이 없을 경우에 아래 ajax통신을 실시한다.
@@ -336,34 +418,14 @@ $(document).ready(function () {
             });
 
 
-        }else if(!auth_check){
-
-            alert("휴대폰 인증을 완료해주세요.");
         }
-
     });
 
-
-// ajax통신방법 1.
 
 
 })
 
 
-class Test {
-
-    yeongsub1 = 30;
-
-}
-
-
-let date = new Date();
-
-function abc() {
-
-    console.log(date);
-
-}
 
 
 let test = document.getElementById("#abc");

@@ -14,6 +14,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
 @Slf4j // 데이터베이스 로그를 확인
@@ -90,7 +92,7 @@ public class UserService {
 
     public void saveFile(String img_path, String file_name){
 
-        ClassPathResource resource = new ClassPathResource("/static/file/profile_image/"); // 빈 문자열로 생성
+        ClassPathResource resource = new ClassPathResource("/static/file/"); // 빈 문자열로 생성
         String save_path = "";
 
         //크게 두가지 로직으로 나뉘어진다.
@@ -101,18 +103,22 @@ public class UserService {
         try {
 
 
-            // 이미지 저장경로 설정
-            URL url  = resource.getURL();
+            URL encode_url = resource.getURL();
+            String decode_url = URLDecoder.decode(encode_url.getPath(),"UTF-8");
+
+
+            System.out.println("decode url : " + decode_url);
+            // ClassPathResouce의 전체경로를 가지고 오기 위해서는 URL로 한번 작업을 시켜줘야한다.
+            // 이떄 url 인코딩이 발생하기 때문에 실제 로칼 경로로 참조하기 위해서는 다시 디코딩 시켜준다.
+
             String extension = img_path.substring(img_path.lastIndexOf(".")+1); // 파일이름에서 가장 끝에 있는 확장자명을 가지고온다
             // 가장 끝에 있는 .이후로 자른 글자는 곧 확장자명(jpeg,png,jpg)가 될것이다.
 
-            save_path = url.getPath() + file_name;
-            System.out.println("savePath "  + save_path);
+            save_path = decode_url + file_name;
+            System.out.println("savePath "  + save_path); // 실제 파일 저장 경로.
             File imageFile = new File(save_path);
 
-
-
-            // 웹서버의 이미지 가지고 오기.
+            // 웹서버의 이미지 가지고 오기.필
             URL img_url = new URL(img_path); // 매개변수로 받은 카카오톡 프로필 이미지 url
             BufferedImage image =  ImageIO.read(img_url);;
 

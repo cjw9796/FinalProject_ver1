@@ -20,6 +20,9 @@ import java.util.HashMap;
 public class MemberService {
 
 
+
+    // 강사님 client_id : ae7f5b9c9c8ad78f7f1cc5bbf3379d50
+    // 내 client_id : d50ee5df80cd1482f2ef5c34906981cb
     //인가 코드를 이용해 토큰값(accessToken)을 가져오는 메서드
     public String getAccessToken(String authorize_code) {
 

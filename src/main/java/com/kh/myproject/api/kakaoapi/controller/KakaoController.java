@@ -46,6 +46,15 @@ public class KakaoController {
     UserService userService;
 
 
+    @RequestMapping("kakaohome")
+    public String kakaohome(){
+
+
+
+        return "kakaoLogin/index";
+    }
+
+
 
     @RequestMapping("kakaologout")
     public String kakaoLogout(){
@@ -55,7 +64,7 @@ public class KakaoController {
         return "kakaoLogin/logout";
     }
 
-    @RequestMapping("/kakaologin")
+    @RequestMapping("kakaologin")
 
     public RedirectView kakaologin(@RequestParam("code") String code,
                                    RedirectAttributes ra,

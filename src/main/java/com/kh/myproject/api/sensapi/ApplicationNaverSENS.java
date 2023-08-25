@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Data
 @Service
 @Getter
-@AllArgsConstructor ㅠㅗ
+@AllArgsConstructor
 @NoArgsConstructor
 public class ApplicationNaverSENS {
 

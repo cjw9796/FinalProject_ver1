@@ -156,7 +156,7 @@
 
 .join_small_block{
 
-    width: 330px;
+    width: 350px;
     height: 40px;
     margin:0 auto;
     margin-bottom: 10px;
@@ -350,4 +350,15 @@ select{
 #auth_submit_btn{
 
     border-radius: 0 5px 5px 0;
+}
+
+#id_check{
+
+    width: 330px;
+    color:red;
+    margin : 0 auto;
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 10px;
+
 }

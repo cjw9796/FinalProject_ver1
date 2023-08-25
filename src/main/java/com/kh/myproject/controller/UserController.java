@@ -87,6 +87,23 @@ public class UserController {
 
     }
 
+    @ResponseBody
+    @PostMapping("member/checkId")
+    public String checkId(@ModelAttribute("user_id") String user_id){
+
+        System.out.println("넘어온값 :" + user_id);
+        User user = userService.getUserById(user_id);
+        if(user == null){
+
+            return "success";
+        }else{
+
+            return "fail";
+        }
+
+
+    }
+
     @PostMapping("member/loginPro")
     public ModelAndView loginPro(@RequestParam("user_id") String user_id,
                                  @RequestParam("user_password") String user_password,
@@ -140,15 +157,17 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("member/joinAuth")
-    public String joinAuth(){
-//        @RequestParam("phone_number")String phone_number
+    public String joinAuth(@ModelAttribute("user_phone")String user_phone){
+
 //
-//        smsService.senn
-//
-//        Map<String,Object> result = smsService.authUser(phone_number);
+//        System.out.println("join_auth 메서드 실행");
+//        Map<String,Object> result = smsService.authUser(user_phone);
 //        SendSmsResponseDto ssrd = (SendSmsResponseDto) result.get("ssrd");
 //        String ran_num = (String) result.get("ran_num");
+//        System.out.println("ran_num" + ran_num);
+//        System.out.println("srrd  : " + ssrd);
 //        String response = "";
+//        System.out.println(ran_num);
 //        if(ssrd.getStatusCode().equals("202")){
 //
 //            response = ran_num;
@@ -173,6 +192,7 @@ public class UserController {
             }
 
         }
+
 
 
         return ran_num;
