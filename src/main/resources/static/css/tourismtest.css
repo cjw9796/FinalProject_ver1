@@ -469,7 +469,7 @@ ul, ol {
     width: 300px;
 }
 .service_modal{
-    width: 500px;
+    width: auto;
 }
 .modal_content_type_box {
     overflow: hidden;

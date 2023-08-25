@@ -3,6 +3,9 @@ h2{
     font-weight: bold;
 }
 
+h4{
+    font-weight: bold;
+}
 .tour_main_container {
     width: 1100px;
 
@@ -10,7 +13,7 @@ h2{
     padding-top: 35px;
 }
 
-.tour_main_box {
+.tour_main_box, .flight_rank_box {
     margin: 30px 0px;
     display: flex;
     justify-content: space-around;
@@ -119,6 +122,7 @@ h2{
     content: "";
     position: absolute;
     background-image: url(https://d2ur7st6jjikze.cloudfront.net/landscapes/4744_large_1535960572.jpg?1535960572);
+    
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -183,7 +187,7 @@ h2{
 .cities_card_container {
     margin: 0 auto;
     margin-top: 35px;
-    width: 1100px;
+    width: 1050px;
 }
 
 .cities_tour_category h2 {
@@ -218,12 +222,38 @@ h2{
     transition: opacity 0.5s;
 }
 
-.cities_card:first-child {
-    background-image: url("http://tong.visitkorea.or.kr/cms/resource/33/2678633_image2_1.jpg");
+.cities_card {
+    padding: 15px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    text-align: center;
 }
 
+#place1{
+    background-image: url("http://tong.visitkorea.or.kr/cms/resource/33/2678633_image2_1.jpg");
+}
+#place2{
+    background-image: url("https://korean.visitseoul.net/comm/getImage?srvcId=MEDIA&parentSn=51629&fileTy=MEDIA&fileNo=1");
+}
+#place3{
+    background-image: url("http://tong.visitkorea.or.kr/cms/resource/81/2668981_image2_1.jpg");
+}
+#place4{
+    background-image: url("https://i.namu.wiki/i/5gF-6k-Y1fZyVNeMrxYfNRQCF5enA1nrBwUj5RrcaLrlppOeoL1PKeKqCOc8YdWOM7uG5aPoq9OwOTiaugHhIw.webp");
+}
+#place5{
+    background-image: url("https://offloadmedia.feverup.com/secretseoul.com/wp-content/uploads/2022/10/07213201/shutterstock_1089015854-1-1024x683.jpg");
+}
+#place6{
+    background-image: url("https://tong.visitkorea.or.kr/cms/resource/06/2512006_image2_1.jpg");
+}
+#place7{
+    background-image: url("https://www.sisul.or.kr/open_content/cheonggye/images/visual_mb.jpg");
+}
+#place8{
+    background-image: url("http://tong.visitkorea.or.kr/cms/resource/72/2658572_image2_1.jpg");
+}
 .cities_card button {
     background-color: rgba(0, 0, 0, 0);
     border: none;
@@ -241,11 +271,58 @@ h2{
 
 .cities_card span{
     color: #ffffff;
-    position: absolute;
     text-shadow: 2px 2px 2px black;
-    top: 15px;
     font-size: 22px;
     font-weight: 500;
-    left: 35%;
     opacity: 0;
+}
+
+.flight_rank_container{
+    margin: 0 auto;
+    width: 1100px;
+    margin-top: 50px;
+}
+.flight_rank_card{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 250px;
+    height: 250px;
+    background: rgb(255, 255, 255);
+    border-radius: 14px;
+    box-shadow: rgba(25, 25, 25, 0.2) 0px 6px 10px;
+}
+.flight_rank_title{
+    vertical-align: middle;
+}
+.flight_rank_bgimg{
+
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 14px;
+}
+#flight_jeju{
+    background-image: url("https://media.interparkcdn.net/interpark-tour/w_232,h_232,q_auto,f_auto/city/236/850/CJU/00006");
+}
+#flight_busan{
+
+    background-image: url("https://media.interparkcdn.net/interpark-tour/w_232,h_232,q_auto,f_auto/city/736/602043/PUS/00003");
+}
+#flight_yeosu{
+    background-image: url("https://media.interparkcdn.net/interpark-tour/w_232,h_232,q_auto,f_auto/city/703/3042/RSU/00001");
+}
+.flight_rank_text{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.flight_rank_text span{
+    margin: 0 10px;
+}
+.flight_rank_text i:before{
+    content: url("https://openimage.interpark.com/tour-desktop/pages/air/main/icon-oneway.png");
 }
