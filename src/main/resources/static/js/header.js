@@ -1,12 +1,13 @@
+
+
+
 $(document).ready(function () {
+
 
 
     const choice_post = document.querySelector(".choice_post");
     const nav_community = document.querySelector("#nav_community");
     const nav_trip = document.querySelector("#nav_trip");
-
-
-
 
 //     const menu_point = document.querySelector(".menu_point"); // 커뮤니티의 홈
 //     const accompany = document.querySelector(".accompany"); // 커뮤니티의 동행
@@ -59,14 +60,15 @@ $(document).ready(function () {
 
     }
 
-
-    function appear_menu() {
+    $('#write_btn').click(()=>{
         if (choice_post.classList.contains("disappear")) {
             choice_post.classList.remove("disappear");
         } else {
             choice_post.classList.add("disappear");
         }
-    }
+
+    })
+
 
 
 // 커뮤니티 클릭
@@ -157,3 +159,4 @@ $(document).ready(function () {
 
 
 })
+
