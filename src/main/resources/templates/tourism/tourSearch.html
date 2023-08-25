@@ -5,7 +5,7 @@
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/css/tourismtest.css}">
+    <link rel="stylesheet" th:href="@{/css/tour/tourismtest.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<div class="next">
 <div th:include="/header.html :: header"></div>
 <div class="modal_container area_container">
     <div class="modal_form area_modal">
@@ -163,15 +164,14 @@
         <div class="tour_search_title">
             <h2>관광 정보 검색</h2>
         </div>
-        <div class="search_type_container">
-            <div class="type_btn">
-                <button class="type_area_btn on">지역별 관광정보</button>
-            </div>
-            <div class="type_btn">
-                <button class="type_keyword_btn off">통합검색</button>
-            </div>
-        </div>
+
         <div class="tour_search_table">
+            <div class="tour_search_row">
+                <div class="tour_search_col" id="colspan">
+                    <button class="type_area_btn on">지역별 검색</button>
+                    <button class="type_keyword_btn off">통합 검색</button>
+                </div>
+            </div>
             <div class="tour_search_row">
                 <div class="tour_search_col">
                     <span>지역</span>
@@ -192,7 +192,7 @@
             </div>
             <div class="tour_search_row">
                 <div class="tour_search_col">
-                    <span style="font-size: 16px;">서비스 분류</span>
+                    <span>서비스 분류</span>
                 </div>
                 <div class="tour_search_col">
                     <div class="search_option_text" id="area_category_code">12</div>
@@ -214,15 +214,14 @@
         <div class="tour_search_title">
             <h2>관광 정보 검색</h2>
         </div>
-        <div class="search_type_container">
-            <div class="type_btn">
-                <button class="type_area_btn off">지역별 관광정보</button>
-            </div>
-            <div class="type_btn">
-                <button class="type_keyword_btn on">통합검색</button>
-            </div>
-        </div>
+
         <div class="tour_search_table">
+            <div class="tour_search_row">
+                <div class="tour_search_col" id="colspan">
+                    <button class="type_area_btn off">지역별 검색</button>
+                    <button class="type_keyword_btn on">통합 검색</button>
+                </div>
+            </div>
             <div class="tour_search_row">
                 <div class="tour_search_col">
                     <span>지역</span>
@@ -234,7 +233,7 @@
             </div>
             <div class="tour_search_row">
                 <div class="tour_search_col">
-                    <span style="font-size: 16px;">서비스 분류</span>
+                    <span>서비스 분류</span>
                 </div>
                 <div class="tour_search_col">
                     <div class="search_option_text" id="keyword_category_code">12</div>
@@ -276,6 +275,7 @@
 
 
 <div th:include="/footer.html :: footer"></div>
+</div>
 <!--<script>
     $('#search_area_btn').on('click', function(){
         alert('모달');
@@ -328,7 +328,8 @@
         });
     }
 </script>-->
-<script type="text/javascript" th:src="@{/js/tourSearch.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/tour/tourSearch.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
