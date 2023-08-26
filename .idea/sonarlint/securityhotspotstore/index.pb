@@ -7,5 +7,3 @@ k
 Mdemo1/src/main/java/com/kh/myproject/kakaoapi/controller/KakaoController.java,5\a\5a9244f0e1ce391e529c0a1fec1569e7eff4a7e0
 x
 Hdemo1/src/main/java/com/kh/myproject/kakaoapi/service/MemberService.java,e\b\eb9d4080846d5ea0ffbdd3f0e8c41f21ddb0b373
-B
-demo1/build.gradle,2\d\2d2b13be4a48b1cb2fe7a35cbe3c7daa9396e0c5

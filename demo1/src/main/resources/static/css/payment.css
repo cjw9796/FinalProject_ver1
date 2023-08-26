@@ -375,9 +375,6 @@
     display: none;
 }
 
-.show {
-    display: block;
-}
 
 .prod-option {
     display: flex;
@@ -669,14 +666,6 @@ button, html [type=button], [type=reset], [type=submit] {
     margin-left: 15px;
 }
 
-._button_default_1vx5o_3 {
-    border-width: 0px;
-    border-radius: 5px;
-    background-color: #00ce7c;
-    color: #fff;
-    outline: none;
-}
-
 [type=button], [type=reset], [type=submit], button {
     -webkit-appearance: button;
 }
@@ -899,6 +888,7 @@ button, input, optgroup, select, textarea {
     outline: none;
 }
 
+
 button {
     appearance: auto;
 
@@ -1010,4 +1000,456 @@ button {
     color: rgb(40, 40, 40);
     background: rgb(255, 255, 255);
     border: 1px solid rgb(234, 234, 234);
+}
+
+.insurance-title {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.insurance-title-explanation {
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.insurance-locations {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background: rgb(249, 249, 249);
+    margin: 20px 0px;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(170, 170, 170);
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.insurance-locations div {
+    flex: 1 1 0%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+
+.locationClick {
+    background: rgb(234, 234, 234);
+    color: rgb(40, 40, 40);
+    font-weight: 600;
+}
+
+/*.jeju {*/
+/*    background: rgb(234, 234, 234);*/
+/*    color: rgb(40, 40, 40);*/
+/*    font-weight: 600;*/
+/*}*/
+
+.insurance-info {
+    width: 100%;
+    font-size: 14px;
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.insurance-info thead {
+    background: rgb(249, 249, 249);
+    color: rgb(170, 170, 170);
+    text-align: center;
+}
+
+.insurance-info thead tr {
+    border-top: 1px solid rgb(244, 244, 244);
+    border-bottom: 1px solid rgb(244, 244, 244);
+}
+
+.insurance-info thead tr th {
+    font-weight: 400;
+    width: 33.3%;
+    height: 30px;
+}
+
+.insurance-info tbody {
+    color: rgb(40, 40, 40);
+}
+
+.insurance-info tbody tr {
+    border-bottom: 1px solid rgb(244, 244, 244);
+}
+
+.insurance-info tbody tr td {
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    text-align: center;
+    cursor: default;
+}
+
+.insurance-info-bottom {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(40, 40, 40);
+    margin: 12px 0px 20px;
+}
+
+.insurance-info-bottom div:nth-child(1) {
+    margin-bottom: 7px;
+}
+
+.insurance-info-detailBox {
+    border: 1px solid rgb(234, 234, 234);
+    padding: 13px 20px;
+}
+
+.insurance-info-detail {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.insurance-info-detail-textBox {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.policy-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(40, 40, 40);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.precautions {
+    padding: 20px 40px;
+}
+
+.precautions-con {
+    margin-bottom: 40px;
+}
+
+.precautions-con-title {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.precautions-con-detail {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(40, 40, 40);
+}
+
+.precautions-con-detail-textBox {
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: rgb(40, 40, 40);
+    margin-right: 10px;
+}
+
+.precautions-con-detail table {
+    width: 100%;
+}
+
+.precautions-con-detail thead {
+    font-size: 13px;
+    background: rgb(247, 247, 247);
+}
+
+.precautions-con-detail table thead tr {
+    border-top: 1px solid rgb(237, 237, 237);
+}
+
+.precautions-con-detail table thead tr th:first-child {
+    border-right: 1px solid rgb(237, 237, 237);
+}
+
+.precautions-con-detail table thead tr th {
+    height: 24px;
+    font-weight: 400;
+}
+
+.trPaint {
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    text-align: center;
+    color: #00ce7c;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.precautions-con-detail table tbody tr {
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+.precautions-con-detail table tbody tr td:first-child {
+    border-right: 1px solid rgb(237, 237, 237);
+}
+
+.precautions-con-detail table tbody tr td {
+    text-align: center;
+    height: 32px;
+}
+
+.precautions-con .shuttle-button {
+    display: flex;
+    justify-content: space-evenly;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 42px;
+    font-size: 15px;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 5px;
+    color: rgb(40, 40, 40);
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.precautions-con .shuttle-button div {
+    flex: 1 1 0%;
+    text-align: center;
+}
+
+.ant-modal-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    background-color: #00000073;
+}
+
+.ant-modal-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    outline: 0;
+    z-index: 1000;
+}
+
+.ant-modal {
+
+    box-sizing: border-box;
+    padding: 0 0 24px;
+    color: #000000d9;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum";
+    pointer-events: none;
+    position: relative;
+    top: 100px;
+    width: auto;
+    max-width: calc(100vw - 16px);
+    margin: 8px auto;
+}
+
+.contentBox {
+    width: 580px;
+    transform-origin: 216.5px 845px;
+    border-radius: 10px;
+    width: 580px !important;
+}
+
+.contentBox .ant-modal-content {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 4px 0px;
+}
+
+.ant-modal-content {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+    pointer-events: auto;
+}
+
+.ant-modal-body {
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5715;
+    word-wrap: break-word;
+}
+
+.modal-intro-content {
+    height: auto;
+    background: rgb(234, 234, 234);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    word-break: keep-all;
+}
+
+.modal-content-sections {
+    margin-bottom: 50px;
+}
+
+.modal-content-sections .title {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.modal-content-sections .img {
+    display: flex;
+    flex: 1 1 0%;
+    margin: 15px 0px;
+    background: rgb(242, 246, 253);
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 280px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.modal-content-sections .sub-description {
+    font-size: 13px;
+    color: rgb(146, 146, 146);
+    margin-top: 10px;
+}
+
+.modal-content-sections .img img {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content-sections .description {
+    font-size: 14px;
+}
+
+.modal {
+    display: none;
+}
+
+.modal-content-sections:last-child img {
+    width: 228px;
+    height: 218px;
+}
+
+.modal-content-sections .description .list {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.modal-content-sections .imgsmaller img {
+    width: 49%;
+    height: 100%;
+}
+
+.modal-content-sections .imgsmaller img:nth-child(2) {
+    margin-left: 5px;
+}
+
+.policy-detail {
+    max-height: 0px;
+    position: relative;
+    color: rgb(112, 112, 112);
+    top: 10px;
+    margin-bottom: 0px;
+}
+
+.arrow {
+    width: 14px;
+    height: 14px;
+    transform: rotate(0);
+    -webkit-transform: rotate(0deg);
+    transition: -webkit-transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
+    -webkit-transition: transform .5s
+}
+
+.onArrow {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg)
+}
+
+.hiddenContent {
+    overflow: hidden;
+    transition: max-height .5s;
+    -webkit-transition: max-height .5s;
+}
+
+.show {
+    display: block;
+}
+
+.showTale {
+    display: table;
+}
+
+.success-result-info {
+    height: auto;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    word-break: keep-all;
+}
+
+.orderInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.orderInfo-detail {
+    margin-bottom: 50px;
+    border-top: 1px solid black;
+}
+
+.orderInfo-con {
+    padding-top: 10px;
+    font-size: 14px;
+    word-break: keep-all;
+}
+
+.orderBox {
+    width: 580px;
+    transform-origin: 216.5px 845px;
+    border-radius: 10px;
+    width: 500px !important;
 }

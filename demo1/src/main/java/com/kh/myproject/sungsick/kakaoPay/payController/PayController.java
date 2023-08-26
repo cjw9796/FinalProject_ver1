@@ -90,6 +90,13 @@ public class PayController {
         return modelAndView;
     }
 
+    @GetMapping("/pay/test11")
+    public ModelAndView successFront() {
+        ModelAndView successFront = new ModelAndView();
+        successFront.setViewName("pay/test11");
+        return successFront;
+    }
+
 }
 
 
