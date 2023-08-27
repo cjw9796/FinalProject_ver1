@@ -1,4 +1,4 @@
-package com.kh.myproject.api.blogsearch;
+package com.kh.myproject.api.tour;
 
 import java.io.*;
 import java.net.HttpURLConnection;

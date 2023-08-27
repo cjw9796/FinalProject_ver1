@@ -1,20 +1,12 @@
 package com.kh.myproject.store.tour.contoller;
 
-import com.kh.myproject.api.CallOpenAPI;
-import com.kh.myproject.api.blogsearch.BlogSearch;
+import com.kh.myproject.api.tour.CallTourAPI;
+import com.kh.myproject.api.tour.BlogSearch;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.ast.Call;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 @RestController
 @Slf4j
@@ -62,14 +54,14 @@ public class TourController {
         StringBuilder result = new StringBuilder();
         String url = TOURAPI_URL + "areaCode1?" + SERVICE_KEY + "&numOfRows=17" + LAST_URL;
 
-        return CallOpenAPI.getData(url);
+        return CallTourAPI.getData(url);
     }
 
     @GetMapping("/tour/getSigungu")
     public String getSigungu(@RequestParam String areaCode) throws Exception{
         String url = TOURAPI_URL + "areaCode1?" + SERVICE_KEY + "&areaCode=" + areaCode +
                     "&numOfRows=40" + LAST_URL;
-        return CallOpenAPI.getData(url);
+        return CallTourAPI.getData(url);
     }
 //    @GetMapping("/tourismInfo")
 //    public String tourismInfo(){
