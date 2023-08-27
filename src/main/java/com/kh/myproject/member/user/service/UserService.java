@@ -1,7 +1,7 @@
-package com.kh.myproject.service;
+package com.kh.myproject.member.user.service;
 
 
-import com.kh.myproject.model.entity.User;
+import com.kh.myproject.member.user.model.entity.User;
 import com.kh.myproject.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

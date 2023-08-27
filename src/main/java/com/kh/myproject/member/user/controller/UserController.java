@@ -1,8 +1,8 @@
 package com.kh.myproject.member.user.controller;
 
 
-import com.kh.myproject.model.entity.User;
-import com.kh.myproject.service.UserService;
+import com.kh.myproject.member.user.model.entity.User;
+import com.kh.myproject.member.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
