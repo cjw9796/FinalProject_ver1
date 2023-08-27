@@ -1,0 +1,37 @@
+.container{
+
+    border:1px solid black;
+    width: 700px;
+    height: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.login_btn{
+
+    margin: 0 auto;
+    border : 1px solid gray;
+    width: 400px;
+    height: 80px;
+    border-radius: 5px;
+}
+
+#kakao_btn{
+
+    border : 0px;
+    background-color: #FEE501;
+}
+
+.login_block{
+
+    width: 500px;
+    height: 70px;
+    margin: 0 auto;
+}
+.login_block input{
+
+    width: 300px;
+    height: 70px;
+
+}
