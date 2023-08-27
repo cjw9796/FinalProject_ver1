@@ -1,4 +1,4 @@
-package com.kh.myproject.sungsick.kakaoPay.payVO;
+package com.kh.myproject.api.kakaoPay.payVO;
 
 import java.util.Date;
 

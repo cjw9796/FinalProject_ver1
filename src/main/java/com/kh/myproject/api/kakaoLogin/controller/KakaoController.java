@@ -1,8 +1,9 @@
-package com.kh.myproject.kakaoapi.controller;
+package com.kh.myproject.api.kakaoLogin.controller;
 
 
 
-import com.kh.myproject.kakaoapi.service.MemberService;
+
+import com.kh.myproject.api.kakaoLogin.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

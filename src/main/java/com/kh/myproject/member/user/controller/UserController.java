@@ -1,4 +1,4 @@
-package com.kh.myproject.controller;
+package com.kh.myproject.member.user.controller;
 
 
 import com.kh.myproject.model.entity.User;

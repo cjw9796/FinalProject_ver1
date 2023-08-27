@@ -1,7 +1,8 @@
-package com.kh.myproject.sungsick.kakaoPay.payService;
+package com.kh.myproject.api.kakaoPay.payService;
 
-import com.kh.myproject.sungsick.kakaoPay.payVO.KakaoPayApprovalVO;
-import com.kh.myproject.sungsick.kakaoPay.payVO.KakaoPayReadyVO;
+
+import com.kh.myproject.api.kakaoPay.payVO.KakaoPayApprovalVO;
+import com.kh.myproject.api.kakaoPay.payVO.KakaoPayReadyVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
