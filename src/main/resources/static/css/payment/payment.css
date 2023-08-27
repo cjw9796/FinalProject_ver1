@@ -209,16 +209,10 @@
     margin-right: 15px;
 }
 
-.fsTopInfoLeft {
+.fsTopInfoLeft  {
+    width: 185px;
+    margin: auto;
     display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    color: rgb(40, 40, 40);
-    width: 230px;
-    height: 110px;
-    margin-right: 15px;
 }
 
 .prodName {
