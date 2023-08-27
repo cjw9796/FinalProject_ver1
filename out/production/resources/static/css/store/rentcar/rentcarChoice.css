@@ -1,0 +1,388 @@
+/* 검색창 css */
+.choice_wrapper {
+    background-color: rgb(246, 246, 246);
+    min-height: calc(100vh - 246px);
+    height: auto;
+    padding: 0px 0px 60px;
+}
+
+.search_bar_wrap {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    z-index: 900;
+}
+
+.search_bar_wrap_container {
+    width: 100%;
+    background-color: #fff;
+}
+
+.search_bar_wrap_container_line {
+    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+
+
+.search_bar_box {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    z-index: 200;
+    background-color: transparent;
+    -webkit-transform: translateY(-60%);
+    transform: translateY(-60%);
+    position: absolute;
+}
+
+.search_bar_input_box {
+    display: grid;
+    grid-template-columns: 1fr 110px;
+    gap: 20px;
+    height: 90px;
+    margin-top: 150px;
+}
+
+.search_input_container {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px #0000000d;
+    width: 100%;
+    display: grid;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+.search_input_round {
+    width: 100%;
+    height: 46px;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+}
+
+
+.search_input_detail {
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    height: 22px;
+    margin-top: 10px;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+
+.input_title_and_detail {
+    padding: 0 30px;
+    height: 50px;
+}
+
+
+.input_title {
+    display: flex;
+    align-items: center;
+}
+
+
+.input_title_text {
+    margin-left: 4px;
+    font-size: 15px;
+}
+
+
+.input_grid_number {
+    height: 50px;
+    width: 1px;
+    background-color: #eaeaea;
+}
+
+
+.input_title_icon {
+    width: 16px;
+    height: 16px;
+}
+
+.input_birth_wrap {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 22px;
+    margin-top: 10px;
+}
+
+
+.rentcar_search_button {
+    border-width: 0px;
+    border-radius: 5px;
+    background-color: #00ce7c;
+    color: #fff;
+    outline: none;
+}
+
+.choice_search_button {
+    width: 110px;
+    background-color: #00ce7c;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 1px 1px 5px #00000026;
+}
+
+
+
+
+/*서치바 하단 */
+.carinfo_wrap {
+    margin: 0px auto;
+    width: auto;
+    max-width: 1140px;
+}
+
+.carinfo_container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    height: auto;
+    margin-top: 110px;
+}
+
+
+/*좌측 차량정보 */
+
+.carinfo_box {
+    width: 320px;
+    min-height: 430px;
+}
+
+
+.carinfo_detail {
+    position: sticky;
+    top: 120px;
+    width: 320px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 6px 0px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.carinfo_year {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 4px;
+    background-color: rgb(244, 244, 244);
+    border-radius: 3px;
+}
+
+.carinfo_name {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px auto 8px;
+    line-height: normal;
+    text-align: center;
+}
+
+.carinfo_level {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(170, 170, 170);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.carinfo_text {
+    font-size: 12px;
+    line-height: 15px;
+    color: rgb(204, 204, 204);
+    margin: 0px;
+}
+
+/* 차량 정보 하단 가격표 */
+
+.carinfo_price {
+    width: 100%;
+    height: 75px;
+    border-radius: 5px;
+    border: 1px solid rgb(29, 96, 228);
+    margin-top: 33px;
+    padding: 14px 0px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+.carinfo_carprice {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0px;
+    color: rgb(29, 96, 228);
+}
+
+
+.text_14px {
+    font-size: 14px;
+}
+
+.text_color_1d60e4 {
+    color: rgb(29 96 228);
+}
+
+
+
+/*오른쪽 업체선택 */
+
+.carCompanyinfo_wrap {
+    width: 100%;
+    position: relative;
+}
+
+
+.carCompanyinfo_container {
+
+    position: absolute;
+    top: -31px;
+    width: 100%;
+    height: 17px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+/*검색결과 나열 카테고리 */
+.result_category {
+    gap: 10px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+
+.categoryOn {
+    all: unset;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+
+.categoryOff {
+    all: unset;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(204, 204, 204);
+    cursor: pointer;
+}
+
+.category_line {
+    width: 2px;
+    height: 16px;
+    background-color: rgb(234, 234, 234);
+}
+
+/* 업체리스트 */
+
+.company_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+
+.company_item {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 8px;
+    padding: 25px 30px;
+    cursor: pointer;
+}
+
+.company_item_box {
+    margin-bottom: 10px;
+}
+
+.company_name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    line-height: 26px;
+}
+
+
+.text_23px {
+    font-size: 23px;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+
+.company_year {
+    padding: 2px 6px;
+    background-color: rgb(240, 245, 255);
+    border-radius: 3px;
+    font-size: 12px;
+    color: rgb(29, 96, 228);
+    margin-right: 5px;
+}
+
+.company_text_box {
+    font-size: 15px;
+    font-weight: normal;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.company_text_detail {
+    background-color: rgb(215, 215, 215);
+    width: 1px;
+    height: 12px;
+    margin: 0px 5px;
+}
+
+.company_price {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(170, 170, 170);
+    text-decoration: line-through;
+}
+
+.company_option {
+    font-size: 14px;
+    color: rgb(87, 87, 87);
+    border-radius: 5px;
+    background-color: rgb(249, 249, 249);
+    padding: 10px 15px;
+    margin-top: 25px;
+}

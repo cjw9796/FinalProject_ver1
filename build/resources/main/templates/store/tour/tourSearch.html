@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/store/tour/tour.css}">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+
+</head>
+<body>
+<div class="next">
+<div th:include="/header.html :: header"></div>
+<div class="modal_container area_container">
+    <div class="modal_form area_modal">
+        <button class="modal_close_btn">닫기</button>
+        <div class="modal_wrap">
+            <div class="modal_head">
+                <strong class="modal_title">지역 선택</strong>
+            </div>
+            <div class="modal_body">
+                <ul class="modal_sido_box">
+                    <li class="box" id="area_box">
+                        <p class="box_title">광역시/도</p>
+                        <div class="btn_list nationwide">
+                            <button class="modal_btn sel" onclick="insertArea(this)" value="">전국</button>
+                        </div>
+                        <div class="btn_list" id="area_list1">
+
+                        </div>
+                    </li>
+                    <li class="box box_sigungu">
+                        <p class="box_title">시/군/구</p>
+                        <div class="btn_list all_sigungu">
+                            <button class="modal_btn sel" onclick="insertAreaCode(this)" value="">전체</button>
+                        </div>
+                        <div class="btn_list sigungu_list">
+                            <!--<button class="modal_btn sigungu_btn">강남구</button>
+                            <button class="modal_btn sigungu_btn">강북구</button>
+                            <button class="modal_btn sigungu_btn">강서구</button>
+                            <button class="modal_btn sigungu_btn">강동구</button>
+                            <button class="modal_btn sigungu_btn">강동구</button>
+                            <button class="modal_btn sigungu_btn">강동구</button>
+                            <button class="modal_btn sigungu_btn">강동구</button>
+                            <button class="modal_btn sigungu_btn">강동구</button>
+                            <button class="modal_btn sigungu_btn">강동구</button>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal_foot">
+                <button class="modal_btn modal_confirm_btn" id="area_confirm_btn">확인</button>
+                <button class="modal_btn modal_cancel_btn" id="area_cancel_btn">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal_container content_type_container">
+    <div class="modal_form content_type_modal">
+        <button class="modal_close_btn">닫기</button>
+        <div class="modal_wrap">
+            <div class="modal_head">
+                <strong class="modal_title">관광타입</strong>
+            </div>
+            <div class="modal_body">
+                <ul class="modal_content_type_box">
+                    <li class="box content_box" id="content_type_box">
+                        <p class="box_title">관광타입</p>
+                        <div class="btn_list">
+                            <button class="modal_btn" name="contentTypeId" id="12">관광지</button>
+                            <button class="modal_btn" name="contentTypeId" id="14">문화시설</button>
+                            <button class="modal_btn" name="contentTypeId" id="15">축제공연행사</button>
+                            <button class="modal_btn" name="contentTypeId" id="25">여행코스</button>
+                            <button class="modal_btn" name="contentTypeId" id="28">레포츠</button>
+                            <button class="modal_btn" name="contentTypeId" id="32">숙박</button>
+                            <button class="modal_btn" name="contentTypeId" id="38">쇼핑</button>
+                            <button class="modal_btn" name="contentTypeId" id="39">음식점</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal_foot">
+                <button class="modal_btn modal_confirm_btn" id="content_type_confirm_btn">확인</button>
+                <button class="modal_btn modal_cancel_btn" id="content_type_cancel_btn">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal_container service_container">
+    <div class="modal_form service_modal">
+        <button class="modal_close_btn">닫기</button>
+        <div class="modal_wrap">
+            <div class="modal_head">
+                <strong class="modal_title">관광타입</strong>
+            </div>
+            <div class="modal_body">
+                <ul>
+                    <li class="box">
+                        <p class="box_title">대분류</p>
+                        <div class="btn_list">
+                            <button class="modal_btn" name="cat1" id="A01">자연</button>
+                            <button class="modal_btn" name="cat1" id="A02">인문(문화/예술/역사)</button>
+                            <button class="modal_btn" name="cat1" id="A03">레포츠</button>
+                            <button class="modal_btn" name="cat1" id="A04">쇼핑</button>
+                            <button class="modal_btn" name="cat1" id="A05">음식</button>
+                            <button class="modal_btn" name="cat1" id="B02">숙박</button>
+                            <button class="modal_btn" name="cat1" id="C01">추천코스</button>
+                        </div>
+                    </li>
+                    <li class="box">
+                        <p class="box_title">중분류</p>
+                        <div class="btn_list">
+                            <button class="modal_btn" name="cat2" id="A0101">자연관광지</button>
+                            <button class="modal_btn" name="cat2" id="A0102">관광자원</button>
+                        </div>
+                    </li>
+                    <li class="box">
+                        <p class="box_title">소분류</p>
+                        <div class="btn_list">
+                            <button class="modal_btn" name="cat3" id="A01010100">국립공원</button>
+                            <button class="modal_btn" name="cat3" id="A01010200">도립동원</button>
+                            <button class="modal_btn" name="cat3" id="A01010300">군립공원</button>
+                            <button class="modal_btn" name="cat3" id="A01010400">산</button>
+                            <button class="modal_btn" name="cat3" id="A01010500">자연생태관광지</button>
+                            <button class="modal_btn" name="cat3" id="A01010600">자연휴양림</button>
+                            <button class="modal_btn" name="cat3" id="A01010700">수목원</button>
+                            <button class="modal_btn" name="cat3" id="A01010800">폭포</button>
+                            <button class="modal_btn" name="cat3" id="A01010900">계곡</button>
+                            <button class="modal_btn" name="cat3" id="A01011000">약수터</button>
+                            <button class="modal_btn" name="cat3" id="A01011100">해안절경</button>
+                            <button class="modal_btn" name="cat3" id="A01011200">해수욕장</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal_foot">
+                <button class="modal_btn modal_confirm_btn" id="service_confirm_btn">확인</button>
+                <button class="modal_btn modal_cancel_btn" id="service_cancel_btn">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tour_container">
+    <!--지역별 검색-->
+    <div class="tour_search_container type_area">
+        <div class="tour_search_title">
+            <h2>관광 정보 검색</h2>
+        </div>
+        <div class="type_select">
+            <button class="type_area_btn on">지역별 검색</button>
+            <button class="type_keyword_btn off">통합 검색</button>
+        </div>
+        <div class="tour_search_table">
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>지역</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="area_area_code">12</div>
+                    <button class="search_btn search_area_btn">지역선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>관광타입</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="area_content_id">12</div>
+                    <button class="search_btn search_content_btn">관광타입 선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>서비스 분류</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="area_category_code">12</div>
+                    <button class="search_btn search_category_btn">서비스 분류 선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>검색</span>
+                </div>
+                <div class="tour_search_col">
+                    <button class="search_btn" id="search_area_btn">검색</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--통합 검색-->
+    <div class="tour_search_container type_keyword">
+        <div class="tour_search_title">
+            <h2>관광 정보 검색</h2>
+        </div>
+        <div class="type_select">
+            <button class="type_area_btn off">지역별 검색</button>
+            <button class="type_keyword_btn on">통합 검색</button>
+        </div>
+        <div class="tour_search_table">
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>지역</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="keyword_area_code">123</div>
+                    <button class="search_btn search_area_btn">지역선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>서비스 분류</span>
+                </div>
+                <div class="tour_search_col">
+                    <div class="search_option_text" id="keyword_category_code">12</div>
+                    <button class="search_btn search_category_btn">서비스 분류 선택</button>
+                </div>
+            </div>
+            <div class="tour_search_row">
+                <div class="tour_search_col">
+                    <span>검색</span>
+                </div>
+                <div class="tour_search_col">
+                    <input type="text" id="search_text" name="keyword">
+                    <button class="search_btn" id=" search_keyword_btn">검색</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--검색 결과-->
+    <div class="content_container">
+        <h6>검색결과 : <b>1</b>건</h6>
+        <div class="content_card_box">
+            <div class="content_card">
+                <a href="/tourDetail">
+                    <span class="thumb_img">
+                        <img src="http://tong.visitkorea.or.kr/cms/resource/12/2901512_image2_1.jpg">
+                    </span>
+                    <strong class="thumb_name">가경목장</strong>
+                </a>
+            </div>
+            <div class="content_card"></div>
+            <div class="content_card"></div>
+            <div class="content_card"></div>
+        </div>
+    </div>
+</div>
+
+
+<div th:include="/footer.html :: footer"></div>
+</div>
+
+
+<script type="text/javascript" th:src="@{/js/store/tour/tourSearch.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
