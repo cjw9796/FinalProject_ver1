@@ -1,7 +1,7 @@
-package com.kh.myproject.model.dto;
+package com.kh.myproject.member.user.model.dto;
 
 
-import com.kh.myproject.model.entity.User;
+import com.kh.myproject.member.user.model.entity.User;
 import lombok.*;
 
 import java.util.Date;

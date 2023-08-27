@@ -1,13 +1,12 @@
-package com.kh.myproject.service;
+package com.kh.myproject.member.user.service;
 
 
-import com.kh.myproject.model.entity.User;
-import com.kh.myproject.repository.UserRepository;
+import com.kh.myproject.member.user.model.entity.User;
+import com.kh.myproject.member.user.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,7 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.List;
 
 @Slf4j // 데이터베이스 로그를 확인

@@ -1,13 +1,12 @@
-package com.kh.myproject.controller;
+package com.kh.myproject.member.user.controller;
 
 
 import com.kh.myproject.api.kakaoapi.vo.MemberVO;
 import com.kh.myproject.api.sensapi.service.SmsService;
-import com.kh.myproject.api.sensapi.vo.SendSmsResponseDto;
-import com.kh.myproject.model.dto.UserForm;
+import com.kh.myproject.member.user.model.dto.UserForm;
+import com.kh.myproject.member.user.model.entity.User;
+import com.kh.myproject.member.user.service.UserService;
 
-import com.kh.myproject.model.entity.User;
-import com.kh.myproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
@@ -18,14 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
 
 @Controller
 @SessionAttributes("user")

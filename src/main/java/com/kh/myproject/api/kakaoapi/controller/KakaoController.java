@@ -3,11 +3,9 @@ package com.kh.myproject.api.kakaoapi.controller;
 
 import com.kh.myproject.api.kakaoapi.service.MemberService;
 import com.kh.myproject.api.kakaoapi.vo.MemberVO;
-import com.kh.myproject.model.entity.User;
-import com.kh.myproject.service.UserService;
+import com.kh.myproject.member.user.model.entity.User;
+import com.kh.myproject.member.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

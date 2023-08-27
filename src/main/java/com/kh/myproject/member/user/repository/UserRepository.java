@@ -1,6 +1,6 @@
-package com.kh.myproject.repository;
+package com.kh.myproject.member.user.repository;
 
-import com.kh.myproject.model.entity.User;
+import com.kh.myproject.member.user.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -60,7 +60,7 @@ $(document).ready(function () {
     // 휴대폰 인증번호를 입력하고 인증하기 클릭시
     $('#auth_submit_btn').click(function () {
 
-        if (auth_num === input_auth_num || auth_check) { // 처음 눌렸을 경우에는 난수와 input.val()의 입력값을 비교하고(첫번째조건)
+        if (auth_num === $('#auth_num').val() || auth_check) { // 처음 눌렸을 경우에는 난수와 input.val()의 입력값을 비교하고(첫번째조건)
             // 이후부터는 input.val()의 값이 바뀌기 ㅈ때문에 인증이 완료된 check값(auth_check)를 이용한다.
 
             alert('인증이 완료됐습니다.');
@@ -335,7 +335,7 @@ $(document).ready(function () {
 
             check = false;
 
-            } else if (!emailPattern.test(query.user_id)) { // 이메일 형식에 맞게 작성되지 않았다면
+        } else if (!emailPattern.test(query.user_id)) { // 이메일 형식에 맞게 작성되지 않았다면
 
             alert("이메일 형식에 맞게 아이디를 작성해주세요.(ex : kh1234@naver.com");
             check = false;
@@ -425,6 +425,3 @@ $(document).ready(function () {
 let test = document.getElementById("#abc");
 let document2 = new Document();
 document2.getElementById('#abc');
-
-
-
