@@ -1,4 +1,4 @@
-package com.kh.myproject.api.kakaoPay.payVO;
+package com.kh.myproject.api.kakaoPay.model.dto;
 
 import java.util.Date;
 

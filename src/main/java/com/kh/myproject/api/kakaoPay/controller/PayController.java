@@ -1,8 +1,8 @@
-package com.kh.myproject.api.kakaoPay.payController;
+package com.kh.myproject.api.kakaoPay.controller;
 
-import com.kh.myproject.api.kakaoPay.payService.PayService;
-import com.kh.myproject.api.kakaoPay.payVO.KakaoPayApprovalVO;
-import com.kh.myproject.api.kakaoPay.payVO.KakaoPayReadyVO;
+import com.kh.myproject.api.kakaoPay.model.dto.KakaoPayApprovalVO;
+import com.kh.myproject.api.kakaoPay.model.dto.KakaoPayReadyVO;
+import com.kh.myproject.api.kakaoPay.service.PayService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.Model;
@@ -53,7 +53,7 @@ public class PayController {
         log.info("kakaoPaySuccess pg_token : " + pg_token);
 
         // 카카오 결재 요청하기
-        KakaoPayApprovalVO approveResponse = payService.payApprove(pg_token);
+        KakaoPayApprovalVO approveResponse = payService.rentcarInsert(pg_token);
         model.addAttribute("info", approveResponse);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("pay/success");
