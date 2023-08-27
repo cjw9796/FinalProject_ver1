@@ -1,4 +1,4 @@
-package com.kh.myproject.api.tour;
+package com.kh.myproject.api.naverBlog;
 
 import java.io.*;
 import java.net.HttpURLConnection;

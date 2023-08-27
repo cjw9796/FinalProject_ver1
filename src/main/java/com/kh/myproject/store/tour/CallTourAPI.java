@@ -1,4 +1,4 @@
-package com.kh.myproject.api.tour;
+package com.kh.myproject.store.tour;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
