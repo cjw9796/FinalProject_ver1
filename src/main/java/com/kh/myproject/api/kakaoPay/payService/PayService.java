@@ -24,20 +24,7 @@ public class PayService {
         log.info("KakaoPayService => kakaoPayReady......................................... ");
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
-<<<<<<< HEAD:demo1/src/main/java/com/kh/myproject/sungsick/kakaoPay/payService/PayService.java
         params.add("cid","TC0ONETIME");
-        params.add("partner_order_id","1001");
-        params.add("partner_user_id", "gorany");
-        params.add("item_name", "갤럭시 S9");
-        params.add("quantity", "1");
-        params.add("total_amount", "2100");
-        params.add("vat_amount","200");
-        params.add("tax_free_amount", "100");
-        params.add("approval_url", "http://localhost:8090/pay/success");    // 결제승인시 넘어갈 url
-        params.add("cancel_url", "http://localhost:8090/pay/cancel");       // 결제취소시 넘어갈 url
-        params.add("fail_url", "http://localhost:8090/pay/fail");           // 결제실패시 넘어갈 url
-=======
-        params.add("cid", "TC0ONETIME");                                  // 테스트용 id 고정값
         params.add("partner_order_id", "1001");                           // 가맹점 주문번호 (주문 id로 쓰면 될듯)
         params.add("partner_user_id", "gorany");                          // 가맹점 회원 id (구매자 유저 id 쓰면 될듯)
         params.add("item_name", "갤럭시 S9");                              //상품명 (상품 id or name 쓰면될듯)
@@ -47,7 +34,6 @@ public class PayService {
         params.add("approval_url", "http://localhost:8090/pay/success");  // 결제승인시 넘어갈 url
         params.add("cancel_url", "http://localhost:8090/pay/cancel");     // 결제취소시 넘어갈 url
         params.add("fail_url", "http://localhost:8090/pay/fail");         // 결제 실패시 넘어갈 url
->>>>>>> sungsick:src/main/java/com/kh/myproject/api/kakaoPay/payService/PayService.java
 
         log.info("파트너주문아이디:" + params.get("partner_order_id"));
 

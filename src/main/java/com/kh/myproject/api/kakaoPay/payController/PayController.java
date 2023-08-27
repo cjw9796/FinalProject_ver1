@@ -58,7 +58,7 @@ public class PayController {
         KakaoPayApprovalVO approveResponse = payService.payApprove(pg_token);
         model.addAttribute("info", approveResponse);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/pay/success");
+        modelAndView.setViewName("successData");
         log.info("info : " + approveResponse);
         // 5. payment 저장
         //	orderNo, payMathod, 주문명.
@@ -93,7 +93,7 @@ public class PayController {
     @GetMapping("/pay/test11")
     public ModelAndView successFront() {
         ModelAndView successFront = new ModelAndView();
-        successFront.setViewName("pay/test11");
+        successFront.setViewName("/pay/test11");
         return successFront;
     }
 
