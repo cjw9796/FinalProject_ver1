@@ -23,6 +23,7 @@ main{
     box-sizing: border-box;
     position: relative;
 }
+
 .mypage_content2{
     position: sticky;
     display: flex;

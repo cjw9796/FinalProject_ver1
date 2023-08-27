@@ -18,6 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -45,6 +48,8 @@ public class UserController {
     }
 
 
+
+
     @GetMapping("store/home")
     public String storeHome() {
         return "store/home";
@@ -68,7 +73,7 @@ public class UserController {
         if (result == null) { // 비정상적인 경로로 접속했을 경우.
 
             System.out.println("비정상경로로 loginPro접속");
-            modelAndView.setViewName("member/index");
+            modelAndView.setViewName("community/home");
             return modelAndView;
 
         }
@@ -256,7 +261,7 @@ public class UserController {
 
 
 //        return "redirect:/joinSuccess?msg="+msg;
-        return "member/index";
+        return "community/home";
     }
 
     // 로그아웃
@@ -270,8 +275,15 @@ public class UserController {
     }
 
     @GetMapping("member/mypage")
-    public String mypage(@ModelAttribute("user") User user, Model model) {
+    public String mypage(HttpSession session, Model model) {
 
+
+        User user = (User)session.getAttribute("user");; // @ModelAttribute로 받게되면 처음에 session 설정이 돼있지 않기 때문에 에러발생.
+        System.out.println(user);
+        if(user == null){ // 세션값이 없다면
+
+            return "redirect:/";
+        }
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = user.getUserDate();

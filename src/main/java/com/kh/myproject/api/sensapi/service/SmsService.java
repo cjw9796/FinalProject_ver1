@@ -57,7 +57,7 @@ public class SmsService {
         headers.set("x-ncp-iam-access-key", applicationNaverSENS.getAccesskey());
 
         // 제일 중요한 signature 서명하기.
-        String sig = makeSignature(time);
+        String sig = makeSignature(time); // 시그니처를 생성할떄 사용하는 시간과 요청했을 때의 시간이 같아야하기 때문에 한번 생성해놓은 time변수를 사용한다.
         System.out.println("sig -> " + sig);
         headers.set("x-ncp-apigw-signature-v2", sig);
 
