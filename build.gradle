@@ -31,24 +31,12 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//    compileOnly "org.springframework.boot:spring-boot-devtools" // devtools dependency. 변경사항(java source, 정적 리소스)이 있을 시 프로젝트를 자동으로 빌드한다.
-    implementation 'org.springframework.boot:spring-boot-starter-webflux' // webclient객체. api호출 전  json데이터를 전송하기 위함.
+    compileOnly "org.springframework.boot:spring-boot-devtools" // devtools dependency. 변경사항(java source, 정적 리소스)이 있을 시 프로젝트를 자동으로 빌드한다.
 
-
-
-    // gson library
     implementation "com.google.code.gson:gson:2.8.5"
-
-    // json
     implementation "org.json:json:20180813"
-
-    // json simple(google ver)
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-
-    implementation "com.google.code.gson:gson:2.8.5"
     // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
     implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.5.2'
-
 
 }
 
