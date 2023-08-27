@@ -86,11 +86,11 @@
       <recent name="E:\kh_final\demo1\src\main\resources\static\img\store\tour\cities\seoul" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\kh_final\demo1\src\main\resources\templates\store" />
       <recent name="E:\kh_final\demo1\src\main\resources\static\css\store" />
+      <recent name="E:\kh_final\demo1\src\main\resources\static\js\store" />
+      <recent name="E:\kh_final\demo1\src\main\resources\templates\store" />
       <recent name="E:\kh_final\demo1\src\main\resources\static\img\store\tour\cities\jeju" />
       <recent name="E:\kh_final\demo1\src\main\resources\static\js\tour" />
-      <recent name="E:\kh_final\demo1\src\main\resources\static\css\flight" />
     </key>
   </component>
   <component name="RunManager">
@@ -115,7 +115,7 @@
       <workItem from="1692882634840" duration="12989000" />
       <workItem from="1692977795998" duration="6788000" />
       <workItem from="1693025992617" duration="16812000" />
-      <workItem from="1693111967117" duration="21486000" />
+      <workItem from="1693111967117" duration="22103000" />
     </task>
     <servers />
   </component>
