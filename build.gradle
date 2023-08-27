@@ -32,8 +32,14 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+<<<<<<< HEAD
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation group: 'org.webjars', name: 'jquery', version: '3.7.0'
+=======
+    implementation group: 'org.webjars', name: 'jquery', version: '3.7.0'
+
+
+>>>>>>> origin/sungsick
     compileOnly "org.springframework.boot:spring-boot-devtools" // devtools dependency. 변경사항(java source, 정적 리소스)이 있을 시 프로젝트를 자동으로 빌드한다.
 
     implementation "com.google.code.gson:gson:2.8.5"
