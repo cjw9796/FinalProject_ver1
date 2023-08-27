@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+<body>
+
+
+<div class = "container">
+
+
+    <div class ="login_block">
+        <input type="text" name = "user_id" placeholder="아이디를 입력해주세요.">
+    </div>
+
+    <div class = "login_block">
+        <input type="text" name = "user_password" placeholder="비밀번호를 입력해주세요.">
+    </div>
+
+
+    <div id = "kakao_btn" class = "login_btn" onclick="location.href = 'https://kauth.kakao.com/oauth/authorize?client_id=d50ee5df80cd1482f2ef5c34906981cb&redirect_uri=http://localhost:8080/kakaologin&response_type=code'">
+        카카오로 간편 로그인
+    </div>
+
+    <div class = "login_btn">
+
+        이메일 또는 전화번호로 로그인
+    </div>
+
+    <a class="p-2" href="https://kauth.kakao.com/oauth/logout?client_id=d50ee5df80cd1482f2ef5c34906981cb&logout_redirect_uri=http://localhost:8080/logout">
+
+        로그아웃
+    </a>
+
+    <div class = "join-block">
+        <span>아직 계정이 없으신가요?</span>
+        <a href = "/join">회원가입</a>
+    </div>
+
+</div>
+
+
+</body>
+
+
+</html>
