@@ -23,28 +23,28 @@ public class TourController {
 
     @GetMapping("/tourism")
     public ModelAndView tourism(ModelAndView mav) {
-        mav.setViewName("tourism/tourSearch");
+        mav.setViewName("store/tour/tourSearch");
 
         return mav;
     }
 
     @GetMapping("/cities")
     public ModelAndView cities(ModelAndView mav) {
-        mav.setViewName("tourism/cities");
+        mav.setViewName("store/tour/cities");
 
         return mav;
     }
 
     @GetMapping("/tourmain")
     public ModelAndView tourMain(ModelAndView mav) {
-        mav.setViewName("tourism/tourmain");
+        mav.setViewName("store/tour/tourmain");
 
         return mav;
     }
 
     @GetMapping("/tourDetail")
     public ModelAndView tourDetail(ModelAndView mav) {
-        mav.setViewName("tourism/tourDetail");
+        mav.setViewName("store/tour/tourDetail");
 
         return mav;
     }

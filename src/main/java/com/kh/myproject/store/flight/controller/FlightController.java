@@ -26,7 +26,7 @@ public class FlightController {
     @GetMapping("/flights")
     public ModelAndView flightMain(ModelAndView mav){
 
-        mav.setViewName("flight/flights");
+        mav.setViewName("store/flight/flights");
         return mav;
     }
 
