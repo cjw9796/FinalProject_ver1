@@ -1,7 +1,7 @@
 package com.kh.myproject.store.tour.contoller;
 
-import com.kh.myproject.api.tour.CallTourAPI;
-import com.kh.myproject.api.tour.BlogSearch;
+import com.kh.myproject.store.tour.CallTourAPI;
+import com.kh.myproject.api.naverBlog.BlogSearch;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,28 +23,28 @@ public class TourController {
 
     @GetMapping("/tourism")
     public ModelAndView tourism(ModelAndView mav) {
-        mav.setViewName("tourism/tourSearch");
+        mav.setViewName("store/tour/tourSearch");
 
         return mav;
     }
 
     @GetMapping("/cities")
     public ModelAndView cities(ModelAndView mav) {
-        mav.setViewName("tourism/cities");
+        mav.setViewName("store/tour/cities");
 
         return mav;
     }
 
     @GetMapping("/tourmain")
     public ModelAndView tourMain(ModelAndView mav) {
-        mav.setViewName("tourism/tourmain");
+        mav.setViewName("store/tour/tourmain");
 
         return mav;
     }
 
     @GetMapping("/tourDetail")
     public ModelAndView tourDetail(ModelAndView mav) {
-        mav.setViewName("tourism/tourDetail");
+        mav.setViewName("store/tour/tourDetail");
 
         return mav;
     }
