@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/tour/tourism.css">
-    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/tour/tour.css}">
     <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
@@ -40,15 +40,7 @@
             </div>
         </div>
     </div>
-    <!--    <div class="cities_card_container" id="cities_tour_category">-->
-    <!--        <h2>카테고리</h2>-->
-    <!--        <div class="cities_card_box" id="cities_tour_category_cities_card_box">-->
-    <!--            <div class="cities_card"></div>-->
-    <!--            <div class="cities_card"></div>-->
-    <!--            <div class="cities_card"></div>-->
-    <!--            <div class="cities_card"></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+
     <div class="cities_card_container" id="cities_recommend_place">
         <h2>지역 관광지</h2>
         <div class="cities_card_box" id="cities_recommend_place_box1">

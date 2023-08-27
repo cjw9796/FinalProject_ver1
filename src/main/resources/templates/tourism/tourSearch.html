@@ -5,8 +5,8 @@
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/css/tour/tourismtest.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/tour/tour.css}">
     <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
@@ -24,36 +24,22 @@
             </div>
             <div class="modal_body">
                 <ul class="modal_sido_box">
-                    <li class="box">
+                    <li class="box" id="area_box">
                         <p class="box_title">광역시/도</p>
                         <div class="btn_list nationwide">
-                            <button class="modal_btn sel">전국</button>
+                            <button class="modal_btn sel" onclick="insertArea(this)" value="">전국</button>
                         </div>
-                        <div class="btn_list">
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                        </div>
-                        <div class="btn_list">
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
-                            <button class="modal_btn">서울</button>
+                        <div class="btn_list" id="area_list1">
+
                         </div>
                     </li>
                     <li class="box box_sigungu">
                         <p class="box_title">시/군/구</p>
                         <div class="btn_list all_sigungu">
-                            <button class="modal_btn sel">전체</button>
+                            <button class="modal_btn sel" onclick="insertAreaCode(this)" value="">전체</button>
                         </div>
                         <div class="btn_list sigungu_list">
-                            <button class="modal_btn sigungu_btn">강남구</button>
+                            <!--<button class="modal_btn sigungu_btn">강남구</button>
                             <button class="modal_btn sigungu_btn">강북구</button>
                             <button class="modal_btn sigungu_btn">강서구</button>
                             <button class="modal_btn sigungu_btn">강동구</button>
@@ -61,7 +47,7 @@
                             <button class="modal_btn sigungu_btn">강동구</button>
                             <button class="modal_btn sigungu_btn">강동구</button>
                             <button class="modal_btn sigungu_btn">강동구</button>
-                            <button class="modal_btn sigungu_btn">강동구</button>
+                            <button class="modal_btn sigungu_btn">강동구</button>-->
                         </div>
                     </li>
                 </ul>
@@ -164,14 +150,11 @@
         <div class="tour_search_title">
             <h2>관광 정보 검색</h2>
         </div>
-
+        <div class="type_select">
+            <button class="type_area_btn on">지역별 검색</button>
+            <button class="type_keyword_btn off">통합 검색</button>
+        </div>
         <div class="tour_search_table">
-            <div class="tour_search_row">
-                <div class="tour_search_col" id="colspan">
-                    <button class="type_area_btn on">지역별 검색</button>
-                    <button class="type_keyword_btn off">통합 검색</button>
-                </div>
-            </div>
             <div class="tour_search_row">
                 <div class="tour_search_col">
                     <span>지역</span>
@@ -214,14 +197,11 @@
         <div class="tour_search_title">
             <h2>관광 정보 검색</h2>
         </div>
-
+        <div class="type_select">
+            <button class="type_area_btn off">지역별 검색</button>
+            <button class="type_keyword_btn on">통합 검색</button>
+        </div>
         <div class="tour_search_table">
-            <div class="tour_search_row">
-                <div class="tour_search_col" id="colspan">
-                    <button class="type_area_btn off">지역별 검색</button>
-                    <button class="type_keyword_btn on">통합 검색</button>
-                </div>
-            </div>
             <div class="tour_search_row">
                 <div class="tour_search_col">
                     <span>지역</span>
@@ -251,14 +231,11 @@
             </div>
         </div>
     </div>
-
+    <!--검색 결과-->
     <div class="content_container">
+        <h6>검색결과 : <b>1</b>건</h6>
         <div class="content_card_box">
             <div class="content_card">
-                <!--<div class="thumb_img"></div>
-                <div class="thumb_name">
-
-                </div>-->
                 <a href="/tourDetail">
                     <span class="thumb_img">
                         <img src="http://tong.visitkorea.or.kr/cms/resource/12/2901512_image2_1.jpg">
@@ -276,58 +253,7 @@
 
 <div th:include="/footer.html :: footer"></div>
 </div>
-<!--<script>
-    $('#search_area_btn').on('click', function(){
-        alert('모달');
-    });
-    $(function () {
-        $.ajax({
-            url: '/tourismInfo',
-            type: 'get',
-            dataType: 'text',
-            success: function (data) {
-                let item = JSON.parse(data).response.body.items.item;
-                for (let i = 0; i < item.length; i++) {
-                    let content = `<p>${item[i].title}</p>
-                                 <p><img src="${item[i].firstimage}" width="500px" height="300px"></p>
-                                 <p>${item[i].zipcode}</p>
-                                 <p>${item[i].addr1}</p>
-                                 <p>${item[i].overview}</p>`;
-                    $('.container1').append(content);
-                    blogSearchByContentId(item[i].title);
 
-                }
-
-            }
-        });
-    });
-
-    function blogSearchByContentId(title) {
-        $.ajax({
-            url: '/searchBlog',
-            type: 'get',
-            data: {
-                title: title
-            },
-            dataType: 'text',
-            success: function (data) {
-                let items = JSON.parse(data).items;
-                console.log(data);
-                for (let i = 0; i < items.length; i++) {
-                    let content = `<p><a href="${items[i].link}">${items[i].title}</a></p>
-                                  <p>${items[i].description}</p>
-                                  <p><a href="${items[i].bloggerlink}">출처:${items[i].bloggername}</a></p>
-                                  <p>작성일:${items[i].postdate}</p><hr/>`;
-                    $('.blog').append(content);
-                }
-
-            },
-            error: function () {
-                alert('블로그 오류');
-            }
-        });
-    }
-</script>-->
 
 <script type="text/javascript" th:src="@{/js/tour/tourSearch.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
