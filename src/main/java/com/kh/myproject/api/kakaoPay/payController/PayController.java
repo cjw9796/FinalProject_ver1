@@ -42,8 +42,6 @@ public class PayController {
         //KakaoPayReadyVO kakaoPayReadyVO = kakaopay.kakaoPayReady();
         KakaoPayReadyVO readyResponse = payService.kakaoPayReady();
         log.info(".........................결제고유 번호 : " + readyResponse.getTid());
-//        RedirectView redirectView = new RedirectView();
-//        redirectView.setUrl(readyResponse.getNext_redirect_pc_url()); // 리다이렉트할 URL 설정
 
         return readyResponse;
     }
