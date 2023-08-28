@@ -9,7 +9,7 @@ public class RentcarController {
 
 
 
-@GetMapping("/store/rentcar/home")
+@GetMapping("/store/rentcar/rentcarMain")
     public String rentcarMain(){
 
     return "store/rentcar/rentcarMain";

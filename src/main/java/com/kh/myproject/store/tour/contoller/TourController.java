@@ -21,28 +21,28 @@ public class TourController {
     final String blogSearchUrl = "";
 
 
-    @GetMapping("/tourism")
+    @GetMapping("/store/tour/tourism")
     public ModelAndView tourism(ModelAndView mav) {
         mav.setViewName("store/tour/tourSearch");
 
         return mav;
     }
 
-    @GetMapping("/cities")
+    @GetMapping("/store/tour/cities")
     public ModelAndView cities(ModelAndView mav) {
         mav.setViewName("store/tour/cities");
 
         return mav;
     }
 
-    @GetMapping("/tourmain")
+    @GetMapping("/store/tour/tourmain")
     public ModelAndView tourMain(ModelAndView mav) {
         mav.setViewName("store/tour/tourmain");
 
         return mav;
     }
 
-    @GetMapping("/tourDetail")
+    @GetMapping("/store/tour/tourDetail")
     public ModelAndView tourDetail(ModelAndView mav) {
         mav.setViewName("store/tour/tourDetail");
 

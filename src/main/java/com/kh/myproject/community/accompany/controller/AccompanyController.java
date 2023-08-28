@@ -2,10 +2,12 @@ package com.kh.myproject.community.accompany.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("user")
 public class AccompanyController {
-    /*
+
     //여행커뮤니티 홈(메인페이지 병합 전 삭제)
     @GetMapping("/community/home") //http://localhost:8070/community/home
     public String communityhome() {
@@ -14,7 +16,7 @@ public class AccompanyController {
 
         return "community/home";
     }
-    */
+
 
     //동행 리스트(동행 메인)
     @GetMapping("/community/accompany") // http://localhost:8070/community/accompany
