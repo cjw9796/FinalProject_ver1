@@ -37,11 +37,18 @@ public class KakaoController {
     // refresh token이 필요하다.
     // 토큰 url ->
 
-    @Autowired
-    MemberService memberService;
+    private MemberService memberService;
+
+    private UserService userService;
+
 
     @Autowired
-    UserService userService;
+    public KakaoController(MemberService memberService, UserService userService){
+
+        this.memberService = memberService;
+        this.userService = userService;
+
+    }
 
 
     @RequestMapping("kakaohome")

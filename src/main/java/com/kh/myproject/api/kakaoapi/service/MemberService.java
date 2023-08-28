@@ -46,7 +46,7 @@ public class MemberService {
             // 파라미터 저장해서 전송!
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
-            sb.append("&client_id=d50ee5df80cd1482f2ef5c34906981cb");
+            sb.append("&client_id=ae7f5b9c9c8ad78f7f1cc5bbf3379d50");
             sb.append("&redirect_uri=http://localhost:8080/kakaologin");
             sb.append("&code=" + authorize_code);
 
@@ -146,10 +146,18 @@ public class MemberService {
 //            System.out.println("kakao_account : " + kakao_account);
 //            System.out.println("properties" + properties);
 
-            String user_email = kakao_account.getAsJsonObject().get("email").getAsString();
-            String user_gender = kakao_account.getAsJsonObject().get("gender").getAsString();
-            String profile_img = properties.getAsJsonObject().get("thumbnail_image").getAsString();
+            String user_email = "";
+            String user_gender = "";
+            String profile_img = "";
 
+            try {
+
+                user_email = kakao_account.getAsJsonObject().get("email").getAsString();
+                profile_img = properties.getAsJsonObject().get("thumbnail_image").getAsString();
+                user_gender = kakao_account.getAsJsonObject().get("gender").getAsString();
+            }catch(NullPointerException e){
+                e.printStackTrace();
+            }
 
             memberVO = new MemberVO(user_email,user_gender,profile_img);
 

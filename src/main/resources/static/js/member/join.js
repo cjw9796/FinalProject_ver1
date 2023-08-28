@@ -2,11 +2,73 @@
 $(document).ready(function () {
 
 
+
+
+    //월선택에 따른 일자 출력 변경
+
+    $('#user_day').click(function(){
+        console.log('gg')
+
+        console.log($('#user_month option:selected').val());
+
+        var month = $('#user_month option:selected').val();
+
+
+        var month_list = [[1,3,5,7,8,10,12],[2],[4,6,11]];
+
+        out: for(var i = 0 ; i < month_list.length ; i++){
+
+            for(var j = 0 ; j <month_list[i].length ; j++){
+
+                if(month_list[i][j] == month){
+                    // 31일, 29일, 30일을 선택한다.
+                    if(i == 0){
+                        // 31일로 바꾸게끔 처리.
+                        console.log('31');
+                        break out;
+                    }else if(i == 1){
+                        // 29일로 바꾸게끔 처리
+                        console.log('29');
+                        break out;
+                    }else if(i == 2){
+                        // 30일로 바꾸게끔 처리.
+                        console.log('30');
+                        break out;
+
+                    }
+                }
+            }
+        }
+
+        console.log(document.getElementById("day_sequence"));
+        console.log($('#day_sequence2'));
+
+
+        // 로직처리.
+
+        // switch(month){
+        //
+        //     case 1,3,5,7,8,10,12:
+        //         console.log("31일");
+        //         break;
+        //     case 2:
+        //         console.log('28일');
+        //         break;
+        //
+        //     case 4,6,11:
+        //         break;
+        //         console.log('30일');
+        // }
+    })
+
+
+
     //회원가입시 휴대폰 인증요청에 대한 로직 처리
 
     var auth_num = ""; // 전역변수로 설정 후 사용자에게 간 문자값을 통신으로 받고나서 변수값에 저장한다.
     var auth_check = false; // 휴대폰 인증여부 체크.
     var id_check = false; // 아이디 중복 여부 체크.
+
 
     //인증번호 요청, 재요청 클릭시
     $('#auth_request_btn').click(function () {

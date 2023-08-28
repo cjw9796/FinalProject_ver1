@@ -119,18 +119,20 @@
                 <input type="text" id="user_year" placeholder="연도" maxlength="4">
                 <select id="user_month">
                     <th:block th:each="number : ${#numbers.sequence(1, 12)}">
-                        <option th:value="${number}" th:text="${number} + '월'"></option>
+                        <option th:value="${number}" th:text="${number} + '월'" name = "month_list"></option>
                     </th:block>
                 </select>
 
 
-                <select id="user_day">
+
+                <select id="user_day" name = "day_detail">
                     <!-- each문으로 31일까지 뽑아내기,월에 맞게30,31선택 -->
 
 
-                    <th:block th:each="number : ${#numbers.sequence(1, 31)}">
-                        <option th:value="${number}" th:text="${number} + '일'"></option>
-                    </th:block>
+
+                    <div th:each="number : ${#numbers.sequence(1, 31)}" id = "day_sequence">
+                        <option th:value="${number}" th:text="${number} + '일'" name = "day_list" ></option>
+                    </div>
 
                 </select>
             </div>
