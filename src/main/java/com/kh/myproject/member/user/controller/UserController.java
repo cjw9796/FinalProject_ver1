@@ -46,10 +46,6 @@ public class UserController {
 
 
 
-    @GetMapping("store/home")
-    public String storeHome() {
-        return "store/home";
-    }
 
     @GetMapping("member/login")
     public String login() {

@@ -23,7 +23,7 @@ public class TourController {
     final String blogSearchUrl = "";
 
 
-    @GetMapping("/store/tour/tourism")
+    @GetMapping("/store/tour/tourSearch")
     public ModelAndView tourism(ModelAndView mav) {
         mav.setViewName("store/tour/tourSearch");
 
@@ -37,9 +37,9 @@ public class TourController {
         return mav;
     }
 
-    @GetMapping("/store/tour/tourmain")
+    @GetMapping("/store/home")
     public ModelAndView tourMain(ModelAndView mav) {
-        mav.setViewName("store/tour/tourmain");
+        mav.setViewName("store/tour/tourMain");
 
         return mav;
     }

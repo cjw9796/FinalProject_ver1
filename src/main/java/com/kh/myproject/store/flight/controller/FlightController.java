@@ -31,12 +31,6 @@ public class FlightController {
         return mav;
     }
 
-    @GetMapping("/store/flight/flightDetail")
-    public ModelAndView flightReservation(ModelAndView mav){
-        mav.setViewName("store/flight/flightDetail");
-        return mav;
-    }
-
     @GetMapping("/airportlist")
     public String flight(){
         StringBuilder result = new StringBuilder();
