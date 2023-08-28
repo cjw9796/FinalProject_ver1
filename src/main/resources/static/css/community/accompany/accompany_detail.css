@@ -1244,6 +1244,7 @@ img {
     width: 100%;
     height: 21px;
     margin: 16px 0px 0px;
+    justify-content: flex-start;
 }
 
 .dal_title3 p {
@@ -1331,7 +1332,7 @@ img {
 }
 
 .dal_md_divp2 {
-    color: #d3d5e0;
+    color: rgb(106, 106, 106);;
     cursor: pointer;
 }
 .dal_md_div2{

@@ -131,7 +131,6 @@
     cursor: pointer;
     width: 9px;
     height: 16px;
-    fill: none;
 }
 
 .art1_div > svg:not(:root){
@@ -149,7 +148,7 @@
 }
 
 .art1_1btn{
-    background: rgb(251, 251, 251);
+    /*background: rgb(251, 251, 251);*/
     width: 100%;
     height: 73px;
     border-radius: 10px;
@@ -178,7 +177,6 @@
 }
 
 .art1_1btn_span_icon {
-    overflow: initial;
     width: 15px;
     height: 17px;
     fill: #0064DE;
@@ -294,6 +292,7 @@
     height: 36px;
     background-color: rgb(213, 240, 255);
     border-radius: 10px;
+    border: 1px solid black;
 
 
 }
@@ -360,7 +359,7 @@
     width: 24px;
     height: 24px;
     margin-right: 10px;
-    border: 1px solid blue;
+    border: 1px solid #00B8FF;
 }
 
 
@@ -1082,4 +1081,12 @@
     font-size: 15px;
     font-weight: 400;
     box-sizing: inherit;
+}
+
+
+/*.pencil:hover svg{
+    display: inline;
+}*/
+.pencil svg{
+    display: none;
 }
