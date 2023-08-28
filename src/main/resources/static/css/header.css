@@ -1,0 +1,374 @@
+body {
+    margin: 0px;
+
+}
+body{-ms-overflow-style:none; }
+body::-webkit-scrollbar { display:none; }
+/* 스크롤바 제거 css */
+
+
+header {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
+    background: rgb(255, 255, 255);
+
+}
+
+.nav_bar {
+    width: 1200px;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0px auto;
+
+}
+
+.logo_img {
+    width: 100px;
+    height: 100%;
+}
+
+.nav_content1 {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.nav_content2 {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.nav_search_tag {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 300px;
+    margin-right: 30px;
+}
+
+.nav_search_tag span {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.nav_search_tag span:hover {
+    cursor: pointer;
+}
+
+.nav_search_tag input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 13px 18px 13px 40px;
+    text-indent: 3px;
+    background: rgb(248, 248, 248);
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 90px;
+    font-size: 14px;
+}
+
+.nav_search_tag input:focus {
+    border: 2px solid;
+    border-color: rgb(0, 182, 206);
+    outline: none;
+}
+
+.nav_logintf {
+    display: flex;
+    margin-right: 30px;
+    align-items: center;
+}
+
+.shortline {
+    width: 1px;
+    height: 16px;
+    background-color: black;
+    margin: 0px 6px;
+}
+.next {
+    display: flex;
+    flex-direction: column;
+}
+.nav_button button {
+    box-sizing: border-box;
+    width: 134px;
+    height: 44px;
+    background: rgb(0, 182, 206);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-out 0s;
+    border: none;
+    cursor: pointer;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 400;
+}
+i{
+    cursor: pointer;
+}
+.nav_content1 button {
+    border: none;
+}
+
+#nav_community {
+    width: auto;
+    height: 58px;
+    padding: 19px 0px;
+    margin: 0px 13px;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    font-size: 18px;
+    color: rgb(106, 106, 106);
+    cursor: pointer;
+}
+.nav_underline{
+    border-bottom: 3px solid rgb(37, 37, 37) !important;
+    color: rgb(37, 37, 37) !important;
+    font-weight: 700 !important;
+}
+
+#nav_trip {
+    width: auto;
+    height: 58px;
+    padding: 19px 0px;
+    margin: 0px 13px;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-bottom: none;
+    color: rgb(106, 106, 106);
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.nav_bar_main {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: rgb(255, 255, 255);
+}
+
+.nav_bar_menu {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 65px;
+}
+
+.choice_post {
+    width: 202px;
+    height: auto;
+    position: absolute;
+    top: 70px;
+    right: 0px;
+    z-index: 3;
+    background: rgb(255, 255, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(233, 233, 233);
+    border-image: initial;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.choice_post i{
+    margin-right: 15px;
+}
+
+.choice_post button {
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    height: 68px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.choice_post button:hover{
+    background-color: #F8F8F8;
+}
+.disappear{
+    display: none !important;
+}
+
+.test1 {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 282px;
+    height: 286px;
+    background: rgb(255, 255, 255);
+    border-radius: 14px;
+    box-shadow: rgba(25, 25, 25, 0.2) 0px 6px 10px;
+
+}
+
+.main_content1 {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0px;
+}
+.next {
+    display: flex;
+    flex-direction: column;
+}
+.nav_logintf button {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nav_bar_menu {
+    margin: 0px 10px;
+    display: flex;
+    height: 54px;
+    align-items: center;
+}
+
+.nav_bar_menu div {
+    margin: 0px 10px;
+    padding: 15px 0px;
+    width: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.nav_bar_menu_store {
+    margin: 0px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.nav_bar_menu_store div{
+    margin: 0px 10px;
+    padding: 15px 0px;
+    width: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.area{
+    width: 140px !important;
+}
+.rental, .plane{
+    width: 80px !important;
+}
+.nav_bar_menu div i, .nav_bar_menu_store i {
+    margin-right: 5px;
+}
+
+.menu_underline{
+    font-weight: 600;
+    border-bottom: 3px solid black;
+}
+.menu_store_underline{
+    font-weight: 600;
+    border-bottom: 3px solid black;
+}
+.my_icons div {
+    margin: 0px 10px;
+}
+
+.mypage{
+
+    width: 30px;
+    height: 30px;
+
+}
+
+.myimg{
+    width: 130px;
+    margin-top: 20px;
+}
+
+#myimg{
+
+    width: 130px;
+    border-radius: 80px;
+
+}
+
+
+.profile_img{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+
+#info_img{
+
+    border-radius: 30px;
+    line-height: 35px;
+
+}
+.profile_img:hover{
+
+    cursor: pointer;
+}
+
+.user_info_box{
+
+    height: 55px;
+
+    display : flex;
+
+    align-items: center;
+}
+
+.mypage{
+
+    display : flex;
+
+    align-items: center;
+}
+
+.user_info_box p{
+
+    height: 55px;
+
+    margin-bottom: 0;
+
+    display : flex;
+
+    align-items: center;
+}
+
+.no-js{
+
+    display : none;
+}

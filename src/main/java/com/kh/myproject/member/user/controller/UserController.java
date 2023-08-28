@@ -56,7 +56,7 @@ public class UserController {
 
         System.out.println("memberlogin");
 
-        return "member/login";
+        return "member/user/login";
     }
 
 
@@ -81,7 +81,7 @@ public class UserController {
 
         modelAndView.addObject("msg", msg);
         modelAndView.addObject("user", user); // 세션을 설정한다.
-        modelAndView.setViewName("member/loginPro"); // msg출력을 위한 html 파일 거치기
+        modelAndView.setViewName("member/user/loginPro"); // msg출력을 위한 html 파일 거치기
 
 
         return modelAndView;
@@ -123,7 +123,7 @@ public class UserController {
             msg = "아이디 혹은 비밀번호를 확인해주세요.";
         }
         modelAndView.addObject("msg", msg);
-        modelAndView.setViewName("member/loginPro"); // msg출력을 위한 html 파일 거치기
+        modelAndView.setViewName("member/user/loginPro"); // msg출력을 위한 html 파일 거치기
 
         return modelAndView;
     }
@@ -152,7 +152,7 @@ public class UserController {
         MemberVO memberVO = new MemberVO(email, gender, profile_img);
         model.addAttribute("kakao_user", memberVO);
 
-        return "member/join";
+        return "member/user/join";
     }
 
 
@@ -267,7 +267,7 @@ public class UserController {
 
         sessionStatus.setComplete(); // 세션삭제
 
-        return "member/logout";
+        return "member/user/logout";
     }
 
     @GetMapping("member/mypage")
@@ -299,7 +299,7 @@ public class UserController {
         model.addAttribute("user",newUser);
 
 
-        return "/member/mypage";
+        return "/member/user/mypage";
     }
 
 
@@ -349,7 +349,7 @@ public class UserController {
     public String uploadProfile() {
 
 
-        return "member/uploadTest";
+        return "member/user/uploadTest";
     }
 
 
@@ -408,7 +408,7 @@ public class UserController {
         // 현재 user 세션값을 이용해서 user table의 user정보에서 image필드에 해당 파일명을 삽입한다.
 
 
-        return "member/uploadTestPro";
+        return "member/user/uploadTestPro";
     }
 
 

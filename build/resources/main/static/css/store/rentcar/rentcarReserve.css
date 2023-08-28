@@ -1,0 +1,434 @@
+.reserve_wrapper {
+    background-color: rgb(246, 246, 246);
+    min-height: calc(100vh - 246px);
+    height: auto;
+    padding: 0px 0px 60px;
+}
+
+
+/*서치바 css*/
+
+.search_bar_wrap {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    z-index: 900;
+}
+
+.search_bar_wrap_container {
+    width: 100%;
+    background-color: #fff;
+}
+
+.search_bar_wrap_container_line {
+    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+
+
+.search_bar_box {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    z-index: 200;
+    background-color: transparent;
+    position: absolute;
+}
+
+.search_bar_input_box {
+    display: grid;
+    grid-template-columns: 1fr 110px;
+    gap: 20px;
+    height: 90px;
+    margin-top: 34.5px;
+
+}
+
+.search_input_container {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px #0000000d;
+    width: 100%;
+    display: grid;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+.search_input_round {
+    width: 100%;
+    height: 46px;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+}
+
+
+.search_input_detail {
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    height: 22px;
+    margin-top: 10px;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+
+.input_title_and_detail {
+    padding: 0 30px;
+    height: 50px;
+}
+
+
+.input_title {
+    display: flex;
+    align-items: center;
+}
+
+
+.input_title_text {
+    margin-left: 4px;
+    font-size: 15px;
+}
+
+
+.input_grid_number {
+    height: 50px;
+    width: 1px;
+    background-color: #eaeaea;
+}
+
+
+.input_title_icon {
+    width: 16px;
+    height: 16px;
+}
+
+.input_birth_wrap {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 22px;
+    margin-top: 10px;
+}
+
+
+.rentcar_search_button {
+    border-width: 0px;
+    border-radius: 5px;
+    background-color: #00ce7c;
+    color: #fff;
+    outline: none;
+}
+
+/*서치바 css 종료*/
+
+
+/*컨텐츠 구역*/
+
+.reserv_contents_area {
+    margin: 0px auto;
+    width: auto;
+    max-width: 1140px;
+}
+
+.reserv_contents_grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 320px calc((100% - 320px) - 36px);
+    gap: 36px;
+    height: auto;
+    margin-top: 80px;
+}
+
+.reserv_filter_wrap {
+    width: 320px;
+    min-height: 660px;
+}
+
+.reserv_filter_container {
+    position: sticky;
+    top: 120px;
+    height: 655px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px 0px;
+}
+
+.reserv_filter_title_box {
+    height: 74px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 30px 20px 20px;
+}
+
+.reserv_scroll_filter {
+    overscroll-behavior: contain;
+    height: 534px;
+    overflow: scroll;
+    padding: 11px 20px;
+}
+
+.reserv_category_container {
+    position: relative;
+    height: 17px;
+    margin-bottom: 15px;
+    padding: 0px 8px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.reserv_result_gird {
+    width: 100%;
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
+}
+
+
+
+
+
+
+
+
+.reserv_filter_division {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 20px 0px 10px;
+    position: relative;
+}
+
+.filter_button_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.reserv_filter_text {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 20px 0px 0px;
+    position: relative;
+}
+
+.filter_scroll_title {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 20px 0px 15px;
+    position: relative;
+}
+
+.filter_age_box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.result_item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    max-width: 245px;
+    min-height: 320px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out 0s;
+    will-change: transform;
+}
+
+
+.result_item_year {
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 3px;
+    background-color: rgb(244, 244, 244);
+    padding: 3px 6px;
+}
+
+.result_item_name {
+    max-width: 180px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 12px 0px 6px;
+    text-overflow: ellipsis;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.result_item_type {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(170, 170, 170);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+
+.result_item_price {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    margin: 25px 0px 0px;
+}
+
+.filter_button {
+    height: 32px;
+    padding: 7px 14px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 1.31;
+    border: 1px solid gray;
+    color: black;
+    background-color: white;
+}
+
+.filter_button_default {
+    height: 32px;
+    padding: 7px 14px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 1.31;
+    border: 1px solid #00ce7c;
+    color: #00ce7c;
+    background-color: white;
+}
+
+
+
+
+.result_category_box {
+    gap: 10px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.result_category_text_on {
+    all: unset;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+
+.result_category_text_off {
+    all: unset;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(204, 204, 204);
+    cursor: pointer;
+}
+
+.result_category_line {
+    width: 2px;
+    height: 16px;
+    background-color: rgb(234, 234, 234);
+}
+
+.font_medium {
+    font-weight: 500;
+}
+
+.text_15px {
+    font-size: 15px;
+}
+
+.reserv_filter_title_box span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.filter_search_button {
+    width: 50px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filter_text_input {
+    flex: 1 1 0%;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.filter_scroll_title span {
+    position: absolute;
+    right: 0px;
+    color: green;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.slider_wrap {
+    width: 100%;
+    height: 30px;
+}
+
+.slider_track:first-child {
+    background-color: lightgray;
+}
+
+.slider_track {
+    background-color: green;
+    height: 4px;
+    border-radius: 2px;
+    left: 0px;
+}
+
+.slider_thumb {
+    position: relative;
+    bottom: 15px;
+    background-color: white;
+    width: 24px;
+    height: 24px;
+    box-shadow: -1px 1px 4px #0000004d;
+    border-radius: 50%;
+    text-align: center;
+    outline: 0;
+    border: 0;
+}
