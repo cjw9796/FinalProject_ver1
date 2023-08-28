@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>mypage</title>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/member/mypage.css">
@@ -15,7 +14,6 @@
     <header th:include="/header2.html :: header"></header>
     <main>
         <div class="main_container">
-            <div class = "content1_options">
             <div class="mypage_content1 option1 ">
 
 
@@ -47,13 +45,29 @@
                             <div class="info_box">
                                 <input type="number" name="user_year" placeholder="년(예 1991)" maxlength="4"
                                        th:value="${user_year}" disabled
-                                       style="width: 166px;" class="user_info_input">
-                                <input type="number" name="user_month" th:value="${user_month}" style="width: 105px;"
-                                       class="user_info_input" disabled>
-                                <input type="number" name="user_day" th:value="${user_day}" style="width: 105px;"
-                                       class="user_info_input" disabled>
-                                <input type="text" name="user_gender" style="width: 105px;"
-                                       th:value="${user.userGender}" class="user_info_input" disabled>
+                                       class="user_info_input">
+                                <select id="user_month" name="user_month" class="user_info_input" disabled>
+                                    <th:block th:each="number : ${#numbers.sequence(1, 12)}">
+                                        <option th:selected="${number}==${user_month}" th:value="${number}"
+                                                th:text="${number} + '월'"></option>
+                                    </th:block>
+                                </select>
+                                <select id="user_day" name="user_day"
+                                        class="user_info_input" disabled>
+                                    <!-- each문으로 31일까지 뽑아내기,월에 맞게30,31선택 -->
+                                    <th:block th:each="number : ${#numbers.sequence(1, 31)}">
+                                        <option th:selected="${number}==${user_day}" th:value="${number}"
+                                                th:text="${number} + '일'"></option>
+                                    </th:block>
+                                </select>
+                                <!--                                <input type="text" name="user_gender"-->
+                                <!--                                       th:value="${user.userGender}" class="user_info_input" disabled>-->
+                                <select id="user_gender" name="user_gender"
+                                        class="user_info_input" disabled>
+                                    <option value="">성별</option>
+                                    <option value="M">남자</option>
+                                    <option value="F">여자</option>
+                                </select>
                             </div>
                         </div>
                         <div class="update_pw">
@@ -68,10 +82,7 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <div class="mypage_content1 option2 ">
+            <div class="mypage_content1 option2 disappear">
                 <div class="option1_section">
                     <h5>예약내역</h5>
                     <div class="section_separate_line"></div>
@@ -81,7 +92,30 @@
                 </div>
                 <div class="plane_tickets">
                     <div class="p_ticket">
-                        항공
+                        <div class="airport">
+                            <img src="/img/member/estar.jpeg">
+                            <div>SRWK-678</div>
+                        </div>
+                        <div class="plane_info">
+                            <div class="pi_1">
+                                인천 -> 제주
+                            </div>
+                            <div class="pi_2">79,900원</div>
+                        </div>
+                        <div class="rd_1 plane_passenger">
+                            <div class="ri_1">예약자 정보</div>
+                            <div class="ri_2">
+                                <div class="ri_2">성함 : 홍길동</div>
+                                <div class="ri_2">생년월일: 981205</div>
+                                <div class="ri_2">전화번호: 01011111111</div>
+                            </div>
+                        </div>
+                        <div class="rd_2 plane_pay">
+                            <div class="ri_1">결제상태</div>
+                            <div class="ri_3">
+                                <i class="fa-2xl fa-solid fa-check" style="color: #29ff2c;"></i>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -94,7 +128,7 @@
                         <div class="rt_img">
                             <div class="car_name">쏘나타 (DN8)</div>
                             <div class="car_name2">쏘나타 8세대</div>
-                            <img src="/img/sonata.png">
+                            <img src="/img/member/sonata.png">
                             <div class="car_price">89,000원</div>
                         </div>
                         <div class="rt_info">
@@ -148,21 +182,94 @@
                 </div>
 
             </div>
-            <div class="mypage_content1 option3 ">
+            <div class="mypage_content1 option3 disappear">
                 <div class="option1_section">
-                    <h5>문의하기</h5>
+                    <h5>1:1 문의하기</h5>
                     <div class="section_separate_line"></div>
                 </div>
-                <div>asd</div>
+                <div class="ask_title">
+                    <div>1:1 문의하기 ></div>
+                    <div>
+                        <button class="write_btn">작성하기</button>
+                    </div>
+                </div>
+                <!--문의사항이 없다면-->
+                <!--<div class="ask_content disappear">-->
+                <!--   아직 문의사항이 없습니다.-->
+                <!-- </div>-->
+
+                <!--문의사항이 있다면-->
+                <table id="question_table">
+                    <thead>
+                    <tr>
+                        <th width="15%" class="sc-165575bb-3 gpqVaL">답변 상태</th>
+                        <th width="30%" class="sc-165575bb-3 gpqVac">문의 제목</th>
+                        <th width="40%" class="sc-165575bb-3 gpqVaf">문의 내용</th>
+                        <th width="20%" class="sc-165575bb-3 gpqVa-d">문의일</th>
+                    </tr>
+                    </thead>
+                    <tbody id="question_tbody">
+                    <!--게시글 개수만큼 출력 -->
+                    <tr>
+                        <td>
+                            <button color="#F1F9F6" class="qna_btn">답변대기</button>
+                        </td>
+                        <td>title</td>
+                        <td>text_area</td>
+                        <td>time</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button color="#F1F9F6" class="qna_btn">답변대기</button>
+                        </td>
+                        <td>title</td>
+                        <td>text_area</td>
+                        <td>time</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button color="#F1F9F6" class="qna_btn">답변대기</button>
+                        </td>
+                        <td>title</td>
+                        <td>text_area</td>
+                        <td>time</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button color="#F1F9F6" class="qna_btn">답변대기</button>
+                        </td>
+                        <td>title</td>
+                        <td>text_area</td>
+                        <td>time</td>
+                    </tr>
+                    </tbody>
+
+
+                </table>
+
+
+                <div class="question disappear">
+                    <p>제목</p>
+                    <input name="question_title" type="text" placeholder="제목을 입력해주세요">
+                    <p>내용</p>
+                    <textarea name="question_content" placeholder="내용을 입력해주세요"></textarea>
+                    <div class="question_btns" align="right">
+                        <button id="question_btn_submit">제출</button>
+                        <button id="question_btn_cancel">취소</button>
+                    </div>
+
+                </div>
+
+
             </div>
-            <div class="mypage_content1 option4 ">
+            <div class="mypage_content1 option4 disappear">
                 <div class="option1_section">
                     <h5>내 일정</h5>
                     <div class="section_separate_line"></div>
                 </div>
                 <div>asd</div>
             </div>
-            <div class="mypage_content1 option5 ">
+            <div class="mypage_content1 option5 disappear">
                 <div class="option1_section">
                     <h5>내 동행 게시글</h5>
                     <div class="section_separate_line"></div>
@@ -193,7 +300,7 @@
 
                             </div>
                             <div class="test1_content2">
-                                <img src="/img/place1.jpg">
+                                <img src="/img/member/place1.jpg">
                                 <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
                                 </div>
                             </div>
@@ -234,7 +341,7 @@
 
                             </div>
                             <div class="test1_content2">
-                                <img src="/img/place1.jpg">
+                                <img src="/img/member/place1.jpg">
                                 <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
                                 </div>
                             </div>
@@ -255,7 +362,7 @@
                             <div class="test1_content1">
                                 <div class="user_profile">
                                     <div class="user_img">
-                                        <img src="/img/신짱구.png">
+                                        <img src="/img/member/신짱구.png">
                                     </div>
                                     <div class="user_info">
                                         <div class="user_nick">1998csj</div>
@@ -274,7 +381,7 @@
 
                             </div>
                             <div class="test1_content2">
-                                <img src="/img/place1.jpg">
+                                <img src="/img/member/place1.jpg">
                                 <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
                                 </div>
                             </div>
@@ -293,7 +400,7 @@
                             <div class="test1_content1">
                                 <div class="user_profile">
                                     <div class="user_img">
-                                        <img src="/img/신짱구.png">
+                                        <img src="/img/member/신짱구.png">
                                     </div>
                                     <div class="user_info">
                                         <div class="user_nick">1998csj</div>
@@ -312,7 +419,7 @@
 
                             </div>
                             <div class="test1_content2">
-                                <img src="/img/place1.jpg">
+                                <img src="/img/member/place1.jpg">
                                 <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
                                 </div>
                             </div>
@@ -333,7 +440,7 @@
                             <div class="test1_content1">
                                 <div class="user_profile">
                                     <div class="user_img">
-                                        <img src="/img/신짱구.png">
+                                        <img src="/img/member/신짱구.png">
                                     </div>
                                     <div class="user_info">
                                         <div class="user_nick">1998csj</div>
@@ -352,7 +459,7 @@
 
                             </div>
                             <div class="test1_content2">
-                                <img src="/img/place1.jpg">
+                                <img src="/img/member/place1.jpg">
                                 <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
                                 </div>
                             </div>
@@ -371,7 +478,7 @@
                             <div class="test1_content1">
                                 <div class="user_profile">
                                     <div class="user_img">
-                                        <img src="/img/신짱구.png">
+                                        <img src="/img/member/신짱구.png">
                                     </div>
                                     <div class="user_info">
                                         <div class="user_nick">1998csj</div>
@@ -390,7 +497,7 @@
 
                             </div>
                             <div class="test1_content2">
-                                <img src="/img/place1.jpg">
+                                <img src="/img/member/place1.jpg">
                                 <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
                                 </div>
                             </div>
@@ -409,7 +516,6 @@
                 </div>
 
             </div>
-            </div>
 
             <div class="mypage_content2">
                 <div class="content2_options">
@@ -417,14 +523,12 @@
 
                         <div class="user_info_box">
                             <div class="user_info_img">
-
-
                                 <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt=""
                                                          id="info_img"
                                                          onclick="location.href='/member/mypage'"></div>
 
                             </div>
-                            <p><span th:text ="${user.userId}"></span></p>
+                            <p>1998csj</p>
                         </div>
                         <div class="separate_line"></div>
                     </div>

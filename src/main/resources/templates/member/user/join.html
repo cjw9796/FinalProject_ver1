@@ -39,7 +39,7 @@
 
         <!--    <form action="/joinPro" method="post" id ="joinForm">-->
         <div class="join_block">
-            <img class="logo_img" src="/img/logo.png" id = "join_logo">
+            <img class="logo_img" src="/img/member/logo.png" id = "join_logo">
 
             <div class="red">아이디</div>
             <div class="join_small_block">
@@ -50,13 +50,8 @@
 
 
 
-                <th:block th:if = "${kakao_user.email != ''}">
-                <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}" disabled>
-                </th:block>
 
-                <th:block th:if = "${kakao_user.email == ''}">
-                    <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}">
-                </th:block>
+                <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}">
 
 
             </div>

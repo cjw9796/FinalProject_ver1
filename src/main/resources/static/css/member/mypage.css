@@ -1,3 +1,6 @@
+body{
+
+}
 .main_container{
     width: 1200px;
     padding: 142px 0px 0px;
@@ -15,15 +18,15 @@ main{
     margin: 0px auto;
 }
 .mypage_content1{
-    width: 680px;
-    height: auto;
+    width: 700px;
+    height: 1000px;
     background-color: rgb(255, 255, 255);
     border-radius: 6px;
     padding: 0px 0px 32px;
     box-sizing: border-box;
     position: relative;
-}
 
+}
 .mypage_content2{
     position: sticky;
     display: flex;
@@ -31,7 +34,7 @@ main{
     width: max-content;
     height: max-content;
     box-sizing: border-box;
-    /*top: 152px;*/
+    top: 186px;
     user-select: none;
     -webkit-user-drag: none;
 
@@ -44,8 +47,6 @@ main{
     box-sizing: border-box;
     padding: 20px 14px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 4px;
-    top: 152px;
-    right: 0px;
     user-select: none;
     -webkit-user-drag: none;
 }
@@ -165,14 +166,13 @@ li:hover{
     font-weight: 600;
 }
 .info_title{
-    margin-right: 30px;
+
     position: relative;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    width: 89%;
 }
 .info_title div{
     margin-bottom: 8px;
@@ -180,6 +180,7 @@ li:hover{
     line-height: 19px;
     color: rgb(106, 106, 106);
     text-indent: 5px;
+    width: 120px;
 }
 .info_box{
     position: relative;
@@ -221,6 +222,7 @@ li:hover{
 }
 .plane_tickets, .rent_tickets{
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .p_ticket:hover, .rent_tickets:hover{
@@ -382,10 +384,14 @@ li:hover{
     font-size: 15px;
     font-weight: 400;
     border-radius: 10px!important;
+    width: 120px;
 }
 .submit_end{
     display: flex;
     justify-content: space-between;
+}
+.submit_end input{
+    width: 120px;
 }
 .option1_btn{
     background-color: #F0F9FFFF;
@@ -403,7 +409,7 @@ li:hover{
 }
 
 .info_box input{
-
+    width: 120px;
     border-radius: 10px ;
     padding: 16px 20px;
     font-size: 13px;
@@ -470,6 +476,8 @@ li:hover{
     border-radius: 10px;
     margin: 10px 0px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 4px;
+    display: flex;
+    align-items: center;
 }
 .r_ticket{
     padding: 20px 16px;
@@ -488,7 +496,6 @@ li:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-weight: 600;
     margin-right: 20px;
 }
 .ci_1, .ri_1{
@@ -500,6 +507,9 @@ li:hover{
     display: flex;
     flex-direction: column;
 
+}
+.car_name{
+    font-weight: 600;
 }
 .car_info, .resuser_info{
     width: 380px;
@@ -541,6 +551,7 @@ li:hover{
 .cs_1{
     display: flex;
     font-size: 10px;
+    align-items: center;
 }
 .company_name{
     margin: 22px 0px;
@@ -573,19 +584,186 @@ li:hover{
     height: 70px;
     width: 190px;
 }
-
-.content1_options{
-
-
+.airport{
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.airport div{
+    color: #9a9a9a;
+    font-size: 15px;
+}
+.airport img{
+    width: 100%;
+}
+.pi_1{
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 6.5px;
+}
+.plane_info{
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+}
+.pi_2{
+    font-size: 15px;
+}
+.plane_passenger{
+    margin-left: 10px;
+    width: 180px;
+}
+.plane_pay{
+    width: 150px;
+    margin-left: 3px !important;
+}
+select{
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    width: 740px;
-    height: max-content;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: #f8f8f8;
+    outline: none;
+    border: 1px solid #f8f8f8;
+    width: 120px;
+}
+.ask_title{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin: 20px 0px 20px;
+    align-items: center;
+}
+.ask_content{
+    text-align: center;
+    position: relative;
+    background: rgb(248, 248, 248);
+    border-radius: 10px;
+    padding: 30px 0px;
     box-sizing: border-box;
-    padding: 20px 30px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 4px;
-    top: 152px;
-    right: 0px;
-    user-select: none;
-    -webkit-user-drag: none;
+    height: 364px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+}
+.ask_title>div{
+    font-size: 12px;
+    opacity: 0.8;
+}
+.write_btn{
+    box-sizing: border-box;
+    width: 74px;
+    height: 44px;
+    background: rgb(0, 182, 206);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-out 0s;
+    border: none;
+    cursor: pointer;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 400;
+}
+table{
+    margin-top: 20px;
+    width: 100%;
+    border-top: 1px solid gray;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-align: center;
+}
+thead {
+    width: 15%;
+    font-size: 13px;
+}
+thead>tr{
+    width: 100%;
+    height: 45px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    background-color: rgb(248, 248, 248);
+
+}
+.qna_btn{
+    border-radius: 10px;
+    padding: 4px 10px;
+    box-sizing: border-box;
+    min-width: 80px;
+    height: 27px;
+    font-weight: 500;
+    font-size: 13px;
+    background-color: rgb(252, 112, 112);
+    color: rgb(241, 249, 246);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+tbody td{
+    padding: 10px;
+    box-sizing: border-box;
+}
+.question {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.question p{
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 0px !important;
+    margin-left: 30px;
+}
+.question input{
+    border: 1px solid gray;
+    padding: 10px 10px;
+    width: 600px;
+    border-radius: 10px;
+    margin: 15px 30px;
+}
+textarea{
+    border: 1px solid gray;
+    padding: 10px 10px;
+    width: 600px;
+    height: 300px;
+    border-radius: 10px;
+    margin: 15px 30px;
+}
+.question_btns{
+    margin-right: 62px;
+    margin-top: 20px;
+}
+.question_btns button{
+    border-radius: 10px;
+    padding: 4px 10px;
+    box-sizing: border-box;
+    min-width: 80px;
+    height: 37px;
+    font-weight: 500;
+    font-size: 13px;
+    background-color: rgb(252, 112, 112);
+    color: rgb(241, 249, 246);
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+#question_btn_submit{
+    background: rgb(0, 182, 206);
+}
+tbody>tr>td:last-child{
+    font-size: 14px;
+    opacity: 0.8;
 }

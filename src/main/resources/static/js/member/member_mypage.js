@@ -79,3 +79,17 @@ option5_btn.addEventListener("click",(e)=>{
     option4.classList.add("disappear");
     option5.classList.remove("disappear");
 })
+
+$('.write_btn').click(()=>{
+    $('.ask_content').addClass("disappear");
+    $('#question_table').addClass("disappear");
+    $('.question').removeClass("disappear");
+    $('.write_btn').addClass("disappear");
+})
+
+$('#question_btn_cancel').click(()=>{
+    $('.ask_content').removeClass("disappear");
+    $('#question_table').removeClass("disappear");
+    $('.question').addClass("disappear");
+    $('.write_btn').removeClass("disappear");
+})

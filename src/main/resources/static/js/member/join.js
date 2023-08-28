@@ -70,6 +70,7 @@ $(document).ready(function () {
     var id_check = false; // 아이디 중복 여부 체크.
 
 
+
     //인증번호 요청, 재요청 클릭시
     $('#auth_request_btn').click(function () {
 
@@ -283,6 +284,8 @@ $(document).ready(function () {
     // mbti 버튼 로직끝
 
     // id중복확인 로직
+
+
 
     $('#user_id').on('input',(e)=>{
 
