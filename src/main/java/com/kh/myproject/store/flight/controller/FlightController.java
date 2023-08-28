@@ -14,6 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @RestController
+@SessionAttributes("user")
 public class FlightController {
 
     @Autowired
@@ -23,16 +24,16 @@ public class FlightController {
     //노선목록
     final String flightOpratInfoUrl = "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList?serviceKey=ZgRTKBFIJGjeIJ14VHOZrP9UMtis8xSBTJvnPqQIigzUQ4aIL8V03y5XCVZ5B8GAKHaJX%2FOz2UpnX%2FvgKqv38w%3D%3D&";
 
-    @GetMapping("/flights")
+    @GetMapping("/store/flight/flights")
     public ModelAndView flightMain(ModelAndView mav){
 
         mav.setViewName("store/flight/flights");
         return mav;
     }
 
-    @GetMapping("/flightDetail")
+    @GetMapping("/store/flight/flightDetail")
     public ModelAndView flightReservation(ModelAndView mav){
-        mav.setViewName("flight/flightDetail");
+        mav.setViewName("store/flight/flightDetail");
         return mav;
     }
 

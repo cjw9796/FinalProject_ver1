@@ -306,10 +306,12 @@ $(document).ready(function () {
 
                         $('#id_check').text("사용가능한 이메일입니다.");
                         $('#id_check').css("color","green");
+
                     }else{
 
                         $('#id_check').text("중복되는 아이디입니다.");
                         $('#id_check').css("color","red");
+
 
 
                     }
@@ -402,7 +404,7 @@ $(document).ready(function () {
             alert("이메일 형식에 맞게 아이디를 작성해주세요.(ex : kh1234@naver.com");
             check = false;
 
-        } else if(id_check){
+        } else if(!id_check){
             alert("중복되는 아이디입니다. 다른 아이디를 사용해주세요.");
             check = false;
         } else if (query.user_password === "") {

@@ -1,10 +1,14 @@
-package com.kh.myproject.api.kakaoPay.payService;
+package com.kh.myproject.api.kakaoPay.service;
 
 
-import com.kh.myproject.api.kakaoPay.payVO.KakaoPayApprovalVO;
-import com.kh.myproject.api.kakaoPay.payVO.KakaoPayReadyVO;
+import com.kh.myproject.api.kakaoPay.model.dto.KakaoPayApprovalVO;
+import com.kh.myproject.api.kakaoPay.model.dto.KakaoPayReadyVO;
+import com.kh.myproject.api.kakaoPay.model.entity.PaymentBill;
+import com.kh.myproject.api.kakaoPay.repository.PayRepository;
+import com.kh.myproject.member.user.model.dto.UserForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
@@ -20,12 +24,16 @@ public class PayService {
     private KakaoPayReadyVO kakaoPayReadyVO;
     private KakaoPayApprovalVO kakaoPayApprovalVO;
 
+    @Autowired
+    private PayRepository payRepository;
+
     public KakaoPayReadyVO kakaoPayReady() {
+
+
         log.info("KakaoPayService => kakaoPayReady......................................... ");
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
-
-        params.add("cid", "TC0ONETIME");                                  // 테스트용 id 고정값
+        params.add("cid","TC0ONETIME");
         params.add("partner_order_id", "1001");                           // 가맹점 주문번호 (주문 id로 쓰면 될듯)
         params.add("partner_user_id", "gorany");                          // 가맹점 회원 id (구매자 유저 id 쓰면 될듯)
         params.add("item_name", "갤럭시 S9");                              //상품명 (상품 id or name 쓰면될듯)
@@ -35,7 +43,6 @@ public class PayService {
         params.add("approval_url", "http://localhost:8080/pay/success");  // 결제승인시 넘어갈 url
         params.add("cancel_url", "http://localhost:8080/pay/cancel");     // 결제취소시 넘어갈 url
         params.add("fail_url", "http://localhost:8080/pay/fail");         // 결제 실패시 넘어갈 url
-
 
         log.info("파트너주문아이디:" + params.get("partner_order_id"));
 
@@ -52,6 +59,38 @@ public class PayService {
     }
 
     // 결제 승인 메서드 ( 승인 완료시 필요한 데이터 담아서 저장하는 컨트롤러 or 서비스 호출)
+    public KakaoPayApprovalVO rentcarInsert(String pg_token) {
+        // 렌터카
+        KakaoPayApprovalVO test = this.payApprove(pg_token);
+
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+        //        구매내역 저장 예시 (미리구현, 팀원과 상의후 데이터 저장)
+        UserForm user = new UserForm();
+
+        params.add("user_id", user.getUser_id());
+        params.add("user_name", user.getUser_name());
+
+        PaymentBill paymentBill = new PaymentBill();
+        paymentBill.setUser_id(user.getUser_id());
+        paymentBill.setUser_name(user.getUser_name());
+
+        payRepository.save(paymentBill);
+
+        HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, this.getHeaders());
+
+        return test;
+    }
+
+    // header() 셋팅
+    private HttpHeaders getHeaders() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "KakaoAK " + "31a5df416cc5ad95dd5dee5fdba74286"); // cbfe56d98ec364f4e7b331348437d0af
+        // headers.add("Accept", MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE);
+        headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+
+        return headers;
+    }
+
     public KakaoPayApprovalVO payApprove(String pg_token) {
         log.info("KakaoPayInfoVO..................................................");
         log.info(".......................");
@@ -63,11 +102,9 @@ public class PayService {
         params.add("partner_user_id", "gorany");
         params.add("pg_token", pg_token);
         params.add("total_amount", "2100");
-        params.add("user_id", "성식시치");
-        params.add("user_name", "성식");
-
 
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, this.getHeaders());
+
 
         // 외부url 통신
         RestTemplate restTemplate = new RestTemplate();
@@ -78,16 +115,7 @@ public class PayService {
         log.info("결제승인 응답객체: " + kakaoPayApprovalVO);
 
 
+
         return kakaoPayApprovalVO;
-    }
-
-    // header() 셋팅
-    private HttpHeaders getHeaders() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "KakaoAK " + "31a5df416cc5ad95dd5dee5fdba74286"); // cbfe56d98ec364f4e7b331348437d0af
-        // headers.add("Accept", MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE);
-        headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-
-        return headers;
     }
 }
