@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!--<span th:text = " '/file/profile_image' + ${user.userImg}"></span>
+thymeleaf태그를 사용하기 위해서는 ㅋ
+
+-->
+
+<!-- 어떻게 적어도 된다. @표현식을 붙여도 되고 안해도 되고 -->
+<!--<img th:src="'/file/profile_image' + ${user.userImg}" width="500">-->
+
+<img th:src="@{'/file/profile_image' + ${user.userImg}}" width="500">
+<img src="/file/profile_image/default1.png" alt="">
+</body>
+</html>

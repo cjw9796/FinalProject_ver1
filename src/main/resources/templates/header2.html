@@ -1,0 +1,59 @@
+<header>
+    <div class="nav_bar">
+        <div class="nav_bar_main">
+            <div class="nav_content1">
+                <a href="../community/home">
+                    <img class="logo_img" src="/img/logo.png">
+                </a>
+                <button id="nav_community" onclick="location.href = '/community/home'">커뮤니티</button>
+                <button id="nav_trip" onclick="location.href = '/store/home'">여행상점</button>
+            </div>
+            <div class="nav_content2">
+                <div class="nav_search_tag">
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+
+
+                    <input type="text"
+                           placeholder="동행을 찾아보세요">
+
+                </div>
+
+
+
+
+                <div th:if = "${user!=null}">
+                    <div class="nav_logintf my_icons">
+                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" class = "profile_img"
+                                                 onclick="location.href='/member/mypage'"></div>
+                        <div class="logout"><i class="fa-xl fa-solid fa-arrow-right-from-bracket" style="color: #bebebe;"
+                                               onclick="location.href = '/member/logout'"></i></div>
+                    </div>
+                </div>
+
+                <!--             로그인이 안되었다면-->
+                <div th:if = "${user==null}">
+                    <div class="nav_logintf">
+                        <button class="login_btn" onclick="window.location.href='/member/login'">로그인</button>
+                        <div class="shortline"></div>
+                        <button class="join_btn" onclick="window.location.href='/member/join'">회원가입</button>
+                    </div>
+                </div>
+
+
+                <div class="nav_button">
+                    <button id = "write_btn">작성하기</button>
+                </div>
+            </div>
+        </div>
+        <div class="choice_post disappear">
+            <button onclick="window.location.href='../community/accompany/write'"><i
+                    class="fa-lg fa-solid fa-user-group" style="color: #588fee;"></i>동행 모집하기
+            </button>
+            <button onclick="window.location.href='../community/plan/write'"><i
+                    class="fa-lg fa-regular fa-calendar-check" style="color: #cc6fd3;"></i>여행 일정 만들기
+            </button>
+        </div>
+    </div>
+
+</header>
+

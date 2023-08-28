@@ -977,3 +977,6 @@ h6 > b {
     content: url("https://openimage.interpark.com/tour-desktop/pages/air/main/icon-oneway.png");
 }
 
+.mySwiper img{
+    height: 300px;
+}

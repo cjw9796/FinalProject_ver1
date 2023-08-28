@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Community</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/member/community_main.css">
+    <link rel="stylesheet" href="/css/member/join_login.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="next">
+
+
+    <header th:include = "/header2.html :: header"></header>
+
+    <div class="choice_post disappear">
+        <button onclick="window.location.href='../community/accompany/write'"><i
+                class="fa-lg fa-solid fa-user-group" style="color: #588fee;"></i>동행 모집하기
+        </button>
+        <button onclick="window.location.href='../community/plan/write'"><i
+                class="fa-lg fa-regular fa-calendar-check" style="color: #cc6fd3;"></i>여행 일정 만들기
+        </button>
+    </div>
+
+    </header>
+
+    <div class="container" id ="login_block">
+
+        <img class="logo_img" src="/img/logo.png" id ="title">
+
+        <form action="/member/loginPro" method="post">
+            <div>
+                <div class="login_block">
+                    <input type="text" name="user_id" placeholder="아이디를 입력해주세요.">
+                </div>
+
+                <div class="login_block">
+                    <input type="password" name="user_password" placeholder="비밀번호를 입력해주세요.">
+                </div>
+
+
+                <div>
+                    <button class="loginbtn" type="submit" id="loginbtn">
+
+                        로그인
+
+                    </button>
+                </div>
+
+
+                <div>
+                    <button id="kakao_btn" type="button" class="loginbtn"
+                            onclick="location.href = 'https://kauth.kakao.com/oauth/authorize?client_id=ae7f5b9c9c8ad78f7f1cc5bbf3379d50&redirect_uri=http://localhost:8080/kakaologin&response_type=code'">
+                        카카오로 간편 로그인
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+
+        <!-- 카카오 세션 죽이는 로그아웃 버튼 -->
+        <!--    <a class="p-2"-->
+        <!--       href="https://kauth.kakao.com/oauth/logout?client_id=d50ee5df80cd1482f2ef5c34906981cb&logout_redirect_uri=http://localhost:8080/logout">-->
+
+        <!--        로그아웃-->
+        <!--    </a>-->
+
+        <div class="find_block">
+            <span>비밀번호가 생각나지 않는다면?</span>
+            <a href="/member/findPw">비밀번호 찾기</a>
+        </div>
+
+        <div>
+            <button class="loginbtn" type="submit" id="join_btn" onclick="location.href = '/member/join'">
+
+                회원가입
+
+            </button>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+<div th:include="/footer.html :: footer"></div>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+<script src="/jq/jquery-3.7.0.min.js"></script>
+<script src="/js/header.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>plan_write_kakaomap.html</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/community/plan/plan_write.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <style>
+        .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+        .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+        .map_wrap {position:relative;width:100%;height:100%;}
+        #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+        .bg_white {background:#fff;}
+        #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+        #menu_wrap .option{text-align: center;}
+        #menu_wrap .option p {margin:10px 0;}
+        #menu_wrap .option button {margin-left:5px;}
+        #placesList li {list-style: none;}
+        #placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+        #placesList .item span {display: block;margin-top:4px;}
+        #placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+        #placesList .item .info{padding:10px 0 10px 55px;}
+        #placesList .info .gray {color:#8a8a8a;}
+        #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+        #placesList .info .tel {color:#009900;}
+        #placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+        #placesList .item .marker_1 {background-position: 0 -10px;}
+        #placesList .item .marker_2 {background-position: 0 -56px;}
+        #placesList .item .marker_3 {background-position: 0 -102px}
+        #placesList .item .marker_4 {background-position: 0 -148px;}
+        #placesList .item .marker_5 {background-position: 0 -194px;}
+        #placesList .item .marker_6 {background-position: 0 -240px;}
+        #placesList .item .marker_7 {background-position: 0 -286px;}
+        #placesList .item .marker_8 {background-position: 0 -332px;}
+        #placesList .item .marker_9 {background-position: 0 -378px;}
+        #placesList .item .marker_10 {background-position: 0 -423px;}
+        #placesList .item .marker_11 {background-position: 0 -470px;}
+        #placesList .item .marker_12 {background-position: 0 -516px;}
+        #placesList .item .marker_13 {background-position: 0 -562px;}
+        #placesList .item .marker_14 {background-position: 0 -608px;}
+        #placesList .item .marker_15 {background-position: 0 -654px;}
+        #pagination {margin:10px auto;text-align: center;}
+        #pagination a {display:inline-block;margin-right:10px;}
+        #pagination .on {font-weight: bold; cursor: default;color:#777;}
+    </style>
+</head>
+<body>
+<div class="next">
+    <header th:include="header.html :: header"></header>
+    <div class="m">
+        <!-- 메인부분 코드 작성 -->
+
+        <div style="flex: 1 1 0%;">
+            <div class="_next">
+                <div class="container">
+                    <div class="googlemaps">
+                        <div class="googlemaps_in">
+                            <div class="map_wrap">
+                                <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+
+                                <div id="menu_wrap" class="bg_white">
+                                    <div class="option">
+                                        <div>
+                                            <form onsubmit="searchPlaces(); return false;">
+                                                키워드 : <input type="text" value="제주도" id="keyword" size="15">
+                                                <button type="submit">검색하기</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <ul id="placesList"></ul>
+                                    <div id="pagination"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--여기까지 구글맵-->
+
+                    <div class="content">
+                        <div class="article">
+                            <div class="art1">
+                                <div class="art1_div_btn">
+
+                                    <div class="art1_div_svg">
+                                        <svg width=" 9
+                                          " height="16" viewBox="0 0 9 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             style="cursor: pointer;">
+                                            <path d="M8 1L1 8L8 15" stroke="#252533" stroke-width="1"
+                                                  stroke-linecap="square" fill="#2564d0"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="art1_div_subject">
+                                        제주도여행지 kulkul-_-z님의 여행일정
+                                    </div>
+                                    <span class="art1_div_menu">
+                                </span>
+                                </div>
+                            </div>
+
+
+                            <div class="art1_1">
+                                <!--날짜상자-->
+                                <button class="art1_1btn">
+                                    <span class="art1_1btn_span_icon">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg {
+                                            fill: #2564d0
+                                        }</style><path
+                                                d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zM329 305c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-95 95-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L329 305z"/></svg>
+
+
+                                    </span>
+                                    <span class="art1_1btn_span_st">첫 날짜 & 요일</span>
+                                    <span class="art1_1btn_span_md"></span>
+                                    <span class="art1_1btn_span_ed">마지막 날짜 & 요일</span>
+                                    </span>
+                                    <span class="art1_1btn_span2">
+                                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg"><path
+                                            d="M13 1L7 7L1 0.999999" stroke="#252525" stroke-linecap="round"
+                                            stroke-linejoin="round" fill="#2564d0"></path></svg></span>
+                                </button>
+                            </div>
+
+
+                        </div>
+                        <div class="article2"> <!-- 여기서부터 아래 2번째 상자 hjiFwe-->
+                            <div class="article_sc"><!-- 2번째 상자 안에서 2가지로 쪼개짐 eviLym-->
+                                <div class="article_sc_in"> <!-- 줄마다 쪼개짐 gumIDO-->
+                                    <div class="sc_des">  <!-- 2-1 상자 dGNMmW-->
+                                        <div class="sc_des_div">  <!-- 첫번째줄 hLwbou-->
+                                            <div class="sc_des_div_in"> <!-- 첫번째 줄 안에서 1칸 iGXDys-->
+                                                <div class="sc_des_intext"> <!-- fGcfmN -->
+                                                    <div class="sc_des_div2">
+                                                        <div class="sc_des_div2_in">
+                                                            <div class="sc_des_schIcon"> <!-- dWnYvB -->
+
+                                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="#0064DE"
+                                                                     viewBox="0 0 384 512" color="#0064DE">
+                                                                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                    <style>svg {
+                                                                        fill: #0064DE;
+                                                                    }</style>
+                                                                    <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" fill="#0064DE"></path>
+                                                                </svg>
+
+
+                                                            </div>
+
+                                                            <span class="sc_des_div2_span">제주도</span>
+                                                        </div>
+                                                        <div class="sc_des_mark_hujitong">
+
+                                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                                 viewBox="0 0 448 512">
+                                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                <style>svg {
+                                                                    fill: #df5368
+                                                                }</style>
+                                                                <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
+                                                            </svg>
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="sc_des2">  <!-- 2-1 상자 dGNMmW-->
+                                        <div class="sc_des2_div">  <!-- 첫번째줄 hLwbou-->
+                                            <div class="sc_des2_div_in"> <!-- 첫번째 줄 안에서 1칸 iGXDys-->
+                                                <div class="sc_des2_intext"> <!-- fGcfmN -->
+                                                    <div class="sc_des2_div2">
+                                                        <div class="sc_des2_div2_in">
+                                                            <div class="sc_des2_schIcon"> <!-- dWnYvB -->
+
+                                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                                     fill="#2564d0"
+                                                                     viewBox="0 0 448 512">
+                                                                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+
+                                                                    <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zM329 305c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-95 95-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L329 305z" fill="#0064DE"></path>
+                                                                </svg>
+
+
+                                                            </div>
+
+                                                            <div class="sc_date_start">23.09.05</div>
+                                                            <span class="art1_1btn_span_md"></span>
+                                                            <div class="sc_date_end">23.09.07</div>
+
+
+                                                        </div>
+                                                        <div class="sc_des_mark_hujitong">
+
+                                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                                 viewBox="0 0 448 512">
+                                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                                <style>svg {
+                                                                    fill: #df5368
+                                                                }</style>
+                                                                <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
+                                                            </svg>
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="sc_ct">
+                                <div class="sc_ctn_front"></div>
+                                <div class="sc_ctn">
+                                    <div class="ctn1">
+                                             <span class="ctn1_span">
+                                                 <span class="ctn1_span2">
+
+                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="#253333"
+                                                     xmlns="http://www.w3.org/2000/svg"
+                                                     color="#333333" size="15">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M21.5143 12.7857C22.1619 12.462 22.1619 11.538 21.5143 11.2143L3.2715 2.09388C2.68733 1.80182 2 2.22657 2 2.87962L2 9.63235C2 10.1346 2.3726 10.559 2.87068 10.624L13.4216 12L2.87068 13.376C2.3726 13.441 2 13.8654 2 14.3676L2 21.1204C2 21.7734 2.68733 22.1982 3.2715 21.9061L21.5143 12.7857Z"
+                                                      fill=#ffffff></path></svg>
+                                                 </span>
+                                                <span class="day1_span">Day1</span>
+                                             </span>
+                                        <div class="ctn1_div">
+
+                                            09.05
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button class="ctn1_btn">
+
+                                    <span>동선최적화</span>
+                                    <span class="ctn1_btn_span">
+                                                <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                          d="M14.5 6.0459C15.3284 6.0459 16 5.37433 16 4.5459C16 3.71747 15.3284 3.0459 14.5 3.0459C13.8376 3.0459 13.2754 3.47529 13.0768 4.07092H4.94858C3.48206 4.07092 2.29321 5.41407 2.29321 7.07092C2.29321 8.72778 3.48206 10.0709 4.94858 10.0709H5.61243V10.0718H12.9147C13.8313 10.0718 14.5743 10.9112 14.5743 11.9468C14.5743 12.9823 13.8313 13.8218 12.9147 13.8218H4.89057C4.66781 13.2726 4.12914 12.8853 3.5 12.8853C2.67157 12.8853 2 13.5568 2 14.3853C2 15.2137 2.67157 15.8853 3.5 15.8853C4.12988 15.8853 4.66908 15.497 4.89136 14.9468H12.9147C14.3812 14.9468 15.5701 13.6036 15.5701 11.9468C15.5701 10.2899 14.3812 8.94678 12.9147 8.94678H12.2509V8.94592H4.94858C4.03201 8.94592 3.28898 8.10646 3.28898 7.07092C3.28898 6.03539 4.03201 5.19592 4.94858 5.19592H13.1478C13.39 5.69883 13.9045 6.0459 14.5 6.0459ZM14.5 5.0459C14.7761 5.0459 15 4.82204 15 4.5459C15 4.26976 14.7761 4.0459 14.5 4.0459C14.2239 4.0459 14 4.26976 14 4.5459C14 4.82204 14.2239 5.0459 14.5 5.0459ZM4 14.3853C4 14.6614 3.77614 14.8853 3.5 14.8853C3.22386 14.8853 3 14.6614 3 14.3853C3 14.1091 3.22386 13.8853 3.5 13.8853C3.77614 13.8853 4 14.1091 4 14.3853Z"
+                                                          fill="#0064C8">
+
+                                                    </path></svg></span>
+                                </button>
+                            </div>
+
+
+                            <div data-rbd-droppable-id="0" data-rbd-droppable-context-id="5" class="0">
+                                <!-- 여기서부터 한 세트 -->
+                                <div data-rbd-draggable-context-id="5"
+                                     data-rbd-draggable-id="64e6a7371f8bc5b1ab8fdd70" tabindex="0"
+                                     role="button"
+                                     aria-describedby="rbd-hidden-text-5-hidden-text-40"
+                                     data-rbd-drag-handle-draggable-id="64e6a7371f8bc5b1ab8fdd70"
+                                     data-rbd-drag-handle-context-id="5" draggable="false"
+                                     style="user-select: none; height: auto; box-sizing: border-box; background: rgb(255, 255, 255); box-shadow: none;"
+                                     class="box"></div>
+
+
+                                <div class="sc_ctn_destination"> <!-- 여기서부터 한 세트 -->
+                                    <!--<div class="sc_ctn_des">-->
+                                    <!--<div class="sc_ctn_des2">-->
+                                    <div class="sc_ctn_des_front" id="2411">
+                                        <div class="sc_ctn_des_guri">29.4
+                                            km
+                                        </div>
+                                        <!-- ceSOaF-->
+
+                                        <span class="sc_ctn_des_icon"> <!--fWFbFV-->
+                                                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M3.57085 2.14251C4.21818 2.53091 4.21819 3.46909 3.57085 3.8575L1.5145 5.0913C0.847974 5.49122 1.72173e-06 5.01111 1.75571e-06 4.23381L1.86357e-06 1.76619C1.89755e-06 0.988899 0.847973 0.508785 1.5145 0.9087L3.57085 2.14251Z"
+                                                                  fill="#6A6A6A"></path>
+                                                        </svg>
+                                        </span>
+
+
+                                        <div class="ctn1_des_div_in"> <!-- 여기 hrYHor -->
+                                            <div class="ctn1_des_num">1</div>
+
+                                            <div class="ctn1_des_li">
+                                                <div class="ctn1_des_list">
+
+                                                    <div class="ctn1_des_list_span1"> <!-- 제주공항박스 -->
+                                                        <p class="ctn1_des_list_span1p">제주국제공항</p>
+                                                        <span class="ctn1_des_list_span1sp">공항</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="ctn1_des_list_place"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div data-rbd-droppable-id="0" data-rbd-droppable-context-id="5" class="0">
+                                <!-- 여기서부터 한 세트 -->
+                                <div data-rbd-draggable-context-id="5"
+                                     data-rbd-draggable-id="64e6a7371f8bc5b1ab8fdd70" tabindex="0"
+                                     role="button"
+                                     aria-describedby="rbd-hidden-text-5-hidden-text-40"
+                                     data-rbd-drag-handle-draggable-id="64e6a7371f8bc5b1ab8fdd70"
+                                     data-rbd-drag-handle-context-id="5" draggable="false"
+                                     style="user-select: none; height: auto; box-sizing: border-box; background: rgb(255, 255, 255); box-shadow: none;"
+                                     class="box"></div>
+
+
+                                <div class="sc_ctn_destination2"> <!-- 여기서부터 한 세트 -->
+                                    <!--<div class="sc_ctn_des">-->
+                                    <!--<div class="sc_ctn_des2">-->
+                                    <div class="sc_ctn_des_front2">
+                                        <div class="sc_ctn_des_guri">
+                                        </div>
+                                        <!-- ceSOaF-->
+
+                                        <span class="sc_ctn_des_icon"> <!--fWFbFV-->
+                                            <svg width="5" height="6" viewBox="0 0 5 6" fill="#ffffff"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M3.57085 2.14251C4.21818 2.53091 4.21819 3.46909 3.57085 3.8575L1.5145 5.0913C0.847974 5.49122 1.72173e-06 5.01111 1.75571e-06 4.23381L1.86357e-06 1.76619C1.89755e-06 0.988899 0.847973 0.508785 1.5145 0.9087L3.57085 2.14251Z"
+                                                                  fill="#ffffff"></path>
+                                                        </svg>
+
+
+
+                                        </span>
+
+
+                                        <div class="ctn1_des_div_in2"> <!-- 여기 hrYHor -->
+                                            <div class="ctn1_des_num2">2</div>
+
+                                            <div class="ctn1_des_li2">
+                                                <div class="ctn1_des_list2">
+
+                                                    <div class="ctn1_des_list_span12"> <!-- 제주공항박스 -->
+                                                        <p class="ctn1_des_list_span1p2">제주국제공항</p>
+                                                        <span class="ctn1_des_list_span1sp2">공항</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="ctn1_des_list_place2"></div>
+
+
+                                            </div> <!-- 여기 안에 있어야 2번이 박스 안-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   <!-- article2 절대 지켜ㅕㅕㅕㅕㅕ-->
+                        <div width="100%" height="71px" display="flex" class="btm_btn">
+                            <button class="sc-e2da28cc-20 hKoDxD">장소 추가</button>
+                            <button class="sc-e2da28cc-20 hKoDxD">메모 추가</button>
+                        </div>
+
+
+
+                        <div height="auto" class="sc-b9ae8689-0 dODYKH">
+                            <div class="sc-1ee6e84e-9 fXoRpx"></div>
+                            <div class="sc-1ee6e84e-0 eviLym">
+                                <div class="sc-1ee6e84e-2 ditPOi">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.9387 10.7632C19.9387 15.0508 12.4693 21.8536 12.4693 21.8536C12.4693 21.8536 5 15.0508 5 10.7632C5 6.47572 8.34413 3 12.4693 3C16.5945 3 19.9387 6.47572 19.9387 10.7632Z"
+                                              fill="#7D7DFF"></path>
+                                        <circle cx="12.4699" cy="9.91282" r="3.37327" fill="white"></circle>
+                                    </svg>
+                                </div>
+                                <button class="sc-1ee6e84e-3 bXRoJG">
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.5 1V12" stroke="#000" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round"></path>
+                                        <path d="M12 6.5L1 6.5" stroke="#000" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round"></path>
+                                    </svg>
+                                    <span>여행지 추가</span></button>
+                            </div>
+                        </div>
+
+
+                        <div class="sc-e6a1c59a-15 YIEaf">
+                            <button color="#fff" class="sc-1dca83dc-0 hwLFpI">내 일정으로 이동</button>
+                        </div>
+                    </div> <!-- 여기까지 content 한 세트-->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div th:include="/footer.html :: footer"></div>
+
+<script>
+    //내 일정으로 이동 버튼 클릭 시 plan(일정 메인)으로 이동    (원래: 마이페이지-내 일정으로 이동)
+    const MoveMySchedule = document.querySelector('.sc-1dca83dc-0.hwLFpI');
+
+    MoveMySchedule.addEventListener('click', () => {
+        window.location.href = '../plan';
+    });
+</script>
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+<script src="/jq/jquery-3.7.0.min.js"> </script>
+<script src="/js/header.js"></script>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c012367ce50cd5f2e93814481c3cf769&libraries=services,clusterer,drawing"></script>
+<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
+<script>
+    // 마커를 담을 배열입니다
+    var markers = [];
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 장소 검색 객체를 생성합니다
+    var ps = new kakao.maps.services.Places();
+
+    // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+    // 키워드로 장소를 검색합니다
+    searchPlaces();
+
+    // 키워드 검색을 요청하는 함수입니다
+    function searchPlaces() {
+
+        var keyword = document.getElementById('keyword').value;
+
+        if (!keyword.replace(/^\s+|\s+$/g, '')) {
+            alert('키워드를 입력해주세요!');
+            return false;
+        }
+
+        // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+        ps.keywordSearch( keyword, placesSearchCB);
+    }
+
+    // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+    function placesSearchCB(data, status, pagination) {
+        if (status === kakao.maps.services.Status.OK) {
+
+            // 정상적으로 검색이 완료됐으면
+            // 검색 목록과 마커를 표출합니다
+            displayPlaces(data);
+
+            // 페이지 번호를 표출합니다
+            displayPagination(pagination);
+
+        } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+            alert('검색 결과가 존재하지 않습니다.');
+            return;
+
+        } else if (status === kakao.maps.services.Status.ERROR) {
+
+            alert('검색 결과 중 오류가 발생했습니다.');
+            return;
+
+        }
+    }
+
+    // 검색 결과 목록과 마커를 표출하는 함수입니다
+    function displayPlaces(places) {
+
+        var listEl = document.getElementById('placesList'),
+            menuEl = document.getElementById('menu_wrap'),
+            fragment = document.createDocumentFragment(),
+            bounds = new kakao.maps.LatLngBounds(),
+            listStr = '';
+
+        // 검색 결과 목록에 추가된 항목들을 제거합니다
+        removeAllChildNods(listEl);
+
+        // 지도에 표시되고 있는 마커를 제거합니다
+        removeMarker();
+
+        for ( var i=0; i<places.length; i++ ) {
+
+            // 마커를 생성하고 지도에 표시합니다
+            var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+                marker = addMarker(placePosition, i),
+                itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+            // LatLngBounds 객체에 좌표를 추가합니다
+            bounds.extend(placePosition);
+
+            // 마커와 검색결과 항목에 mouseover 했을때
+            // 해당 장소에 인포윈도우에 장소명을 표시합니다
+            // mouseout 했을 때는 인포윈도우를 닫습니다
+            (function(marker, title) {
+                kakao.maps.event.addListener(marker, 'mouseover', function() {
+                    displayInfowindow(marker, title);
+                });
+
+                kakao.maps.event.addListener(marker, 'mouseout', function() {
+                    infowindow.close();
+                });
+
+                itemEl.onmouseover =  function () {
+                    displayInfowindow(marker, title);
+                };
+
+                itemEl.onmouseout =  function () {
+                    infowindow.close();
+                };
+            })(marker, places[i].place_name);
+
+            fragment.appendChild(itemEl);
+        }
+
+        // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
+        listEl.appendChild(fragment);
+        menuEl.scrollTop = 0;
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+        map.setBounds(bounds);
+    }
+
+    // 검색결과 항목을 Element로 반환하는 함수입니다
+    function getListItem(index, places) {
+
+        var el = document.createElement('li'),
+            itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
+                '<div class="info">' +
+                '   <h5>' + places.place_name + '</h5>';
+
+        if (places.road_address_name) {
+            itemStr += '    <span>' + places.road_address_name + '</span>' +
+                '   <span class="jibun gray">' +  places.address_name  + '</span>';
+        } else {
+            itemStr += '    <span>' +  places.address_name  + '</span>';
+        }
+
+        itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+            '</div>';
+
+        el.innerHTML = itemStr;
+        el.className = 'item';
+        el.addEventListener('click',function(){window.open(places.place_url, "_blank", "width=900, height=500")}); //place map 보여주는 함수
+        return el;
+    }
+
+    // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+    function addMarker(position, idx, title) {
+        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+            imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
+            imgOptions =  {
+                spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
+                spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+                offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+            },
+            markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+            marker = new kakao.maps.Marker({
+                position: position, // 마커의 위치
+                image: markerImage
+            });
+
+        marker.setMap(map); // 지도 위에 마커를 표출합니다
+        markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+        return marker;
+    }
+
+    // 지도 위에 표시되고 있는 마커를 모두 제거합니다
+    function removeMarker() {
+        for ( var i = 0; i < markers.length; i++ ) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+    }
+
+    // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+    function displayPagination(pagination) {
+        var paginationEl = document.getElementById('pagination'),
+            fragment = document.createDocumentFragment(),
+            i;
+
+        // 기존에 추가된 페이지번호를 삭제합니다
+        while (paginationEl.hasChildNodes()) {
+            paginationEl.removeChild (paginationEl.lastChild);
+        }
+
+        for (i=1; i<=pagination.last; i++) {
+            var el = document.createElement('a');
+            el.href = "#";
+            el.innerHTML = i;
+
+            if (i===pagination.current) {
+                el.className = 'on';
+            } else {
+                el.onclick = (function(i) {
+                    return function() {
+                        pagination.gotoPage(i);
+                    }
+                })(i);
+            }
+
+            fragment.appendChild(el);
+        }
+        paginationEl.appendChild(fragment);
+    }
+
+    // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+    // 인포윈도우에 장소명을 표시합니다
+    function displayInfowindow(marker, title) {
+        var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+    }
+
+    // 검색결과 목록의 자식 Element를 제거하는 함수입니다
+    function removeAllChildNods(el) {
+        while (el.hasChildNodes()) {
+            el.removeChild (el.lastChild);
+        }
+    }
+
+    //2. 지도에 컨트롤 올리기 추가
+    // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+
+    // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+    // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+    // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+    var zoomControl = new kakao.maps.ZoomControl();
+    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+    //3. Toolbox 사용하기
+    // 도형 스타일을 변수로 설정합니다
+    var strokeColor = '#39f',
+        fillColor = '#cce6ff',
+        fillOpacity = 0.5,
+        hintStrokeStyle = 'dash';
+
+    var options = { // Drawing Manager를 생성할 때 사용할 옵션입니다
+        map: map, // Drawing Manager로 그리기 요소를 그릴 map 객체입니다
+        drawingMode: [
+            kakao.maps.Drawing.OverlayType.MARKER,
+            kakao.maps.Drawing.OverlayType.ARROW,
+            kakao.maps.Drawing.OverlayType.POLYLINE,
+            kakao.maps.Drawing.OverlayType.RECTANGLE,
+            kakao.maps.Drawing.OverlayType.CIRCLE,
+            kakao.maps.Drawing.OverlayType.ELLIPSE,
+            kakao.maps.Drawing.OverlayType.POLYGON
+        ],
+        // 사용자에게 제공할 그리기 가이드 툴팁입니다
+        // 사용자에게 도형을 그릴때, 드래그할때, 수정할때 가이드 툴팁을 표시하도록 설정합니다
+        guideTooltip: ['draw', 'drag', 'edit'],
+        markerOptions: {
+            draggable: true,
+            removable: true
+        },
+        arrowOptions: {
+            draggable: true,
+            removable: true,
+            strokeColor: strokeColor,
+            hintStrokeStyle: hintStrokeStyle
+        },
+        polylineOptions: {
+            draggable: true,
+            removable: true,
+            strokeColor: strokeColor,
+            hintStrokeStyle: hintStrokeStyle
+        },
+        rectangleOptions: {
+            draggable: true,
+            removable: true,
+            strokeColor: strokeColor,
+            fillColor: fillColor,
+            fillOpacity: fillOpacity
+        },
+        circleOptions: {
+            draggable: true,
+            removable: true,
+            strokeColor: strokeColor,
+            fillColor: fillColor,
+            fillOpacity: fillOpacity
+        },
+        ellipseOptions: {
+            draggable: true,
+            removable: true,
+            strokeColor: strokeColor,
+            fillColor: fillColor,
+            fillOpacity: fillOpacity
+        },
+        polygonOptions: {
+            draggable: true,
+            removable: true,
+            strokeColor: strokeColor,
+            fillColor: fillColor,
+            fillOpacity: fillOpacity
+        }
+    };
+
+    // 위에 작성한 옵션으로 Drawing Manager를 생성합니다
+    var manager = new kakao.maps.Drawing.DrawingManager(options);
+
+    // Toolbox를 생성합니다.
+    // Toolbox 생성 시 위에서 생성한 DrawingManager 객체를 설정합니다.
+    // DrawingManager 객체를 꼭 설정해야만 그리기 모드와 매니저의 상태를 툴박스에 설정할 수 있습니다.
+    var toolbox = new kakao.maps.Drawing.Toolbox({drawingManager: manager});
+
+    // 지도 위에 Toolbox를 표시합니다
+    // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOP은 위 가운데를 의미합니다.
+    map.addControl(toolbox.getElement(), kakao.maps.ControlPosition.TOP);
+
+
+
+</script>
+</body>
+</html>

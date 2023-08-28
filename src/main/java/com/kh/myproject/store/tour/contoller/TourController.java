@@ -6,10 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @Slf4j
+@SessionAttributes("user")
 public class TourController {
 
 
@@ -21,28 +23,28 @@ public class TourController {
     final String blogSearchUrl = "";
 
 
-    @GetMapping("/tourism")
+    @GetMapping("/store/tour/tourism")
     public ModelAndView tourism(ModelAndView mav) {
         mav.setViewName("store/tour/tourSearch");
 
         return mav;
     }
 
-    @GetMapping("/cities")
+    @GetMapping("/store/tour/cities")
     public ModelAndView cities(ModelAndView mav) {
         mav.setViewName("store/tour/cities");
 
         return mav;
     }
 
-    @GetMapping("/tourmain")
+    @GetMapping("/store/tour/tourmain")
     public ModelAndView tourMain(ModelAndView mav) {
         mav.setViewName("store/tour/tourmain");
 
         return mav;
     }
 
-    @GetMapping("/tourDetail")
+    @GetMapping("/store/tour/tourDetail")
     public ModelAndView tourDetail(ModelAndView mav) {
         mav.setViewName("store/tour/tourDetail");
 

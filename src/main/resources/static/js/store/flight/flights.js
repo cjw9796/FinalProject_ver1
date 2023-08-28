@@ -1,5 +1,4 @@
-/*
-<script>
+
 
 
     $(function () {
@@ -145,4 +144,4 @@
     $('.flight_result_col').on('click', function () {
     alert('클릭');
 });
-</script>*/
+
