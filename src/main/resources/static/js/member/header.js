@@ -86,6 +86,7 @@ $(document).ready(function () {
 //     // store.classList.add("disappear");
 //     // area.classList.remove("menu_underline");
 //     // plane.classList.remove("menu_underline");
+//     // plane.classList.remove("menu_underline");
 //     // rental.classList.remove("menu_underline");
 //     // menu_point_store.classList.add("menu_underline");
 //     window.location.href="../community/home";
