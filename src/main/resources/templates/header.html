@@ -1,13 +1,16 @@
 
+
 <header>
     <div class="nav_bar">
         <div class="nav_bar_main">
             <div class="nav_content1">
-                <a href="index.html">
+                <a href="../community/home">
                     <img class="logo_img" src="/img/logo.png">
                 </a>
-                <button id="nav_community">커뮤니티</button>
-                <button id="nav_trip">여행상점</button>
+                <button id="nav_community"   class="nav_underline"
+                        onclick="window.location.href = '/community/home'">커뮤니티</button>
+                <button id="nav_trip"
+                        onclick="window.location.href = '/store/home'">여행상점</button>
             </div>
             <div class="nav_content2">
                 <div class="nav_search_tag">
@@ -16,29 +19,70 @@
                     <input type="text"
                            placeholder="동행을 찾아보세요">
 
-                </div>
-                <!--로그인이 되었다면
-                <div class="nav_logintf my_icons">
-                    <div><i class="fa-solid fa-xl fa-cart-shopping"></i></div>
-                    <div><i class="fa-solid fa-xl fa-user"></i></div>
-                </div>-->
 
-                <!--     로그인이 안되었다면-->
-                <div class="nav_logintf">
-                    <button  onclick="window.location.href='login.html'">로그인</button>
-                    <div class="shortline"></div>
-                    <button  onclick="window.location.href='join.html'">회원가입</button>
+                </div>
+                <!--로그인이 되었다면-->
+                <div th:if = "${user!=null}">
+                    <div class="nav_logintf my_icons">
+                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" class = "profile_img"
+                                                 onclick="location.href='/member/mypage'"></div>
+                        <div class="logout"><i class="fa-xl fa-solid fa-arrow-right-from-bracket" style="color: #bebebe;"
+                                               onclick="location.href = '/member/logout'"></i></div>
+                    </div>
+
+
+                </div>
+
+
+
+                <!--             로그인이 안되었다면-->
+                <div th:if = "${user==null}">
+                    <div class="nav_logintf">
+                        <button class="login_btn" onclick="window.location.href='../member/login'">로그인</button>
+                        <div class="shortline"></div>
+                        <button class="join_btn" onclick="window.location.href='../member/join'">회원가입</button>
+                    </div>
                 </div>
 
                 <div class="nav_button">
-                    <button>작성하기</button>
+                    <button id = "write_btn">작성하기</button>
+                </div>
+
+                <div class="choice_post disappear">
+                    <button onclick="window.location.href='/community/accompany/write'"><i class="fa-lg fa-solid fa-user-group" style="color: #588fee;"></i>동행 모집하기</button>
+                    <button onclick="window.location.href='/community/plan/write'"><i class="fa-lg fa-regular fa-calendar-check" style="color: #cc6fd3;"></i>여행 일정 만들기</button>
                 </div>
             </div>
         </div>
-        <div class="nav_bar_menu">
-            <div class="menu_point">홈</div>
-            <div><i class="fa-solid fa-user-group" style="color: #588fee;"></i>동행</div>
-            <div><i class="fa-regular fa-calendar-check" style="color: #cc6fd3;"></i>일정</div>
+        <!--community -->
+        <div class="nav_bar_menu community">
+            <div class="menu_point  home"
+                 onclick="location.href = '/community/home'">홈</div>
+            <div class="accompany" onclick="location.href = '/community/accompany'"><i class="fa-solid fa-user-group" style="color: #588fee;"
+            ></i>동행</div>
+            <div class="plan" onclick="location.href = '/community/plan'"><i class="fa-regular fa-calendar-check" style="color: #cc6fd3;"
+            ></i>일정</div>
+
+            <div className="second-box-tabs-clicked-bar"
+                 style="color: rgb(170, 170, 170); font-weight: 400; margin-left: 66.3333%;"></div>
         </div>
+        <!--store-->
+        <div class="nav_bar_menu_store store disappear ">
+            <div class="menu_point_store home"
+                 onclick="location.href = '/store/home'">홈</div>
+            <div class="area tour" onclick="location.href = '/store/tour/tourmain'"><i class="fa-solid fa-location-dot" style="color: #ff8080;"
+            ></i>여행지 둘러보기</div>
+            <div class="flight plane" onclick="location.href = '/store/flight/flights'"><i class="fa-solid fa-plane" style="color: #005eff;"></i>항공권</div>
+            <div class="rentcar rental" onclick="location.href = '/store/rentcar/rentcarMain'">
+                <i class="fa-solid fa-car-side" style="color: #124caf;"></i>렌터카</div>
+
+
+        </div>
+
+
+
+    </div>
+
     </div>
 </header>
+

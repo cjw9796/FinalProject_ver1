@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>mypage</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/member/mypage.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="next">
+
+    <header th:include="/header2.html :: header"></header>
+    <main>
+        <div class="main_container">
+            <div class = "content1_options">
+            <div class="mypage_content1 option1 ">
+
+
+                <div class="option1_section">
+                    <h5>계정관리</h5>
+                    <div class="section_separate_line"></div>
+                </div>
+                <div class="update_main">
+
+                    <div class="myimg"><img th:src="'/file/profile_image/' + ${user.userImg}" alt="" id="myimg"></div>
+                    <div class="update_user_nick" disabled>
+                        <input name="user_name" th:value="${user.userName}" disabled="false">
+                        <i class="fa-solid fa-pen" id="name_update_btn1" style="color: #000000;"></i>
+                    </div>
+                    <div class="section_separate_line"></div>
+                    <div class="update_user_info">
+                        <div class="info_main">
+                            <h6>회원정보</h6>
+                            <i class="fa-solid fa-pen" id="name_update_btn2" style="color: #000000;"></i>
+                        </div>
+                        <div class="info_title">
+                            <div>태어난 년도</div>
+                            <div>월</div>
+                            <div>일</div>
+                            <div>성별</div>
+
+                        </div>
+                        <div class="text_box">
+                            <div class="info_box">
+                                <input type="number" name="user_year" placeholder="년(예 1991)" maxlength="4"
+                                       th:value="${user_year}" disabled
+                                       style="width: 166px;" class="user_info_input">
+                                <input type="number" name="user_month" th:value="${user_month}" style="width: 105px;"
+                                       class="user_info_input" disabled>
+                                <input type="number" name="user_day" th:value="${user_day}" style="width: 105px;"
+                                       class="user_info_input" disabled>
+                                <input type="text" name="user_gender" style="width: 105px;"
+                                       th:value="${user.userGender}" class="user_info_input" disabled>
+                            </div>
+                        </div>
+                        <div class="update_pw">
+                            <div class="update_pw_text">비밀번호</div>
+                            <div class="submit_end">
+                                <input type="password" name="user_password" th:value="${user.userPassword}"
+                                       class="user_info_input" disabled>
+                                <input class="submit_btn" type="button" value="수정하기">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="mypage_content1 option2 ">
+                <div class="option1_section">
+                    <h5>예약내역</h5>
+                    <div class="section_separate_line"></div>
+                </div>
+                <div class="booking_plane">
+                    항공권
+                </div>
+                <div class="plane_tickets">
+                    <div class="p_ticket">
+                        항공
+                    </div>
+
+                </div>
+                <div class="section_separate_line"></div>
+                <div class="booking_plane">
+                    렌트카
+                </div>
+                <div class="rent_tickets">
+                    <div class="r_ticket">
+                        <div class="rt_img">
+                            <div class="car_name">쏘나타 (DN8)</div>
+                            <div class="car_name2">쏘나타 8세대</div>
+                            <img src="/img/sonata.png">
+                            <div class="car_price">89,000원</div>
+                        </div>
+                        <div class="rt_info">
+                            <div class="car_info">
+                                <div class="ci_1">렌트카 정보</div>
+                                <div class="ci_2">
+                                    <div class="ci_2_spe">
+                                        <div class="car_stat">
+                                            <div class="company_name">KH렌트카</div>
+                                            <div class="cs_1">
+                                                19 ~ 20년
+                                                <div class="cs_sl"></div>
+                                                만 21세
+                                                <div class="cs_sl"></div>
+                                                가솔린
+                                                <div class="cs_sl"></div>
+                                                5인승
+
+                                            </div>
+                                        </div>
+
+                                        <div class="car_options">
+                                            안드로이드 오토, 애플 카플레이, 블루투스, 블랙박스, 운전석 에어백, 전방 추돌 방지, 핸들열선, 열선시트, 차선 이탈 경보,
+                                            네비게이션
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rent_separate"></div>
+                            <div class="resuser_info">
+                                <div class="ri_div">
+                                    <div class="rd_1">
+                                        <div class="ri_1">예약자 정보</div>
+                                        <div class="ri_2">
+                                            <div class="ri_2">성함 : 홍길동</div>
+                                            <div class="ri_2">생년월일: 981205</div>
+                                            <div class="ri_2">전화번호: 01011111111</div>
+                                        </div>
+                                    </div>
+                                    <div class="rd_2">
+                                        <div class="ri_1">결제상태</div>
+                                        <div class="ri_3">
+                                            <i class="fa-2xl fa-solid fa-check" style="color: #29ff2c;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="mypage_content1 option3 ">
+                <div class="option1_section">
+                    <h5>문의하기</h5>
+                    <div class="section_separate_line"></div>
+                </div>
+                <div>asd</div>
+            </div>
+            <div class="mypage_content1 option4 ">
+                <div class="option1_section">
+                    <h5>내 일정</h5>
+                    <div class="section_separate_line"></div>
+                </div>
+                <div>asd</div>
+            </div>
+            <div class="mypage_content1 option5 ">
+                <div class="option1_section">
+                    <h5>내 동행 게시글</h5>
+                    <div class="section_separate_line"></div>
+                    <div class="accompany_box">
+                        <div class="test1">
+                            <div class="test1_content1">
+                                <div class="user_profile">
+                                    <div class="user_img">
+
+                                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}"
+                                                                 alt="" class="profile_img"
+                                                                 onclick="location.href='/member/mypage'"></div>
+                                    </div>
+                                    <div class="user_info">
+                                        <div class="user_nick">1998csj</div>
+                                        <div class="user_agender">20대 · 남성</div>
+                                    </div>
+                                </div>
+                                <div class="box_shortline"></div>
+                                <div class="trip_profile">
+                                    <div class="trip_info">
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
+                                        </div>
+                                        <div class="trip_date">9일 · 10/16-10/24</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="test1_content2">
+                                <img src="/img/place1.jpg">
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
+                            </div>
+                            <div class="test1_content3">
+                                <div class="text_title">
+                                    오사카 교토 나고야!!
+                                </div>
+                                <div class="text_sub">
+                                    안녕하세요 20대 남자 여행자입니다.</br>
+                                    10/16 ~ 10/24 여행자를 구합니다.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="test1">
+                            <div class="test1_content1">
+                                <div class="user_profile">
+                                    <div class="user_img">
+
+                                        <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}"
+                                                                 alt="" class="profile_img"
+                                                                 onclick="location.href='/member/mypage'"></div>
+                                    </div>
+                                    <div class="user_info">
+                                        <div class="user_nick">1998csj</div>
+                                        <div class="user_agender">20대 · 남성</div>
+                                    </div>
+                                </div>
+                                <div class="box_shortline"></div>
+                                <div class="trip_profile">
+                                    <div class="trip_info">
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
+                                        </div>
+                                        <div class="trip_date">9일 · 10/16-10/24</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="test1_content2">
+                                <img src="/img/place1.jpg">
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
+                            </div>
+                            <div class="test1_content3">
+                                <div class="text_title">
+                                    오사카 교토 나고야!!
+                                </div>
+                                <div class="text_sub">
+                                    안녕하세요 20대 남자 여행자입니다.</br>
+                                    10/16 ~ 10/24 여행자를 구합니다.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="accompany_box">
+                        <div class="test1">
+                            <div class="test1_content1">
+                                <div class="user_profile">
+                                    <div class="user_img">
+                                        <img src="/img/신짱구.png">
+                                    </div>
+                                    <div class="user_info">
+                                        <div class="user_nick">1998csj</div>
+                                        <div class="user_agender">20대 · 남성</div>
+                                    </div>
+                                </div>
+                                <div class="box_shortline"></div>
+                                <div class="trip_profile">
+                                    <div class="trip_info">
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
+                                        </div>
+                                        <div class="trip_date">9일 · 10/16-10/24</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="test1_content2">
+                                <img src="/img/place1.jpg">
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
+                            </div>
+                            <div class="test1_content3">
+                                <div class="text_title">
+                                    오사카 교토 나고야!!
+                                </div>
+                                <div class="text_sub">
+                                    안녕하세요 20대 남자 여행자입니다.</br>
+                                    10/16 ~ 10/24 여행자를 구합니다.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="test1">
+                            <div class="test1_content1">
+                                <div class="user_profile">
+                                    <div class="user_img">
+                                        <img src="/img/신짱구.png">
+                                    </div>
+                                    <div class="user_info">
+                                        <div class="user_nick">1998csj</div>
+                                        <div class="user_agender">20대 · 남성</div>
+                                    </div>
+                                </div>
+                                <div class="box_shortline"></div>
+                                <div class="trip_profile">
+                                    <div class="trip_info">
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
+                                        </div>
+                                        <div class="trip_date">9일 · 10/16-10/24</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="test1_content2">
+                                <img src="/img/place1.jpg">
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
+                            </div>
+                            <div class="test1_content3">
+                                <div class="text_title">
+                                    오사카 교토 나고야!!
+                                </div>
+                                <div class="text_sub">
+                                    안녕하세요 20대 남자 여행자입니다.</br>
+                                    10/16 ~ 10/24 여행자를 구합니다.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="accompany_box">
+                        <div class="test1">
+                            <div class="test1_content1">
+                                <div class="user_profile">
+                                    <div class="user_img">
+                                        <img src="/img/신짱구.png">
+                                    </div>
+                                    <div class="user_info">
+                                        <div class="user_nick">1998csj</div>
+                                        <div class="user_agender">20대 · 남성</div>
+                                    </div>
+                                </div>
+                                <div class="box_shortline"></div>
+                                <div class="trip_profile">
+                                    <div class="trip_info">
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
+                                        </div>
+                                        <div class="trip_date">9일 · 10/16-10/24</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="test1_content2">
+                                <img src="/img/place1.jpg">
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
+                            </div>
+                            <div class="test1_content3">
+                                <div class="text_title">
+                                    오사카 교토 나고야!!
+                                </div>
+                                <div class="text_sub">
+                                    안녕하세요 20대 남자 여행자입니다.</br>
+                                    10/16 ~ 10/24 여행자를 구합니다.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="test1">
+                            <div class="test1_content1">
+                                <div class="user_profile">
+                                    <div class="user_img">
+                                        <img src="/img/신짱구.png">
+                                    </div>
+                                    <div class="user_info">
+                                        <div class="user_nick">1998csj</div>
+                                        <div class="user_agender">20대 · 남성</div>
+                                    </div>
+                                </div>
+                                <div class="box_shortline"></div>
+                                <div class="trip_profile">
+                                    <div class="trip_info">
+                                        <div class="trip_len"><i class="fa-solid fa-calendar"
+                                                                 style="color: #9a9a9a;"></i>여행기간
+                                        </div>
+                                        <div class="trip_date">9일 · 10/16-10/24</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="test1_content2">
+                                <img src="/img/place1.jpg">
+                                <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카
+                                </div>
+                            </div>
+                            <div class="test1_content3">
+                                <div class="text_title">
+                                    오사카 교토 나고야!!
+                                </div>
+                                <div class="text_sub">
+                                    안녕하세요 20대 남자 여행자입니다.</br>
+                                    10/16 ~ 10/24 여행자를 구합니다.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+            <div class="mypage_content2">
+                <div class="content2_options">
+                    <div class="content2_userinfo">
+
+                        <div class="user_info_box">
+                            <div class="user_info_img">
+
+
+                                <div class="mypage"><img th:src="'/file/profile_image/' + ${user.userImg}" alt=""
+                                                         id="info_img"
+                                                         onclick="location.href='/member/mypage'"></div>
+
+                            </div>
+                            <p>1998csj</p>
+                        </div>
+                        <div class="separate_line"></div>
+                    </div>
+                    <ul>
+                        <li class="option1_btn">
+                            <div class="option_list">
+                                <div class="option_list_icon">
+                                    <i class="fa-2xl fa-solid fa-gear" style="color: #e68551;"></i>
+                                </div>
+                                <span>계정설정</span>
+                            </div>
+                        </li>
+                        <li class="option2_btn">
+                            <div class="option_list">
+                                <div class="option_list_icon">
+                                    <i class="fa-2xl fa-solid fa-list" style="color: #8b61ff;"></i>
+                                </div>
+                                <span>예약내역</span>
+                            </div>
+                        </li>
+                        <li class="option3_btn">
+                            <div class="option_list">
+                                <div class="option_list_icon">
+                                    <i class="fa-2xl fa-solid fa-comments" style="color: #4cdee1;"></i>
+                                </div>
+                                <span>문의하기</span>
+                            </div>
+                        </li>
+
+                        <li class="option4_btn">
+                            <div class="option_list">
+                                <div class="option_list_icon">
+                                    <i class="fa-2xl fa-regular fa-calendar-check" style="color: #96ff94;"></i>
+                                </div>
+                                <span>내 일정</span>
+                            </div>
+                        </li>
+
+                        <li class="option5_btn">
+                            <div class="option_list">
+                                <div class="option_list_icon">
+                                    <i class="fa-2xl fa-solid fa-pen-to-square"></i>
+                                </div>
+                                <span>내 동행 게시글</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+</body>
+<script src="/jq/jquery-3.7.0.min.js"></script>
+<script src="/js/member/member_mypage.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/member/mypage_update.js"></script>
+
+</html>

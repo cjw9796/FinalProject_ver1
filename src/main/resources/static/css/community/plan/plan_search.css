@@ -1,0 +1,287 @@
+
+@media screen and (max-width: 1199px)
+._next {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    padding: 0px;
+}
+._next {
+    position: relative;
+    box-sizing: border-box;
+    width: 1200px;
+    height: auto;
+    margin: 0px auto;
+    padding: 145px 0px 220px;
+
+}
+@media screen and (max-width: 1199px)
+._next {
+    box-sizing: inherit;
+}
+.container {
+    position: relative;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+
+}
+
+.googlemaps {
+
+    position: sticky;
+    top: 165px;
+    overflow: hidden;
+    width: 588px;
+    height: 1000px;
+    margin-top: 10px;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 10px;
+}
+
+.googlemaps_in {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1000px;
+}
+/*
+.map{
+    width: 100%;
+    height: 100%;
+}
+*/
+
+.content {
+    position: relative;
+    width: 588px;
+    height: auto;
+}
+
+.article {
+
+
+    z-index: 99;
+    top: 145px;
+    box-sizing: border-box;
+    width: 588px;
+    height: auto;
+    padding: 30px 0px 18px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.art1{
+    width: 100%;
+    height: auto;
+    display: flex;
+    box-sizing: border-box;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+
+}
+
+.art1_div_btn{
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+.art1_div_subject{
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.art1_div_menu{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.art1_div_svg {
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: start;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 30px;
+}
+
+.art1_div > svg{
+    cursor: pointer;
+    width: 9px;
+    height: 16px;
+    fill: none;
+}
+
+.art1_div > svg:not(:root){
+    overflow: initial;
+    overflow-clip-margin: content-box;
+}
+
+.art1_1{
+    width: 100%;
+    height: max-content;
+    box-sizing: border-box;
+    position: relative;
+    border: transparent;
+    margin-top: 15px;
+}
+
+.art1_1btn{
+    background: rgb(251, 251, 251);
+    width: 100%;
+    height: 73px;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 118px;
+    border: transparent;
+
+}
+.art1_1btn > svg{
+    width: 15px;
+    height: 17px;
+    fill: #0064DE;
+}
+
+.art1_1btn > svg:not(:root) {
+    overflow: initial;
+    overflow-clip-margin: content-box;
+}
+
+.art1_1btn_span_icon {
+    overflow: initial;
+    width: 15px;
+    height: 17px;
+    fill: #0064DE;
+}
+
+.art1_1btn_span_st {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.art1_1btn_span_md {
+    width: 9px;
+    height: 2px;
+    background: rgb(210, 210, 210);
+    margin-left: 10px;
+}
+
+.art1_1btn_span_ed {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.art1_1btn_span2 {
+    margin: 0px;
+    padding: 0px;
+    font-style: normal;
+    border: 0px;
+}
+
+
+.article2 {
+    /*<!-- 여기서부터 아래 2번째 상자 hjiFwe-->*/
+    width: 100%;
+    height: auto;
+}
+.article_sc{
+    /*<!-- 2번째 상자 안에서 2가지로 쪼개짐 eviLym-->*/
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    flex-direction: column;
+}
+.article_sc_in {
+    /*<!-- 줄마다 쪼개짐 gumIDO-->*/
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+
+}
+
+.sc_des {
+    /*<!-- 2-1 상자 dGNMmW-->*/
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+
+}
+
+
+.sc_des_div {
+    /* <!-- 첫번째줄 hLwbou-->*/
+    overflow-x: auto;
+    display: flex;
+    width: calc(100% + 60px);
+    height: 60px;
+    transition: all 0.25s ease-out 0s;
+
+}
+
+.sc_des_div_in {
+    /* <!-- 첫번째 줄 안에서 1칸 iGXDys-->*/
+    width: 100%;
+    height: 60px;
+
+}
+
+#placeSearchButton{
+    box-sizing: border-box;
+    width: 163px;
+    height: 48px;
+    background: rgb(219, 219, 219);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-out 0s;
+    border: none;
+    cursor: default;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 400;
+}

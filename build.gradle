@@ -27,13 +27,27 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    // gson library
+    implementation "com.google.code.gson:gson:2.8.5"
+
+    // json
+    implementation "org.json:json:20180813"
+
+    // json simple(google ver)
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
+    implementation "com.google.code.gson:gson:2.8.5"
+    // https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.5.2'
 
     implementation group: 'org.webjars', name: 'jquery', version: '3.7.0'
+
 
 
 

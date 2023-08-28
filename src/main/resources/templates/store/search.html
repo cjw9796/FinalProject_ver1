@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <script src = "/jq/jquery-3.7.0.min.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="next">
+    <header th:include="header.html :: header"></header>
+</div>
+
+
+<div th:include="/footer.html :: footer"></div>
+<!-- Swiper JS -->
+
+</body>
+</html>

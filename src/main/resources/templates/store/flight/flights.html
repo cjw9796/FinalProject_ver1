@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/store/flight/flight.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+<div class="next">
+    <div th:include="/header.html :: header"></div>
+    <div class="flights_container">
+        <div class="flight_search_container">
+            <div class="flight_search_form_container">
+                <div class="flight_search_title">
+                    <h1>항공권</h1>
+                </div>
+                <div class="flight_search_form">
+                    <div class="flight_search_form_content">
+                        <div class="flight_search_table">
+                            <div class="flight_search_col">
+                                <div class="search_airline">
+                                    <div class="search_airline_input">
+                                        <div class="">
+                                            <div class="airline_btn">
+                                                <h4>출발</h4>
+                                                <select class="form-select" id="start_airport">
+<!--                                                        <option value="NAARKJB">-->
+<!--                                                            무안-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKJK">-->
+<!--                                                            군산-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKJJ">-->
+<!--                                                            광주-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKJY">-->
+<!--                                                            여수-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKNW">-->
+<!--                                                            원주-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKNY">-->
+<!--                                                            양양-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKPC">-->
+<!--                                                            제주-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKPK">-->
+<!--                                                            김해-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKPS">-->
+<!--                                                            사천-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKPU">-->
+<!--                                                            울산-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKSI">-->
+<!--                                                            인천-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKSS" selected>-->
+<!--                                                            김포-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKTH">-->
+<!--                                                            포항-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKTN">-->
+<!--                                                            대구-->
+<!--                                                        </option>-->
+<!--                                                        <option value="NAARKTU">-->
+<!--                                                            청주-->
+<!--                                                        </option>-->
+                                                </select>
+                                            </div>
+                                            <div class="airline_btn">
+                                                <div class="airline_icon">
+                                                    <i class="icon_circle"></i>
+                                                </div>
+                                            </div>
+                                            <div class="airline_btn">
+                                                <h4>도착</h4>
+                                                <select class="form-select" id="end_airport">
+<!--                                                    <option value="NAARKJB">-->
+<!--                                                        무안-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKJK">-->
+<!--                                                        군산-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKJJ">-->
+<!--                                                        광주-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKJY">-->
+<!--                                                        여수-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKNW">-->
+<!--                                                        원주-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKNY">-->
+<!--                                                        양양-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKPC" selected>-->
+<!--                                                        제주-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKPK">-->
+<!--                                                        김해-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKPS">-->
+<!--                                                        사천-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKPU">-->
+<!--                                                        울산-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKSI">-->
+<!--                                                        인천-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKSS">-->
+<!--                                                        김포-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKTH">-->
+<!--                                                        포항-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKTN">-->
+<!--                                                        대구-->
+<!--                                                    </option>-->
+<!--                                                    <option value="NAARKTU">-->
+<!--                                                        청주-->
+<!--                                                    </option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flight_date_input">
+                                        <h4>출발일</h4>
+                                        <div class="flight_date_box">
+                                            <input type="date" id="flight_date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search_btn_box">
+                                <button type="button" id="flight_search_btn">항공권 검색</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result_container">
+            <div class="result_title">
+                <span>김포</span>
+                <i></i>
+                <span>제주</span>
+            </div>
+            <hr/>
+            <div class="result_table">
+                <div class="result_table_inner">
+                    <div class="result_schedule">
+                        <div class="schedule_item">
+                            <div class="airline_box">
+                                <div class="airline_item">
+                                    <div class="airline_logos">
+                                        <img src="/img/store/flight/tway.jpg">
+                                    </div>
+                                    <b class="airline_name">티웨이항공</b>
+                                </div>
+                            </div>
+                            <div class="airline_route">
+                            <span class="start_route">
+                                <b>김포(08:30)</b>
+                            </span>
+                                <span class="end_route">
+                                <b>제주(09:30)</b>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="airline_price">
+                        <div>
+                            <b>₩53,600</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hr-sect">더 많은 검색 결과</div>
+        </div>
+    </div>
+    <button onclick="location.href='/tourism'">관광정보 샘플</button>
+    <form>
+        <!--    <select id="start_airport" name="start_airport">-->
+
+        <!--    </select>-->
+        <!--    <select id="end_airport" name="end_airport"></select>-->
+
+        <button type="button" id="search_flight">검색하기</button>
+    </form>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>항공사</th>
+            <th>출발지</th>
+            <th>도착지</th>
+            <th>출발시간</th>
+            <th>도착시간</th>
+            <th>운임(이코노미)</th>
+            <th>운임(비즈니스)</th>
+            <th>항공편</th>
+        </tr>
+        </thead>
+        <tbody id="flight_list">
+
+        </tbody>
+    </table>
+    <div th:include="/footer.html :: footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <script src = "/js/header.js"> </script>
+
+
+</div>
+
+
+<script>
+
+
+
+    $(function () {
+        $.ajax({
+            url: '/airportlist',
+            type: 'get',
+            dataType: 'text',
+            success: function (data) {
+                let item = JSON.parse(data).response.body.items.item;
+                console.log(item);
+
+                for (let i = 0; i < item.length; i++) {
+                    let option = `<option value=${item[i].airportId}>
+                                  ${item[i].airportNm}
+                                  </option>`;
+
+                    $('#start_airport').append(option);
+                    // document.getElementById("airport").innerHTML = option;
+                }
+            },
+            error: function (request, status, error) {
+
+                alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+
+            }
+        });
+
+
+    });
+    $("#start_airport").change(function (e) {
+        console.log(e.target.value);
+
+        $.ajax({
+            url: '/airportlist',
+            type: 'get',
+            dataType: 'text',
+            success: function (data) {
+
+
+                let item = JSON.parse(data).response.body.items.item;
+
+                $('#end_airport').empty();
+                for (let i = 0; i < item.length; i++) {
+                    if (e.target.value !== item[i].airportId) {
+                        let option = `<option value=${item[i].airportId}>${item[i].airportNm}</option>`;
+                        $('#end_airport').append(option);
+                    }
+
+                    // document.getElementById("airport").innerHTML = option;
+                }
+            },
+            error: function (request, status, error) {
+
+                console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+
+            }
+        });
+
+    })
+
+    $('#flight_search_btn').click(function () {
+
+        $.ajax({
+            url: '/searchflight',
+            type: 'post',
+            data: {
+                startAirport: $('#start_airport').val(),
+                endAirport: $('#end_airport').val(),
+                startDay: $('#flight_date').val()
+            },
+            dataType: 'text',
+            success: function (data) {
+
+                let item = JSON.parse(data).response.body.items.item;
+
+                console.log(item);
+                $('#flight_list').empty();
+                if (item === undefined) {
+                    let flightInfo = "<tr><td colspan='8'>" + "해당 공항의 항공편이 없습니다." + "</td></tr>"
+                    $('#flight_list').append(flightInfo);
+                } else {
+
+                    for (let i = 0; i < item.length; i++) {
+                        let airlineNm = item[i].airlineNm; //항공사
+                        let depAirportNm = item[i].depAirportNm; //출발공항
+                        let arrAirportNm = item[i].arrAirportNm; //도착공항
+                        let depPlandTime = item[i].depPlandTime; //출발시간
+                        let arrPlandTime = item[i].arrPlandTime; //도착시간
+                        let economyCharge = item[i].economyCharge; //이코노미
+                        let prestigeCharge = item[i].prestigeCharge;//비즈니스
+                        let vihicleId = item[i].vihicleId; //항공편
+
+                        let flightInfo = `<tr>
+                                      <td class="airlineNm">${airlineNm}</td>
+                                      <td class="depAirportNm">${depAirportNm}</td>
+                                      <td class="arrAirportNm">${arrAirportNm}</td>
+                                      <td class="depPlandTime">${depPlandTime}</td>
+                                      <td class="arrPlandTime">${arrPlandTime}</td>
+                                      <td class="economyCharge">${economyCharge}</td>
+                                      <td class="prestigeCharge">${prestigeCharge}</td>
+                                      <td class="vihicleId">${vihicleId}</td>
+                                      <td><button type="button" onclick="resFlight(${i})">예약하기</button></td>
+                                      </tr>`;
+                        $('#flight_list').append(flightInfo);
+                    }
+                }
+
+            },
+            error: function (request, status, error) {
+
+                alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+
+            }
+        });
+    });
+
+    function resFlight(index) {
+        $.ajax({
+            url: '/saveFlight',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                ticFlightDepartureDate: $("#flight_list tr .depPlandTime")[flight].innerText,
+                ticFlightArrivalDate: $("#flight_list tr .arrPlandTime")[flight].innerText,
+                ticSeatGrade: "이코노미",
+                ticAirlineName: $("#flight_list tr .airlineNm")[flight].innerText,
+                ticFee: $("#flight_list tr .economyCharge")[flight].innerText,
+                ticFromLocation: $("#flight_list tr .depAirportNm")[flight].innerText,
+                ticToLocation: $("#flight_list tr .arrAirportNm")[flight].innerText,
+            }),
+            success: function (data) {
+                alert("저장완료");
+
+            },
+            error: function (request, status, error) {
+
+                alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+
+            }
+        });
+    }
+
+    $('.flight_result_col').on('click', function () {
+        alert('클릭');
+    });
+
+
+</script>
+
+
+</body>
+</html>
+

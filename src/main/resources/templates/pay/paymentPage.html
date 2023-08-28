@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/payment/payment.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/9647b4736a.js"></script>
+</head>
+<body>
+<script src="/jq/jquery-3.7.0.min.js" type="text/javascript"></script>
+<script src="/js/payment/payment.js" type="text/javascript"></script>
+<div id="root">
+    <div th:include="/header.html :: header"></div>
+    <div class="mainBody">
+        <div class="container">
+            <div class="contents">
+                <div>
+                    <div class="firstBox">
+                        <section class="firstSection">
+                            <div class="fsTop">
+                                <div class="fsTopInfo">
+                                    <!--                                    차 이미지, 클릭시 해당하는 car id가 가지고 있는 이미지 넣기-->
+                                    <img class="fsTopInfoLeft"
+                                         src="	https://ims-mobility-public.s3.ap-northeast-2.amazonaws.com/cars/6.png">
+                                </div>
+
+                                <div class="fsTopInfoRight">
+                                    <!--                                   차 이름 가져오기-->
+                                    <div class="prodName">
+                                        굿모닝
+                                    </div>
+                                    <!--                                    차 info중 넣을 수 있는 정보 넣기-->
+                                    <div class="prodInfo">
+                                        23년식 가솔린 5인승
+                                    </div>
+                                    <!--                                    차 가격 넣기-->
+                                    <div class="prodPrice">
+                                        30,000원
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ReservationInfo">
+                                <div class="card-top">
+                                    <!--                                    렌트시 선택한 date 정보 넣기-->
+                                    <div class="card-top-info">
+                                        <div class="card-top-info-date">08.23(수)</div>
+                                        <div class="card-top-info-time">10:00</div>
+                                    </div>
+                                    <!--                                    렌트 시작일, 종료일 계산 넣기-->
+                                    <div class="card-top-round-day">1일</div>
+                                    <div class="card-top-info">
+                                        <div class="card-top-info-date">08.24(목)</div>
+                                        <div class="card-top-info-time">10:00</div>
+                                    </div>
+                                </div>
+                                <!--                                렌트 할 회사의 위치 (그냥 렌트카 회사 name으로 넣어도 될듯)-->
+                                <div class="card-bottom">
+                                    <div class="card-bottom-text">셔틀위치</div>
+                                    <div class="card-bottom-address">렌터카하우스</div>
+                                    <span>제주 공항 내 렌터카 대여 불가로, 업체까지 픽업 셔틀로 이동합니다. 자세한 사항은 유의사항을 참고해주세요.</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="second-box">
+                        <div style="position: relative; height: 20px; background: rgb(246, 246, 246); box-shadow: rgb(246, 246, 246) -16px 26px 16px 39px;"></div>
+                        <!--                        차량 옵션정보 (table만든 데이터 집어넣기)-->
+                        <div class="second-box-tabs">
+                            <div class="second-box-tabs-non-click" data-a="0" style="color:#00ce7c; font-weight:600">
+                                예약정보
+                            </div>
+                            <div class="second-box-tabs-non-click" data-a="1">
+                                보험/유의사항
+                            </div>
+                            <div class="second-box-tabs-non-click" data-a="2">
+                                업체/리뷰
+                            </div>
+                            <div class="second-box-tabs-clicked-bar"></div>
+                        </div>
+                    </div>
+                    <div class="third-box">
+                        <section>
+                            <div class="sections-con show">
+                                <section class="prod-info-section1">
+                                    <div class="prod-option">차량 옵션</div>
+                                    <div class="prod-option-info">
+                                        <div class="prod-option-count">총 4개 옵션</div>
+                                        <div class="prod-option-info-detail">네비게이션, 조수석 에어백, 후방카메라, 후방센서</div>
+                                    </div>
+                                </section>
+                                <section class="prod-info-section2">
+                                    <div class="prod-option">
+                                        <div>보험 정보</div>
+                                        <div class="sub-title">보험 안내<img class="icon"
+                                                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAJFBMVEVHcEyqqqqrq6uvr6+qqqqqqqqqqqqqqqqnp6erq6uqqqqqqqqzWaB7AAAAC3RSTlMAwDYQ0lvtgCBwl9YmRtEAAAFZSURBVDjLjVQrT8RAEJ4ruXAEc6drmhMIMCd4hCARiDWXIBDnOENSc8kdqqaKBEeCQWNrWNhrge/PsW3Z3eljCSOa6Xwzs/Mm+qWdm4lQk/sZtegxREXypSk/g6V1Qx4DV9MomG6AnCEjAXldsychVGqBA6i54Ycxbi0PPDnzPcBoLZxObb+tmYB7rV+MKuYBl83Yj3FXpSzyVrqjWJWSXby3y3CElf6e2pCGkQ1sqb9JbhQzabi40A5NcEQA2QRSbTa2espwA+1+YPOkw1dXizFdoNMbnQI+aKGoh8SWkqIP0NLQpXf+7FKUHMi+OSA+7V8oHaAIb33APvxA7HPFHueA9APZVx+gE2QlYYAuCSuiA8oisrI7oCw7a5QDykax1jqgbC0l9nUXoCga4xM0x8c7cHpE086I+oZ6+fcaeBens2r5vHc5BbNvrfPMcwBW/zkZ/iPTPUs/xvenV5RBgJoAAAAASUVORK5CYII=">
+                                        </div>
+                                    </div>
+                                    <div class="prod-option-info">
+                                        <div class="prod-option-count">
+                                            <div class="item-box">
+                                                <div class="item-box-left">
+                                                    <label class="label-cbx" for="general">
+                                                        <input checked="" class="invisible" id="general"
+                                                               name="insurance" style="width: 20px; height: 20px;"
+                                                               type="checkbox"
+                                                               value="general">
+                                                        <div class="label-cbx-checkbox">
+                                                            <svg height="22px" viewBox="0 0 20 20" width="22px">
+                                                                <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                                                                <polyline points="4 11 8 15 16 6"></polyline>
+                                                            </svg>
+                                                        </div>
+                                                        <div>일반 자차</div>
+                                                    </label>
+                                                </div>
+                                                <div>+136,350원</div>
+                                            </div>
+                                        </div>
+                                        <div class="prod-option-info-bottom">
+                                            <div style="display: flex; justify-content: space-between">
+                                                <div>보상한도</div>
+                                                <div>400만원</div>
+                                            </div>
+                                            <div style="display: flex; justify-content: space-between">
+                                                <div>자차 면책금</div>
+                                                <div>50만원</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="driver-info-section">
+                                    <div class="prod-option">
+                                        <div>운전자 정보</div>
+                                        <div class="sub-title">추가 운전자 안내<img class="icon"
+                                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAJFBMVEVHcEyqqqqrq6uvr6+qqqqqqqqqqqqqqqqnp6erq6uqqqqqqqqzWaB7AAAAC3RSTlMAwDYQ0lvtgCBwl9YmRtEAAAFZSURBVDjLjVQrT8RAEJ4ruXAEc6drmhMIMCd4hCARiDWXIBDnOENSc8kdqqaKBEeCQWNrWNhrge/PsW3Z3eljCSOa6Xwzs/Mm+qWdm4lQk/sZtegxREXypSk/g6V1Qx4DV9MomG6AnCEjAXldsychVGqBA6i54Ycxbi0PPDnzPcBoLZxObb+tmYB7rV+MKuYBl83Yj3FXpSzyVrqjWJWSXby3y3CElf6e2pCGkQ1sqb9JbhQzabi40A5NcEQA2QRSbTa2espwA+1+YPOkw1dXizFdoNMbnQI+aKGoh8SWkqIP0NLQpXf+7FKUHMi+OSA+7V8oHaAIb33APvxA7HPFHueA9APZVx+gE2QlYYAuCSuiA8oisrI7oCw7a5QDykax1jqgbC0l9nUXoCga4xM0x8c7cHpE086I+oZ6+fcaeBens2r5vHc5BbNvrfPMcwBW/zkZ/iPTPUs/xvenV5RBgJoAAAAASUVORK5CYII=">
+                                        </div>
+                                    </div>
+                                    <div class="driver-info-section-condition">
+                                        <div class="driver-info-section-condition-top">
+                                            <div class="driver-info-section-condition-top-title">
+                                                <img class="driver-info-section-condition-top-title-img"
+                                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAS1BMVEVHcEwbYOUYX+oZX+YUXvIbYOQcYOQcX+QcX+QbYOUcX+QcYOMdX+QcYOUcX+UdYOT///+Mr/Le6fwvbebx9v6qxPW5zvepw/VjkuzHPR81AAAAD3RSTlMAPhUdCoLV9+xsv7ijWJB/IO4VAAABM0lEQVRIx61WW2KDMAzL+w2hhLa7/0kXBu1asMHppk+QsGMLO4xtobhOwVhrQtJcsRNIH21+gY1eHtBF/8ZeNVogdKUB+iIBM5MmozBAXtzlAzi+5ft8DNu18Sv8Wz72XGBfspIuE+CeJ1cmk2Ae1dWZCL32d59QuU/DveyTWkL0+0/dhoorEkIAFZr5wwRUSiAtwAQ/zYiZnlKOtaZQz8ptGq4F6p5iXW4CpzfhUafUJkgsgM8v4/gFvggM9FGpRRphPzHQqJe5rLBl2wWmTWDgQ+OCAJcVFyTI3EeCHrYGLuhg86GCaj7Q3qggIj8QKph/INkiEMiUwby0zBnlqG5dxwxlEm/mcaDxw+9uow1j8fm4Jx1ju4JOYlj/16V4snbB3a48EsR59T9Xhw8uJ5TrzzdrLmlnuJbGaAAAAABJRU5ErkJggg=="/>
+                                                <div>대여조건</div>
+                                            </div>
+                                            <div style="font-weight: 400;">만 26세 이상 / 면허 취득 1년 경과</div>
+                                        </div>
+                                        <div class="driver-info-section-condition-bottom">차량 전달 시 현장에서 면허 진위를 체크합니다. 미충족
+                                            시 이용 및 환불이 어렵습니다.
+                                        </div>
+                                    </div>
+                                    <div class="driver-info-section-inputs">
+                                        <div class="driver-info-section-inputs-text">
+                                            <div>이름</div>
+                                            <input class="_input_default_pczwv_3 undefined" placeholder="이름을 입력해주세요."
+                                                   style="margin-bottom: 2px;" value="">
+                                        </div>
+                                        <div class="driver-info-section-inputs-text">
+                                            <div>생년월일</div>
+                                            <input class="_input_default_pczwv_3 undefined" pattern="\d%"
+                                                   placeholder="YYMMDD"
+                                                   style="margin-bottom: 2px;" type="tel"
+                                                   value="940622">
+                                            <div class="warning">
+                                                만 20세, 해당 차량 대여 가능합니다.
+                                            </div>
+                                        </div>
+                                        <div class="driver-info-section-inputs-text">
+                                            <div>휴대폰번호</div>
+                                            <div class="driver-info-section-inputs-text-phone">
+                                                <div style="flex: 1 1 0%;">
+                                                    <input class="_input_default_pczwv_3 StylesInpuWithBottomText-gVruQj cwqtNt"
+                                                           pattern="\d%" placeholder="휴대폰번호를 입력해주세요."
+                                                           style="margin-bottom: 2px;"
+                                                           type="tel" value=""/>
+                                                </div>
+                                                <button class="_button_default_1vx5o_3 StyledDriverInfoButton-doWmhM byxCxk hover:cursor-not-allowed"
+                                                        disabled=""
+                                                        type="button">
+                                                    인증번호
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="other-st">
+                                    <div class="payment-con">
+                                        <div class="payment-payment-con-text prod-option">결제 수단</div>
+                                        <div class="payment-con-select">
+                                            <div class="prod-option-count">
+                                                <div class="item-box">
+                                                    <div class="item-box-left">
+                                                        <label class="label-cbx" for="general2">
+                                                            <input checked="" class="invisible" id="general2"
+                                                                   name="insurance" style="width: 20px; height: 20px;"
+                                                                   type="radio"
+                                                                   value="general">
+                                                            <div class="label-cbx-checkbox">
+                                                                <svg height="22px" viewBox="0 0 20 20" width="22px">
+                                                                    <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                                                                    <polyline points="4 11 8 15 16 6"></polyline>
+                                                                </svg>
+                                                            </div>
+                                                            <div>신용/체크카드</div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="section-liner"></div>
+                                <section class="privacy-section">
+                                    <div class="privacy-section-top">안전상의 이유 또는 렌터카 업체 사정에 따라 차량이 변경될 수
+                                        있습니다.
+                                    </div>
+                                    <div class="privacy-section-con">
+                                        <div class="privacy-section-con-text">
+                                            <div>서비스 이용약관</div>
+                                            <div class="underline view">보기</div>
+                                        </div>
+                                        <div class="privacy-section-con-text">
+                                            <div>이용 특약사항</div>
+                                            <div class="underline view">보기</div>
+                                        </div>
+                                        <div class="privacy-section-con-text">
+                                            <div>개인정보 수집 및 이용 동의</div>
+                                            <div class="underline view">보기</div>
+                                        </div>
+                                        <div class="privacy-section-con-text" style="margin-bottom: 20px;">
+                                            <div>개인정보 제3자 제공 동의</div>
+                                            <div class="underline view">보기</div>
+                                        </div>
+                                    </div>
+                                    <div class="warning-detail">
+                                        아이엠에스모빌리티(주)는 통신판매중개자로서 거래 당사자가 아닙니다.
+                                        <div>상품, 상품 정보, 거래조건 및 거래에 관련한 의무와 책임은 각 판매자에게 있습니다.</div>
+                                    </div>
+                                    <div class="agree">위 내용을 모두 확인하였으며, 결제에 동의합니다.</div>
+                                </section>
+                            </div>
+                            <div class="sections-con">
+                                <section>
+                                    <div class="insurance-title">보험 안내</div>
+                                    <div class="insurance-title-explanation">
+                                        이용 중 사고 시 아래와 같이 보장됩니다.
+                                    </div>
+                                    <div class="insurance-locations">
+                                        <div class="inland locationClick">내륙</div>
+                                        <div class="jeju">제주</div>
+                                    </div>
+                                    <table class="insurance-info showTale">
+                                        <thead>
+                                        <tr>
+                                            <th>구분</th>
+                                            <th>자기 부담금</th>
+                                            <th>보상 한도</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>자차
+                                            </td>
+                                            <td class="trPaint">50만
+                                            </td>
+                                            <td class="trPaint">200~400만
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>자손</td>
+                                            <td>50만</td>
+                                            <td>1,500만</td>
+                                        </tr>
+                                        <tr>
+                                            <td>대물</td>
+                                            <td>50만</td>
+                                            <td>2,000만</td>
+                                        </tr>
+                                        <tr>
+                                            <td>대인</td>
+                                            <td>50만</td>
+                                            <td>무한</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="insurance-info">
+                                        <thead>
+                                        <tr>
+                                            <th>구분</th>
+                                            <th>자기 부담금</th>
+                                            <th>보상 한도</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>자차</td>
+                                            <td class="trPaint">50~100만</td>
+                                            <td class="trPaint">400~2,000만</td>
+                                        </tr>
+                                        <tr>
+                                            <td>자손</td>
+                                            <td>50만</td>
+                                            <td>1,500만
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>대물</td>
+                                            <td>50만</td>
+                                            <td>3,000만</td>
+                                        </tr>
+                                        <tr>
+                                            <td>대인</td>
+                                            <td>50만</td>
+                                            <td>무한</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="insurance-info-bottom">
+                                        <div>* 자차 보장 금액은 차종에 따라 달라집니다.</div>
+                                        <div>* 보험 및 차량손해 면책제도 내용 확인, 가입에 동의하는 것으로 간주합니다.</div>
+                                    </div>
+                                    <div class="insurance-info-detailBox">
+                                        <div class="insurance-info-detail">
+                                            <div class="insurance-info-detail-textBox">
+                                                <div class="policy-text">상세 정책</div>
+                                            </div>
+                                            <img alt="이미지" class="arrow false"
+                                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAIVBMVEVHcEwnJycnJycgICAoKCgmJiYnJycoKCgoKCgnJycoKCg2huJ7AAAACnRSTlMAnMsQYDXwIN9wlqiu6gAAAKRJREFUOMtjYBgFAwRK0AXcoXSXMKq44QooQ2qRAbI4s9ZCKItxVSuyRMQqARhz1rIAhDhr1ko4myVrCULCa5kDghOG0M24KhXJWHathVD7maUWFSBbaLRKGY0BA1IrwPazdi1E8ywnxOiwVRPQg8FtFdAxLKtSMAKMNQtoiBSyh2CgaJWw4Sp1LGHMrLVICzXQEF5DeBMVzFqJI8JYHEYT7UADAOXZIZtQPLDLAAAAAElFTkSuQmCC">
+                                            <!--                                            폈을때 이미지 -->
+                                            <!--<img alt="이미지" class="arrow on"
+                                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAIVBMVEVHcEwnJycnJycgICAoKCgmJiYnJycoKCgoKCgnJycoKCg2huJ7AAAACnRSTlMAnMsQYDXwIN9wlqiu6gAAAKRJREFUOMtjYBgFAwRK0AXcoXSXMKq44QooQ2qRAbI4s9ZCKItxVSuyRMQqARhz1rIAhDhr1ko4myVrCULCa5kDghOG0M24KhXJWHathVD7maUWFSBbaLRKGY0BA1IrwPazdi1E8ywnxOiwVRPQg8FtFdAxLKtSMAKMNQtoiBSyh2CgaJWw4Sp1LGHMrLVICzXQEF5DeBMVzFqJI8JYHEYT7UADAOXZIZtQPLDLAAAAAElFTkSuQmCC">-->
+                                        </div>
+                                        <!--                                        폈을때 나오는 텍스트-->
+                                        <div class="hiddenContent policy-detail">
+                                            <div>
+                                                <p>보험의 정확한 보장 범위는 대여 시 작성하는 계약서를 기준으로 결정되며,렌터카 업체에 따라 트립소다에서 안내된
+                                                    자기부담금/보상한도 기준보다 더 나은 보장이 적용될 수도 있습니다.</p>
+                                                <p style="margin: 0px;">1. 대물/대인/자손/자차 보상은 다음을 의미합니다.</p>
+                                                <div style="padding: 0px 18px; margin-top: 3px;">
+                                                                                            <span>- 대인 보상 : 상대 차량의 운전자 및 동승자의 인명 피해 보상
+                                                                                            </span>
+                                                    <br>
+                                                    <span>- 대물 보상 : 상대 차량이나 시설 등의 물적 재산 피해 보상 (상대 휴차료/대차료 포함)
+                                                                                            </span>
+                                                    <br>
+                                                    <span>- 자손 보상 : 본인과 본인 차량 동승자의 부상, 사망, 후유 장애 보상</span>
+                                                    <br>
+                                                    <span>- 자차 보상 : 본인 차량 손상 보상</span>
+                                                    <p style="margin-bottom: 0px; margin-top: 10px;">
+                                                        [보상한도 &amp; 자차 자기부담금 보험 적용 예시]</p>
+                                                    <p>보상 한도 1,000만원, 자기부담금 50만원인 보험인 경우</p>
+                                                    <p>1) 사고 발생금액이 30만원 : 본인 자기부담금(50만원)이내 이므로 30만원 전액 부담</p>
+                                                    <p>2) 사고 발생금액이 800만원 : 본인 자기부담금(50만원) 부담 + 업체에서 750만원(보상한도) 부담</p>
+                                                    <p>
+                                                        3) 사고 발생금액이 1,500만원 : 본인 자기부담금(50만원) 부담 + 업체에서 1,000만원(보상한도) 부담
+                                                        +
+                                                        차액 450만원은 보장한도를 넘어서므로 본인 부담
+                                                    </p>
+                                                    <p>*사고 발생 시, 대인/대물/자손/자차에서 각각의 자기부담금이 발생할 수도 있습니다.</p>
+                                                </div>
+                                                <p>2. 렌터카 서비스는 단독사고를 보장합니다. 단, 소모품(휠/타이어 등)과 중과실 사고는 보험 보장이 불가할 수도 있으며
+                                                    업체에 따라 조건이 상이할 수 있습니다.</p>
+                                                <p>3. 휴차보상료는 보상 한도와 별도로 부과되는 금액으로, 기본 대여료의 50% 금액입니다.</p>
+                                                <p>*휴차 보상료란 고객의 귀책사유(사고 및 기타 사유)에 의해 대여 중인 차량에 손해 발생 시, 수리기간 동안 발생하는 영업
+                                                    손실금에 해당하는 금액을 의미합니다.</p>
+                                                <p>4. 제2운전자의 사고 시에도 동일하게 보상되며, 보상을 위해서는 차량 대여 시 함께 있어야 하며, 면허증을 지참해야
+                                                    합니다.</p>
+                                                <p>5. 울릉도 지역의 보험은 제주도 지역과 동일합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="precautions">
+                                    <div class="precautions-con">
+                                        <div class="precautions-con-title">대여 조건 및 주의사항</div>
+                                        <div class="precautions-con-detail">
+                                            <div class="precautions-con-detail-textBox"></div>
+                                            <div>운전자 나이 만 세 이상</div>
+                                        </div>
+                                        <div class="precautions-con-detail">
+                                            <div class="precautions-con-detail-textBox"></div>
+                                            <div>면허취득일 1년 이상</div>
+                                        </div>
+                                        <div class="precautions-con-detail">
+                                            <div class="precautions-con-detail-textBox"></div>
+                                            <div>차량 대여 시 실물면허증 소지</div>
+                                        </div>
+                                        <div class="precautions-con-detail" style="flex-flow: wrap;">
+                                            <div class="precautions-con-detail-textBox"></div>
+                                            <div>업체별 대여규정 준수</div>
+                                            <div>&nbsp;(외국인 대여, 낚시용품/애견 동반, 주행거리제한 등)</div>
+                                        </div>
+                                    </div>
+                                    <div class="precautions-con">
+                                        <div class="precautions-con-title">취소 수수료 규정</div>
+                                        <div class="precautions-con-detail">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>취소 시점</th>
+                                                    <th>취소 수수료</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>예약 60분 이내 (최상위 조건)</td>
+                                                    <td>없음 (100% 환불)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>대여시작 72시간 전까지</td>
+                                                    <td>없음 (100% 환불)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>대여시간 72시간 ~ 대여시작 시간까지</td>
+                                                    <td>30% (70% 환불)</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="precautions-con-detail">
+                                            <div>
+                                                <div class="precautions-con-detail-textBox"></div>
+                                            </div>
+                                            <div>자동차 제어 또는 운행 기록이 없더라도 대여 예정 시간 이후에는 예약취소가 불가합니다.</div>
+                                        </div>
+                                        <div class="precautions-con-detail">
+                                            <div>
+                                                <div class="precautions-con-detail-textBox"></div>
+                                            </div>
+                                            <div>대여 예정 시간이 경과할 때까지 예약 취소 없이 고객측의 사유(대여자격 미달 포함)로 대여계약이 체결되지 않을 경우 대여료의
+                                                환불이 이뤄지지 않을 수 있습니다.
+                                            </div>
+                                        </div>
+                                        <div class="precautions-con-detail">
+                                            <div>
+                                                <div class="precautions-con-detail-textBox"></div>
+                                            </div>
+                                            <div>대여 예정 시간으로부터 20분이 경과할 때까지 고객이 연락을 받지 않을 경우 서비스 이용이 불가할 수 있습니다.</div>
+                                        </div>
+                                    </div>
+                                    <div class="precautions-con">
+                                        <div class="precautions-con-title">무료 셔틀 정보</div>
+                                        <div class="precautions-con-detail">
+                                            <div class="precautions-con-detail-textBox"></div>
+                                            <div style="flex: 1 1 0%;">제주공항에서 업체 차고지까지 편리하게 이동할 수 있도록 셔틀버스를 무료로 제공하고
+                                                있습니다.
+                                            </div>
+                                        </div>
+                                        <div class="precautions-con-detail">
+                                            <div class="precautions-con-detail-textBox"></div>
+                                            <div>운행시간은 오전 8:00 - 오후 8:00 입니다.</div>
+                                        </div>
+                                        <div class="precautions-con-detail">
+                                            <div class="precautions-con-detail-textBox"></div>
+                                            <div>15-20분간격으로 운행되며 10-15분 소요됩니다.</div>
+                                        </div>
+                                        <div class="shuttle-button">
+                                            <div>셔틀 이용 방법</div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="sections-con">
+                                <!--                               업체에 대한 정보 가져오기-->
+                                <section class="company-info" style="padding: 40px">
+                                    <div class="company-info-title">
+                                        업체정보
+                                    </div>
+                                    <div class="company-info-detail">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <div class="company-info-detail-text">
+                                                <div class="label">업체명</div>
+                                                <div class="content">(주)발리렌트카</div>
+                                            </div>
+                                            <!-- 리뷰시 작성한 정보 (평점, 점수의 평균점 적용. 점수에 따라 별 갯수 조정 가능?)-->
+                                            <div class="company-info-detail-text">
+                                                <div class="label">평점</div>
+                                                <div class="content" style="display: flex; align-items: center;">
+                                                    <img alt="star"
+                                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                    (4.3)
+                                                </div>
+                                            </div>
+                                            <div class="company-info-detail-text">
+                                                <div class="label">전화</div>
+                                                <div class="content">064-743-3727</div>
+                                            </div>
+                                            <div class="company-info-detail-text">
+                                                <div class="label">영업시간</div>
+                                                <div class="content">
+                                                    <div><span>평일 08:00 - 20:00 </span></div>
+                                                    <div>주말 08:00 - 20:00 (토) / 08:00 - 20:00 (일)</div>
+                                                </div>
+                                            </div>
+                                            <div class="company-info-detail-text">
+                                                <div class="label">주소</div>
+                                                <div class="content">제주특별자치도 제주시 도리로 110 발리렌트카</div>
+                                            </div>
+                                        </div>
+                                        <!--                                        여기에 지도 넣기-->
+                                        <div class="company-map">
+                                            <div id="mapContainer">맵 들어갈자리</div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- 업체 리뷰 데이터 불러오기-->
+                                <section class="review">
+                                    <div class="review-title prod-option">리뷰</div>
+                                    <!--여기서 부터 포문-->
+                                    <div class="review-content">
+                                        <div style="display: flex">
+                                            <div style="display: flex; align-items: center;">
+                                                <div style="display: flex; margin-right: 12px;">
+                                                    <div style="margin-right: 5px;">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                    </div>
+                                                    <div style="font-size: 14px; font-weight: 500;">5.0</div>
+
+                                                </div>
+                                                <div style="color: rgb(170, 170, 170); font-size: 13px;">
+                                                    차량상태 5.0 | 이용안내 5.0 | 친절 5.0
+                                                </div>
+                                            </div>
+                                            <div style="font-size: 13px; color: rgb(170, 170, 170); flex: 1 1 0%; text-align: end;">
+                                                2023.08.22
+                                            </div>
+                                        </div>
+                                        <div style="word-break: break-word; margin: 15px 0px;"></div>
+                                    </div>
+                                    <div class="review-content">
+                                        <div style="display: flex">
+                                            <div style="display: flex; align-items: center;">
+                                                <div style="display: flex; margin-right: 12px;">
+                                                    <div style="margin-right: 5px;">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                    </div>
+                                                    <div style="font-size: 14px; font-weight: 500;">5.0</div>
+
+                                                </div>
+                                                <div style="color: rgb(170, 170, 170); font-size: 13px;">
+                                                    차량상태 5.0 | 이용안내 5.0 | 친절 5.0
+                                                </div>
+                                            </div>
+                                            <div style="font-size: 13px; color: rgb(170, 170, 170); flex: 1 1 0%; text-align: end;">
+                                                2023.08.22
+                                            </div>
+                                        </div>
+                                        <div style="word-break: break-word; margin: 15px 0px;"></div>
+                                    </div>
+                                    <div class="review-content">
+                                        <div style="display: flex">
+                                            <div style="display: flex; align-items: center;">
+                                                <div style="display: flex; margin-right: 12px;">
+                                                    <div style="margin-right: 5px;">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                    </div>
+                                                    <div style="font-size: 14px; font-weight: 500;">5.0</div>
+
+                                                </div>
+                                                <div style="color: rgb(170, 170, 170); font-size: 13px;">
+                                                    차량상태 5.0 | 이용안내 5.0 | 친절 5.0
+                                                </div>
+                                            </div>
+                                            <div style="font-size: 13px; color: rgb(170, 170, 170); flex: 1 1 0%; text-align: end;">
+                                                2023.08.22
+                                            </div>
+                                        </div>
+                                        <div style="word-break: break-word; margin: 15px 0px;"></div>
+                                    </div>
+                                    <div class="review-content">
+                                        <div style="display: flex">
+                                            <div style="display: flex; align-items: center;">
+                                                <div style="display: flex; margin-right: 12px;">
+                                                    <div style="margin-right: 5px;">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                    </div>
+                                                    <div style="font-size: 14px; font-weight: 500;">5.0</div>
+
+                                                </div>
+                                                <div style="color: rgb(170, 170, 170); font-size: 13px;">
+                                                    차량상태 5.0 | 이용안내 5.0 | 친절 5.0
+                                                </div>
+                                            </div>
+                                            <div style="font-size: 13px; color: rgb(170, 170, 170); flex: 1 1 0%; text-align: end;">
+                                                2023.08.22
+                                            </div>
+                                        </div>
+                                        <div style="word-break: break-word; margin: 15px 0px;"></div>
+                                    </div>
+                                    <div class="review-content">
+                                        <div style="display: flex">
+                                            <div style="display: flex; align-items: center;">
+                                                <div style="display: flex; margin-right: 12px;">
+                                                    <div style="margin-right: 5px;">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEz9skP9s0L/s0P9s0L/t0D9s0L/r0D8skP9tEL8skL9s0L/tUD9s0PD/nEKAAAADXRSTlMA8IBAoCDgELBwYNAwyfR2TgAAAGFJREFUCNdjYEACLA5QRuxVKEP3EpQhew1Eshqp3L3rpBzAwHgXDAQYuCCMBQwMhiBaGKiIR/bu3YsHQMr33r17G0Szg6RADOa7F2XvGgAZTHfbK+4qABmcyQwMZhMQTgAAprwmK8sExeUAAAAASUVORK5CYII=">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEzNzc3MzMzPz8/Ly8vNzc3Nzc3MzMzPz8/MzMzMzMzMzMzMzMzMzMySXarjAAAADXRSTlMAPPAggH9o4BCgsJ/QHxLJlAAAAGBJREFUCNdjYEACnBOgDNvLUIbvFShD9zqIZBaNvnt3a6ABA9NdMFBgYIMwEhgYhEC0IlARo+7du5cEQMrP3r17B0RzgKRADMa7l3TvgqRY7q7ouusAZLAVMjCIJyCcAADdXyZO0ICnVwAAAABJRU5ErkJggg==">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEzNzc3MzMzPz8/Ly8vNzc3Nzc3MzMzPz8/MzMzMzMzMzMzMzMzMzMySXarjAAAADXRSTlMAPPAggH9o4BCgsJ/QHxLJlAAAAGBJREFUCNdjYEACnBOgDNvLUIbvFShD9zqIZBaNvnt3a6ABA9NdMFBgYIMwEhgYhEC0IlARo+7du5cEQMrP3r17B0RzgKRADMa7l3TvgqRY7q7ouusAZLAVMjCIJyCcAADdXyZO0ICnVwAAAABJRU5ErkJggg==">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEzNzc3MzMzPz8/Ly8vNzc3Nzc3MzMzPz8/MzMzMzMzMzMzMzMzMzMySXarjAAAADXRSTlMAPPAggH9o4BCgsJ/QHxLJlAAAAGBJREFUCNdjYEACnBOgDNvLUIbvFShD9zqIZBaNvnt3a6ABA9NdMFBgYIMwEhgYhEC0IlARo+7du5cEQMrP3r17B0RzgKRADMa7l3TvgqRY7q7ouusAZLAVMjCIJyCcAADdXyZO0ICnVwAAAABJRU5ErkJggg==">
+                                                        <img alt="start"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEVHcEzNzc3MzMzPz8/Ly8vNzc3Nzc3MzMzPz8/MzMzMzMzMzMzMzMzMzMySXarjAAAADXRSTlMAPPAggH9o4BCgsJ/QHxLJlAAAAGBJREFUCNdjYEACnBOgDNvLUIbvFShD9zqIZBaNvnt3a6ABA9NdMFBgYIMwEhgYhEC0IlARo+7du5cEQMrP3r17B0RzgKRADMa7l3TvgqRY7q7ouusAZLAVMjCIJyCcAADdXyZO0ICnVwAAAABJRU5ErkJggg==">
+                                                    </div>
+                                                    <div style="font-size: 14px; font-weight: 500;">1.3</div>
+                                                </div>
+                                                <div style="color: rgb(170, 170, 170); font-size: 13px;">
+                                                    차량상태 2.0 | 이용안내 1.0 | 친절 1.0
+                                                </div>
+                                            </div>
+                                            <div style="font-size: 13px; color: rgb(170, 170, 170); flex: 1 1 0%; text-align: end;">
+                                                2023.08.22
+                                            </div>
+                                        </div>
+                                        <div style="word-break: break-word; margin: 15px 0px;">여행첫날의 기분을 확 잡쳐버렸네요.카카오
+                                            대여비용이 더 저렴해서 인가..사무실 여직원도 계약서에 대해 설명하시는 분도 완전 불친철! 다시는 이용하고 싶지않은 렌트카업체 발리!
+                                            즐거운 여행 첫날을 이분들 때문에 기분 나쁘게 시작 했네요. 제주도 사람들 친절하던데 이분들은 완전 불친절! 다시는 가고싶지 않은 렌트카
+                                            발리 였네요..쪕 ..싼차량을 대여해서 인가.. 사람취급도 안하는 느낌..정말 기분 나쁜 회사입니다!
+                                        </div>
+                                    </div>
+                                    <!--리뷰 더 불러오기 기능-->
+                                    <button class="_button_default_1vx5o_3 moreReviews"
+                                            type="button">리뷰 더보기
+                                    </button>
+                                </section>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="paymentInfoWrap">
+                    <section class="payment-info-section">
+                        <!--                        가격정보 불러와서 합하고 표시하기-->
+                        <div class="payment-info-title">
+                            결제 정보
+                        </div>
+                        <div class="payment-info-price" style="flex-direction: column; padding: 20px 0px;">
+                            <div class="priceWarp">
+                                <div>대여료</div>
+                                <div>156,480</div>
+                            </div>
+                            <div class="priceWarp">
+                                <div>보험 (일반 자차)</div>
+                                <div>-136,350</div>
+                            </div>
+                        </div>
+                        <div class="totalPrice">
+                            <div class="totalPrice-text">
+                                <div class="emphasis"> 총 결제 금액</div>
+                                <div class="emphasis-price">20,130원</div>
+                            </div>
+                        </div>
+                        <!--                        컨트롤러 임시 호출 결제시 totalPrice데이터 넘기기-->
+                        <form action="/pay/payButton" method="get">
+                            <button class="_button_default_1vx5o_3 StyledPaymentButton-bNriOy jLwBLr hover:cursor-not-allowed"
+                                    type="submit">
+                                20,130원 바로 결제하기
+                            </button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="/footer.html :: footer"></div>
+<div class="modal">
+    <div class="ant-modal-root">
+        <div class="ant-modal-mask"></div>
+        <div tabindex="-1" class="ant-modal-wrap">
+            <div role="dialog" aria-modal="true" class="ant-modal contentBox">
+                <div tabindex="0" aria-hidden="true"
+                     style="width: 0px; height: 0px; overflow: hidden; outline: none;"></div>
+                <div class="ant-modal-content">
+                    <div class="ant-modal-body" style="padding: 30px;">
+                        <div class="content">
+                            <div style="height: 610px; overflow: scroll; padding-right: 10px;">
+                                <div style="font-size: 18px; font-weight: 700; margin-left: 30px;">
+                                    셔틀 이용방법
+                                </div>
+                                <div style="padding: 30px 30px 0px;">
+                                    <div class="modal-intro-content">
+                                        <div>제주에서는 렌터카 이용 시 제주 공항에서 차량 인수 및 반납이 불가능하여 <br>‘제주 공항 ↔ 대여 업체’를 왕복하는 무료 셔틀을
+                                            제공하고있습니다. <br>(10~15분 소요)
+                                        </div>
+                                    </div>
+                                    <section class="modal-content-sections">
+                                        <div class="title">1. 제주 공항 5번 게이트 이동</div>
+                                        <div class="img"><img alt="이미지"
+                                                              src="https://whitelabel.imsmobility.co.kr/assets/img_jeju_shuttle01_web-12ea387f.png">
+                                        </div>
+                                        <div class="description">제주 공항 도착 후 ‘5번 게이트’로 이동 합니다.</div>
+                                    </section>
+                                    <section class="modal-content-sections">
+                                        <div class="title">2. 렌터카 하우스(렌터카 셔틀버스)로 이동</div>
+                                        <div class="imgsmaller"><img alt="이미지"
+                                                                     src="https://whitelabel.imsmobility.co.kr/assets/img_jeju_shuttle02_web-cdeefb68.png"><img
+                                                alt="이미지"
+                                                src="https://whitelabel.imsmobility.co.kr/assets/img_jeju_shuttle03_web-b164043b.png">
+                                        </div>
+                                        <div class="description">5번 게이트 앞 횡단보도를 건너 ‘렌터카 셔틀버스 가는 길’ 표지판을 따라 ‘렌터카하우스’로
+                                            이동해주세요.
+                                        </div>
+                                    </section>
+                                    <section class="modal-content-sections">
+                                        <div class="title">3. 셔틀 탑승 구역 확인</div>
+                                        <div class="img"><img alt="이미지"
+                                                              src="https://whitelabel.imsmobility.co.kr/assets/img_jeju_shuttle04_web-47cdfa0d.png">
+                                        </div>
+                                        <div class="description">안내 표지판에서 승차 구역 확인 후 탑승장으로 이동합니다.</div>
+                                        <div class="sub-description">*업체별 탑승구역은 업체 사정과 시기에 따라 수시로 변동될 수 있습니다. 자세한 사항은
+                                            업체에 문의해주세요.
+                                        </div>
+                                    </section>
+                                    <section class="modal-content-sections">
+                                        <div class="title">4. 셔틀 탑승 및 이동</div>
+                                        <div class="img"><img alt="이미지"
+                                                              src="https://whitelabel.imsmobility.co.kr/assets/img_jeju_shuttle05_web-b57912b3.png">
+                                        </div>
+                                        <div class="description">업체에서 안내받은 탑승 구역 확인 후 셔틀버스에 탑승합니다.</div>
+                                        <div class="sub-description">*업체별 셔틀 운행 및 소요 시간, 배차간격은 사정에 따라 변경 될 수 있습니다.</div>
+                                    </section>
+                                    <section class="modal-content-sections">
+                                        <div class="title">5. 업체 도착 후 차량 대여/반납</div>
+                                        <div class="img"><img alt="이미지"
+                                                              src="https://whitelabel.imsmobility.co.kr/assets/img_jeju_shuttle06_web-6f355741.png">
+                                        </div>
+                                        <div class="description">
+                                            <div class="list">
+                                                <div class="precautions-con-detail-textBox"></div>
+                                                <div>업체 도착 후 계약서를 작성하고 차량을 인수합니다.</div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="precautions-con-detail-textBox"></div>
+                                                <div>이용 후 차량을 대여한 업체로 반납하며, 반납 후 동일하</div>
+                                                <div>게 셔틀로 공항까지 이동합니다.</div>
+                                            </div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;셔틀 이동 시간을 고려해 반납해 주세요.</div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 30px; position: relative; bottom: 0px; padding-right: 10px;">
+                            <button type="button" class="modal-btn _button_default_1vx5o_3"
+                                    style="height: 50px; flex: 1 1 0%; font-size: 16px;">확인
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div tabindex="0" aria-hidden="true" cursor="pointer"
+                     style="width: 0px; height: 0px; overflow: hidden; outline: none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

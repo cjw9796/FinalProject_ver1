@@ -1,0 +1,360 @@
+/*community_main에서 가져온 뼈대*/
+.next {
+    display: flex;
+    flex-direction: column;
+}
+
+.m {
+    width: 1200px;
+    margin: 130px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*페이지 상단 여행친구찾기*/
+.top_img {
+    margin-top: 130px;
+    margin-right: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+.top_img img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*메인*/
+
+/*여행지 선택*/
+.category {
+    position: relative;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid rgb(233, 233, 233);
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 50px;
+}
+
+.C-nav-1 {
+    display: flex;
+    justify-content: center;
+
+}
+
+.C-nav-1 span {
+    color: #00b8ff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.C-nav-3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.C-nav-3 .C-nav-btn1,
+.C-nav-3 .C-nav-btn2 {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    margin: 15px;
+}
+
+.C-nav-3 .C-nav-btn.C-activ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00b8ff;
+    color: #ffffff;
+    border-radius: 23px;
+    height: 46px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.C-nav-3 .C-nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #96a0ad;
+    border-radius: 23px;
+    height: 46px;
+    font-size: 20px;
+    color: #96a0ad;
+    font-weight: 500;
+}
+
+.C-nav-btn:hover {
+    background-color: #00b8ff;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.C-nav-3 .C-nav-btn span {
+    padding: 0 30px;
+}
+
+/*날짜선택*/
+.select_date_form {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    border: unset;
+    padding: 16px 0px 0px;
+    width: 100%; /* 원하는 너비로 조정 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.sdf_form_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.select_date_input {
+    width: 282px;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    padding: 30px 0 30px 15px;
+    height: 120px;
+    margin-right: 50px; /* 조정된 부분 */
+}
+
+.select_date_input:last-child {
+    margin-right: 0; /* 마지막 요소의 간격 제거 */
+}
+
+.select_date_box {
+    padding: 10px 0;
+}
+
+#select_date {
+    line-height: 30px;
+    letter-spacing: inherit;
+    box-sizing: border-box;
+    background: #fff;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #000;
+    border: 0;
+    height: 30px;
+    width: 100%;
+}
+
+#select_date2 {
+    line-height: 30px;
+    letter-spacing: inherit;
+    box-sizing: border-box;
+    background: #fff;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #000;
+    border: 0;
+    height: 30px;
+    width: 100%;
+}
+
+/*동행 수 선택*/
+.select_accompany {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    border: unset;
+    padding: 16px 0px 0px;
+    width: 100%; /* 원하는 너비로 조정 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.col-md-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+/*메인_배경사진업로드*/
+.photo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    /*height: 402px;*/ /*원래크기*/
+    height: 700px;
+    border: 1px solid rgb(233, 233, 233);
+    background-color: rgb(244, 244, 244);
+    width: 100%;
+    border-radius: 4px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.photo > :nth-child(n+2) {
+    margin-top: 10px;
+}
+
+.photo > div {
+    position: relative;
+    display: flex;
+    color: rgb(153, 153, 153);
+    font-size: 14px;
+    font-weight: 300;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.besauD {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+    font-style: normal;
+    border: 0px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/*메인_제목쓰기*/
+
+.write_title {
+    margin: 0px;
+    padding: 0px;
+    font-style: normal;
+    border: 0px;
+    display: block;
+    margin-top: 26px;
+}
+
+.write_title input[type="text"] {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    vertical-align: top;
+    background: rgb(255, 255, 255);
+    border: 1px solid #e9e9e9;
+    border-radius: 4px;
+}
+
+input {
+    margin: 0px;
+    font-family: NotoSansKR, "Noto Sans CJK KR", sans-serif;
+    overflow: visible;
+    appearance: none;
+}
+
+.line {
+    border-top: 1px solid rgb(233, 233, 233);
+    margin-top: 26px;
+}
+
+/*메인_본문내용쓰기*/
+.writeform {
+    min-height: 400px;
+    overflow: auto;
+    margin: 0px;
+    font-family: NotoSansKR, "Noto Sans CJK KR", sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    resize: none;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #e9e9e9;
+    border-radius: 4px;
+    appearance: none;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+}
+
+/*메인_버튼*/
+
+.buttons {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 65px 0px 70px;
+}
+
+.cancelbtn {
+    position: relative;
+    line-height: 20px;
+    border-radius: 4px;
+    padding: 17px 5px;
+    background-color: rgb(219, 219, 219);
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+.writebtn {
+    position: relative;
+    line-height: 20px;
+    border-radius: 4px;
+    padding: 17px 5px;
+    background-color: #00b8ff;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+button {
+    text-transform: none;
+    margin: 0px;
+    font-family: NotoSansKR, "Noto Sans CJK KR", sans-serif;
+    overflow: visible;
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: pointer;
+    vertical-align: top;
+    background: unset;
+    border: 0px;
+    outline: none;
+}
+
+
+
+
+

@@ -1,0 +1,365 @@
+.container{
+
+
+    width: 500px;
+    /*height: 600px;*/
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    border : 1px solid gainsboro;
+
+}
+
+#loginbtn{
+
+    background-color: #46A0EF;
+    color : white;
+
+}
+
+#login_block{
+
+    margin-top: 100px;
+}
+
+#loginbtn:hover{
+    cursor: pointer;
+}
+.loginbtn{
+
+    margin: 0 auto;
+    border : 0px;
+    width: 330px;
+    height: 55px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size : 16px;
+
+}
+
+#kakao_btn{
+
+    border : 0px;
+    background-color: #FEE501;
+
+}
+
+
+
+#login_btn{
+
+
+    color : white;
+    /*background-color: #588fee;*/
+    background-color: #05B6CE;
+
+}
+
+#title{
+
+    margin-top: 30px;
+    width: 150px;
+    height: 100px;
+}
+
+.login_block{
+
+    width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+
+}
+.join_small_block input, .login_block input{
+
+    font-size : 16px;
+    padding-left: 10px;
+    width: 316px;
+    height: 40px;
+    border-radius: 5px;
+    border : 1px solid grey;
+    color : grey;
+    outline : none;
+
+}
+
+.find_block{
+
+    margin : 0 auto;
+    margin-top: 10px;
+
+    width: 330px;
+    display :flex;
+    justify-content: space-between;
+}
+
+.find_block span{
+
+    color :  grey;
+}
+
+.find_block a{
+    color: black;
+}
+
+#join_btn,#submit_btn{
+
+    width: 330px;
+    height: 50px;
+    margin : 0 auto;
+    text-align: center;
+    background-color: white;
+    border : 1px solid #2B96EC;
+    border-radius: 5px;
+    color : #2B96EC;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#join_btn:active{
+
+    background-color:#E7F4FD;
+
+    cursor: pointer;
+    border : 0px;
+}
+
+#join_btn,#login_btn,#kakao_btn:hover{
+    cursor: pointer;
+
+}
+
+#join_block{
+
+    margin-top: 100px;
+    width: 500px;
+
+}
+
+.join_block{
+}
+
+.join_small_block input{
+    width: 330px;
+    margin-bottom: 10px;
+    border : 1px solid gainsboro;
+    color:black;
+    /*color: gainsboro;*/
+
+
+}
+
+.join_block input{
+    font-size : 14px;
+}
+
+.join_small_block{
+
+    width: 350px;
+    height: 40px;
+    margin:0 auto;
+    margin-bottom: 10px;
+}
+
+#user_gender{
+
+    width: 330px;
+    border : 1px solid gainsboro;
+    border-radius: 5px;
+    padding-left: 5px;
+    color : black;
+    font-size : 14px;
+    outline : none;
+
+}
+
+#user_month, #user_day{
+
+    border : 1px solid gainsboro;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+.join_small_block:nth-child(6){
+    display: flex;
+    justify-content: space-between;
+}
+
+#user_year{
+    width: 180px;
+}
+
+#user_month{
+    width: 70px;
+
+}
+
+#user_day{
+    width: 70px;
+}
+
+
+.red{
+    width: 320px;
+    font-size: 15px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    text-align: left;
+
+
+}
+
+
+.red:after{
+    content : "*";
+    color : red;
+    margin-left: 3px;
+}
+
+.join_top_block{
+
+    width: 330px;
+    background-color: white;
+    height: 20px;
+    border : 0px;
+    text-align: right;
+    margin : 0 auto;
+    font-size: 13px;
+
+}
+
+.btn-sm{
+    width: 155px;
+    height: 35px;
+    margin-bottom: 10px;
+    color : white;
+    background-color: white;
+}
+
+#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8{
+    background-color: white;
+    border : 1px solid #2B96EC;
+
+    color:#2B96EC;
+}
+
+#btn1:active,#btn2:active,#btn3:active,#btn4:active,#btn5:active,#btn6:active,#btn7:active,#btn8:active{
+
+    background-color: #2B96EC;
+    color : white;
+
+}
+
+
+
+.mbti_block{
+    width: 330px;
+    display: flex;
+    justify-content: space-between;
+    margin : 0 auto;
+}
+
+.active{
+
+    background-color: #2B96EC !important;
+    color: white !important;
+
+}
+
+#join_logo{
+
+    width: 150px;
+    height: 120px;
+}
+
+.phone_block{
+
+    width: 330px;
+    display : flex;
+    justify-content: space-between;
+    margin : 0 auto;
+    /*margin-bottom: 20px;*/
+
+}
+
+.phone_block button{
+
+    background-color: #05B6CE;
+    border : none;
+    border-radius: 5px;
+    width: 90px;
+    height: 40px;
+    color:white;
+
+}
+
+#left_phone_block{
+
+    width: 220px;
+    margin : 0;
+    height: 50px;
+
+
+}
+
+#left_phone_block input, #auth_num{
+
+    font-size : 14px;
+    padding-left: 10px;
+    width: 220px;
+    height: 40px;
+    border-radius: 5px;
+    border : 1px solid gainsboro;
+
+    color : black;
+    outline : none;
+}
+
+#user_phone{
+    width: 200px;
+    color : black;
+
+
+}
+
+.right_phone_block{
+
+    color :white;
+    font-size: 14px;
+
+}
+
+select{
+    height: 40px;
+    font-size: 13px;
+
+}
+
+#auth_block{
+
+    width: 330px;
+}
+
+#auth_num{
+    border-radius: 5px 0 0 5px;
+    width: 240px;
+}
+
+#auth_submit_btn{
+
+    border-radius: 0 5px 5px 0;
+}
+
+#id_check{
+
+    width: 330px;
+    color:red;
+    margin : 0 auto;
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 10px;
+
+}
+

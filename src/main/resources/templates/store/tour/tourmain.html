@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/store/tour/tour.css}">
+
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+<div class="next">
+    <div th:include="/header.html :: header"></div>
+    <div class="main_container">
+        <div class="tour_main_container">
+            <h2>어디로 가시나요?</h2>
+            <!--도시 페이지-->
+            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
+                 data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="tour_main_box">
+                            <div class="test_tour_main" id="seoul" onclick="location.href='/cities'">
+                                <div class="main_back_img seoul"></div>
+                                    <div class="card_text">
+                                        <span class="card_title">서울</span>
+                                        <span><strong>추천</strong> 관광지 ></span>
+                                    </div>
+                            </div>
+                            <div class="test_tour_main" id="jeju">
+                                <div class="main_back_img jeju"></div>
+                                <div class="card_text">
+                                    <span class="card_title">제주</span>
+                                    <span><strong>추천</strong> 관광지 ></span>
+                                </div>
+                            </div>
+                            <div class="test_tour_main" id="busan">
+                                <div class="main_back_img busan"></div>
+                                <div class="card_text">
+                                    <span class="card_title">부산</span>
+                                    <span><strong>추천</strong> 관광지 ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tour_main_box">
+                            <div class="test_tour_main" id="yeosu">
+                                <div class="main_back_img yeosu"></div>
+                                <div class="card_text">
+                                    <span class="card_title">여수</span>
+                                    <span><strong>추천</strong> 관광지 ></span>
+                                </div>
+                            </div>
+                            <div class="test_tour_main" id="gangneung">
+                                <div class="main_back_img gangneung"></div>
+                                <div class="card_text">
+                                    <span class="card_title">강릉</span>
+                                    <span><strong>추천</strong> 관광지 ></span>
+                                </div>
+                            </div>
+                            <div class="test_tour_main" id="gyeongju">
+                                <div class="main_back_img gyeongju"></div>
+                                <div class="card_text">
+                                    <span class="card_title">경주</span>
+                                    <span><strong>추천</strong> 관광지 ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                        data-bs-slide="prev">
+                    <div class="prev_btn">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </div>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                        data-bs-slide="next">
+                    <div class="next_btn">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </div>
+                </button>
+            </div>
+            <div class="shop_carousel">
+                <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+                                  centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                    <swiper-slide><img
+                            src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img
+                            src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img
+                            src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img
+                            src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/banner/1678361195310-1" alt="">
+                    </swiper-slide>
+
+                </swiper-container>
+            </div>
+            <!--항공 페이지-->
+            <div class="flight_rank_container">
+                <div class="flight_rank_title">
+                    <h4>인기 국내선</h4>
+                </div>
+                <div class="flight_rank_box">
+                    <div class="flight_rank_card">
+                        <div class="flight_rank_bgimg" id="flight_jeju"></div>
+                        <div class="flight_rank_text">
+                            <span>김포</span>
+                            <i></i>
+                            <span>제주</span>
+                        </div>
+                    </div>
+                    <div class="flight_rank_card">
+                        <div class="flight_rank_bgimg" id="flight_busan"></div>
+                        <div class="flight_rank_text">
+                            <span>김포</span>
+                            <i></i>
+                            <span>부산</span>
+                        </div>
+                    </div>
+                    <div class="flight_rank_card">
+                        <div class="flight_rank_bgimg" id="flight_yeosu"></div>
+                        <div class="flight_rank_text">
+                            <span>김포</span>
+                            <i></i>
+                            <span>여수</span>
+                        </div>
+                    </div>
+                    <div class="flight_rank_card">
+                        <div class="flight_rank_bgimg" id="flight_cheongju"></div>
+                        <div class="flight_rank_text">
+                            <span>제주</span>
+                            <i></i>
+                            <span>청주</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <div th:include="/footer.html :: footer"></div>
+    <script src = "/js/header.js"> </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/member/join_login.css">
+
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="next">
+
+
+
+    <header th:include = "/header2.html :: header"></header>
+
+    <div class="choice_post disappear">
+        <button onclick="window.location.href='../community/accompany/write'"><i
+                class="fa-lg fa-solid fa-user-group" style="color: #588fee;"></i>동행 모집하기
+        </button>
+        <button onclick="window.location.href='../community/plan/write'"><i
+                class="fa-lg fa-regular fa-calendar-check" style="color: #cc6fd3;"></i>여행 일정 만들기
+        </button>
+    </div>
+
+</header>
+
+
+
+<div class="container" id="join_block">
+
+
+
+
+
+        <!--    <form action="/joinPro" method="post" id ="joinForm">-->
+        <div class="join_block">
+            <img class="logo_img" src="/img/logo.png" id = "join_logo">
+
+            <div class="red">아이디</div>
+            <div class="join_small_block">
+
+                <!-- 카카오로 가입을 시도했을시 유저 프로필 이미지를 잠깐 저장하고 있어야할 hidden input태그.
+                일반가입으로 시도시 default img로 가입된다 -->
+                <input type="hidden" id= "user_img" th:value = "${kakao_user.profile_img}">
+
+
+
+                <th:block th:if = "${kakao_user.email != ''}">
+                <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}" disabled>
+                </th:block>
+
+                <th:block th:if = "${kakao_user.email == ''}">
+                    <input type="text" id="user_id" placeholder="이메일 형식으로 입력해주세요." th:value = "${kakao_user.email}">
+                </th:block>
+
+
+            </div>
+
+
+
+            <div class="red">
+                <div id = "id_check" class = "disappear"></div>
+
+                비밀번호</div>
+
+            <div class="join_small_block">
+                <input type="password" id="user_password" placeholder="비밀번호(8자~16자, 영문+숫자+특수문자 사용)" maxlength="16">
+            </div>
+
+            <div class="red">성명</div>
+            <div class="join_small_block">
+                <input type="text" id="user_name" placeholder="성함을 입력하세요" maxlength="10">
+            </div>
+
+
+            <div class="red">연락처</div>
+            <div class = "phone_block">
+            <div id = "left_phone_block">
+                <input type="text" id="user_phone" maxlength="11"placeholder="-를 제외하고 입력해주세요.">
+            </div>
+
+                <div class = "right_phone_block">
+                    <button type = "button" id ="auth_request_btn" > 인증번호 전송 </button>
+
+                </div>
+            </div>
+
+            <div class = "phone_block disappear" id = "auth_block">
+
+                <div>
+                    <input type="text" id="auth_num" name = "auth_num" maxlength="6"placeholder="인증번호를 입력해주세요." >
+                </div>
+
+                <div class = "right_phone_block">
+                <button type = "button" id = "auth_submit_btn">인증하기</button>
+                </div>
+            </div>
+
+            <div class="red">성별</div>
+            <div class="join_small_block">
+                <select id="user_gender">
+                    <option value="">성별</option>
+                    <option value="M" th:selected="${kakao_user.gender == 'male'}">남성</option>
+                    <option value="F" th:selected="${kakao_user.gender == 'female'}">여성</option>
+                </select>
+            </div>
+
+
+            <!-- 월에 따른 일수가 다르게 출력되게끔 -->
+
+            <div class="red">생년월일</div>
+            <div class="join_small_block">
+
+                <input type="text" id="user_year" placeholder="연도" maxlength="4">
+                <select id="user_month">
+                    <th:block th:each="number : ${#numbers.sequence(1, 12)}">
+                        <option th:value="${number}" th:text="${number} + '월'" name = "month_list"></option>
+                    </th:block>
+                </select>
+
+
+
+                <select id="user_day" name = "day_detail">
+                    <!-- each문으로 31일까지 뽑아내기,월에 맞게30,31선택 -->
+
+
+
+                    <div th:each="number : ${#numbers.sequence(1, 31)}" id = "day_sequence">
+                        <option th:value="${number}" th:text="${number} + '일'" name = "day_list" ></option>
+                    </div>
+
+                </select>
+            </div>
+
+            <div class="red">MBTI</div>
+            <div class="mbti_block">
+                <button type="button" class="btn btn-primary btn-sm" id = "btn1" name = "mbti" value ="I">내향적인 I</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn2" name = "mbti"value ="E">외향적인 E</button>
+            </div>
+
+            <div class="mbti_block">
+                <button type="button" class="btn btn-primary btn-sm" id = "btn3" name = "mbti" value = "S">현실적인 S</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn4" name = "mbti" value = "N">직관적인 N</button>
+            </div>
+            <div class="mbti_block">
+                <button type="button" class="btn btn-primary btn-sm" id = "btn5" name = "mbti" value = "F">공감킹 F</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn6"name = "mbti" value = "T">오빠 T야? T</button>
+            </div>
+
+            <div class="mbti_block">
+                <button type="button" class="btn btn-primary btn-sm" id = "btn7" name = "mbti" value = "P">무계획 P</button>
+                <button type="button" class="btn btn-secondary btn-sm" id = "btn8" name = "mbti" value = "J">계획적인 J</button>
+            </div>
+
+
+        </div>
+
+        <div>
+            <button class="login_btn" type="submit" id="submit_btn">
+
+                회원가입
+
+            </button>
+        </div>
+
+        <!--    </form>-->
+
+
+</div>
+
+    <footer th:include="/footer.html :: footer"></footer>
+
+</div>
+
+
+
+</body>
+<script src="/jq/jquery-3.7.0.min.js"></script>
+<script src="/jq/jquery.form.min.js"></script>
+<script src="/js/member/join.js"></script>
+<script src="/js/join_authorize.js"></script>
+<script src="/js/header.js"></script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/store/tour/tour.css}">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+<div class="next">
+<div th:include="/header.html :: header"></div>
+
+<div class="tour_detail_container">
+    <div class="page_title">
+        <h2>관광 상세 정보</h2>
+    </div>
+    <div class="detail_info_container">
+        <h4>가경목장</h4>
+        <div class="detail_info_top">
+            <div class="detail_info_img">
+                <img src="http://tong.visitkorea.or.kr/cms/resource/12/2901512_image2_1.jpg">
+            </div>
+            <div class="detail_info_table">
+                <div class="detail_info_row">
+                    <div class="detail_info_col">
+                        우편번호
+                    </div>
+                    <div class="detail_info_col">
+                        15583
+                    </div>
+                </div>
+                <div class="detail_info_row">
+                    <div class="detail_info_col">
+                        주소
+                    </div>
+                    <div class="detail_info_col">
+                        경기도 안산시 상록구 감골로 173
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail_info_bottom">
+            <strong>개요</strong>
+            <hr/>
+            <div class="detail_info_text">
+                가경목장은 경기도 안산시 상록구 사동에 있는 고깃집이다. 아들, 딸과 함께 가족 운영을 한다는 뜻으로 상호를 가경목장이라고 정했다. 참숯 직화구이 전문점이다. 대표 메뉴는 두툼한 국내산 삼겹살과 소고기처럼 마블링이 있는 도토리꽃목살이다. 고기와 함께 제공되는 특제 소스인 멸치젓갈 소스에 찍어 먹으면 더욱 맛있게 먹을 수 있다. 부족한 밑반찬은 셀프 코너에서 가져다 먹을 수 있다. 가게 뒤편에 주차할 수 있다. 지하철 수인분당선 사리역 2번 출구에서 716m 떨어져 있어 도보로도 이용할 수 있다.
+            </div>
+        </div>
+        <div class="detail_info_container" id="blog_search">
+            <h5>블로그 검색 결과</h5>
+            <hr/>
+            <div class="blog_list">
+                <p class="blog_title">
+                    <a href="https://blog.naver.com/2__1_4____/223172706560">[맛집] 안산 <b>가경목장</b></a>
+                </p>
+                <p class="blog_content">
+                    오늘은 도토리 꽃목살맛쥡,, <b>가경목장</b>을 포스팅하겠습니당! 여기도 생각나면 가는 매년 가보는 맛집인데용! 주인 사장님도 너무 친절하시고, 도토리꽃목살은 얼마나 맛있게용~ 메뉴는요! 출처: 네이버 메뉴...
+                </p>
+                <p class="blog_info">
+                    <a href="blog.naver.com/2__1_4____" class="blogger_name">
+                        <img src="/img/blog.png">
+                        너낌있는 팡로그
+                    </a>
+                    <span class="post_date">20230802</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="/footer.html :: footer"></div>
+</div>
+
+</body>
+</html>
