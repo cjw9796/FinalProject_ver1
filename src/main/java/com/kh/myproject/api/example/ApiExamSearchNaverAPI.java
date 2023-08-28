@@ -28,8 +28,7 @@ public class ApiExamSearchNaverAPI {
         
         String apiURL = "https://openapi.naver.com/v1/search/shop.json";  // 쇼핑 JSON 결과
         String query = "배고프다";  // 검색어
-        
-        
+
         String display = "12";  // 보여질 페이지 갯수, 최대 100개
         String start = "2";     // 페이지 시작 위치
         

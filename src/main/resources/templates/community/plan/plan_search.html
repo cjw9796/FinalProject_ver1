@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>plan_detail.html</title>
+    <!-- <link rel="stylesheet" href="/css/header.css"> -->
+    <link rel="stylesheet" href="/css/community/plan/plan_search.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+    <script>
+        (g => {
+            var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                m = document, b = window;
+            b = b[c] || (b[c] = {});
+            var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                u = () => h || (h = new Promise(async (f, n) => {
+                    await (a = m.createElement("script"));
+                    e.set("libraries", [...r] + "");
+                    for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                    e.set("callback", c + ".maps." + q);
+                    a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                    d[q] = f;
+                    a.onerror = () => h = n(Error(p + " could not load."));
+                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                    m.head.append(a)
+                }));
+            d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+        })({
+            key: "AIzaSyCr7wGrhOR9ovx7U9N2uZORdbY3CdYXfz0",
+            v: "weekly",
+            language: "ko",
+            region: "KR",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+
+    <script defer src="/js/googleMapsAPI/index.js"></script>
+
+
+</head>
+<body>
+<div class="next">
+    <!-- <header th:include="header.html :: header"></header> -->
+
+
+    <div class="m">
+        <!-- 메인부분 코드 작성 -->
+        <div style="flex: 1 1 0%;">
+            <div class="_next">
+                <div class="container">
+                    <div class="googlemaps">
+                        <div class="googlemaps_in">
+
+                            <div id="map" style="width: 100%; height: 100%;"></div>
+
+                        </div>
+                    </div>
+                    <!--여기까지 구글맵 -->
+
+                    <div class="content">
+                        <div class="article">
+                            <div class="art1">
+                                <div class="art1_div_btn">
+
+                                    <div class="art1_div_svg">
+                                        <svg width=" 9
+                                          " height="16" viewBox="0 0 9 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             style="cursor: pointer;">
+                                            <path d="M8 1L1 8L8 15" stroke="#252533" stroke-width="1"
+                                                  stroke-linecap="square" fill="#2564d0"></path>
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <div>
+                                    <input type="text" id="placeSearchInput"/>
+                                    <button id="placeSearchButton">검색하기</button>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div> <!-- 여기까지 content 한 세트-->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div th:include="/footer.html :: footer"></div>
+
+<script>
+    //다른 일정 보기 버튼 클릭 시 plan(일정 메인)으로 이동
+    const ViewOtherSchedulebutton = document.querySelector('.sc-1dca83dc-0.hwLFpI');
+
+    ViewOtherSchedulebutton.addEventListener('click', () => {
+        window.location.href = '../plan';
+    });
+</script>
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/googleMapsAPI/index.js"></script>
+
+
+</body>
+</html>

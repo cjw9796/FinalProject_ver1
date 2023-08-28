@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class RentcarController {
 
-@GetMapping("/rentcarMain")
+
+
+
+@GetMapping("/store/rentcar/home")
     public String rentcarMain(){
 
     return "store/rentcar/rentcarMain";

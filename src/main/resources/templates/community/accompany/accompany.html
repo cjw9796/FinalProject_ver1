@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>accompany.html</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/community/accompany/accompany.css">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--동행 게시판 메인 -->
+<div class="next">
+    <header th:include="header.html :: header"></header>
+    <div class="m">
+        <!-- 메인부분 코드 작성 -->
+
+        <!--동행 메뉴바 -->
+        <section direction="vertical" class="sc-172ec6f6-0 lfdViP"
+                 style="margin-top: 24px; display: flex; box-sizing: border-box;">
+            <div class="sc-2ac7fd0b-1 bPhBqO" style="margin-right: 24px;">
+                <div class="sc-cfa28f78-0 kOhONI">
+                    <div class="sc-cfa28f78-1 eUMRoF">
+                        <div class="sc-cfa28f78-2 kuUPD">
+                            <svg width="16" height="16" viewBox="0 0 16 17" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.45301 14.7689C11.0169 14.7689 13.906 11.7023 13.906 7.91942C13.906 4.13656 11.0169 1.06995 7.45301 1.06995C3.88911 1.06995 1 4.13656 1 7.91942C1 11.7023 3.88911 14.7689 7.45301 14.7689Z"
+                                      stroke="#9A9A9A" stroke-miterlimit="10"></path>
+                                <path d="M12.1982 12.9564L14.9999 15.9301" stroke="#9A9A9A" stroke-miterlimit="10"
+                                      stroke-linecap="round"></path>
+                            </svg>
+                        </div>
+                        <input placeholder="어디로 여행가시나요?" class="sc-cfa28f78-3 iRtETS" value=""></div>
+                </div>
+            </div>
+            <div class="sc-50c338b6-0 flYSGk">
+                <div class="sc-50c338b6-1 ljbcoF">
+                    <div class="sc-fe318b44-0 bPOjyX">
+                        <button class="sc-fe318b44-1 eTYLaQ">최신 순</button>
+                        <button class="sc-fe318b44-1 diPORg">인기 순</button>
+                        <button class="sc-fe318b44-1 diPORg">많이 본 순</button>
+                        <button class="sc-fe318b44-1 diPORg">댓글 순</button>
+                        <button class="sc-fe318b44-1 diPORg">모집중</button>
+                        <button class="sc-fe318b44-1 diPORg">모집완료</button>
+                    </div>
+                </div>
+
+
+                <!--조회기간, 모든국가 -->
+                <div class="sc-758baf56-0 lcwauR">
+                    <div class="sc-758baf56-1 dunNSc">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             style="transition: transform 0.3s ease 0s; transform: rotate(0deg); cursor: pointer; display: inline-block;">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 9.49252C0.75 9.19691 0.992057 8.95728 1.29065 8.95728H19.2094C19.5079 8.95728 19.75 9.19691 19.75 9.49252C19.75 9.78813 19.5079 10.0278 19.2094 10.0278H1.29065C0.992057 10.0278 0.75 9.78813 0.75 9.49252Z"
+                                  fill="#6a6a6a"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 3.2225C0.75 2.92689 0.992057 2.68726 1.29065 2.68726H19.2094C19.5079 2.68726 19.75 2.92689 19.75 3.2225C19.75 3.51811 19.5079 3.75775 19.2094 3.75775H1.29065C0.992057 3.75775 0.75 3.51811 0.75 3.2225Z"
+                                  fill="#6a6a6a"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 15.7625C0.75 15.4669 0.992057 15.2273 1.29065 15.2273H19.2094C19.5079 15.2273 19.75 15.4669 19.75 15.7625C19.75 16.0582 19.5079 16.2978 19.2094 16.2978H1.29065C0.992057 16.2978 0.75 16.0582 0.75 15.7625Z"
+                                  fill="#6a6a6a"></path>
+                            <path d="M8.62799 3.38083C8.62799 4.75331 7.50415 5.86592 6.11783 5.86592C4.7315 5.86592 3.60767 4.75331 3.60767 3.38083C3.60767 2.00836 4.7315 0.895752 6.11783 0.895752C7.50415 0.895752 8.62799 2.00836 8.62799 3.38083Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M6.11797 1.48977C5.06302 1.48977 4.20781 2.33643 4.20781 3.38085C4.20781 4.42526 5.06302 5.27192 6.11797 5.27192C7.17293 5.27192 8.02814 4.42526 8.02814 3.38085C8.02814 2.33643 7.17293 1.48977 6.11797 1.48977ZM3.00781 3.38085C3.00781 1.68031 4.40028 0.301758 6.11797 0.301758C7.83567 0.301758 9.22814 1.68031 9.22814 3.38085C9.22814 5.08138 7.83567 6.45993 6.11797 6.45993C4.40028 6.45993 3.00781 5.08138 3.00781 3.38085Z"
+                                  fill="#6a6a6a"></path>
+                            <path d="M8.62799 15.7898C8.62799 17.1622 7.50415 18.2749 6.11783 18.2749C4.7315 18.2749 3.60767 17.1622 3.60767 15.7898C3.60767 14.4173 4.7315 13.3047 6.11783 13.3047C7.50415 13.3047 8.62799 14.4173 8.62799 15.7898Z"
+                                  fill="white"></path>
+                            <path d="M16.8904 9.65085C16.8904 11.0233 15.7666 12.1359 14.3803 12.1359C12.994 12.1359 11.8701 11.0233 11.8701 9.65085C11.8701 8.27838 12.994 7.16577 14.3803 7.16577C15.7666 7.16577 16.8904 8.27838 16.8904 9.65085Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M14.3802 7.75979C13.3252 7.75979 12.47 8.60645 12.47 9.65087C12.47 10.6953 13.3252 11.5419 14.3802 11.5419C15.4351 11.5419 16.2903 10.6953 16.2903 9.65087C16.2903 8.60645 15.4351 7.75979 14.3802 7.75979ZM11.27 9.65087C11.27 7.95033 12.6625 6.57178 14.3802 6.57178C16.0979 6.57178 17.4903 7.95033 17.4903 9.65087C17.4903 11.3514 16.0979 12.73 14.3802 12.73C12.6625 12.73 11.27 11.3514 11.27 9.65087Z"
+                                  fill="#6a6a6a"></path>
+                            <path d="M8.48468 15.9211C8.48468 17.2936 7.36084 18.4062 5.97452 18.4062C4.58819 18.4062 3.46436 17.2936 3.46436 15.9211C3.46436 14.5486 4.58819 13.436 5.97452 13.436C7.36084 13.436 8.48468 14.5486 8.48468 15.9211Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M5.97442 14.0298C4.91947 14.0298 4.06426 14.8765 4.06426 15.9209C4.06426 16.9653 4.91947 17.812 5.97442 17.812C7.02937 17.812 7.88458 16.9653 7.88458 15.9209C7.88458 14.8765 7.02937 14.0298 5.97442 14.0298ZM2.86426 15.9209C2.86426 14.2204 4.25673 12.8418 5.97442 12.8418C7.69212 12.8418 9.08458 14.2204 9.08458 15.9209C9.08458 17.6214 7.69212 19 5.97442 19C4.25673 19 2.86426 17.6214 2.86426 15.9209Z"
+                                  fill="#6a6a6a"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 9.49252C0.75 9.19691 0.992057 8.95728 1.29065 8.95728H19.2094C19.5079 8.95728 19.75 9.19691 19.75 9.49252C19.75 9.78813 19.5079 10.0278 19.2094 10.0278H1.29065C0.992057 10.0278 0.75 9.78813 0.75 9.49252Z"
+                                  fill="#6a6a6a"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 3.2225C0.75 2.92689 0.992057 2.68726 1.29065 2.68726H19.2094C19.5079 2.68726 19.75 2.92689 19.75 3.2225C19.75 3.51811 19.5079 3.75775 19.2094 3.75775H1.29065C0.992057 3.75775 0.75 3.51811 0.75 3.2225Z"
+                                  fill="#6a6a6a"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 15.7625C0.75 15.4669 0.992057 15.2273 1.29065 15.2273H19.2094C19.5079 15.2273 19.75 15.4669 19.75 15.7625C19.75 16.0582 19.5079 16.2978 19.2094 16.2978H1.29065C0.992057 16.2978 0.75 16.0582 0.75 15.7625Z"
+                                  fill="#6a6a6a"></path>
+                            <path d="M8.62775 3.38083C8.62775 4.75331 7.50391 5.86592 6.11758 5.86592C4.73126 5.86592 3.60742 4.75331 3.60742 3.38083C3.60742 2.00836 4.73126 0.895752 6.11758 0.895752C7.50391 0.895752 8.62775 2.00836 8.62775 3.38083Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M6.11797 1.48977C5.06302 1.48977 4.20781 2.33643 4.20781 3.38085C4.20781 4.42526 5.06302 5.27192 6.11797 5.27192C7.17293 5.27192 8.02814 4.42526 8.02814 3.38085C8.02814 2.33643 7.17293 1.48977 6.11797 1.48977ZM3.00781 3.38085C3.00781 1.68031 4.40028 0.301758 6.11797 0.301758C7.83567 0.301758 9.22814 1.68031 9.22814 3.38085C9.22814 5.08138 7.83567 6.45993 6.11797 6.45993C4.40028 6.45993 3.00781 5.08138 3.00781 3.38085Z"
+                                  fill="#6a6a6a"></path>
+                            <path d="M8.62775 15.7898C8.62775 17.1622 7.50391 18.2749 6.11758 18.2749C4.73126 18.2749 3.60742 17.1622 3.60742 15.7898C3.60742 14.4173 4.73126 13.3047 6.11758 13.3047C7.50391 13.3047 8.62775 14.4173 8.62775 15.7898Z"
+                                  fill="white"></path>
+                            <path d="M16.8904 9.65085C16.8904 11.0233 15.7666 12.1359 14.3803 12.1359C12.994 12.1359 11.8701 11.0233 11.8701 9.65085C11.8701 8.27838 12.994 7.16577 14.3803 7.16577C15.7666 7.16577 16.8904 8.27838 16.8904 9.65085Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M14.3797 7.75979C13.3247 7.75979 12.4695 8.60645 12.4695 9.65087C12.4695 10.6953 13.3247 11.5419 14.3797 11.5419C15.4346 11.5419 16.2899 10.6953 16.2899 9.65087C16.2899 8.60645 15.4346 7.75979 14.3797 7.75979ZM11.2695 9.65087C11.2695 7.95033 12.662 6.57178 14.3797 6.57178C16.0974 6.57178 17.4899 7.95033 17.4899 9.65087C17.4899 11.3514 16.0974 12.73 14.3797 12.73C12.662 12.73 11.2695 11.3514 11.2695 9.65087Z"
+                                  fill="#6a6a6a"></path>
+                            <path d="M8.48419 15.9211C8.48419 17.2936 7.36035 18.4062 5.97403 18.4062C4.58771 18.4062 3.46387 17.2936 3.46387 15.9211C3.46387 14.5486 4.58771 13.436 5.97403 13.436C7.36035 13.436 8.48419 14.5486 8.48419 15.9211Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M5.97442 14.0298C4.91947 14.0298 4.06426 14.8765 4.06426 15.9209C4.06426 16.9653 4.91947 17.812 5.97442 17.812C7.02937 17.812 7.88458 16.9653 7.88458 15.9209C7.88458 14.8765 7.02937 14.0298 5.97442 14.0298ZM2.86426 15.9209C2.86426 14.2204 4.25673 12.8418 5.97442 12.8418C7.69212 12.8418 9.08458 14.2204 9.08458 15.9209C9.08458 17.6214 7.69212 19 5.97442 19C4.25673 19 2.86426 17.6214 2.86426 15.9209Z"
+                                  fill="#6a6a6a"></path>
+                        </svg>
+                        <span class="sc-758baf56-2 dxggeT">조회기간</span></div>
+                    <div class="sc-758baf56-3 ezRbfq">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             style="transition: transform 0.3s ease 0s; transform: rotate(0deg); cursor: pointer; display: inline-block;">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 9.49252C0.75 9.19691 0.992057 8.95728 1.29065 8.95728H19.2094C19.5079 8.95728 19.75 9.19691 19.75 9.49252C19.75 9.78813 19.5079 10.0278 19.2094 10.0278H1.29065C0.992057 10.0278 0.75 9.78813 0.75 9.49252Z"
+                                  fill="#6A6A6A"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 3.2225C0.75 2.92689 0.992057 2.68726 1.29065 2.68726H19.2094C19.5079 2.68726 19.75 2.92689 19.75 3.2225C19.75 3.51811 19.5079 3.75775 19.2094 3.75775H1.29065C0.992057 3.75775 0.75 3.51811 0.75 3.2225Z"
+                                  fill="#6A6A6A"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 15.7625C0.75 15.4669 0.992057 15.2273 1.29065 15.2273H19.2094C19.5079 15.2273 19.75 15.4669 19.75 15.7625C19.75 16.0582 19.5079 16.2978 19.2094 16.2978H1.29065C0.992057 16.2978 0.75 16.0582 0.75 15.7625Z"
+                                  fill="#6A6A6A"></path>
+                            <path d="M8.62799 3.38083C8.62799 4.75331 7.50415 5.86592 6.11783 5.86592C4.7315 5.86592 3.60767 4.75331 3.60767 3.38083C3.60767 2.00836 4.7315 0.895752 6.11783 0.895752C7.50415 0.895752 8.62799 2.00836 8.62799 3.38083Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M6.11797 1.48977C5.06302 1.48977 4.20781 2.33643 4.20781 3.38085C4.20781 4.42526 5.06302 5.27192 6.11797 5.27192C7.17293 5.27192 8.02814 4.42526 8.02814 3.38085C8.02814 2.33643 7.17293 1.48977 6.11797 1.48977ZM3.00781 3.38085C3.00781 1.68031 4.40028 0.301758 6.11797 0.301758C7.83567 0.301758 9.22814 1.68031 9.22814 3.38085C9.22814 5.08138 7.83567 6.45993 6.11797 6.45993C4.40028 6.45993 3.00781 5.08138 3.00781 3.38085Z"
+                                  fill="#6A6A6A"></path>
+                            <path d="M8.62799 15.7898C8.62799 17.1622 7.50415 18.2749 6.11783 18.2749C4.7315 18.2749 3.60767 17.1622 3.60767 15.7898C3.60767 14.4173 4.7315 13.3047 6.11783 13.3047C7.50415 13.3047 8.62799 14.4173 8.62799 15.7898Z"
+                                  fill="white"></path>
+                            <path d="M16.8904 9.65085C16.8904 11.0233 15.7666 12.1359 14.3803 12.1359C12.994 12.1359 11.8701 11.0233 11.8701 9.65085C11.8701 8.27838 12.994 7.16577 14.3803 7.16577C15.7666 7.16577 16.8904 8.27838 16.8904 9.65085Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M14.3802 7.75979C13.3252 7.75979 12.47 8.60645 12.47 9.65087C12.47 10.6953 13.3252 11.5419 14.3802 11.5419C15.4351 11.5419 16.2903 10.6953 16.2903 9.65087C16.2903 8.60645 15.4351 7.75979 14.3802 7.75979ZM11.27 9.65087C11.27 7.95033 12.6625 6.57178 14.3802 6.57178C16.0979 6.57178 17.4903 7.95033 17.4903 9.65087C17.4903 11.3514 16.0979 12.73 14.3802 12.73C12.6625 12.73 11.27 11.3514 11.27 9.65087Z"
+                                  fill="#6A6A6A"></path>
+                            <path d="M8.48468 15.9211C8.48468 17.2936 7.36084 18.4062 5.97452 18.4062C4.58819 18.4062 3.46436 17.2936 3.46436 15.9211C3.46436 14.5486 4.58819 13.436 5.97452 13.436C7.36084 13.436 8.48468 14.5486 8.48468 15.9211Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M5.97442 14.0298C4.91947 14.0298 4.06426 14.8765 4.06426 15.9209C4.06426 16.9653 4.91947 17.812 5.97442 17.812C7.02937 17.812 7.88458 16.9653 7.88458 15.9209C7.88458 14.8765 7.02937 14.0298 5.97442 14.0298ZM2.86426 15.9209C2.86426 14.2204 4.25673 12.8418 5.97442 12.8418C7.69212 12.8418 9.08458 14.2204 9.08458 15.9209C9.08458 17.6214 7.69212 19 5.97442 19C4.25673 19 2.86426 17.6214 2.86426 15.9209Z"
+                                  fill="#6A6A6A"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 9.49252C0.75 9.19691 0.992057 8.95728 1.29065 8.95728H19.2094C19.5079 8.95728 19.75 9.19691 19.75 9.49252C19.75 9.78813 19.5079 10.0278 19.2094 10.0278H1.29065C0.992057 10.0278 0.75 9.78813 0.75 9.49252Z"
+                                  fill="#6A6A6A"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 3.2225C0.75 2.92689 0.992057 2.68726 1.29065 2.68726H19.2094C19.5079 2.68726 19.75 2.92689 19.75 3.2225C19.75 3.51811 19.5079 3.75775 19.2094 3.75775H1.29065C0.992057 3.75775 0.75 3.51811 0.75 3.2225Z"
+                                  fill="#6A6A6A"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M0.75 15.7625C0.75 15.4669 0.992057 15.2273 1.29065 15.2273H19.2094C19.5079 15.2273 19.75 15.4669 19.75 15.7625C19.75 16.0582 19.5079 16.2978 19.2094 16.2978H1.29065C0.992057 16.2978 0.75 16.0582 0.75 15.7625Z"
+                                  fill="#6A6A6A"></path>
+                            <path d="M8.62775 3.38083C8.62775 4.75331 7.50391 5.86592 6.11758 5.86592C4.73126 5.86592 3.60742 4.75331 3.60742 3.38083C3.60742 2.00836 4.73126 0.895752 6.11758 0.895752C7.50391 0.895752 8.62775 2.00836 8.62775 3.38083Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M6.11797 1.48977C5.06302 1.48977 4.20781 2.33643 4.20781 3.38085C4.20781 4.42526 5.06302 5.27192 6.11797 5.27192C7.17293 5.27192 8.02814 4.42526 8.02814 3.38085C8.02814 2.33643 7.17293 1.48977 6.11797 1.48977ZM3.00781 3.38085C3.00781 1.68031 4.40028 0.301758 6.11797 0.301758C7.83567 0.301758 9.22814 1.68031 9.22814 3.38085C9.22814 5.08138 7.83567 6.45993 6.11797 6.45993C4.40028 6.45993 3.00781 5.08138 3.00781 3.38085Z"
+                                  fill="#6A6A6A"></path>
+                            <path d="M8.62775 15.7898C8.62775 17.1622 7.50391 18.2749 6.11758 18.2749C4.73126 18.2749 3.60742 17.1622 3.60742 15.7898C3.60742 14.4173 4.73126 13.3047 6.11758 13.3047C7.50391 13.3047 8.62775 14.4173 8.62775 15.7898Z"
+                                  fill="white"></path>
+                            <path d="M16.8904 9.65085C16.8904 11.0233 15.7666 12.1359 14.3803 12.1359C12.994 12.1359 11.8701 11.0233 11.8701 9.65085C11.8701 8.27838 12.994 7.16577 14.3803 7.16577C15.7666 7.16577 16.8904 8.27838 16.8904 9.65085Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M14.3797 7.75979C13.3247 7.75979 12.4695 8.60645 12.4695 9.65087C12.4695 10.6953 13.3247 11.5419 14.3797 11.5419C15.4346 11.5419 16.2899 10.6953 16.2899 9.65087C16.2899 8.60645 15.4346 7.75979 14.3797 7.75979ZM11.2695 9.65087C11.2695 7.95033 12.662 6.57178 14.3797 6.57178C16.0974 6.57178 17.4899 7.95033 17.4899 9.65087C17.4899 11.3514 16.0974 12.73 14.3797 12.73C12.662 12.73 11.2695 11.3514 11.2695 9.65087Z"
+                                  fill="#6A6A6A"></path>
+                            <path d="M8.48419 15.9211C8.48419 17.2936 7.36035 18.4062 5.97403 18.4062C4.58771 18.4062 3.46387 17.2936 3.46387 15.9211C3.46387 14.5486 4.58771 13.436 5.97403 13.436C7.36035 13.436 8.48419 14.5486 8.48419 15.9211Z"
+                                  fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M5.97442 14.0298C4.91947 14.0298 4.06426 14.8765 4.06426 15.9209C4.06426 16.9653 4.91947 17.812 5.97442 17.812C7.02937 17.812 7.88458 16.9653 7.88458 15.9209C7.88458 14.8765 7.02937 14.0298 5.97442 14.0298ZM2.86426 15.9209C2.86426 14.2204 4.25673 12.8418 5.97442 12.8418C7.69212 12.8418 9.08458 14.2204 9.08458 15.9209C9.08458 17.6214 7.69212 19 5.97442 19C4.25673 19 2.86426 17.6214 2.86426 15.9209Z"
+                                  fill="#6A6A6A"></path>
+                        </svg>
+                        <p class="sc-758baf56-4 hCYEIH">모든 국가</p></div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="main_content1">
+            <div class="main_content1_text">
+                <div class="mct_1">동행 게시판</div>
+                <div class="mct_2">여행 동행 더보러 가기</div>
+            </div>
+
+            <div class="main_content1_box">
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main_content1_box">
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main_content1_box">
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main_content1_box">
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="test1">
+                    <div class="test1_content1">
+                        <div class="user_profile">
+                            <div class="user_img">
+                                <img src="/img/신짱구.png">
+                            </div>
+                            <div class="user_info">
+                                <div class="user_nick">1998csj</div>
+                                <div class="user_agender">20대 · 남성</div>
+                            </div>
+                        </div>
+                        <div class="box_shortline"></div>
+                        <div class="trip_profile">
+                            <div class="trip_info">
+                                <div class="trip_len"><i class="fa-solid fa-calendar" style="color: #9a9a9a;"></i>여행기간
+                                </div>
+                                <div class="trip_date">9일 · 10/16-10/24</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="test1_content2">
+                        <img src="/img/place1.jpg">
+                        <div class="img_area"><i class="fa-solid fa-location-dot" style="color: #008ff6;"></i>오사카</div>
+                    </div>
+                    <div class="test1_content3">
+                        <div class="text_title">
+                            오사카 교토 나고야!!
+                        </div>
+                        <div class="text_sub">
+                            안녕하세요 20대 남자 여행자입니다.</br>
+                            10/16 ~ 10/24 여행자를 구합니다.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div th:include="/footer.html :: footer"></div>
+
+<script>
+    //클릭 시 accompany_detail(동행게시글 상세보기)로 이동
+    const test1Div = document.querySelector('.test1');
+
+    test1Div.addEventListener('click', () => {
+        window.location.href = '../community/accompany/detail';
+    });
+</script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+<script src="/jq/jquery-3.7.0.min.js"></script>
+<script src="/js/header.js"></script>
+
+</body>
+</html>

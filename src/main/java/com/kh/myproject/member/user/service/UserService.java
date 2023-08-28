@@ -90,7 +90,7 @@ public class UserService {
 
     public void saveFile(String img_path, String file_name){
 
-        ClassPathResource resource = new ClassPathResource("/static/file/"); // 빈 문자열로 생성
+        ClassPathResource resource = new ClassPathResource("/static/file/profile_image/"); // 빈 문자열로 생성
         String save_path = "";
 
         //크게 두가지 로직으로 나뉘어진다.

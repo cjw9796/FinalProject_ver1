@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>accompany_write.html</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/community/accompany/accompany_write.css">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="next">
+    <header th:include="header.html :: header"></header>
+
+    <div class="top_img">
+        <img src="/img/community/accompany/accompanyIntro.PNG">
+    </div>
+
+    <div class="m">
+        <!-- 메인부분 코드 작성 -->
+        <!-- <img src="/img/accompanyIntro.PNG"> -->
+        <!---->
+
+        <div class="category">
+            <div class="C-nav-3">
+
+                <div class="C-nav-1">
+                    <span>어디로 떠나볼까요?</span>
+                </div>
+                <div class="C-nav-btn1">
+                    <div class="C-nav-btn C-activ" onclick="searchC(event)">
+                        <span>전체</span>
+                    </div>
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>서울</span>
+                    </div>
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>경기도</span>
+                    </div>
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>강원도</span>
+                    </div>
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>충청도</span>
+                    </div>
+                </div>
+                <div class="C-nav-btn2">
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>경상도</span>
+                    </div>
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>전라도</span>
+                    </div>
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>제주도</span>
+                    </div>
+                    <div class="C-nav-btn" onclick="searchC(event)">
+                        <span>기타</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="select_date_form">
+                <div class="C-nav-1">
+                    <span>출발일과 도착일을 선택해 주세요</span>
+                </div>
+                <div class="sdf_form_form">
+                    <div class="select_date_input">
+                        <h4>출발일</h4>
+                        <div class="select_date_box">
+                            <input type="date" id="select_date">
+                        </div>
+
+                    </div>
+
+                    <div class="select_date_input">
+                        <h4>도착일</h4>
+                        <div class="select_date_box">
+                            <input type="date" id="select_date2">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="select_accompany">
+                <div class="C-nav-1">
+                    <span>몇 명의 동행을 구하고 있나요?</span>
+                </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="inputCity">명
+            </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="photo">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 style="display: inline-block;">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0 6.54397C0 2.92984 2.93584 0 6.55738 0H43.4426C47.0642 0 50 2.92983 50 6.54397V43.456C50 47.0702 47.0642 50 43.4426 50H6.55738C2.93584 50 0 47.0702 0 43.456V6.54397ZM6.55738 2.86299C4.52026 2.86299 2.86885 4.51102 2.86885 6.54397V43.456C2.86885 45.489 4.52026 47.137 6.55738 47.137H9.23315L32.1003 23.5656C34.6482 20.9392 38.8581 20.9052 41.4483 23.4901L47.1311 29.1613V6.54397C47.1311 4.51102 45.4797 2.86299 43.4426 2.86299H6.55738ZM43.4426 47.137H13.2262L34.1615 25.557C35.5947 24.0796 37.9627 24.0605 39.4197 25.5145L47.1311 33.2102V43.456C47.1311 45.489 45.4797 47.137 43.4426 47.137ZM11.5779 17.1268C11.5779 14.1056 14.032 11.6564 17.0594 11.6564C20.0868 11.6564 22.541 14.1056 22.541 17.1268C22.541 20.148 20.0868 22.5971 17.0594 22.5971C14.032 22.5971 11.5779 20.148 11.5779 17.1268ZM17.0594 8.79346C12.4476 8.79346 8.70902 12.5244 8.70902 17.1268C8.70902 21.7292 12.4476 25.4601 17.0594 25.4601C21.6712 25.4601 25.4098 21.7292 25.4098 17.1268C25.4098 12.5244 21.6712 8.79346 17.0594 8.79346Z"
+                      fill="#DBDBDB"></path>
+            </svg>
+
+            <div>
+                <p class="sc-9332fd40-1 besauD">배경사진을 선택해주세요</p>
+            </div>
+
+        </div>
+        <input id="fileInput" type="file"
+               accept="image/bmp,image/gif,image/jpg,image/jpeg,image/png,image/raw,image/tif,image/heif,image/heic,image/mp4,image/avi,image/mov,image/wmv,image/mkv,image/mpg,image/rm,image/asf,image/m4v,image/mpeg,image/mpg"
+               style="display: none; margin: 0px; padding: 0px;">
+
+
+
+
+        <div class="write_title">
+            <input type="text" name="title" placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요" maxlength="100" value="">
+        </div>
+
+        <div class="line"></div>
+
+        <div>
+            <textarea class="writeform" name="content" id="desc" placeholder="
+                1. 현재 동행이 있나요?
+                ex) 혼자에요 / 동행 1명이 있어요
+
+                2.어떤 동행을 찾고 있나요?
+                ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
+
+                3. 원하는 여행 코스가 있다면 알려주세요!
+
+                (1000자 이내) "></textarea>
+        </div>
+
+
+        <div class="buttons" style="margin-top: 7px;">
+            <button class="cancelbtn" style="width: calc(50% - 8px);">취소</button>
+            <button class="writebtn" style="width: calc(50% - 8px);">작성완료</button>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+<div th:include="/footer.html :: footer"></div>
+<script>
+    //배경사진 선택 자바스크립트
+    const photoDiv = document.querySelector('.photo');
+    const fileInput = document.getElementById('fileInput');
+
+    photoDiv.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (event) => {
+        const selectedImage = event.target.files[0];
+
+        if (selectedImage) {
+            const imageUrl = URL.createObjectURL(selectedImage);
+            photoDiv.style.backgroundImage = `url(${imageUrl})`;
+        }
+    });
+</script>
+<!-- JavaScript 코드 -->
+<script>
+    //작성완료 버튼 클릭시 accompany_detail(동행게시글 상세보기)으로 이동
+    const writeButton = document.querySelector('.writebtn');
+
+    writeButton.addEventListener('click', () => {
+        window.location.href = '../accompany/detail';
+    });
+
+    //취소 버튼 클릭시 accompany(동행 메인)으로 이동
+    const cancelbtn = document.querySelector('.cancelbtn');
+
+    cancelbtn.addEventListener('click', () => {
+        window.location.href = '../accompany';
+    });
+
+
+
+</script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+<script src="/jq/jquery-3.7.0.min.js"></script>
+<script src="/js/header.js"></script>
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
