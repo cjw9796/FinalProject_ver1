@@ -568,7 +568,7 @@
 
         el.innerHTML = itemStr;
         el.className = 'item';
-
+        el.addEventListener('click',function(){window.open(places.place_url, "_blank", "width=900, height=500")}); //place map 보여주는 함수
         return el;
     }
 
