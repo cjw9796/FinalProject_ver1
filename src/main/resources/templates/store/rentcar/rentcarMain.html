@@ -14,7 +14,8 @@
     <script src="/js/store/rentcar/rentcarMain.js"></script>
     <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85350fc231459718d646ba86d2f41f38"></script>
 </head>
 <body>
 
@@ -53,7 +54,7 @@
                                     <div class="input_title_text">차량 받을 장소</div>
                                 </div>
                                 <input class="search_input_round search_input_detail" id="input_location" readonly=""
-                                       placeholder="대여 위치를 선택해 주세요." value="제주공항"></div>
+                                       placeholder="대여 위치를 선택해 주세요."></div>
                             <div class="input_grid_number"></div>
                             <div class="input_title_and_detail">
                                 <div class="input_title"><img alt="이미지" class="input_title_icon"
@@ -96,21 +97,28 @@
                     <div class="result_select_area_text" style="">지역별</div>
                 </div>
 
-                <div calss="result_location_map">
-                    <div class="map_container">
+                <div class="result_location_map">
+                    <div id="map" class="map_container" style="width:640px;height:380px;">
 
                     </div>
 
                     <div class="result_map_text_box">
+                        <div class="result_map_inner">
                         <div class="result_map_name">
                             <img alt="이미지" class="result_map_icon"
                                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAM1BMVEVHcEwoKCgmJiYoKCgnJycnJycoKCgnJyclJSUoKCggICAoKCgnJycoKCgnJycoKCgnJydRxbuoAAAAD3RSTlMAQFAgt2ag8DCAEOCQ383YCelAAAABPUlEQVRIx82V2XbEIAhAxR010f//2k6NY08UzHjah/KoXDYBhfiteJCIBuAzbZmO3MRpE57UoWs3BpeI13mSQy7Mu0xJ4vTNW+NMKAGxu9Nhpe9QvU+CiY0g4293irJCRKWu+M1khzkXljlvltyYBlR9JGN11JVmc2t5uHtuqjpQTL3jHG01Ytn2mt3XiPgeqFnc0q5R8j1TSwgjoHkAxyT8AwBjYYF9hL8CtkPaTvoqNA/oqayfPNzcGno5u5poPm5zHcSo1JjOVXsPE3S5sGyvzq/Ejqh3peQcp00TIu1DfleoFMmNbtb+ZgbbsvJsrC8n/VJh35004fqax5fYtsgLT/hILuOTJ4Il1KFVkCSmHyKan5rThPCmMzHJ2ysxRP0VYfgTnwhm0/xXQu0SVmwSO0Al1A4gTPJiX74Ag4cgLHfcTgQAAAAASUVORK5CYII=">
-                            <input readonly="" class="input_map_address" placeholder="지역이나 역, 건물 이름으로 검색"
-                                   id="/web/지도검색-키워드검색인풋" value="제주국제공항">
+                            <input type="text" class="input_map_address" placeholder="지역이나 역, 건물 이름으로 검색"
+                                   id="input_map_keyword">
+                        </div>
+                            <div class="result_map_btn_wrap">
+                            <button type="button" class="result_location_btn_style location_search_btn"
+                                    id="input_map_search">장소 검색 </button>
+                            </div>
                         </div>
 
+
                         <button type="button" class="result_location_btn_style result_location_btn false"
-                                id="/web/지도검색-여기서차량받기">여기서 차량 받기
+                                id="input_location_booking">여기서 차량 받기
                         </button>
                     </div>
 
@@ -121,43 +129,139 @@
 
 
         <div class="search_result" id="result_date">
-            <div class="search_result_grid">
-                <div class="result_left_text">
+            <div class="search_result_date_grid">
+                <div class="result_left_text date">
                     <p>차량 받을 여기는</p>
                     <p>데이트구역.</p>
                 </div>
 
-                <div class="result_select_area">
-                    <div class="result_select_area_text" style="">지도 검색</div>
-                    <div class="result_select_area_text" style="font-weight: bold;">공항</div>
-                    <div class="result_select_area_text" style="">지역별</div>
-                </div>
 
-                <div calss="result_location_map">
-                    <div class="map_container">
+                <div class="rent_date_picker">
+                    <div class="calender_wrap">
 
-                    </div>
 
-                    <div class="result_map_text_box">
-                        <div class="result_map_name">
-                            <img alt="이미지" class="result_map_icon"
-                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAM1BMVEVHcEwoKCgmJiYoKCgnJycnJycoKCgnJyclJSUoKCggICAoKCgnJycoKCgnJycoKCgnJydRxbuoAAAAD3RSTlMAQFAgt2ag8DCAEOCQ383YCelAAAABPUlEQVRIx82V2XbEIAhAxR010f//2k6NY08UzHjah/KoXDYBhfiteJCIBuAzbZmO3MRpE57UoWs3BpeI13mSQy7Mu0xJ4vTNW+NMKAGxu9Nhpe9QvU+CiY0g4293irJCRKWu+M1khzkXljlvltyYBlR9JGN11JVmc2t5uHtuqjpQTL3jHG01Ytn2mt3XiPgeqFnc0q5R8j1TSwgjoHkAxyT8AwBjYYF9hL8CtkPaTvoqNA/oqayfPNzcGno5u5poPm5zHcSo1JjOVXsPE3S5sGyvzq/Ejqh3peQcp00TIu1DfleoFMmNbtb+ZgbbsvJsrC8n/VJh35004fqax5fYtsgLT/hILuOTJ4Il1KFVkCSmHyKan5rThPCmMzHJ2ysxRP0VYfgTnwhm0/xXQu0SVmwSO0Al1A4gTPJiX74Ag4cgLHfcTgQAAAAASUVORK5CYII=">
-                            <input readonly="" class="input_map_address" placeholder="지역이나 역, 건물 이름으로 검색"
-                                   id="/web/지도검색-키워드검색인풋" value="제주국제공항">
+                        <div class="calendar">
+                            <div class="calender_inner">
+                                <div class="calendar_header">
+                                    <div class="calendar_header_controll">
+
+                                        <div class="calendar_title">
+                                            <span class="calender_year">년도자리</span>
+                                            <span class="calender_month">월자리</span>
+                                        </div>
+
+                                        <div class="before_btn">
+                                            <div class="month_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path>
+                                                </svg>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="after_btn">
+                                            <div class="month_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
+                                                </svg>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="calendar_body">
+                                    <div class="calendar_body_inner">
+                                        <div class="calender_body_main">
+                                            <div class="calender_scroll_wrap">
+
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
                         </div>
 
-                        <button type="button" class="result_location_btn_style result_location_btn false"
-                                id="/web/지도검색-여기서차량받기">여기서 차량 받기
-                        </button>
                     </div>
+                </div>
+
+                <div class="result_date_time">
+
+                    <div style="display: flex; flex-direction: column;">
+                        <div style="z-index: 1;">
+                            <div class="rent_date_text">대여일시</div>
+                            <div class="rent_date_check">08월31일 (목)</div>
+                            <div style="position: relative;">
+
+                                <select class="rent_time_check">
+                                    <!-- <select class="rent_time_check_input"> -->
+
+                                    <option>08:00</option>
+                                    <option>09:00</option>
+                                    <option>10:00</option>
+                                    <option>11:00</option>
+                                    <option>12:00</option>
+                                    <option>13:00</option>
+                                    <option>14:00</option>
+                                    <option>15:00</option>
+                                    <option>16:00</option>
+                                    <option>17:00</option>
+                                    <option>18:00</option>
+                                    <option>19:00</option>
+                                    <option>20:00</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="rent_date_text" style="margin-top: 30px;">반납일시</div>
+                            <div class="rent_date_check">반납일 선택</div>
+                            <div style="position: relative;">
+                                <select class="rent_time_check">
+                                    <!-- <select class="rent_time_check_input"> -->
+
+                                    <option>08:00</option>
+                                    <option>09:00</option>
+                                    <option>10:00</option>
+                                    <option>11:00</option>
+                                    <option>12:00</option>
+                                    <option>13:00</option>
+                                    <option>14:00</option>
+                                    <option>15:00</option>
+                                    <option>16:00</option>
+                                    <option>17:00</option>
+                                    <option>18:00</option>
+                                    <option>19:00</option>
+                                    <option>20:00</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="rent_date_button"
+                            disabled="">대여하기
+                    </button>
+
+                    <div class="rent_info_text">최소 24시간 이상 대여 가능합니다.</div>
 
                 </div>
             </div>
 
         </div>
-
-
-
 
 
     </div> <!-- 서치바 마지막, 서치바-결과 요소 모두 포함-->
@@ -453,6 +557,75 @@
 
 
 </body>
+
+
+<!--카카오맵api 스크립트 실행영역-->
+<script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=41fe8a9eec42ebe1ccd12d7bf8f4dd7d&libraries=services,clusterer,drawing"></script>
+<script>
+    var infowindow = new kakao.maps.InfoWindow({zIndex: 1});
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 장소 검색 객체를 생성합니다
+    var ps = new kakao.maps.services.Places();
+
+    const searchButton = document.getElementById('input_map_search');
+
+    searchButton.addEventListener('click', function () {
+        const keywordInput = document.getElementById('input_map_keyword');
+        const keyword = keywordInput.value;
+
+        // 키워드로 장소를 검색합니다
+        ps.keywordSearch(keyword, placesSearchCB);
+    });
+
+    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+    function placesSearchCB(data, status, pagination) {
+        if (status === kakao.maps.services.Status.OK) {
+            console.log(data);
+
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+            // LatLngBounds 객체에 좌표를 추가합니다
+            var bounds = new kakao.maps.LatLngBounds();
+
+            for (var i = 0; i < data.length; i++) {
+                displayMarker(data[i]);
+                bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+            }
+
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+            map.setBounds(bounds);
+        }
+    }
+
+    // 지도에 마커를 표시하는 함수입니다
+    function displayMarker(place) {
+        // 마커를 생성하고 지도에 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(place.y, place.x)
+        });
+
+        // 마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function () {
+            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+            infowindow.open(map, marker);
+
+            // place_name 값을 input_location 요소에 표시합니다.
+            document.getElementById('input_location').value = place.place_name;
+        });
+    }
+</script>
+
 
 
 </html>

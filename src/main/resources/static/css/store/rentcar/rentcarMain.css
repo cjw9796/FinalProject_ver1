@@ -208,16 +208,41 @@
     z-index: 200;
 }
 
+.result_map_inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
 .result_map_name{
-        display: -webkit-flex;
-        align-items: center;
+
+        display: flex;
+       align-items: center;
         border-radius: 5px;
         border: none;
-        display: flex;
         background-color: #f9f9f9;
-        padding: 0 15px;
+       padding: 0 15px;
         height: 50px;
+        width: 80%;
+
+
 }
+
+.result_map_btn_wrap{
+
+
+}
+
+.location_search_btn{
+
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 8px;
+
+}
+
 
 .result_map_icon{
 
@@ -226,6 +251,8 @@
     margin-right: 10px;
 
 }
+
+
 
 .input_map_address{
 
@@ -245,12 +272,226 @@
     border-radius: 8px;
 }
 
+
+
 .result_location_btn_style {
     border-width: 0px;
     border-radius: 5px;
     background-color: #00b8ff ;
     color: #fff;
     outline: none;
+}
+
+
+/*메인에서 렌트 날짜 선정 칸*/
+
+.search_result_date_grid {
+    grid-template-columns: minmax(0px, 234px) minmax(0px, 494px) minmax(0px, 278px);
+    box-shadow: 0 -1px 4px #0000001a;
+    margin-top: 30px;
+    padding-top: 20px;
+    display: grid;
+    width: 1010px;
+    border-left: 1px solid #eaeaea;
+}
+
+.result_left_text .date{
+
+        padding: 30px 0 0 30px;
+        font-size: 24px;
+        font-weight: 700;
+        height: 500px;
+        width: 230px;
+}
+
+.rent_date_picker{
+     /*.mbsc-datepicker-tab-wrapper */
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: hidden;
+
+    width: 494px;
+    padding: 1px 0 50px;
+    border: 1px #eaeaea solid;
+
+}
+
+.calender_wrap{
+
+        flex: 1 1 auto;
+        height: 100%;
+        width: 100%;
+
+}
+
+.calendar{
+    height: 100%;
+    max-width: 100%;
+    padding-bottom: 0.5em;
+    box-sizing: border-box;
+    display: block;
+
+}
+
+.calender_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.calendar_header{
+    border-color: #ccc;
+    padding: 17px 0;
+}
+
+.calendar_header_controll{
+    align-items: center;
+    box-sizing: content-box;
+    min-height: 2.5em;
+}
+
+.calendar_title {
+    flex: 1;
+    align-items: center;
+    overflow: hidden;
+}
+
+.calender_year .calender_month{
+color: #282828;
+font-weight: 700;
+overflow: hidden;
+text-overflow: ellipsis;
+font-size: 1.38em;
+padding: 0 0.25em;
+display: inline-block;
+vertical-align: middle;
+}
+
+
+
+.month_btn{
+
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+
+
+
+
+
+
+
+
+.calendar_body {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.calendar_body_inner {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-left: -1px;
+}
+
+.calender_body_main {
+    position: relative;
+    z-index: 0;
+}
+
+.calender_scroll_wrap {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.result_select_date {
+    width: 494px;
+    padding: 1px 0 50px;
+    border: 1px #eaeaea solid;
+}
+
+.result_date_time {
+    padding: 30px 20px 0;
+    width: 278px;
+}
+
+.rent_date_text {
+    color: black;
+    font-size: 14px;
+}
+
+.rent_date_check {
+    height: 28.5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+.rent_time_check {
+    align-items: center;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    color: #282828;
+    width: 100%;
+    height: 44px;
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+
+.rent_date_button {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+    height: 50px;
+    margin-top: 25px;
+
+
+    border-width: 0px;
+    border-radius: 5px;
+    background-color: #588fee;
+    color: #fff;
+    outline: none;
+}
+
+.rent_info_text {
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #eb270e;
+    font-size: 12px;
 }
 
 .qna_category_button {

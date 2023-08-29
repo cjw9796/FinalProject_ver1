@@ -19,14 +19,14 @@ public class RentcarController {
 }
 
 
-@GetMapping("/rentcarReserve")
+@GetMapping("store/rentcar/rentcarReserve")
     public String rentcarReserve(){
 
     return "store/rentcar/rentcarReserve";
 }
 
 
-    @GetMapping("/rentcarChoice")
+    @GetMapping("store/rentcar/rentcarChoice")
     public String rentcarChoice(){
 
         return "store/rentcar/rentcarChoice";

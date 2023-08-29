@@ -1,26 +1,7 @@
 
 
 
-/*
-$(document).ready(function() {
-    // 웹페이지 로드 시 초기화
-    $("#result_location").hide();
 
-    $("#input_location").click(function() {
-        $("#result_location").toggle();
-    });
-});
-
-$(document).ready(function() {
-    // 웹페이지 로드 시 초기화
-    $("#result_date").hide();
-
-    $("#input_date").click(function() {
-        $("#result_date").toggle();
-    });
-});
-
-*/
 
 $(document).ready(function() {
     // 웹페이지 로드 시 초기화
@@ -41,9 +22,6 @@ $(document).ready(function() {
         $("#result_date").toggle();
     });
 });
-
-
-
 
 
 
