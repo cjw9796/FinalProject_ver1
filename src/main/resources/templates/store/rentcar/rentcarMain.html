@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="/css/store/rentcar/rentcarMain.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
 
-
     <script src="/jq/jquery-3.7.0.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/jq/jquery.form.min.js"></script>
+
+
     <script src="/js/header.js"></script>
     <script src="/js/store/rentcar/rentcarMain.js"></script>
     <script src="https://kit.fontawesome.com/9647b4736a.js" crossorigin="anonymous"></script>
@@ -61,8 +64,12 @@
                                                               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAIVBMVEVHcEwoKCgoKCgoKCgoKCgmJiYnJycnJycnJycnJycoKCgaae9ZAAAACnRSTlMAgD9AwCfmW9CrPNuh5QAAAKhJREFUOMtjYKAbYC/AZIFB1UIYS2o5isSsJTCW10oUCa8lmCwGViUlpa4VSlAAZgWAJaJWYYClYAkrTInFEIllLi5ZQAwBIFYWVGIhuuVSCAkpuCNnLUSRCEuFSYBYUAlWJQxAtnOXCKIBL4TlqADmqpXods9aTMAOKlo+KjEgEitQkxqrUhdEggM5UlPBCbABkkSzUNNg1KplAdAcjBTdBSBuAZ0KEQCFxaxY4wVeUAAAAABJRU5ErkJggg==">
                                     <div class="input_title_text">날짜 및 시간</div>
                                 </div>
-                                <input class="search_input_round search_input_detail" id="input_date" readonly=""
-                                       value="08.25(금) 10:00 - 08.26(토) 10:00"></div>
+                                <input class="search_input_round search_input_detail" id="depart_date" readonly=""
+                                       placeholder="대여날짜 선택">
+                                <input class="search_input_round search_input_detail" id="arrive_date" readonly=""
+                                       placeholder="반납날짜 선택">
+
+                            </div>
                             <div class="input_grid_number"></div>
                             <div class="input_title_and_detail">
                                 <div class="input_title"><img alt="이미지" class="input_title_icon"
@@ -104,15 +111,16 @@
 
                     <div class="result_map_text_box">
                         <div class="result_map_inner">
-                        <div class="result_map_name">
-                            <img alt="이미지" class="result_map_icon"
-                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAM1BMVEVHcEwoKCgmJiYoKCgnJycnJycoKCgnJyclJSUoKCggICAoKCgnJycoKCgnJycoKCgnJydRxbuoAAAAD3RSTlMAQFAgt2ag8DCAEOCQ383YCelAAAABPUlEQVRIx82V2XbEIAhAxR010f//2k6NY08UzHjah/KoXDYBhfiteJCIBuAzbZmO3MRpE57UoWs3BpeI13mSQy7Mu0xJ4vTNW+NMKAGxu9Nhpe9QvU+CiY0g4293irJCRKWu+M1khzkXljlvltyYBlR9JGN11JVmc2t5uHtuqjpQTL3jHG01Ytn2mt3XiPgeqFnc0q5R8j1TSwgjoHkAxyT8AwBjYYF9hL8CtkPaTvoqNA/oqayfPNzcGno5u5poPm5zHcSo1JjOVXsPE3S5sGyvzq/Ejqh3peQcp00TIu1DfleoFMmNbtb+ZgbbsvJsrC8n/VJh35004fqax5fYtsgLT/hILuOTJ4Il1KFVkCSmHyKan5rThPCmMzHJ2ysxRP0VYfgTnwhm0/xXQu0SVmwSO0Al1A4gTPJiX74Ag4cgLHfcTgQAAAAASUVORK5CYII=">
-                            <input type="text" class="input_map_address" placeholder="지역이나 역, 건물 이름으로 검색"
-                                   id="input_map_keyword">
-                        </div>
+                            <div class="result_map_name">
+                                <img alt="이미지" class="result_map_icon"
+                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAM1BMVEVHcEwoKCgmJiYoKCgnJycnJycoKCgnJyclJSUoKCggICAoKCgnJycoKCgnJycoKCgnJydRxbuoAAAAD3RSTlMAQFAgt2ag8DCAEOCQ383YCelAAAABPUlEQVRIx82V2XbEIAhAxR010f//2k6NY08UzHjah/KoXDYBhfiteJCIBuAzbZmO3MRpE57UoWs3BpeI13mSQy7Mu0xJ4vTNW+NMKAGxu9Nhpe9QvU+CiY0g4293irJCRKWu+M1khzkXljlvltyYBlR9JGN11JVmc2t5uHtuqjpQTL3jHG01Ytn2mt3XiPgeqFnc0q5R8j1TSwgjoHkAxyT8AwBjYYF9hL8CtkPaTvoqNA/oqayfPNzcGno5u5poPm5zHcSo1JjOVXsPE3S5sGyvzq/Ejqh3peQcp00TIu1DfleoFMmNbtb+ZgbbsvJsrC8n/VJh35004fqax5fYtsgLT/hILuOTJ4Il1KFVkCSmHyKan5rThPCmMzHJ2ysxRP0VYfgTnwhm0/xXQu0SVmwSO0Al1A4gTPJiX74Ag4cgLHfcTgQAAAAASUVORK5CYII=">
+                                <input type="text" class="input_map_address" placeholder="지역이나 역, 건물 이름으로 검색"
+                                       id="input_map_keyword">
+                            </div>
                             <div class="result_map_btn_wrap">
-                            <button type="button" class="result_location_btn_style location_search_btn"
-                                    id="input_map_search">장소 검색 </button>
+                                <button type="button" class="result_location_btn_style location_search_btn"
+                                        id="input_map_search">장소 검색
+                                </button>
                             </div>
                         </div>
 
@@ -128,11 +136,11 @@
         </div>
 
 
-        <div class="search_result" id="result_date">
+        <div class="search_result" id="result_depart_date">
             <div class="search_result_date_grid">
                 <div class="result_left_text date">
-                    <p>차량 받을 여기는</p>
-                    <p>데이트구역.</p>
+                    <p>대여날짜 및 시간을</p>
+                    <p>선택해주세요.</p>
                 </div>
 
 
@@ -141,57 +149,18 @@
 
 
                         <div class="calendar">
-                            <div class="calender_inner">
-                                <div class="calendar_header">
-                                    <div class="calendar_header_controll">
-
-                                        <div class="calendar_title">
-                                            <span class="calender_year">년도자리</span>
-                                            <span class="calender_month">월자리</span>
-                                        </div>
-
-                                        <div class="before_btn">
-                                            <div class="month_btn">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                    <path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"></path>
-                                                </svg>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="after_btn">
-                                            <div class="month_btn">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                    <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
-                                                </svg>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
 
 
-                                </div>
-
-                                <div class="calendar_body">
-                                    <div class="calendar_body_inner">
-                                        <div class="calender_body_main">
-                                            <div class="calender_scroll_wrap">
 
 
-                                            </div>
 
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
+                            <div id="depart_datepicker">
 
 
                             </div>
+
+
+
 
                         </div>
 
@@ -203,7 +172,7 @@
                     <div style="display: flex; flex-direction: column;">
                         <div style="z-index: 1;">
                             <div class="rent_date_text">대여일시</div>
-                            <div class="rent_date_check">08월31일 (목)</div>
+                            <div class="rent_date_check" id="depart_date_check"> </div>
                             <div style="position: relative;">
 
                                 <select class="rent_time_check">
@@ -226,30 +195,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div>
-                            <div class="rent_date_text" style="margin-top: 30px;">반납일시</div>
-                            <div class="rent_date_check">반납일 선택</div>
-                            <div style="position: relative;">
-                                <select class="rent_time_check">
-                                    <!-- <select class="rent_time_check_input"> -->
 
-                                    <option>08:00</option>
-                                    <option>09:00</option>
-                                    <option>10:00</option>
-                                    <option>11:00</option>
-                                    <option>12:00</option>
-                                    <option>13:00</option>
-                                    <option>14:00</option>
-                                    <option>15:00</option>
-                                    <option>16:00</option>
-                                    <option>17:00</option>
-                                    <option>18:00</option>
-                                    <option>19:00</option>
-                                    <option>20:00</option>
-
-                                </select>
-                            </div>
-                        </div>
                     </div>
 
                     <button type="button" class="rent_date_button"
@@ -625,7 +571,6 @@
         });
     }
 </script>
-
 
 
 </html>

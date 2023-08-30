@@ -6,20 +6,20 @@
 $(document).ready(function() {
     // 웹페이지 로드 시 초기화
     $("#result_location").hide();
-    $("#result_date").hide();
+    $("#result_depart_date").hide();
 
     $("#input_location").click(function() {
-        if ($("#result_date").is(":visible")) {
-            $("#result_date").hide();
+        if ($("#result_depart_date").is(":visible")) {
+            $("#result_depart_date").hide();
         }
         $("#result_location").toggle();
     });
 
-    $("#input_date").click(function() {
+    $("#depart_date").click(function() {
         if ($("#result_location").is(":visible")) {
             $("#result_location").hide();
         }
-        $("#result_date").toggle();
+        $("#result_depart_date").toggle();
     });
 });
 
@@ -57,6 +57,63 @@ $(function() {
     $('.qna_content_container .qna_content_accordion').click(function(event) {
         event.stopPropagation();
     });
+
+
+
+            //input을 datepicker로 선언
+
+            $("#depart_datepicker").datepicker({
+
+                dateFormat: 'mm.dd' //Input Display Format 변경
+
+                ,nextText: "다음"
+
+                ,inline: true
+
+                ,range: true
+
+                ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+
+                ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+
+                ,changeYear: true //콤보박스에서 년 선택 가능
+
+                ,changeMonth: true //콤보박스에서 월 선택 가능
+
+              /* ,selectOtherMonths: ture // 다른 달도 선택가능 */
+
+
+            ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+
+            ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
+
+            ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+
+            ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+
+            ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
+
+            ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+
+            ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+
+
+
+
+        });
+
+    $("#depart_datepicker").on("change", function() {
+        const selectedDate = $(this).val();
+
+        console.log(selectedDate);
+        $("#depart_date_check").text(selectedDate);
+
+
+    });
+
+
+        //초기값을 오늘 날짜로 설정
+        $('#depart_datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
 
 
 
